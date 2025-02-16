@@ -12,12 +12,12 @@
       </div>
     </div>
   </div>
-  <div class="notice">
+  <!-- <div class="notice">
     <div class="itemNo">
       <svg-load name="mengbanzu12" class="noticeImg"></svg-load>
       <van-notice-bar class="currentNotice" :text="currentNotice" />
     </div>
-  </div>
+  </div> -->
   <div class="linkList">
     <div class="linkLeft">
       <!-- 快捷充币 -->
@@ -173,6 +173,7 @@ const toRecharge = () => {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  background: linear-gradient(180deg, #121212 0%, #1a1a1a 100%);
 
   .item {
     width: 25%;
@@ -180,16 +181,31 @@ const toRecharge = () => {
     flex-direction: column;
     align-items: center;
     margin-bottom: 20px;
+    transition: all 0.3s ease;
+    
+    &:active {
+      transform: scale(0.95);
+    }
 
     .itemImg {
-      width: 21px;
-      height: 21px;
+      width: 24px;
+      height: 24px;
+      padding: 12px;
+      background: rgba(255, 255, 255, 0.07);
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+      transition: all 0.3s ease;
+      
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+      }
     }
 
     .itemName {
-      margin-top: 5px;
+      margin-top: 8px;
       font-size: 12px;
-      color: var(--ex-default-font-color);
+      color: rgba(255, 255, 255, 0.95);
       text-align: center;
       width: 60px;
       word-break: break-word;
@@ -203,13 +219,22 @@ const toRecharge = () => {
 
 .notice {
   padding: 0 15px;
+  margin: 15px 0;
 
   .itemNo {
     display: flex;
-    height: 35px;
+    height: 40px;
     align-items: center;
-    background: var(--ex-home-notice-bgcolor);
-    border-radius: 20px 20px 20px 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    }
 
     .noticeImg {
       margin-left: 15px;
@@ -217,17 +242,12 @@ const toRecharge = () => {
       height: 20px;
     }
 
-    :deep(.van-notice-bar) {
-      height: 35px;
-      padding: 0 15px 0 10px;
-    }
-
     .currentNotice {
       flex: 1;
-      border-radius: 20px 20px 20px 20px;
+      border-radius: 20px;
       font-size: 14px;
-      color: var(--ex-home-notice-color);
-      background: var(--ex-home-notice-bgcolor);
+      color: rgba(255, 255, 255, 0.9);
+      background: transparent;
     }
   }
 }
@@ -237,78 +257,124 @@ const toRecharge = () => {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background: #121212;
+  border-radius: 16px;
+  margin: 0 15px;
 
   .linkLeft {
     min-height: 55px;
     flex: 1;
     display: flex;
+    gap: 14px;
 
     .item {
       flex: 1;
       display: flex;
       align-items: center;
-      border-radius: 5px 5px 5px 5px;
-      padding: 10px 12px;
-      background: var(--ex-home-box-background-color2);
+      justify-content: center;
+      border-radius: 12px;
+      padding: 12px;
+      background: #1E1E1E;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s ease;
+
+      &:hover {
+        transform: translateY(-2px);
+        background: #252525;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+      }
 
       .leftImg {
-        width: 24px;
-        height: 24px;
-        margin-right: 10px;
+        width: 28px;
+        height: 28px;
+        margin-right: 12px;
+        filter: brightness(1.2);
       }
 
       .right {
+        flex-shrink: 0;
         font-size: 12px;
-        color: #888888;
+        color: rgba(255, 255, 255, 0.7);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
 
         .top {
-          // margin-bottom: 5px;
           font-size: 14px;
-          color: var(--ex-home-font-color);
+          color: rgba(255, 255, 255, 0.95);
+          font-weight: 500;
+          margin-bottom: 2px;
+          white-space: nowrap;
         }
       }
     }
 
     .rightItem {
-      margin-left: 14px;
-      background-color: var(--ex-home-box-background-color);
-      border: 1px solid var(--ex-home-box-border-color);
+      background: #252525;
+      border: 1px solid rgba(255, 255, 255, 0.1);
 
-      .right {
-        .top {
-          color: var(--ex-default-font-color);
-        }
+      &:hover {
+        background: #2A2A2A;
       }
     }
   }
 
   .linkRight {
     max-width: 50px;
+    min-width: 50px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     font-size: 12px;
-    color: var(--ex-default-font-color);
-    margin-left: 10px;
+    color: rgba(255, 255, 255, 0.95);
+    margin-left: 15px;
+    padding: 10px;
+    border-radius: 12px;
+    background: #1E1E1E;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background: #252525;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+    }
 
     .itemImg {
-      width: 22px;
-      height: 22px;
-      margin-bottom: 5px;
+      width: 24px;
+      height: 24px;
+      margin-bottom: 6px;
     }
   }
 }
+
 .showNoticeContent {
   min-width: 300px;
   text-align: center;
+  background: #1a1a1a;
+  border-radius: 16px;
+  
   .showNoticeContent_title {
     font-size: 18px;
-    padding: 15px 0;
-    border-bottom: 1px solid #e1e1e1;
+    padding: 20px 0;
+    color: rgba(255, 255, 255, 0.9);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   }
+  
   .showNoticeContent_content {
     padding: 20px 15px 30px;
     max-height: 400px;
   }
+}
+
+// 添加深色主题相关变量覆盖
+:root {
+  --ex-default-font-color: rgba(255, 255, 255, 0.95);
+  --ex-home-notice-bgcolor: rgba(255, 255, 255, 0.07);
+  --ex-home-notice-color: rgba(255, 255, 255, 0.95);
+  --ex-home-box-background-color: rgba(255, 255, 255, 0.09);
+  --ex-home-box-background-color2: rgba(255, 255, 255, 0.07);
+  --ex-home-box-border-color: rgba(255, 255, 255, 0.12);
+  --ex-home-font-color: rgba(255, 255, 255, 0.95);
 }
 </style>

@@ -1131,5 +1131,138 @@
   "robinhood2_quick_recharge": "快速充值",
   "robinhood2_recharge_fast": "快捷充币",
   "math_exchange_bullish": "看涨",
-  "math_exchange_bearish": "看跌"
+  "math_exchange_bearish": "看跌",
+  "home": {
+    "hero": {
+      "title": "超过1800万用户加入Antbitt",
+      "subtitle": "欢迎探索 全新体验",
+      "startTrading": "开始交易"
+    },
+    "statistics": {
+      "title": "是适合所有人的加密货币交易所",
+      "customers": "客户",
+      "countries": "支持的国家",
+      "volume": "季度交易量",
+      "plus": "+"
+    },
+    "purchaseSteps": {
+      "title": "只需几分钟就能购买加密货币",
+      "steps": {
+        "createAccount": "创建您的免费 antbitt 帐户",
+        "connect": "连接您的融资方式",
+        "trade": "买卖200多种加密货币",
+        "security": "充分的安全保证"
+      }
+    },
+    "cryptoComposition": {
+      "title": "建立你的加密货币组合",
+      "cta": "去交易中心 购买心仪的加密货币"
+    },
+    "securityFeatures": {
+      "mainFeatures": {
+        "reserve": {
+          "title": "储备金说明",
+          "desc": "我们承诺，平台以至少 1:1 的储备比例持有所有用户资产。"
+        },
+        "storage": {
+          "title": "安全的冷储存",
+          "desc": "我们将大部分的数字资产安全存放在离线的多重签名钱包中。"
+        },
+        "protection": {
+          "title": "用户保护基金",
+          "desc": "我们具有价值 3亿USDT 的用户保护基金，为潜在的安全风险提供多一层保障。"
+        }
+      },
+      "additionalFeatures": {
+        "technology": {
+          "title": "安全稳定可靠的技术",
+          "desc": "我们拥有顶尖的技术团队，专注于全方位安全保护，自主研发高效引擎，使系统在海量订单情况下仍能保持可靠运行"
+        },
+        "philosophy": {
+          "title": "用户至上的理念",
+          "desc": "面向全球市场，多语言支持，7*24小时在线客服，专业的客户服务。"
+        },
+        "operation": {
+          "title": "全球化运营",
+          "desc": "国际化运营团队，多年区块链及金融从业经验，全球市场扩展50多个地区"
+        },
+        "rewards": {
+          "title": "丰富的活动和奖励",
+          "desc": "精彩的运营活动，高额奖励拿到手软"
+        }
+      }
+    },
+    "faq": {
+      "title": "常见问题",
+      "items": {
+        "whoWeAre": {
+          "question": "我们是谁？",
+          "answer": "我们是全球领先的数字资产交易平台，致力于为用户提供安全、便捷、专业的加密货币交易服务。我们拥有顶尖的技术团队和丰富的行业经验，为全球超过1800万用户提供服务。"
+        },
+        "advantages": {
+          "question": "我们的优势",
+          "answer": "我们拥有业内领先的安全技术、丰富的交易品种、24/7全天候客户服务、多语言支持、高流动性和完善的风控体系。我们始终将用户的资产安全放在首位，采用多重签名冷钱包存储和实时监控系统。"
+        },
+        "blockchain": {
+          "question": "区块链如何帮助世界变得更美好？",
+          "answer": "区块链技术通过去中心化、透明性和不可篡改性，为金融、供应链、医疗、教育等领域带来革新。它能降低交易成本、提高效率、增强信任、促进普惠金融，让更多人享受到科技发展的红利。"
+        },
+        "charity": {
+          "question": "使用区块链来帮助慈善机构",
+          "answer": "区块链技术可以帮助慈善机构提高透明度和效率。通过智能合约自动执行捐赠，资金流向可追踪，确保善款使用透明。同时，跨境捐赠更便捷，降低运营成本，让更多资源用于公益事业。"
+        }
+      }
+    },
+    "footer": {
+      "about": {
+        "title": "关于我们",
+        "company": "公司简介",
+        "careers": "加入我们",
+        "news": "新闻资讯",
+        "contact": "联系我们"
+      },
+      "products": {
+        "title": "产品服务",
+        "spot": "现货交易",
+        "futures": "永续合约",
+        "otc": "法币交易",
+        "staking": "质押挖矿"
+      },
+      "support": {
+        "title": "服务支持",
+        "help": "帮助中心",
+        "fees": "费率说明",
+        "api": "API文档",
+        "security": "安全说明"
+      },
+      "terms": {
+        "title": "条款政策",
+        "service": "服务条款",
+        "privacy": "隐私政策",
+        "disclaimer": "免责声明",
+        "aml": "反洗钱政策"
+      },
+      "contact": {
+        "support": "客服邮箱：support@antbitt.com",
+        "business": "商务合作：business@antbitt.com"
+      },
+      "copyright": {
+        "text": "© 2024 antbitt. All rights reserved.",
+        "description": "一家专注虚拟货币的服务公司"
+      }
+    }
+  },
+  "menu_home": "首页",
+  "menu_quote": "行情",
+  "menu_loan": "助力贷",
+  "menu_financial": "理财",
+  "menu_pledge": "质押挖矿",
+  "menu_trade": "交易",
+  "menu_quick_buy": "快捷买币",
+  "menu_finance": "金融理财",
+  "menu_defi_loan": "DeFi借币",
+  "menu_defi_loan_desc": "去中心化借贷服务",
+  "menu_promotion": "推广中心",
+  "menu_user_center": "资产中心",
+  "menu_user_center_desc": "管理您的资产信息和设置"
 }

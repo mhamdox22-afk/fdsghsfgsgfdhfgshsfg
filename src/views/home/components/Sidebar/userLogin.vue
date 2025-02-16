@@ -72,58 +72,102 @@ const vipClass = computed(() => {
   padding: 20px 15px;
   display: flex;
   align-items: center;
+  background: linear-gradient(145deg, #1a1a1a, #2d2d2d);
+  border-radius: 15px;
+  margin: 10px 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);
+  }
+
   .userMessImg {
     width: 50px;
     height: 50px;
     border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease;
+    
+    &:hover {
+      transform: scale(1.05);
+    }
   }
+
   .messRight {
-    margin-left: 10px;
+    margin-left: 15px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     padding: 5px 0;
+
     .rightTop {
       font-size: 16px;
-      color: var(--ex-default-font-color);
+      color: #ffffff;
+      margin-bottom: 5px;
+      font-weight: 500;
+      max-width: 200px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      
+      &::before,
+      &::after {
+        color: rgba(255, 255, 255, 0.6);
+      }
     }
+
     .rightBot {
       font-size: 14px;
-      color: var(--ex-passive-font-color);
+      color: rgba(255, 255, 255, 0.7);
     }
   }
 }
-.copyName {
-  margin: 0 15px;
-  background-color: var(--ex-home-sidebar-address-bgcolor);
-  font-size: 14px;
-  border-radius: 3px;
-  padding: 5px 10px;
-  color: var(--ex-home-sidebar-address-ftcolor) !important;
-}
 
-.vipClass {
+.copyName {
+  margin: 10px 15px;
+  background: linear-gradient(145deg, #232323, #2a2a2a);
   font-size: 14px;
-  color: var(--ex-passive-font-color);
-  .senLeftImg {
-    font-size: 20px;
-    // margin-left: 15px;
-    // margin-right: 10px;
+  border-radius: 10px;
+  padding: 12px 15px;
+  color: rgba(255, 255, 255, 0.9) !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  
+  &:hover {
+    transform: translateX(2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  }
+
+  p {
+    margin: 0;
   }
 }
+
 .messLeft {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   position: relative;
+  
   p {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     font-size: 18px;
-    color: #333;
+    color: #ffffff;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
   }
+}
+
+// 添加暗色主题变量覆盖
+:root {
+  --ex-default-font-color: #ffffff;
+  --ex-passive-font-color: rgba(255, 255, 255, 0.7);
+  --ex-home-sidebar-address-bgcolor: #2a2a2a;
+  --ex-home-sidebar-address-ftcolor: rgba(255, 255, 255, 0.9);
 }
 </style>

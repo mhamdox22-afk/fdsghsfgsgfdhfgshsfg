@@ -12,7 +12,12 @@
       </van-swipe>
       <div class="top">
         <div>
+<!-- 
           <Logo></Logo>
+
+           -->
+
+          <MobileHeader></MobileHeader>
         </div>
         <div>
           <svg-load name="user" class="rightImg" @click="openSideBar"></svg-load>
@@ -63,6 +68,9 @@ import { onMounted } from 'vue'
 import { publiceNotice } from '@/api/common/index'
 import { computed } from 'vue'
 import SideBar from '@/views/home/sidebar/index.vue'
+import MobileHeader from './MobileHeader.vue'
+
+
 const show = ref(false)
 const openSideBar = () => {
   show.value = true
@@ -123,29 +131,28 @@ onMounted(async () => {
 })
 </script>
 <style lang="scss" scoped>
-:deep(.sidebar) {
-  margin-top: -1px;
-  max-width: var(--ex-max-width);
-  width: 100%;
-  left: auto;
-  height: 100%;
-}
-
 .carousel {
-  height: 200px;
+  position: relative;
+  overflow: hidden;
 
   .carouselItem {
     height: 200px;
     width: 100%;
     margin-top: 58px;
     object-fit: cover;
+    transition: transform 0.3s ease;
+    
+    &:hover {
+      transform: scale(1.05);
+    }
   }
 
   .top {
     height: 52px;
-    background: var(--ex-home-box-background-color3);
-    border-radius: 5px;
-    padding: 15px 10px;
+    background: rgba(28, 28, 35, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 8px;
+    padding: 15px 20px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -153,24 +160,19 @@ onMounted(async () => {
     top: 5px;
     left: 50%;
     transform: translateX(-50%);
-    //width: calc(100% - 30px);
     width: 100%;
-
-    /* 减去两侧的间距 */
-    .leftImg {
-      width: 25px;
-      height: 25px;
-    }
-
-    .centerImg {
-      width: 56px;
-      height: 14px;
-      margin-left: 5px;
-    }
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
 
     .rightImg {
       width: 24px;
       height: 24px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      
+      &:hover {
+        transform: scale(1.1);
+      }
     }
   }
 }
@@ -180,50 +182,98 @@ onMounted(async () => {
   left: 50%;
   transform: translateX(-50%);
   width: calc(100% - 30px);
-  /* 减去两侧的间距 */
   box-sizing: border-box;
-  top: 270px;
-  background-color: var(--ex-home-box-background-color);
-  box-shadow: 0px 3px 10px 1px rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
+  top: 240px;
+  background: linear-gradient(145deg, #1c1c23, #2a2a35);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  border-radius: 15px;
   display: flex;
-  padding: 20px 0;
+  padding: 25px 0;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateX(-50%) translateY(-2px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+  }
 
   .item {
     flex: 1;
     display: flex;
     flex-direction: column;
+    padding: 10px;
+    transition: transform 0.2s ease;
+    
+    &:hover {
+      transform: translateY(-3px);
+    }
 
     .itemTop {
       font-size: 14px;
-      color: var(--ex-default-font-color);
-      font-weight: 400;
+      color: #ffffff;
+      font-weight: 500;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     }
 
     .itemMain {
-      margin-top: 5px;
+      margin-top: 8px;
       display: flex;
       align-items: center;
-      font-size: 14px;
-      font-weight: 400;
-
-      .itemMainImg {
-        width: 24px;
-        height: 24px;
-        margin-right: 5px;
+      font-size: 16px;
+      font-weight: 600;
+      
+      &.rise {
+        color: #00f7b5;
+      }
+      
+      &.fall {
+        color: #ff4976;
       }
     }
 
     .itemFooter {
       display: flex;
-      font-size: 16px;
-      margin-top: 5px;
+      font-size: 18px;
+      margin-top: 8px;
+      color: #ffffff;
+      font-weight: 500;
     }
   }
 
   .centerItem {
     justify-content: center;
     align-items: center;
+    position: relative;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: 15%;
+      height: 70%;
+      width: 1px;
+      background: rgba(255, 255, 255, 0.1);
+    }
+    
+    &:last-child::after {
+      display: none;
+    }
   }
+}
+
+// 添加暗色主题变量覆盖
+:root {
+  --ex-home-box-background-color: #1c1c23;
+  --ex-home-box-background-color3: #2a2a35;
+  --ex-default-font-color: #ffffff;
+}
+
+:deep(.sidebar) {
+  margin-top: -1px;
+  max-width: var(--ex-max-width);
+  width: 100%;
+  left: auto;
+  height: 100%;
+  background: #1c1c23;
+  box-shadow: -5px 0 20px rgba(0, 0, 0, 0.3);
 }
 </style>

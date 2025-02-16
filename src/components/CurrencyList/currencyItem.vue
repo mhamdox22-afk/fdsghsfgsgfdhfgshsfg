@@ -49,85 +49,128 @@ const props = defineProps({
 </script>
 <style lang="scss" scoped>
 .currencyItem {
-  padding: 8px 15px;
+  padding: 12px 15px;
   display: flex;
   justify-content: space-between;
+  background: linear-gradient(145deg, #1a1a1a, #2a2a2a);
+  margin: 8px 12px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  
+  &:active {
+    transform: scale(0.98);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  }
+
   .left {
     display: flex;
     align-items: center;
+    
     .leftImg {
-      width: 25px;
-      height: 25px;
-      margin-right: 10px;
-      border-radius: 100%;
+      width: 32px;
+      height: 32px;
+      margin-right: 12px;
+      border-radius: 50%;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease;
+      
+      &:hover {
+        transform: rotate(15deg);
+      }
     }
+
     .topText {
       display: flex;
       align-items: flex-end;
-      font-size: 12px;
-      color: var(--ex-font-color21);
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.6);
+
       .textTop {
-        color: var(--ex-font-color6);
-        font-size: 14px;
+        color: rgba(255, 255, 255, 0.9);
+        font-size: 16px;
+        font-weight: 500;
+        letter-spacing: 0.5px;
       }
+
       .tip {
-        margin-left: 5px;
-        display: flex;
-        align-items: center;
-        padding: 5px;
-        height: 15px;
-        background: var(--ex-div-bgColor29);
-        border-radius: 1px 1px 1px 1px;
+        margin-left: 8px;
+        padding: 4px 8px;
+        height: auto;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(5px);
+        border-radius: 6px;
         font-size: 12px;
-        font-weight: 400;
-        color: var(--ex-font-color9);
-      }
-    }
-    .bottomText {
-      margin-top: 4px;
-      display: flex;
-      align-items: center;
-      font-size: 12px;
-      color: var(--ex-font-color21);
-      .bottomTextNum {
-        margin-left: 5px;
-        color: #888888;
+        color: rgba(255, 255, 255, 0.7);
       }
     }
   }
+
   .right {
     display: flex;
     align-items: center;
+    gap: 15px;
+
     .rightLeft {
-      color: var(--ex-default-font-color);
+      color: rgba(255, 255, 255, 0.9);
       text-align: right;
-      font-size: 14px;
+      font-size: 16px;
+      font-weight: 500;
+
       .numRight {
-        font-size: 12px;
+        font-size: 13px;
         margin-top: 4px;
+        color: rgba(255, 255, 255, 0.6);
       }
     }
+
     .rightBox {
       height: 100%;
       display: flex;
       align-items: center;
-      justify-content: center;
 
       .rightRight {
-        color: var(--ex-rfd-draw);
-        background-color: var(--ex-rfd-draw-bg);
-        max-width: 80px;
-        min-width: 80px;
-        height: 80%;
-        margin-left: 20px;
-        border-radius: 3px;
-        padding: 12px 0;
+        min-width: 85px;
+        padding: 8px 12px;
+        border-radius: 8px;
         display: flex;
         align-items: center;
         justify-content: center;
         font-size: 14px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        
+        &.rfd-up {
+          background: rgba(0, 255, 0, 0.15);
+          color: #00ff00;
+        }
+        
+        &.rfd-down {
+          background: rgba(255, 0, 0, 0.15);
+          color: #ff4d4d;
+        }
+
+        &:active {
+          transform: scale(0.95);
+        }
       }
     }
   }
+}
+
+// 添加列表项进入动画
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.currencyItem {
+  animation: slideIn 0.3s ease-out;
 }
 </style>

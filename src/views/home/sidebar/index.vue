@@ -92,42 +92,126 @@ const closeSideBar = () => {
   height: 100vh;
   padding-bottom: 100px;
   overflow: auto;
+  background: #1a1a1a; // 深色背景
+  color: #ffffff;
+  box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+  
+  // 添加滚动条样式
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+  
+  &::-webkit-scrollbar-track {
+    background: #2a2a2a;
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    background: #444;
+    border-radius: 3px;
+  }
 }
+
 .close {
   padding: 17px 15px 20px;
   display: flex;
   justify-content: flex-end;
+
   .closeImg {
     width: 24px;
     height: 24px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    filter: invert(1); // 将SVG图标改为白色
+
+    &:hover {
+      transform: rotate(90deg);
+    }
   }
 }
 
 // 未登录
 .notLogged {
-  border-top: 1px solid var(--ex-input-boder-bgColor);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
   padding: 50px 15px 30px;
+  background: linear-gradient(180deg, #1a1a1a 0%, #252525 100%);
+
   .btnBox {
     margin-bottom: 20px;
+    transform: translateY(0);
+    transition: transform 0.2s ease;
+
+    &:hover {
+      transform: translateY(-2px);
+    }
   }
 }
+
 // 登录
 .logged {
-  border-top: 1px solid var(--ex-input-boder-bgColor);
-
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
   margin-top: 50px;
   padding: 30px 15px;
   font-size: 14px;
-  color: var(--ex-font-color9);
+  color: #ffffff;
   display: flex;
   align-items: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: linear-gradient(180deg, #252525 0%, #1a1a1a 100%);
+
+  &:hover {
+    background: #2a2a2a;
+  }
+
   .loggedImg {
     width: 20px;
     height: 20px;
     margin-right: 20px;
+    filter: invert(1); // 将SVG图标改为白色
+    transition: transform 0.3s ease;
   }
+
+  &:hover .loggedImg {
+    transform: translateX(-5px);
+  }
+
   div {
-    color: var(--ex-font-color9);
+    color: #ffffff;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+  }
+}
+
+// 添加进入动画
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.slidebar {
+  animation: slideIn 0.3s ease-out;
+}
+
+// 添加玻璃拟态效果
+.notLogged, .logged {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+// 按钮悬停效果
+:deep(.button-bar) {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
   }
 }
 </style>

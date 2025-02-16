@@ -209,7 +209,10 @@ onUnmounted(() => {
       </transition>
     </router-view>
   </div>
+  <!-- 
   <Tabbar v-if="tabbarPathNameList.includes(currentRoute.name)"></Tabbar>
+    -->
+
   <!-- 幸运活动 -->
   <ActivityPopup v-model:value="showDefiActivityPopup" :data="activityInfo"></ActivityPopup>
   <!-- 客服弹窗 -->
@@ -231,6 +234,10 @@ onUnmounted(() => {
 </template>
 
 <style lang="scss">
+body{
+  background: #121212;
+  color: #fff;
+}
 // .fade-enter-active {
 //   animation: fadeIn 0.1s ease-in;
 // }

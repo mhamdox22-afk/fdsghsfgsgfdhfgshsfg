@@ -306,60 +306,54 @@ const handelShowTab = (item) => {
 <style lang="scss" scoped>
 .footer {
   padding-bottom: 120px;
-  // .tab_title {
-  //   display: flex;
-  //   background-color: #fbfbfb;
-  // }
-  // .title {
-  //   padding: 20px 15px 20px;
-  //   font-size: 16px;
-  //   color: #838b9c;
-
-  //   font-weight: bold;
-  // }
-  h1.active {
-    color: var(--ex-default-font-color);
-    position: relative;
-
-    i {
-      background-color: var(--ex-active-font-color);
-      position: absolute;
-      width: 20px;
-      height: 2px;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      transition: all 0.2s;
-    }
-
-    // font-size: 18px;
-  }
-
+  background: #1a1a1a;
+  
   .main {
-    background-color: var(--ex-default-background-color);
-    // padding-top: 10px;
+    background-color: #242424;
+    border-radius: 16px 16px 0 0;
+    margin-top: 10px;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
   }
 
   .header-list {
     padding: 15px 15px 5px;
     font-size: 12px;
-    color: var(--ex-home-list-ftcolor2);
+    color: #ffffff;
     display: flex;
     justify-content: space-between;
 
     .item {
       display: flex;
       align-items: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      padding: 8px;
+      border-radius: 8px;
+      color: #ffffff;
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.05);
+        transform: translateY(-1px);
+      }
+
       .arrows {
         display: flex;
         flex-direction: column;
         margin-left: 5px;
+        
         .itemImg {
           width: 6px;
           height: 8px;
+          transition: all 0.2s ease;
+          
+          &:hover {
+            transform: scale(1.1);
+          }
         }
       }
     }
+
     .item:nth-child(2) {
       flex: 1;
       text-align: right;
@@ -374,33 +368,111 @@ const handelShowTab = (item) => {
       justify-content: flex-end;
     }
   }
+
+  .headerChoose {
+    display: flex;
+    padding: 12px 15px;
+    background: #1a1a1a;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+
+    :deep(.van-tabs__nav) {
+      background: transparent !important;
+    }
+
+    .van-tab {
+      :deep(&) {
+        flex: none;
+        font-size: 16px;
+        margin-right: 20px;
+        padding: 0;
+        color: #a0a0a0 !important;
+        position: relative;
+        transition: all 0.3s ease;
+
+        &::after {
+          content: '';
+          position: absolute;
+          bottom: -2px;
+          left: 0;
+          width: 0;
+          height: 2px;
+          background: #17AC74;
+          transition: width 0.3s ease;
+        }
+      }
+
+      &--active {
+        :deep(&) {
+          color: #ffffff !important;
+          font-weight: 500;
+
+          &::after {
+            width: 100%;
+          }
+        }
+      }
+    }
+
+    :deep(.van-tabs__line) {
+      background: #17AC74;
+      transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    }
+  }
 }
 
-.headerChoose {
-  display: flex;
-  padding: 5px 10px;
-  background: var(--ex-home-list-bgcolor);
+// 修改其他 deep 选择器
+.currency-item {
+  :deep(&) {
+    transition: all 0.3s ease;
+    background: #242424;
+    margin: 8px 12px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 
-  :deep(.van-tab) {
-    flex: none;
-    font-size: 16px;
-    margin-right: 20px;
-    padding: 0;
-    color: var(--ex-home-list-ftcolor) !important;
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      background: #2a2a2a;
+    }
+
+    &:active {
+      transform: scale(0.98);
+    }
   }
-  :deep(.van-tabs__nav) {
-    background: var(--ex-home-list-bgcolor) !important ;
+}
+
+.price-change {
+  :deep(&) {
+    transition: all 0.3s ease;
+    
+    &.up {
+      color: #17AC74;
+      animation: fadeGreen 0.5s ease;
+    }
+    
+    &.down {
+      color: #ff4d4f;
+      animation: fadeRed 0.5s ease;
+    }
   }
+}
 
-  // :deep(.van-tab__text) {
-  //   font-size: 16px;
-  //   color: var(--ex-home-list-ftcolor);
-  //   // color: var(--ex-home-list-ftcolor);
-  // }
+@keyframes fadeGreen {
+  from {
+    background: rgba(23, 172, 116, 0.2);
+  }
+  to {
+    background: transparent;
+  }
+}
 
-  :deep(.van-tab--active) {
-    font-weight: normal;
-    color: var(--ex-home-list-ftcolor3) !important;
+@keyframes fadeRed {
+  from {
+    background: rgba(255, 77, 79, 0.2);
+  }
+  to {
+    background: transparent;
   }
 }
 </style>

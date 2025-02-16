@@ -6,19 +6,21 @@
       :key="item.icon"
       @click="toView(item)"
     >
-      <image-load :filePath="item.logoUrl" alt="" class="itemImg" />
-      <div class="itemRight">
-        <!-- <div>{{ item.name }}</div> -->
-        <div v-if="item.key == 'language'">{{ _t18(`language_key`) }}</div>
-        <div v-else>{{ _t18(`sidebar_${item.key}`, ['bitmake', 'paxpay', 'aams']) }}</div>
-        <div class="right_tip">
-          <span v-if="item.key == 'primary' && userInfo.detail?.auditStatusPrimary === '1'">{{
-            _t18('verified_ok')
-          }}</span>
-          <span v-if="item.key == 'advanced' && userInfo.detail?.auditStatusAdvanced === '1'">{{
-            _t18('verified_ok')
-          }}</span>
-          <svg-load name="jiantou-y" class="rightImg"></svg-load>
+      <div class="item-content">
+        <image-load :filePath="item.logoUrl" alt="" class="itemImg" />
+        <div class="itemRight">
+          <!-- <div>{{ item.name }}</div> -->
+          <div v-if="item.key == 'language'">{{ _t18(`language_key`) }}</div>
+          <div v-else>{{ _t18(`sidebar_${item.key}`, ['bitmake', 'paxpay', 'aams']) }}</div>
+          <div class="right_tip">
+            <span v-if="item.key == 'primary' && userInfo.detail?.auditStatusPrimary === '1'" class="verified-badge">{{
+              _t18('verified_ok')
+            }}</span>
+            <span v-if="item.key == 'advanced' && userInfo.detail?.auditStatusAdvanced === '1'" class="verified-badge">{{
+              _t18('verified_ok')
+            }}</span>
+            <svg-load name="jiantou-y" class="rightImg"></svg-load>
+          </div>
         </div>
       </div>
     </div>
@@ -157,27 +159,61 @@ const toView = (item) => {
 </script>
 <style lang="scss" scoped>
 .list {
-  padding: 15px 15px;
+  padding: 15px;
+  background: #1a1a1a;
+  min-height: 100vh;
+
   .item {
-    padding: 15px 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    .itemImg {
-      width: 20px;
-      height: 20px;
-      margin-right: 20px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+      transform: translateX(5px);
     }
+
+    .item-content {
+      background: #2a2a2a;
+      border-radius: 12px;
+      padding: 16px;
+      display: flex;
+      align-items: center;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+
+      &:hover {
+        background: #333333;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+      }
+    }
+
+    .itemImg {
+      width: 24px;
+      height: 24px;
+      margin-right: 20px;
+      filter: brightness(1.2);
+      transition: transform 0.3s ease;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+
     .itemRight {
       flex: 1;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      color: var(--ex-default-font-color);
+      color: #ffffff;
       font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.3px;
+
       .rightImg {
-        width: 6px;
-        height: 10px;
+        width: 8px;
+        height: 12px;
+        transition: transform 0.3s ease;
+        filter: brightness(2);
       }
     }
   }
@@ -185,12 +221,52 @@ const toView = (item) => {
 .right_tip {
   display: flex;
   align-items: center;
-  span {
-    // padding:3px 5px;
-    margin-right: 10px;
-    // border: 1px solid #17ac74;
-    font-size: 12px;
+  gap: 10px;
+
+  .verified-badge {
+    background: rgba(23, 172, 116, 0.15);
     color: #17ac74;
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    
+    &::before {
+      content: '';
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      background: #17ac74;
+      border-radius: 50%;
+      margin-right: 4px;
+    }
+  }
+}
+
+// 添加进入动画
+.item {
+  animation: slideIn 0.3s ease-out forwards;
+  opacity: 0;
+  transform: translateX(-20px);
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+// 为每个item添加延迟动画
+@for $i from 1 through 10 {
+  .item:nth-child(#{$i}) {
+    animation-delay: #{$i * 0.1}s;
   }
 }
 </style>
