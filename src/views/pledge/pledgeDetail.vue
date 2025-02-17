@@ -123,81 +123,175 @@ const submit = () => {
 <style lang="scss" scoped>
 * {
   font-size: 14px;
-  color: var(--ex-default-font-color);
+  color: #ffffff;
 }
+
 .content1 {
-  border-bottom: 1px solid var(--ex-border-color);
-  padding: 20px 15px 30px;
+  background: linear-gradient(145deg, #1a1a1a, #2d2d2d);
+  border-radius: 16px;
+  margin: 15px;
+  padding: 25px 20px 30px;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transform: translateY(0);
+  transition: all 0.3s ease;
+
+  &:active {
+    transform: translateY(2px);
+  }
+
   .jine {
     & > div {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      
       span {
-        color: var(--ex-passive-font-color);
+        color: #8b8b8b;
       }
+      
       p {
-        color: var(--ex-font-color9);
+        color: #00c4ff;
+        font-weight: 500;
+        transition: color 0.3s ease;
+        
+        &:active {
+          color: #0099ff;
+        }
       }
     }
+
     .ipt {
-      border: 1px solid var(--ex-border-color1);
-      border-radius: 3px 3px 3px 3px;
-      padding: 15px 10px;
-      margin: 10px 0;
-      input::placeholder {
-        color: var(--ex-font-color5);
-        background: var(--ex-default-background-color);
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      padding: 15px;
+      margin: 15px 0;
+      display: flex;
+      align-items: center;
+      transition: all 0.3s ease;
+
+      &:focus-within {
+        border-color: #00c4ff;
+        box-shadow: 0 0 15px rgba(0, 196, 255, 0.15);
+      }
+
+      input {
+        background: transparent;
+        color: #ffffff;
+        border: none;
+        width: 100%;
+        
+        &::placeholder {
+          color: #666666;
+        }
+      }
+
+      p {
+        color: #00c4ff;
+        margin-left: 10px;
+        padding: 5px 10px;
+        border-radius: 4px;
+        background: rgba(0, 196, 255, 0.1);
+        transition: all 0.3s ease;
+
+        &:active {
+          background: rgba(0, 196, 255, 0.2);
+        }
       }
     }
   }
+
   .shouyi {
-    padding: 20px 0 0;
+    padding: 25px 0 0;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    
     & > div {
       flex: 1;
       display: flex;
       flex-direction: column;
       align-items: center;
+      
       & > p:first-child {
         margin-bottom: 12px;
-        color: var(--ex-passive-font-color);
+        color: #8b8b8b;
       }
+      
       & > p:last-child {
-        font-weight: 500;
-      }
-      &:first-child {
-        align-items: flex-start;
-      }
-      &:last-child {
-        align-items: flex-end;
+        font-weight: 600;
+        color: #00c4ff;
+        font-size: 16px;
       }
     }
   }
 }
+
 .content2 {
-  padding: 30px 15px;
+  background: linear-gradient(145deg, #1a1a1a, #2d2d2d);
+  border-radius: 16px;
+  margin: 15px;
+  padding: 25px 20px;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+  
   & > div {
     & > div {
       display: flex;
       justify-content: space-between;
-      margin-bottom: 30px;
-      .left {
-        color: var(--ex-passive-font-color);
+      margin-bottom: 25px;
+      padding: 10px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.02);
+      transition: all 0.3s ease;
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.05);
       }
+      
+      .left {
+        color: #8b8b8b;
+      }
+      
       .right {
         font-weight: 500;
+        color: #ffffff;
       }
     }
   }
+
   .btn {
-    background-color: var(--ex-div-bgColor1);
-    color: var(--ex-font-color);
+    background: linear-gradient(45deg, #00c4ff, #0099ff);
+    color: #ffffff;
     text-align: center;
-    padding: 14px 0;
+    padding: 16px 0;
     font-size: 16px;
-    border-radius: 3px;
+    border-radius: 8px;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(0, 196, 255, 0.2);
+    transition: all 0.3s ease;
+
+    &:active {
+      transform: translateY(2px);
+      box-shadow: 0 2px 8px rgba(0, 196, 255, 0.2);
+      background: linear-gradient(45deg, #0099ff, #00c4ff);
+    }
   }
+}
+
+// 添加页面进入动画
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.content1, .content2 {
+  animation: fadeInUp 0.5s ease-out;
 }
 </style>

@@ -54,69 +54,144 @@ const dataValue = ref(props.cardData)
 .box {
   margin-top: 15px;
   cursor: pointer;
-  // border-top: 1px solid var(--ex-border-color);
-  border: 1px solid var(--ex-border-color1);
-  border-radius: 10px;
+  background: linear-gradient(145deg, #1a1a1a, #2d2d2d);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
   font-size: 14px;
-  color: var(--ex-passive-font-color);
+  color: #9ca3af;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  overflow: hidden;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.05),
+      transparent
+    );
+    transition: 0.5s;
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+
+    &::before {
+      left: 100%;
+    }
+  }
+
   .top {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-bottom: 1px solid var(--ex-project-border-color);
-    padding: 20px 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 20px 15px;
+    background: rgba(255, 255, 255, 0.03);
+
     .top_left {
       display: flex;
       align-items: center;
+      
       .title {
         font-weight: bold;
-        color: var(--ex-default-font-color);
+        color: #ffffff;
+        font-size: 16px;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
       }
+
       .usdt {
-        font-size: 20px;
-        margin-right: 10px;
+        font-size: 24px;
+        margin-right: 12px;
+        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
       }
     }
+
     .top_right {
       min-width: 104px;
-      padding: 8px 10px;
-      background-color: var(--ex-div-bgColor1);
-      color: var(--ex-font-color);
+      padding: 8px 15px;
+      background: rgba(255, 255, 255, 0.1);
+      color: #ffffff;
       text-align: center;
-      border-radius: 3px;
+      border-radius: 20px;
+      backdrop-filter: blur(5px);
+      transition: all 0.3s ease;
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.15);
+      }
     }
   }
+
   .content {
     display: flex;
-    padding: 20px 10px;
+    padding: 20px 15px;
     justify-content: space-between;
+    background: rgba(0, 0, 0, 0.2);
+
     .left {
       display: flex;
       flex-direction: column;
+      gap: 15px;
+
       & > div {
         flex: 1;
         display: flex;
         align-items: center;
-        color: var(--ex-passive-font-color);
-        font-size: 12px;
+        color: #9ca3af;
+        font-size: 13px;
+
         p {
           min-width: 36px;
         }
+
         span {
           margin-left: 20px;
-          color: var(--ex-default-font-color);
+          color: #ffffff;
           font-size: 18px;
+          font-weight: 500;
+          text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
         }
+
         span.rate {
-          color: var(--ex-font-color9);
+          color: #10b981;
+          background: linear-gradient(90deg, #10b981, #059669);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
         }
       }
     }
+
     .right {
       .zhiyacard {
         font-size: 120px;
+        filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.3));
+        transition: transform 0.3s ease;
+
+        &:hover {
+          transform: rotate(5deg);
+        }
       }
     }
+  }
+}
+
+// 添加暗色主题适配
+@media (prefers-color-scheme: dark) {
+  .box {
+    background: linear-gradient(145deg, #1a1a1a, #2d2d2d);
   }
 }
 </style>

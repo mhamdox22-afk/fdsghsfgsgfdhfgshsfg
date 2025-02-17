@@ -25,8 +25,8 @@
             :loading-text="_t18(`loading`)"
             @load="onLoad"
           >
-            <van-cell v-for="(item, index) in tabContentList" :key="index">
-              <OrderCard :data="item" @getList="getList"></OrderCard>
+            <van-cell v-for="(item, index) in tabContentList" :key="index" class="card-cell">
+              <OrderCard :data="item" @getList="getList" class="order-card"></OrderCard>
             </van-cell>
           </van-list>
           <!-- 数据为空 -->
@@ -143,24 +143,110 @@ watch(
 
 <style lang="scss" scoped>
 .content {
-  border-bottom: 1px solid var(--ex-border-color);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   padding: 20px 15px;
+  transition: all 0.3s ease;
 }
 .van-loading {
   text-align: center;
   padding: 30px;
 }
+.card-cell {
+  margin: 12px 16px;
+  border-radius: 12px;
+  overflow: hidden;
+  transform: translateY(0);
+  transition: all 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-2px);
+  }
+}
+.order-card {
+  animation: fadeIn 0.5s ease-out;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 :deep(.van-cell) {
-  background: var(--ex-default-background-color) !important;
+  background: #1a1a1a !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  margin-bottom: 12px;
+  border-radius: 12px;
+  
+  &:active {
+    background: #252525 !important;
+  }
 }
 :deep(.van-tabs) {
-  background: var(--ex-home-tabbar-background-color) !important ;
+  background: #121212 !important;
 }
-:deep(.van-tab) {
-  color: var(--ex-home-list-ftcolor) !important;
-  background: var(--ex-home-tabbar-background-color) !important ;
+.van-tabs {
+  :deep(.van-tab) {
+    color: #ffffff !important;
+    background: #121212 !important;
+  }
+
+  :deep(.van-tab--active) {
+    color: #4a9eff !important;
+    font-weight: 600;
+  }
+
+  :deep(.van-tab__text) {
+    position: relative;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 50%;
+      width: 0;
+      height: 2px;
+      background: #4a9eff;
+      transition: all 0.3s ease;
+      transform: translateX(-50%);
+    }
+  }
+
+  :deep(.van-tab--active .van-tab__text::after) {
+    width: 80%;
+  }
+}
+:deep(.van-tabs__line) {
+  background: #4a9eff;
+  height: 3px;
+  border-radius: 2px;
 }
 :deep(.van-cell::after) {
-  border-bottom: 1px solid var(--ex-border-color) !important;
+  border: none !important;
+}
+:deep(.van-pull-refresh) {
+  background: #121212;
+}
+:deep(.van-list__loading, .van-list__finished-text) {
+  color: rgba(255, 255, 255, 0.6);
+  padding: 16px 0;
+}
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 3px;
+  
+  &:hover {
+    background: rgba(255, 255, 255, 0.3);
+  }
+}
+::-webkit-scrollbar-track {
+  background: #121212;
 }
 </style>

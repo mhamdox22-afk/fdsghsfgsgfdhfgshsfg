@@ -157,107 +157,135 @@ const manual = computed(() => {
 })
 </script>
 <template>
-  <!-- 质押挖矿规则弹窗 -->
-  <Popup
-    :show="showRule"
-    :direction="direction"
-    @handelClose="closePopup"
-    :title="txt"
-    :content="popupContent"
-  >
-  </Popup>
-  <HeaderBar
-    :currentName="_t18('defi_host_lockup')"
-    :cuttentRight="cuttentRight"
-    @showPopup="showPopup"
-  ></HeaderBar>
-  <!-- 广告图 -->
-  <div class="banner">
-    <image-load filePath="zhiyabg.png" name="defi"></image-load>
-  </div>
-  <!-- 收益信息（资金、收益） -->
-  <div class="userAccount">
-    <div class="title">
-      <image-load filePath="usdt.png" name="usdt" class="usdt"></image-load>
-      <p class="fw-num">USDT</p>
+  <div class="pledge-container">
+    <!-- 质押挖矿规则弹窗 -->
+    <Popup
+      :show="showRule"
+      :direction="direction"
+      @handelClose="closePopup"
+      :title="txt"
+      :content="popupContent"
+    >
+    </Popup>
+    <HeaderBar
+      :currentName="_t18('defi_host_lockup')"
+      :cuttentRight="cuttentRight"
+      @showPopup="showPopup"
+    ></HeaderBar>
+    <!-- 广告图 -->
+    <div class="banner">
+      <image-load filePath="zhiyabg.png" name="defi"></image-load>
     </div>
-    <div class="fund">
-      <image-load filePath="zhiyaimg.png" name="zhiyaimg" class="zhiyaimg"></image-load>
-      <div class="top">
-        <div class="left">
-          <p class="fw-num">{{ priceFormat(showInfo.amount) || 0 }}</p>
-          <!-- 正在托管 -->
-          <span>{{ _t18('pledge_hosting') }}</span>
+    <!-- 收益信息（资金、收益） -->
+    <div class="userAccount">
+      <div class="title">
+        <image-load filePath="usdt.png" name="usdt" class="usdt"></image-load>
+        <p class="fw-num">USDT</p>
+      </div>
+      <div class="fund">
+        <image-load filePath="zhiyaimg.png" name="zhiyaimg" class="zhiyaimg"></image-load>
+        <div class="top">
+          <div class="left">
+            <p class="fw-num">{{ priceFormat(showInfo.amount) || 0 }}</p>
+            <!-- 正在托管 -->
+            <span>{{ _t18('pledge_hosting') }}</span>
+          </div>
+          <div class="right">
+            <p class="fw-num">{{ showInfo.orderNum || 0 }}</p>
+            <!-- 委托订单 -->
+            <span>{{ _t18('pledge_commissioned_order') }}</span>
+          </div>
         </div>
-        <div class="right">
-          <p class="fw-num">{{ showInfo.orderNum || 0 }}</p>
-          <!-- 委托订单 -->
-          <span>{{ _t18('pledge_commissioned_order') }}</span>
+        <div class="bottom">
+          <div class="left">
+            <p class="fw-num">{{ priceFormat(showInfo.todayProfit) || 0 }}</p>
+            <!-- 今日收益 -->
+            <span>{{ _t18('pledge_Today_Earnings') }}</span>
+          </div>
+          <div class="right">
+            <p class="fw-num">{{ priceFormat(showInfo.profitMoney) || 0 }}</p>
+            <!-- 累计收益 -->
+            <span>{{ _t18('Cumulative_income') }}</span>
+          </div>
         </div>
       </div>
-      <div class="bottom">
-        <div class="left">
-          <p class="fw-num">{{ priceFormat(showInfo.todayProfit) || 0 }}</p>
-          <!-- 今日收益 -->
-          <span>{{ _t18('pledge_Today_Earnings') }}</span>
-        </div>
-        <div class="right">
-          <p class="fw-num">{{ priceFormat(showInfo.profitMoney) || 0 }}</p>
-          <!-- 累计收益 -->
-          <span>{{ _t18('Cumulative_income') }}</span>
-        </div>
+    </div>
+    <!-- 项目信息 -->
+    <div class="project">
+      <div class="projectList" v-if="projectList?.length > 0">
+        <Card
+          v-for="(item, index) in projectList"
+          @click="toView(item)"
+          :key="index"
+          :cardData="item"
+        ></Card>
       </div>
+      <Nodata v-else></Nodata>
     </div>
-  </div>
-  <!-- 项目信息 -->
-  <div class="project">
-    <div class="projectList" v-if="projectList?.length > 0">
-      <Card
-        v-for="(item, index) in projectList"
-        @click="toView(item)"
-        :key="index"
-        :cardData="item"
-      ></Card>
-    </div>
-    <Nodata v-else></Nodata>
   </div>
 </template>
 <style lang="scss" scoped>
+.pledge-container {
+  min-height: 100vh;
+  background: linear-gradient(145deg, #121212, #1e1e1e);
+  color: #ffffff;
+}
 .banner {
   padding: 10px 25px 0;
   img {
     width: 100%;
     height: auto;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+    &:hover {
+      transform: scale(1.02);
+    }
   }
 }
 .userAccount {
   font-size: 14px;
   padding: 0 15px;
-  color: var(--ex-default-font-color);
+  color: #ffffff;
   .title {
     padding: 20px 0;
     display: flex;
     align-items: center;
     .usdt {
       font-size: 34px;
+      filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.3));
     }
     p {
       margin-left: 10px;
       font-size: 24px;
+      background: linear-gradient(135deg, #fff 0%, #a7a7a7 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
   }
   .fund {
-    border: 1px solid var(--ex-usdt-border-color);
-    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
     position: relative;
-    background: var(--ex-usdt-background-color);
+    background: linear-gradient(145deg, #1a1a1a, #2a2a2a);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: translateY(-5px);
+    }
+
     .zhiyaimg {
       position: absolute;
       font-size: 100px;
       transform: translate(-50%, -50%);
       left: 50%;
       top: 50%;
+      opacity: 0.1;
+      animation: rotate 20s linear infinite;
     }
+
     .top,
     .bottom {
       display: flex;
@@ -267,44 +295,70 @@ const manual = computed(() => {
         width: 100%;
         height: 100%;
         padding: 25px 15px;
+        transition: background-color 0.3s ease;
 
-        p,
+        &:hover {
+          background-color: rgba(255, 255, 255, 0.05);
+        }
+
+        p {
+          font-size: 18px;
+          margin-bottom: 10px;
+          color: #ffffff;
+          text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
         span {
-          max-width: 100%;
-          word-break: break-word;
+          color: rgba(255, 255, 255, 0.6);
         }
       }
       .right {
-        border-left: 1px solid var(--ex-usdt-border-color3);
+        border-left: 1px solid rgba(255, 255, 255, 0.1);
         text-align: right;
-      }
-      p {
-        font-size: 18px;
-        margin-bottom: 10px;
-      }
-      span {
-        color: var(--ex-passive-font-color);
       }
     }
     .bottom {
-      border-top: 1px solid var(--ex-usdt-border-color2);
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
       p {
-        color: var(--ex-font-color9);
+        color: #00ff9d;
       }
-    }
-    .title {
-      margin-bottom: 14px;
-      span {
-        color: var(--ex-passive-font-color);
-      }
-    }
-    .amount {
-      font-size: 28px;
     }
   }
 }
 .project {
   padding: 0 15px 50px;
-  
+  .projectList {
+    display: grid;
+    gap: 15px;
+    animation: fadeInUp 0.5s ease;
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// 添加数字跳动动画
+.fw-num {
+  transition: transform 0.3s ease;
+  &:hover {
+    transform: scale(1.1);
+    color: #00ff9d;
+  }
 }
 </style>
