@@ -161,25 +161,57 @@ const change = (e) => {
 const addList = ref([])
 </script>
 <style lang="scss" scoped>
+.columnFlex {
+  background: #1a1a1a;
+  min-height: 100vh;
+  color: #ffffff;
+}
+
 .currencyList {
   flex: 1;
   padding: 20px 15px 0;
+
   .itemEvery {
-    padding-bottom: 30px;
+    padding-bottom: 20px;
+    transform: scale(1);
+    transition: all 0.3s ease;
+
+    &:hover {
+      transform: scale(1.02);
+    }
+
     .item {
       display: flex;
       align-items: center;
+      background: #2a2a2a;
+      padding: 15px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      transition: all 0.3s ease;
+
+      &:hover {
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+        background: #333333;
+      }
+
       .van-checkbox {
         padding: 2px 0;
       }
+
       .rightImg {
         margin-left: 10px;
         width: 18px;
         height: 18px;
+        transition: transform 0.2s ease;
+
+        &:hover {
+          transform: scale(1.1);
+        }
       }
     }
   }
 }
+
 .search {
   margin: 20px 15px;
   height: 50px;
@@ -220,41 +252,82 @@ const addList = ref([])
     }
   }
 }
+
 .placeholder {
-  height: 65px;
+  height: 75px;
 }
+
 .editCon {
   position: fixed;
   width: 100%;
-  background-color: var(--ex-default-background-color);
+  background-color: #1a1a1a;
   bottom: 0;
   z-index: 9;
-  border-top: 1px solid var(--ex-border-color);
+  border-top: 1px solid #333333;
   height: 64px;
   display: flex;
   padding: 0 15px;
   align-items: center;
   font-size: 14px;
   justify-content: space-between;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.1);
+
   .left {
     display: flex;
     align-items: center;
-    color: var(--ex-font-color9);
-    .delectImg {
+    color: #ffffff;
+    opacity: 0.8;
+    transition: all 0.3s ease;
+
+    &:hover {
+      opacity: 1;
+    }
+
+    .chooseImg {
       width: 16px;
       height: 18px;
       margin-right: 10px;
+      transition: transform 0.2s ease;
+
+      &:hover {
+        transform: scale(1.1);
+      }
     }
   }
+
   .right {
     display: flex;
     align-items: center;
-    color: var(--ex-default-font-color);
+    color: #ffffff;
+
     .chooseImg {
       width: 18px;
       height: 18px;
       margin-right: 12px;
+      transition: transform 0.2s ease;
+
+      &:hover {
+        transform: scale(1.1);
+      }
     }
   }
+}
+
+// 添加动画类
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.itemEvery {
+  animation: fadeIn 0.3s ease-out forwards;
+  animation-delay: calc(var(--index) * 0.1s);
 }
 </style>

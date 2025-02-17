@@ -2,7 +2,7 @@
   <div class="placeholder" v-if="topHeight"></div>
   <van-sticky>
     <header
-      :class="[border_bottom ? 'border_bottom' : '']"
+      :class="[border_bottom ? 'border_bottom' : '', 'header-animate']"
       :style="{ 'background-color': bgColor }"
     >
       <div class="left">
@@ -82,7 +82,7 @@ const props = defineProps({
   },
   bgColor: {
     type: String,
-    default: '#fff'
+    default: '#1a1a1a'
   },
   isCenter: {
     type: Boolean,
@@ -112,9 +112,22 @@ let handelClick = (item) => {
 .placeholder {
   height: 61px;
 }
-header.border_bottom {
-  border-bottom: 1px solid var(--ex-border-color);
+
+@keyframes headerSlideDown {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
+
+header.border_bottom {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
 header {
   position: fixed;
   top: 0;
@@ -124,47 +137,85 @@ header {
   height: 60px;
   padding: 0 15px;
   align-items: center;
-  background-color: var(--ex-default-background-color) !important;
-  // border-bottom:1px solid var(--ex-home-top-border-color) !important;
+  background-color: #1a1a1a !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
   z-index: 99;
+  animation: headerSlideDown 0.3s ease-out;
+
   .left {
     display: flex;
     align-items: center;
     font-size: 16px;
     font-weight: normal;
-    color: var(--ex-default-font-color);
+    color: #ffffff;
+    
     div {
       font-size: 16px;
+      transition: all 0.3s ease;
     }
+    
     .leftImg {
       width: 16px;
       height: 12px;
       margin-right: 15px;
+      filter: invert(1);
+      transition: transform 0.3s ease;
+      
+      &:hover {
+        transform: translateX(-3px);
+      }
     }
   }
+
   .right {
     flex: 1;
+    
     .rightBtn {
       display: flex;
       justify-content: flex-end;
       align-items: center;
-      color: var(--ex-font-color9);
+      color: rgba(255, 255, 255, 0.9);
       font-size: 14px;
+      
       .rightBtnImg {
         width: 24px;
         height: 24px;
+        transition: transform 0.3s ease;
+        
+        &:hover {
+          transform: scale(1.1);
+        }
       }
+      
       .rightIcon {
         margin-left: 20px;
         font-size: 24px;
+        color: rgba(255, 255, 255, 0.9);
+        transition: all 0.3s ease;
+        
+        &:hover {
+          color: #ffffff;
+          transform: scale(1.1);
+        }
       }
     }
   }
 }
+
 .centerStyle {
   position: absolute;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
+  color: #ffffff;
+  font-weight: 500;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+@media (prefers-color-scheme: dark) {
+  header {
+    background-color: #1a1a1a !important;
+  }
 }
 </style>
