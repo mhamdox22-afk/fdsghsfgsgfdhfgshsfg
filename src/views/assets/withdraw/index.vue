@@ -1,7 +1,9 @@
 <!-- 提现 -->
 <template>
-  <HeaderBar :currentName="_t18('withdraw', ['latcoin'])"></HeaderBar>
-  <List :data="coinList"> </List>
+  <HeaderBar :currentName="_t18('withdraw', ['latcoin'])" class="header-bar"></HeaderBar>
+  <div class="withdraw-container">
+    <List :data="coinList" class="withdraw-list"></List>
+  </div>
 </template>
 <script setup>
 import { _t18 } from '@/utils/public'
@@ -55,4 +57,113 @@ const coinList = computed(() => {
 // })
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.withdraw-container {
+  min-height: 100vh;
+  background: linear-gradient(145deg, #1a1a1a, #2d2d2d);
+  padding: 16px;
+  
+  .withdraw-list {
+    margin-top: 20px;
+    :deep(.list-item) {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 16px;
+      padding: 20px;
+      margin-bottom: 16px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      
+      &:active {
+        transform: scale(0.98);
+      }
+      
+      &:hover {
+        background: rgba(255, 255, 255, 0.08);
+        box-shadow: 0 12px 20px rgba(0, 0, 0, 0.25);
+      }
+
+      .icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.1);
+        padding: 8px;
+        margin-right: 16px;
+        transition: all 0.3s ease;
+      }
+
+      .title {
+        color: #ffffff;
+        font-size: 16px;
+        font-weight: 500;
+        letter-spacing: 0.5px;
+      }
+
+      .subtitle {
+        color: rgba(255, 255, 255, 0.6);
+        font-size: 14px;
+        margin-top: 4px;
+      }
+    }
+  }
+}
+
+.header-bar {
+  :deep(.nav-bar) {
+    background: #1a1a1a;
+    color: #ffffff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    
+    .title {
+      font-weight: 500;
+      letter-spacing: 0.5px;
+    }
+    
+    .back-icon {
+      color: #ffffff;
+    }
+  }
+}
+
+// 添加页面进入动画
+.withdraw-container {
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// 添加列表项进入动画
+.list-item {
+  animation: slideIn 0.4s ease-out forwards;
+  opacity: 0;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+// 为不同延迟的列表项添加动画
+@for $i from 1 through 10 {
+  .list-item:nth-child(#{$i}) {
+    animation-delay: #{$i * 0.1}s;
+  }
+}
+</style>

@@ -353,23 +353,38 @@ onMounted(() => {
 <style lang="scss" scoped>
 * {
   font-size: 14px;
-  color: var(--ex-default-font-color);
+  color: #ffffff;
 }
 
 .content {
   padding: 30px 15px;
+  background: linear-gradient(145deg, #1a1a1a, #2d2d2d);
+  min-height: calc(100vh - 100px);
 
   .form {
     & > div {
+      transition: all 0.3s ease;
+      
+      &:hover {
+        transform: translateY(-2px);
+      }
+
       .top {
         display: flex;
         justify-content: space-between;
         align-items: center;
-
+        margin-bottom: 8px;
+        
         .right {
-          font-size: 10px;
-          color: var(--ex-font-color9);
+          font-size: 12px;
+          color: #8e8e8e;
           text-decoration: underline;
+          opacity: 0.8;
+          transition: opacity 0.2s;
+          
+          &:hover {
+            opacity: 1;
+          }
         }
       }
 
@@ -379,12 +394,21 @@ onMounted(() => {
 
       .bottom {
         margin: 10px 0 20px;
-        padding: 15px 10px;
-        border: 1px solid var(--ex-border-color1);
-        border-radius: 3px;
+        padding: 15px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 12px;
         display: flex;
         align-items: center;
         justify-content: space-between;
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(10px);
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
+
+        &:hover {
+          box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+          border: 1px solid rgba(255, 255, 255, 0.2);
+        }
 
         .left {
           display: flex;
@@ -393,29 +417,58 @@ onMounted(() => {
 
         input {
           flex: 1;
-          background: var(--ex-default-background-color);
+          background: transparent;
+          color: #ffffff;
+          padding: 8px;
+          border: none;
+          
+          &:focus {
+            outline: none;
+          }
         }
 
         input::placeholder {
-          color: var(--ex-font-color5);
+          color: rgba(255, 255, 255, 0.5);
         }
 
         p {
-          color: var(--ex-font-color9);
+          color: #8e8e8e;
+          cursor: pointer;
+          transition: color 0.2s;
+          
+          &:hover {
+            color: #ffffff;
+          }
         }
 
         .yanjing {
           font-size: 16px;
+          cursor: pointer;
+          transition: opacity 0.2s;
+          
+          &:hover {
+            opacity: 0.8;
+          }
         }
       }
 
       .bottom2 {
         margin: 10px 0 20px;
-        padding: 15px 10px;
-        border: 1px solid var(--ex-border-color1);
-        border-radius: 3px;
+        padding: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 12px;
         display: flex;
         align-items: center;
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(10px);
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+        cursor: pointer;
+        transition: all 0.3s ease;
+
+        &:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 12px 32px 0 rgba(0, 0, 0, 0.3);
+        }
 
         & > div {
           flex: 1;
@@ -423,11 +476,13 @@ onMounted(() => {
 
         .coin {
           margin-right: 15px;
-          font-size: 20px;
+          font-size: 24px;
+          color: #ffffff;
         }
 
         .bankName {
           margin-bottom: 10px;
+          font-weight: 500;
         }
 
         .cardNumber {
@@ -438,87 +493,142 @@ onMounted(() => {
           align-items: center;
 
           .jiantou {
-            font-size: 10px;
+            font-size: 12px;
+            transition: transform 0.3s ease;
           }
-        }
-      }
-    }
-
-    & > div:first-child {
-      .bottom {
-        border: 0;
-        background-color: var(--ex-div-bgColor);
-        padding: 13px 10px;
-
-        .coin {
-          font-size: 20px;
-          margin-right: 15px;
+          
+          &:hover .jiantou {
+            transform: translateX(4px);
+          }
         }
       }
     }
   }
 
   .tip {
+    margin-top: 30px;
+    padding: 20px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+
     div {
-      color: var(--ex-passive-font-color);
-      line-height: 1.4;
+      color: rgba(255, 255, 255, 0.7);
+      line-height: 1.6;
 
       span.customer {
-        color: var(--ex-font-color9);
+        color: #8e8e8e;
         text-decoration: underline;
+        cursor: pointer;
+        transition: color 0.2s;
+        
+        &:hover {
+          color: #ffffff;
+        }
       }
     }
 
     & > div:first-child {
-      margin-bottom: 10px;
+      margin-bottom: 12px;
     }
   }
 }
 
 .btnBox {
   padding: 20px 15px 50px;
+  
+  :deep(.button) {
+    background: linear-gradient(45deg, #3366ff, #5c33ff);
+    border-radius: 12px;
+    box-shadow: 0 8px 32px 0 rgba(51, 102, 255, 0.2);
+    transition: all 0.3s ease;
+    
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px 0 rgba(51, 102, 255, 0.3);
+    }
+    
+    &:active {
+      transform: translateY(1px);
+    }
+  }
 }
 
 .sheetBox {
   padding: 0 15px 30px;
-  max-height: 300px;
+  max-height: 400px;
   overflow: auto;
+  background: #1a1a1a;
 
   .title {
-    font-size: 18px;
-    padding: 30px 0 30px;
+    font-size: 20px;
+    padding: 30px 0;
     text-align: center;
+    font-weight: 600;
+    background: linear-gradient(45deg, #ffffff, #8e8e8e);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 
   .sheetContent {
-    background-color: var(--ex-div-bgColor8);
-    padding: 15px 10px;
-    border-radius: 3px;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 20px;
+    border-radius: 12px;
     display: flex;
     align-items: center;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+
+    &:hover {
+      transform: translateY(-2px);
+      background: rgba(255, 255, 255, 0.08);
+      box-shadow: 0 12px 32px 0 rgba(0, 0, 0, 0.3);
+    }
 
     .coin {
-      font-size: 20px;
-      margin-right: 15px;
+      font-size: 24px;
+      margin-right: 20px;
     }
 
     p {
-      color: var(--ex-default-font-color);
+      color: #ffffff;
       font-size: 14px;
     }
 
     .bankName {
       margin-bottom: 10px;
-
-      .scl {
-
-      }
+      font-weight: 500;
     }
 
     .cardNumber {
       font-size: 18px;
+      opacity: 0.8;
     }
   }
 }
+
+// 自定义滚动条样式
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 3px;
+  
+  &:hover {
+    background: rgba(255, 255, 255, 0.3);
+  }
+}
 </style>
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.3);
