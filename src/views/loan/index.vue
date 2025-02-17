@@ -311,86 +311,72 @@ const blur = () => {
   <!-- <Success :text="'认证成功'" :imgUrl="'/src/assets/defi/success.png'"></Success> -->
 </template>
 <style lang="scss" scoped>
-:deep(.van-action-sheet__content) {
-  background: var(--ex-default-background-color);
-}
-.van-cell {
-  height: 46px;
-  background: var(--ex-div-bgColor20);
-  border-radius: 3px;
-  padding: 0 10px;
-  font-size: 14px;
-  display: flex;
-  align-items: center;
-}
-
-.action {
-  li {
-    color: var(--ex-default-font-color);
-    text-align: center;
-    line-height: 50px;
-    font-size: 16px;
-    border-bottom: 1px solid var(--ex-border-color);
-  }
-}
-
 .content {
   padding-top: 20px;
+  background: #121212;
+  min-height: 100vh;
 
   .top {
     padding: 0 15px;
 
     .tip {
       display: block;
-      font-size: 12px;
-      color: var(--ex-tip-font-color);
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.95);
       margin-bottom: 30px;
+      animation: fadeIn 0.8s ease;
     }
 
     .type {
       font-size: 14px;
-      color: var(--ex-default-font-color);
+      color: rgba(255, 255, 255, 0.95);
       margin-bottom: 10px;
+      animation: slideIn 0.5s ease;
 
       span {
         font-size: 14px;
-        color: var(--ex-passive-font-color);
+        color: rgba(255, 255, 255, 0.8);
       }
     }
 
     .form {
       .formInput {
-        padding: 0 10px;
+        padding: 0 15px;
         display: flex;
         justify-content: space-between;
-        background: var(--ex-div-bgColor20);
-        border-radius: 3px;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 8px;
         align-items: center;
         margin-bottom: 20px;
-        & > span {
-          color: var(--ex-tip-font-color);
+        backdrop-filter: blur(10px);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+
+        &:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+          background: rgba(255, 255, 255, 0.08);
         }
 
         input {
           flex: 1;
           width: 100%;
-          height: 46px;
+          height: 50px;
           font-size: 14px;
-          background: var(--ex-div-bgColor20);
-          color: var(--ex-default-font-color);
+          background: transparent;
+          color: rgba(255, 255, 255, 0.95);
 
           &::placeholder {
-            color: var(--ex-default-font-color);
-            font-size: 14px;
+            color: rgba(255, 255, 255, 0.7);
           }
         }
 
         p {
           width: 100%;
-          height: 46px;
+          height: 50px;
           font-size: 14px;
-          line-height: 46px;
-          color: var(--ex-default-font-color);
+          line-height: 50px;
+          color: rgba(255, 255, 255, 0.95);
         }
       }
     }
@@ -398,8 +384,11 @@ const blur = () => {
 
   .loan-detail {
     margin-top: 30px;
-    border-top: 1px solid var(--ex-border-color);
-    border-bottom: 1px solid var(--ex-border-color);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(10px);
+    animation: fadeIn 1s ease;
 
     .item {
       padding: 0 15px;
@@ -407,15 +396,20 @@ const blur = () => {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      transition: transform 0.3s ease;
+
+      &:hover {
+        transform: translateX(5px);
+      }
 
       .left {
         font-size: 14px;
-        color: var(--ex-passive-font-color);
+        color: rgba(255, 255, 255, 0.8);
       }
 
       .right {
         font-size: 14px;
-        color: var(--ex-default-font-color);
+        color: rgba(255, 255, 255, 0.95);
         text-align: right;
       }
     }
@@ -429,26 +423,34 @@ const blur = () => {
 
       .photo {
         font-size: 14px;
-        color: var(--ex-default-font-color);
+        color: rgba(255, 255, 255, 0.95);
       }
 
       span {
         font-size: 14px;
-        color: var(--ex-passive-font-color);
+        color: rgba(255, 255, 255, 0.8);
       }
     }
 
     .upload-box {
       .item {
         height: 194px;
-        background: var(--ex-default-background-color);
-        border-radius: 3px;
-        border: 1px solid var(--ex-border-color1);
-        margin-bottom: 10px;
+        background: rgba(255, 255, 255, 0.03);
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        margin-bottom: 15px;
         display: flex;
         flex-direction: column;
         align-items: center;
         overflow: hidden;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+
+        &:hover {
+          transform: translateY(-3px);
+          box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+          border-color: rgba(255, 255, 255, 0.2);
+        }
 
         .van-uploader {
           width: 100%;
@@ -506,35 +508,80 @@ const blur = () => {
           justify-content: center;
           font-size: 14px;
           font-weight: 400;
-          color: var(--ex-passive-font-color);
+          color: rgba(255, 255, 255, 0.9);
         }
       }
     }
 
     .btn {
-      font-size: 14px;
+      font-size: 16px;
+      height: 54px;
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 50px;
-      background: var(--ex-div-bgColor1);
-      border-radius: 3px;
-      color: var(--ex-font-color);
+      background: linear-gradient(45deg, #2196F3, #1E88E5);
+      border-radius: 8px;
+      color: rgba(255, 255, 255, 0.95);
+      font-weight: 500;
       margin: 50px 0;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(33, 150, 243, 0.3);
+
+      &:active {
+        transform: scale(0.98);
+      }
+
+      &:hover {
+        background: linear-gradient(45deg, #1E88E5, #1976D2);
+        box-shadow: 0 6px 20px rgba(33, 150, 243, 0.4);
+      }
     }
   }
 }
 
-.submit {
-  width: 100%;
-  font-size: 14px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 50px;
-  background: var(--ex-primary-color);
-  border-radius: 3px;
-  color: var(--ex-font-color);
-  margin: 50px 0;
+// 添加动画关键帧
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+// Action Sheet 样式优化
+:deep(.van-action-sheet__content) {
+  background: #1a1a1a;
+  border-radius: 16px 16px 0 0;
+}
+
+.action {
+  li {
+    color: rgba(255, 255, 255, 0.95);
+    text-align: center;
+    line-height: 54px;
+    font-size: 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    &:active {
+      background: rgba(255, 255, 255, 0.08);
+    }
+  }
 }
 </style>
