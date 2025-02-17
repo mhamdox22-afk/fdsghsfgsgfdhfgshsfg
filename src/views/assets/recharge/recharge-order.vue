@@ -137,9 +137,10 @@ watch(
 
 <style lang="scss" scoped>
 .content {
-  background: var(--ex-default-background-color) !important;
-  border-bottom: 5px solid var(--ex-border-color);
+  background: #1a1a1a !important;
+  border-bottom: 5px solid rgba(255, 255, 255, 0.1);
   padding: 20px 15px;
+  transition: all 0.3s ease;
 }
 .van-loading {
   text-align: center;
@@ -149,28 +150,119 @@ watch(
   min-height: calc(100vh - 60px - 44px);
 }
 :deep(.van-cell) {
-  background: var(--ex-default-background-color) !important;
+  background: #242424 !important;
+  margin: 10px 15px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transform: translateY(0);
+  transition: all 0.3s ease;
+  
+  &:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  &::after {
+    display: none !important; // 移除原有边框
+  }
 }
-:deep(.van-cell::after) {
-  border-bottom: 1px solid var(--ex-border-color) !important;
-}
-.van-popup {
-  padding: 20px 30px;
-}
-.showErr {
-  padding: 20px 30px;
+:deep(.van-pull-refresh) {
+  background: #1a1a1a;
 }
 :deep(.van-tabs) {
-  background: var(--ex-home-tabbar-background-color) !important ;
+  background: #242424 !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
 :deep(.van-tabs__nav) {
-  background: var(--ex-home-tabbar-background-color) !important ;
+  background: #242424 !important;
+  padding: 0 15px;
 }
 :deep(.van-tab) {
-  color: var(--ex-home-list-ftcolor) !important;
-  background: var(--ex-home-tabbar-background-color) !important ;
+  color: rgba(255, 255, 255, 0.5) !important;
+  background: #242424 !important;
+  position: relative;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  padding: 0 8px;
+  margin: 0 8px;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 2px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, #007aff, #00c6ff);
+    border-radius: 4px;
+    opacity: 0;
+    transform: scaleX(0.6);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
 }
 :deep(.van-tab--active) {
-  color: var(--ex-home-list-ftcolor3) !important;
+  color: #fff !important;
+  font-weight: 600;
+  
+  &::after {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+}
+// 移除原有的 tab 线条
+:deep(.van-tabs__line) {
+  display: none;
+}
+// 添加列表项动画
+:deep(.van-cell-group) {
+  .van-cell {
+    animation: slideIn 0.3s ease-out forwards;
+    opacity: 0;
+    
+    @for $i from 1 through 10 {
+      &:nth-child(#{$i}) {
+        animation-delay: $i * 0.1s;
+      }
+    }
+  }
+}
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+// 添加加载动画样式
+:deep(.van-loading) {
+  .van-loading__spinner {
+    color: #007aff;
+  }
+}
+// 自定义滚动条
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+// 下拉刷新样式优化
+:deep(.van-pull-refresh__head) {
+  color: rgba(255, 255, 255, 0.8);
+}
+// 列表底部加载更多样式
+:deep(.van-list__finished-text),
+:deep(.van-list__loading-text) {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 14px;
+  padding: 16px 0;
 }
 </style>

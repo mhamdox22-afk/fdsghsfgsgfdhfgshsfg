@@ -200,41 +200,89 @@ onMounted(()=>{
 <style lang="scss" scoped>
 * {
   font-size: 14px;
-  color: var(--ex-default-font-color);
+  color: #ffffff;
 }
+
+// 整体背景色
+:deep(.page-container) {
+  background: linear-gradient(145deg, #1a1a1a, #2d2d2d);
+  min-height: 100vh;
+}
+
 .erweima {
   padding: 50px 0;
-}
-.applyMes {
-  border-top: 1px solid var(--ex-border-color);
-  padding: 30px 15px;
-  & > div {
-    margin-bottom: 20px;
-
-    p {
-      color: var(--ex-passive-font-color);
-      margin-bottom: 10px;
+  // 添加缓动动画
+  animation: fadeInDown 0.8s ease-out;
+  
+  :deep(.qr-wrapper) {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.36);
+    backdrop-filter: blur(4px);
+    margin: 0 20px;
+    transition: transform 0.3s ease;
+    
+    &:hover {
+      transform: translateY(-5px);
     }
   }
+}
+
+.applyMes {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 30px 15px;
+  animation: fadeInUp 0.8s ease-out;
+  
+  & > div {
+    margin-bottom: 25px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 8px 22px 0 rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    
+    &:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 28px 0 rgba(0, 0, 0, 0.4);
+    }
+
+    p {
+      color: rgba(255, 255, 255, 0.7);
+      margin-bottom: 12px;
+      font-weight: 500;
+    }
+  }
+
   .address {
     .bottom {
       word-break: break-all;
+      background: rgba(0, 0, 0, 0.2);
+      padding: 12px;
+      border-radius: 8px;
     }
   }
+
   .num {
     .bottom {
-      border: 1px solid var(--ex-border-color1);
+      border: 1px solid rgba(255, 255, 255, 0.1);
       padding: 15px 10px;
-      border-radius: 3px;
+      border-radius: 8px;
+      background: rgba(0, 0, 0, 0.2);
+      
       input {
         width: 100%;
-      }
-      input::placeholder {
-        color: var(--ex-font-color5);
-        font-size: 14px;
+        background: transparent;
+        color: #ffffff;
+        border: none;
+        
+        &::placeholder {
+          color: rgba(255, 255, 255, 0.4);
+        }
       }
     }
   }
+
   .uploadImg {
     .van-uploader {
       width: 100%;
@@ -242,32 +290,85 @@ onMounted(()=>{
         width: 100%;
       }
     }
+    
     .bottom {
-      border: 1px solid var(--ex-border-color1);
+      border: 2px dashed rgba(255, 255, 255, 0.2);
       padding: 35px 0;
       text-align: center;
-      border-radius: 3px;
+      border-radius: 12px;
+      background: rgba(0, 0, 0, 0.2);
+      transition: all 0.3s ease;
+      
+      &:hover {
+        border-color: rgba(255, 255, 255, 0.4);
+      }
+      
       .img {
         font-size: 36px;
+        opacity: 0.7;
       }
     }
   }
 }
+
 .btn {
   padding: 0 15px 55px;
+  animation: fadeInUp 1s ease-out;
+  
   p {
     text-align: center;
-    padding: 14px 0;
-    color: var(--ex-font-color);
+    padding: 16px 0;
+    color: #ffffff;
     font-size: 16px;
-    background-color: var(--ex-div-bgColor1);
-    border-radius: 3px;
+    background: linear-gradient(135deg, #4a4a4a 0%, #2d2d2d 100%);
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    
+    &:active {
+      transform: scale(0.98);
+    }
   }
 }
+
 .tip-list {
-  padding: 0 15px;
+  padding: 0 20px;
+  animation: fadeInUp 1.2s ease-out;
+  
   .tip {
     margin-bottom: 15px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+    
+    &:hover {
+      transform: translateX(5px);
+    }
+  }
+}
+
+// 动画关键帧
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 </style>
