@@ -48,24 +48,88 @@ const props = defineProps({
 </script>
 <style lang="scss" scoped>
 .detail {
-  padding: 20px 15px 20px;
+  padding: 25px 20px;
+  background: linear-gradient(145deg, #1a1a1a, #2d2d2d);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.36);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  animation: fadeIn 0.5s ease-out;
+
   .title {
-    color: var(--ex-default-font-color);
-    font-size: 16px;
+    color: #ffffff;
+    font-size: 18px;
+    margin-bottom: 5px;
+    position: relative;
+    padding-left: 12px;
+    
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 4px;
+      height: 18px;
+      background: linear-gradient(to bottom, #7367f0, #ce9ffc);
+      border-radius: 2px;
+    }
   }
+
   .item {
-    margin-top: 20px;
-    color: var(--ex-passive-font-color);
-    font-size: 12px;
+    margin-top: 22px;
+    padding: 12px 15px;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 13px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    .itemName {
-      color: var(--ex-default-font-color);
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    
+    &:hover {
+      transform: translateX(5px);
+      background: rgba(255, 255, 255, 0.08);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     }
+
+    .itemName {
+      color: #ffffff;
+      font-weight: 500;
+      
+      &.ff-num {
+        font-size: 15px;
+        background: linear-gradient(45deg, #7367f0, #ce9ffc);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+    }
+
     .hightColor {
-      color:var(--ex-font-color3);
+      color: #7367f0;
+      font-size: 16px;
+      font-weight: bold;
     }
   }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// 添加深色主题相关的CSS变量覆盖
+:root {
+  --ex-default-font-color: #ffffff;
+  --ex-passive-font-color: rgba(255, 255, 255, 0.6);
+  --ex-font-color3: #7367f0;
 }
 </style>

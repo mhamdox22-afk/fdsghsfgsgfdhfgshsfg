@@ -1,8 +1,21 @@
 <template>
-  <div class="funList" v-if="listArray.length > 0 && !isShow">
-    <ItemFund v-for="item in listArray" :key="item.id" :itemObj="item"></ItemFund>
+  <div class="fund-list-container">
+    <div class="fund-list" v-if="listArray.length > 0 && !isShow">
+      <TransitionGroup 
+        name="fund-item"
+        tag="div"
+        appear
+      >
+        <ItemFund 
+          v-for="(item, index) in listArray" 
+          :key="item.id" 
+          :itemObj="item"
+          :style="{ animationDelay: `${index * 0.1}s` }"
+        ></ItemFund>
+      </TransitionGroup>
+    </div>
+    <Nodata v-if="listArray.length === 0 && isShow"></Nodata>
   </div>
-  <Nodata v-if="listArray.length === 0 && isShow"></Nodata>
 </template>
 <script setup>
 import ItemFund from './itemFund.vue'
@@ -29,7 +42,45 @@ onMounted(() => {
 })
 </script>
 <style lang="scss" scoped>
-.funList {
+.fund-list-container {
+  background: #1a1a1a;
+  min-height: 100vh;
+}
+
+.fund-list {
   padding: 20px 15px 66px;
+}
+
+// 列表项动画
+.fund-item-enter-active,
+.fund-item-leave-active {
+  transition: all 0.5s ease;
+}
+
+.fund-item-enter-from {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.fund-item-leave-to {
+  opacity: 0;
+  transform: translateY(-30px);
+}
+
+// 列表项出现动画
+:deep(.fund-item) {
+  animation: slideIn 0.5s ease forwards;
+  opacity: 0;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 </style>

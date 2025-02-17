@@ -58,39 +58,80 @@ onMounted(async () => {
 </script>
 <style lang="scss" scoped>
 .header {
-  border-top: 1px solid var(--ex-border-color);
-  border-bottom: 1px solid var(--ex-border-color);
+  background: #1a1a1a;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   padding: 20px 0;
+
   .bgImg {
     margin: 0 15px;
     height: 173px;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+
+    &:hover {
+      transform: translateY(-5px);
+    }
+
     .img {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      transition: transform 0.5s ease;
+
+      &:hover {
+        transform: scale(1.05);
+      }
     }
   }
+
   .navigationList {
     padding: 19px 15px 0;
     display: flex;
     justify-content: space-between;
+    gap: 10px;
+
     .item {
       flex: 1;
       text-align: center;
       align-items: center;
       font-size: 12px;
-      color: var(--ex-default-font-color);
       justify-content: center;
-      padding: 0 5px;
+      padding: 12px 5px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 12px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+
+      &:hover {
+        transform: translateY(-3px);
+        background: rgba(255, 255, 255, 0.08);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+      }
+
       .itemImg {
         width: 40px;
         height: 40px;
         margin-bottom: 10px;
+        transition: transform 0.3s ease;
+
+        &:hover {
+          transform: scale(1.1);
+        }
       }
+
       .itemName {
-        // width: 52px;
         text-align: center;
         word-wrap: break-word;
+        color: rgba(255, 255, 255, 0.9);
+        font-weight: 500;
+        transition: color 0.3s ease;
+
+        &:hover {
+          color: #fff;
+        }
       }
     }
   }

@@ -138,79 +138,180 @@ onMounted(() => {
 })
 </script>
 <style lang="scss" scoped>
+.columnFlex {
+  background: #1a1a1a;
+  min-height: 100vh;
+  color: #fff;
+}
+
 .introduction {
-  padding: 20px 17px;
-  border-top: 1px solid var(--ex-border-color);
-  border-bottom: 1px solid var(--ex-border-color);
-  color: var(--ex-passive-font-color);
+  padding: 25px 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  color: #999;
   font-size: 12px;
+  animation: fadeIn 0.5s ease-in-out;
+
   .title {
-    font-size: 16px;
-    color: var(--ex-default-font-color);
-    margin-bottom: 10px;
+    font-size: 18px;
+    color: #fff;
+    margin-bottom: 15px;
+    font-weight: 600;
+    transform: translateY(0);
+    transition: all 0.3s ease;
+
+    &:hover {
+      transform: translateY(-2px);
+    }
   }
+
   .quota {
     width: 100%;
-    height: 50px;
-    background: var(--ex-default-background-color);
-    border-radius: 3px 3px 3px 3px;
-    border: 1px solid var(--ex-border-color2);
-    padding: 0 10px;
-    font-size: 14px;
-    color: var(--ex-default-font-color);
+    height: 55px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 0 15px;
+    font-size: 16px;
+    color: #fff;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+    &:focus {
+      border-color: #3d7eff;
+      box-shadow: 0 6px 12px rgba(61, 126, 255, 0.2);
+      transform: translateY(-2px);
+    }
   }
+
   input::-webkit-input-placeholder {
-    color: var(--ex-font-color1);
-  }
-  input::-moz-input-placeholder {
-    color: var(--ex-font-color1);
-  }
-  input::-ms-input-placeholder {
-    color: var(--ex-font-color1);
+    color: rgba(255, 255, 255, 0.3);
   }
 }
+
 .buyNow {
-  padding: 40px 15px;
-  border-top: 1px solid var(--ex-border-color);
+  padding: 40px 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  animation: slideUp 0.5s ease-out;
+
   .buyBtn {
-    height: 50px;
-    background: var(--ex-div-bgColor1);
-    border-radius: 3px 3px 3px 3px;
-    font-size: 16px;
-    color: var(--ex-font-color);
+    height: 55px;
+    background: linear-gradient(45deg, #3d7eff, #6d5dfc);
+    border-radius: 8px;
+    font-size: 17px;
+    font-weight: 600;
+    color: #fff;
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(61, 126, 255, 0.3);
+
+    &:active {
+      transform: scale(0.98);
+      box-shadow: 0 2px 8px rgba(61, 126, 255, 0.2);
+    }
   }
+
   .protocol {
     display: flex;
     align-items: center;
     justify-content: center;
     margin: auto;
-    padding: 30px 0 0;
+    padding: 35px 0 0;
     font-size: 14px;
     text-align: center;
+    color: rgba(255, 255, 255, 0.7);
+
     .protocolImg {
-      width: 18px;
-      height: 18px;
-      margin-right: 5px;
+      width: 20px;
+      height: 20px;
+      margin-right: 8px;
+      transition: transform 0.2s ease;
+
+      &:active {
+        transform: scale(1.1);
+      }
     }
+
     .hightName {
-      color: var(--ex-font-color2);
-      text-decoration: underline;
+      color: #3d7eff;
+      text-decoration: none;
+      position: relative;
+      
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 100%;
+        height: 1px;
+        background: #3d7eff;
+        transform: scaleX(0);
+        transition: transform 0.3s ease;
+      }
+
+      &:hover::after {
+        transform: scaleX(1);
+      }
     }
   }
 }
+
 .success {
   flex: 1;
   margin: 150px auto;
-  font-size: 14px;
-  color: var(--ex-passive-font-color);
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.8);
   text-align: center;
+  animation: bounceIn 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
   .successImg {
-    width: 114px;
-    height: 112px;
-    margin-bottom: 30px;
+    width: 120px;
+    height: 118px;
+    margin-bottom: 35px;
+    filter: drop-shadow(0 4px 10px rgba(61, 126, 255, 0.3));
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.1);
+  }
+  80% {
+    opacity: 1;
+    transform: scale(0.89);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
   }
 }
 </style>

@@ -137,7 +137,7 @@ header {
   height: 60px;
   padding: 0 15px;
   align-items: center;
-  background-color: #1a1a1a !important;
+  background-color: rgba(26, 26, 26, 0.95) !important;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
   backdrop-filter: blur(10px);
   z-index: 99;
@@ -153,6 +153,10 @@ header {
     div {
       font-size: 16px;
       transition: all 0.3s ease;
+      
+      &:hover {
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+      }
     }
     
     .leftImg {
@@ -178,6 +182,15 @@ header {
       color: rgba(255, 255, 255, 0.9);
       font-size: 14px;
       
+      div {
+        transition: all 0.3s ease;
+        
+        &:hover {
+          color: #ffffff;
+          text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+      }
+      
       .rightBtnImg {
         width: 24px;
         height: 24px;
@@ -193,10 +206,12 @@ header {
         font-size: 24px;
         color: rgba(255, 255, 255, 0.9);
         transition: all 0.3s ease;
+        cursor: pointer;
         
         &:hover {
           color: #ffffff;
           transform: scale(1.1);
+          filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5));
         }
       }
     }
@@ -211,11 +226,16 @@ header {
   color: #ffffff;
   font-weight: 500;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  
+  &:hover {
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  }
 }
 
 @media (prefers-color-scheme: dark) {
   header {
-    background-color: #1a1a1a !important;
+    background-color: rgba(26, 26, 26, 0.95) !important;
   }
 }
 </style>
