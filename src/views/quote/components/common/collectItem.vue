@@ -51,83 +51,127 @@ const props = defineProps({
 
 <style lang="scss" scoped>
 .collectItem {
-  padding: 8px 15px;
+  background: #1a1a1a;
+  margin: 8px 12px;
+  padding: 15px;
+  border-radius: 12px;
   display: flex;
   justify-content: space-between;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+  
+  &:active {
+    transform: scale(0.98);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(255,255,255,0.03), transparent);
+    z-index: 1;
+  }
+
   .left {
     display: flex;
     align-items: center;
+    position: relative;
+    z-index: 2;
+
     .leftImg {
-      width: 25px;
-      height: 25px;
-      margin-right: 10px;
+      width: 32px;
+      height: 32px;
+      margin-right: 12px;
+      border-radius: 50%;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+      transition: transform 0.3s ease;
+
+      &:hover {
+        transform: scale(1.1);
+      }
     }
+
     .topText {
       display: flex;
       align-items: flex-end;
-      font-size: 12px;
-      color: var(--ex-font-color21);
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.6);
+
       .textTop {
-        color: var(--ex-font-color6);
-        font-size: 14px;
+        color: #ffffff;
+        font-size: 16px;
+        font-weight: 500;
+        letter-spacing: 0.5px;
       }
+
       .tip {
-        margin-left: 5px;
-        display: flex;
-        align-items: center;
-        padding: 5px;
-        height: 15px;
-        background: var(--ex-div-bgColor21);
-        border-radius: 1px 1px 1px 1px;
+        margin-left: 8px;
+        padding: 4px 8px;
+        height: auto;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(4px);
+        border-radius: 4px;
         font-size: 12px;
-        font-weight: 400;
-        color: var(--ex-active-font-color) !important;
-      }
-    }
-    .bottomText {
-      margin-top: 4px;
-      display: flex;
-      align-items: center;
-      font-size: 12px;
-      color: var(--ex-font-color21);
-      .bottomTextNum {
-        margin-left: 5px;
-        color: var(--ex-font-color20s);
+        color: #fff;
+        transition: all 0.3s ease;
+
+        &:hover {
+          background: rgba(255, 255, 255, 0.15);
+        }
       }
     }
   }
+
   .right {
     display: flex;
     align-items: center;
+    position: relative;
+    z-index: 2;
+
     .rightLeft {
       text-align: right;
-      font-size: 14px;
-      color: var(--ex-font-color6);
+      font-size: 16px;
+      color: #ffffff;
+      margin-right: 15px;
+
       .numRight {
-        font-size: 12px;
+        font-size: 13px;
         margin-top: 4px;
-        color: var(--ex-font-color20);
+        color: rgba(255, 255, 255, 0.6);
       }
     }
+
     .rightBox {
       height: 100%;
       display: flex;
       align-items: center;
-      justify-content: center;
 
       .rightRight {
-        color: var(--ex-rfd-draw);
-        background-color: var(--ex-rfd-draw-bg);
-        max-width: 80px;
-        min-width: 80px;
-        height: 80%;
-        margin-left: 20px;
-        border-radius: 3px;
-        padding: 12px 0;
+        min-width: 90px;
+        padding: 8px 12px;
+        border-radius: 6px;
         display: flex;
         align-items: center;
         justify-content: center;
         font-size: 14px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        
+        &.rfd-up {
+          background: rgba(14, 203, 129, 0.15);
+          color: #0ECB81;
+        }
+        
+        &.rfd-down {
+          background: rgba(246, 70, 93, 0.15);
+          color: #F6465D;
+        }
       }
     }
   }

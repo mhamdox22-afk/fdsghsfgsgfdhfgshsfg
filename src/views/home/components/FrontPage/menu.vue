@@ -182,6 +182,14 @@ const toRecharge = () => {
     align-items: center;
     margin-bottom: 20px;
     transition: all 0.3s ease;
+    animation: fadeInUp 0.5s ease;
+    animation-fill-mode: both;
+
+    @for $i from 1 through 8 {
+      &:nth-child(#{$i}) {
+        animation-delay: #{$i * 0.1}s;
+      }
+    }
     
     &:active {
       transform: scale(0.95);
@@ -195,8 +203,10 @@ const toRecharge = () => {
       border-radius: 12px;
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
       transition: all 0.3s ease;
+      animation: pulse 2s infinite;
       
       &:hover {
+        animation: bounce 1s;
         transform: translateY(-2px);
         box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
       }
@@ -260,12 +270,14 @@ const toRecharge = () => {
   background: #121212;
   border-radius: 16px;
   margin: 0 15px;
+  animation: fadeInUp 0.8s ease;
 
   .linkLeft {
     min-height: 55px;
     flex: 1;
     display: flex;
     gap: 14px;
+    animation: fadeInLeft 0.5s ease;
 
     .item {
       flex: 1;
@@ -279,6 +291,7 @@ const toRecharge = () => {
       transition: all 0.3s ease;
 
       &:hover {
+        animation: pulse 1s;
         transform: translateY(-2px);
         background: #252525;
         box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
@@ -312,6 +325,7 @@ const toRecharge = () => {
     .rightItem {
       background: #252525;
       border: 1px solid rgba(255, 255, 255, 0.1);
+      animation: fadeInRight 0.5s ease;
 
       &:hover {
         background: #2A2A2A;
@@ -333,8 +347,10 @@ const toRecharge = () => {
     border-radius: 12px;
     background: #1E1E1E;
     transition: all 0.3s ease;
+    animation: fadeInRight 0.5s ease;
 
     &:hover {
+      animation: headShake 1s;
       background: #252525;
       transform: translateY(-2px);
       box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
@@ -376,5 +392,84 @@ const toRecharge = () => {
   --ex-home-box-background-color2: rgba(255, 255, 255, 0.07);
   --ex-home-box-border-color: rgba(255, 255, 255, 0.12);
   --ex-home-font-color: rgba(255, 255, 255, 0.95);
+}
+
+// 添加动画关键帧
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 20px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translate3d(-20px, 0, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translate3d(20px, 0, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes headShake {
+  0% {
+    transform: translateX(0);
+  }
+  6.5% {
+    transform: translateX(-6px) rotateY(-9deg);
+  }
+  18.5% {
+    transform: translateX(5px) rotateY(7deg);
+  }
+  31.5% {
+    transform: translateX(-3px) rotateY(-5deg);
+  }
+  43.5% {
+    transform: translateX(2px) rotateY(3deg);
+  }
+  50% {
+    transform: translateX(0);
+  }
 }
 </style>

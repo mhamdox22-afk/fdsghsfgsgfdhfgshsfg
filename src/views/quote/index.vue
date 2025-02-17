@@ -85,21 +85,32 @@ watch(
 // 搜索
 .search {
   padding: 20px 15px 10px;
+  animation: fadeInDown 0.5s ease-out;
 
   .searchBtn {
     height: 34px;
-    background: var(--ex-div-bgColor22);
-    border-radius: 20px 20px 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
     padding: 0 20px;
     display: flex;
     align-items: center;
     justify-content: center;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+
+    &:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    }
 
     .searchLeft {
       width: 12px;
       height: 12px;
       margin-right: 10px;
       margin-top: -1.5px;
+      opacity: 0.8;
+      transition: all 0.3s ease;
     }
 
     .searchInput {
@@ -107,40 +118,86 @@ watch(
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 12px;
+      font-size: 13px;
       background: transparent;
       flex: 1;
-      color: var(--ex-font-color12);
+      color: rgba(255, 255, 255, 0.9);
+      transition: all 0.3s ease;
+
+      &:focus {
+        color: #fff;
+      }
     }
 
     input::-webkit-input-placeholder {
-      color: var(--ex-font-color12);
-    }
-
-    input::-moz-input-placeholder {
-      color: var(--ex-font-color12);
-    }
-
-    input::-ms-input-placeholder {
-      color: var(--ex-font-color12);
+      color: rgba(255, 255, 255, 0.5);
     }
   }
 }
+
 .headerChoose {
+  animation: fadeInUp 0.5s ease-out;
+  
   :deep(.van-tabs__nav) {
-    background: var(--ex-div-bgColor8) !important;
+    background: rgba(18, 18, 18, 0.95) !important;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
   }
+
   :deep(.van-tab) {
     flex: none;
     font-size: 14px;
     margin-right: 30px;
     padding: 0;
-    color: var(--ex-home-list-ftcolor) !important;
-    background: var(--ex-div-bgColor8) !important;
+    color: rgba(255, 255, 255, 0.7) !important;
+    background: transparent !important;
+    transition: all 0.3s ease;
+    position: relative;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 0;
+      height: 2px;
+      background: #17ac74;
+      transition: all 0.3s ease;
+      transform: translateX(-50%);
+    }
   }
+
   :deep(.van-tab--active) {
-    font-weight: normal;
-    color: var(--ex-home-list-ftcolor3) !important;
+    font-weight: 500;
+    color: #fff !important;
+    text-shadow: 0 0 20px rgba(23, 172, 116, 0.3);
+
+    &::after {
+      width: 20px;
+    }
+  }
+}
+
+// 添加动画关键帧
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 </style>

@@ -38,6 +38,8 @@ declare module 'vue' {
     Tabbar: typeof import('./src/components/Tabbar/index.vue')['default']
     VanActionSheet: typeof import('vant/es')['ActionSheet']
     VanCell: typeof import('vant/es')['Cell']
+    VanCheckbox: typeof import('vant/es')['Checkbox']
+    VanCheckboxGroup: typeof import('vant/es')['CheckboxGroup']
     VanCircle: typeof import('vant/es')['Circle']
     VanCountDown: typeof import('vant/es')['CountDown']
     VanDialog: typeof import('vant/es')['Dialog']
