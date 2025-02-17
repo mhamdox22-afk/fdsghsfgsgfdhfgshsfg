@@ -181,23 +181,38 @@ onMounted(() => {
 <style lang="scss" scoped>
 * {
   font-size: 14px;
-  color: var(--ex-default-font-color);
+  color: #ffffff;
 }
 
 .content_box {
   padding: 0 15px;
+  min-height: 100vh;
+  background: linear-gradient(145deg, #1a1a1a, #2d2d2d);
 
   .title {
     font-size: 30px;
     margin: 30px 0;
+    background: linear-gradient(45deg, #17ac74, #138A5D);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: fadeIn 0.8s ease-in;
   }
 
   .cardOne,
   .cardTwo {
-    padding: 0 20px;
-    background-color: var(--ex-div-bgColor26);
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.05);
     margin-top: 20px;
-    border-radius: 5px;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 40px 0 rgba(31, 38, 135, 0.47);
+    }
   }
 
   .cardOne {
@@ -210,22 +225,19 @@ onMounted(() => {
       flex: 1;
 
       & > div {
-        // padding: 15px 0;
         display: flex;
-        color: var(--ex-font-color13);
-
-        p {
-          margin-left: 20px;
-        }
+        color: #ffffff;
+        padding: 10px 0;
 
         span {
           display: inline-block;
           width: 40px;
+          opacity: 0.8;
         }
       }
 
       .left_top {
-        border-bottom: 1px dashed var(--ex-border-color9);
+        border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
         display: flex;
         align-items: center;
       }
@@ -238,53 +250,68 @@ onMounted(() => {
 
     .huazhuanbtn {
       font-size: 30px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      
+      &:hover {
+        transform: rotate(180deg);
+      }
     }
   }
 
   .cardTwo {
-    padding: 15px 15px;
-
     .top {
       margin-bottom: 15px;
-      color: var(--ex-font-color13);
+      color: rgba(255, 255, 255, 0.8);
     }
 
     .bottom {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 1px solid var(--ex-border-color8);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      padding-bottom: 10px;
 
       i {
         padding: 0 10px;
+        color: rgba(255, 255, 255, 0.3);
       }
 
       span {
-        color: var(--ex-font-color2);
+        color: #17ac74;
+        cursor: pointer;
+        transition: color 0.3s ease;
+        
+        &:hover {
+          color: #138A5D;
+        }
       }
 
       input {
         flex: 1;
         margin-right: 20px;
-        padding-bottom: 12px;
-
+        padding: 8px 0;
         background-color: transparent;
-      }
+        color: #ffffff;
+        border: none;
 
-      input::placeholder {
-        color: var(--ex-font-color5);
+        &::placeholder {
+          color: rgba(255, 255, 255, 0.3);
+        }
       }
     }
   }
 
   .keyong {
     margin-top: 15px;
-    color: var(--ex-font-color13);
+    color: rgba(255, 255, 255, 0.6);
     font-size: 12px;
+    animation: slideIn 0.5s ease-out;
   }
 
   .btnBox {
     margin-top: 50px;
+    animation: fadeInUp 0.8s ease-out;
   }
 }
 
@@ -300,23 +327,54 @@ onMounted(() => {
 }
 
 :deep(.van-cell) {
-  background: var(--ex-default-background-color) !important;
-  color: var(--ex-default-font-color);
+  background: #2d2d2d !important;
+  color: #ffffff;
 }
 
 :deep(.van-dropdown-menu__bar) {
   background-color: transparent;
   box-shadow: none;
-  // height: auto;
 }
 
 :deep(.van-dropdown-menu__title) {
-  color: var(--ex-default-font-color);
+  color: #ffffff;
   font-size: 14px;
   padding-left: 20px;
 }
 
 :deep(.van-dropdown-menu__title:after) {
-  border-color: transparent transparent var(--ex-border-color9) var(--ex-border-color9);
+  border-color: transparent transparent rgba(255, 255, 255, 0.3) rgba(255, 255, 255, 0.3);
+}
+
+// Animations
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 </style>

@@ -1,11 +1,9 @@
 <template>
-  <div>
+  <div class="assets-container">
     <van-tabs
       shrink
       v-model:active="tabActive"
-      title-inactive-color="#333"
-      title-active-color="#17AC74"
-      color="#17AC74"
+      title-inactive-color="#8E8E8E"
       line-width="16"
       @click-tab="clickTab"
     >
@@ -17,36 +15,43 @@
       ></van-tab>
     </van-tabs>
 
-    <!-- 平台资产 platAccount-->
-    <Plat
-      v-show="tabActive == '平台资产'"
-      :amountSum="amountSum"
-      :assetDetails="assetDetails"
-      @handleYanjin="handleYanjin"
-      @handleShuaxin="handleShuaxin"
-      :showNum="showNum"
-      :type="tabActive"
-    ></Plat>
-    <!-- 理财资产 financAccount-->
-    <financ
-      v-show="tabActive == '理财资产'"
-      :amountSum="amountSum"
-      :assetDetails="assetDetails"
-      @handleYanjin="handleYanjin"
-      @handleShuaxin="handleShuaxin"
-      :showNum="showNum"
-      :type="tabActive"
-    ></financ>
-    <!-- 合约资产 contarctAccount-->
-    <Contarct
-      v-show="tabActive == '合约资产'"
-      :amountSum="amountSum"
-      :assetDetails="assetDetails"
-      @handleYanjin="handleYanjin"
-      @handleShuaxin="handleShuaxin"
-      :showNum="showNum"
-      :type="tabActive"
-    ></Contarct>
+    <div class="tab-content">
+      <transition name="fade" mode="out-in">
+        <Plat
+          v-show="tabActive == '平台资产'"
+          :amountSum="amountSum"
+          :assetDetails="assetDetails"
+          @handleYanjin="handleYanjin"
+          @handleShuaxin="handleShuaxin"
+          :showNum="showNum"
+          :type="tabActive"
+        ></Plat>
+      </transition>
+
+      <transition name="fade" mode="out-in">
+        <financ
+          v-show="tabActive == '理财资产'"
+          :amountSum="amountSum"
+          :assetDetails="assetDetails"
+          @handleYanjin="handleYanjin"
+          @handleShuaxin="handleShuaxin"
+          :showNum="showNum"
+          :type="tabActive"
+        ></financ>
+      </transition>
+
+      <transition name="fade" mode="out-in">
+        <Contarct
+          v-show="tabActive == '合约资产'"
+          :amountSum="amountSum"
+          :assetDetails="assetDetails"
+          @handleYanjin="handleYanjin"
+          @handleShuaxin="handleShuaxin"
+          :showNum="showNum"
+          :type="tabActive"
+        ></Contarct>
+      </transition>
+    </div>
   </div>
 </template>
 
@@ -193,31 +198,90 @@ onMounted(() => {
 </script>
 
 <style lang="scss" scoped>
+.assets-container {
+  min-height: 100vh;
+  background: linear-gradient(180deg, #1a1a1a 0%, #0d0d0d 100%);
+  color: #fff;
+}
+
+.tab-content {
+  padding: 16px;
+}
+
+// 过渡动画
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
 :deep(.van-tabs__wrap) {
   height: 60px;
-  // font-family: PingFang SC-Bold, PingFang SC;
-  border-bottom: 1px solid var(--ex-border-color);
-  background: var(--ex-home-list-bgcolor) !important;
+  backdrop-filter: blur(10px);
+  background: rgba(26, 26, 26, 0.8) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 
   .van-tab__text {
     font-size: 16px;
-    font-weight: normal;
+    font-weight: 500;
+    letter-spacing: 0.5px;
   }
 
   .van-tab--shrink {
     margin-right: 20px;
+    position: relative;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 0;
+      background: #17AC74;
+      transition: all 0.3s ease;
+    }
+
+    &.van-tab--active::after {
+      width: 100%;
+      left: 0;
+    }
   }
 }
 
 :deep(.van-tabs__nav) {
-  background: var(--ex-home-list-bgcolor) !important;
+  background: transparent !important;
 }
 
 :deep(.van-tab) {
-  color: var(--ex-home-list-ftcolor) !important;
+  color: rgba(255, 255, 255, 0.6) !important;
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: rgba(255, 255, 255, 0.8) !important;
+  }
 }
 
 :deep(.van-tab--active) {
-  color: var(--ex-home-list-ftcolor3) !important;
+}
+
+// 添加响应式设计
+@media screen and (max-width: 768px) {
+  .tab-content {
+    padding: 12px;
+  }
+
+  :deep(.van-tabs__wrap) {
+    height: 50px;
+
+    .van-tab__text {
+      font-size: 14px;
+    }
+  }
 }
 </style>

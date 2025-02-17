@@ -404,121 +404,227 @@ const submit = () => {
 </script>
 
 <style lang="scss" scoped>
-* {
-  font-size: 14px;
-  color: var(--ex-default-font-color);
+.swap-container {
+  min-height: 100vh;
+  background: #13151C;
+  padding: 15px;
+  box-sizing: border-box;
+  max-width: 100vw;
+  overflow-x: hidden;
 }
+
 .content {
-  padding: 30px 15px;
+  margin-top: 15px;
+
   .from,
   .to {
+    background: #1C1F2A;
+    border-radius: 12px;
+    padding: 15px;
+    margin-bottom: 12px;
+    width: 100%;
+    box-sizing: border-box;
+
     display: flex;
     justify-content: space-between;
-    padding: 15px 10px;
-    border: 1px solid var(--ex-border-color1);
-    border-radius: 3px;
+    align-items: center;
+    gap: 10px;
+    
+    input {
+      flex: 1;
+      min-width: 0; // 防止input溢出
+      background: transparent;
+      border: none;
+      font-size: 20px;
+      color: #fff;
+      font-weight: 500;
+      padding: 0;
+      
+      &::placeholder {
+        color: rgba(255, 255, 255, 0.3);
+      }
+    }
+
     & > div {
       display: flex;
-      justify-content: space-around;
       align-items: center;
+      gap: 8px;
+      flex-shrink: 0; // 防止收缩
+
       .left {
-        color: var(--ex-font-color9);
+        color: #3C89FF;
+        font-size: 13px;
+        padding: 4px 8px;
       }
+
       span {
-        margin: 0 15px;
-        font-size: 12px;
-        color: var(--ex-passive-font-color);
+        color: rgba(255, 255, 255, 0.2);
+        margin: 0 4px;
       }
+
       .right {
         display: flex;
         align-items: center;
+        gap: 6px;
+        background: #272B38;
+        padding: 6px 12px;
+        border-radius: 8px;
+        white-space: nowrap; // 防止文字换行
+        
         .svgImg {
-          margin-left: 10px;
           width: 20px;
           height: 20px;
+          flex-shrink: 0;
+          
           .icon {
             font-size: 20px;
           }
+          
           .iconImg {
             width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
           }
         }
       }
     }
-    input {
-      flex: 1;
-      color: var(--ex-font-color20);
-      background: var(--ex-default-background-color);
-    }
-    input::placeholder {
-      color: var(--ex-font-color20);
-    }
   }
+
   .exchange_btn {
-    padding: 40px 0;
-    text-align: center;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 15px 0;
+
     .dui {
-      font-size: 40px;
+      font-size: 28px;
+      color: #3C89FF;
+      padding: 8px;
     }
   }
+
   .rate {
     display: flex;
-    margin-top: 20px;
+    align-items: center;
+    gap: 6px;
+    padding: 12px;
+    background: #1C1F2A;
+    border-radius: 8px;
+    margin-top: 15px;
+    font-size: 13px;
+    flex-wrap: wrap; // 允许换行
+    
     p {
-      color: var(--ex-passive-font-color);
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    span {
+      color: rgba(255, 255, 255, 0.8);
     }
   }
 }
+
 .btn {
-  padding: 20px 15px 50px;
+  margin-top: 24px;
+  padding: 0 4px;
+  
   p {
-    padding: 14px 0;
-    font-size: 16px;
-    color: var(--ex-font-color);
-    background-color: var(--ex-div-bgColor1);
-    border-radius: 3px;
-    text-align: center;
+    background: #3C89FF;
+    color: #fff;
+    height: 48px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    font-weight: 500;
+
+    &:active {
+      background: #3576db;
+    }
   }
 }
+
+// 币种选择面板
 .coinList {
-  max-height: 250px;
+  max-height: 60vh;
+  overflow-y: auto;
+  padding: 16px;
+  background: #1C1F2A;
 }
+
 .coinItem {
   display: flex;
   align-items: center;
-  padding: 15px 0;
-  flex: 1;
-  background: var(--ex-default-background-color);
+  padding: 16px;
+  gap: 12px;
+  border-radius: 12px;
+  margin-bottom: 8px;
+  transition: background 0.2s;
 
-  div {
-    flex: 1;
+  &:active {
+    background: #272B38;
   }
+
   .svgImg {
-    text-align: right;
-    // width: 30px;
-    // height: 30px;
-    .icon {
-      text-align: right;
-      font-size: 30px;
-    }
-    .iconImg {
-      width: 30px;
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+    
+    .icon, .iconImg {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
     }
   }
+
   p {
+    color: #fff;
     font-size: 16px;
-    color: var(--ex-passive-font-color);
-  }
-  & > div:first-child {
-    text-align: end;
-    margin-right: 5px;
-  }
-  & > div:last-child {
-    text-align: start;
-    margin-left: 5px;
+    font-weight: 500;
   }
 }
-input:disabled {
-  background-color: var(--ex-default-background-color);
+
+:deep(.van-action-sheet) {
+  background: #13151C !important;
+  
+  .van-action-sheet__header {
+    background: #13151C;
+    color: #fff;
+    padding: 16px;
+    font-size: 16px;
+    font-weight: 500;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .van-action-sheet__cancel {
+    background: #13151C !important;
+    color: rgba(255, 255, 255, 0.6) !important;
+    
+    &:active {
+      background: #272B38 !important;
+    }
+  }
+
+  // 去除默认边框
+  .van-hairline--top {
+    &::after {
+      border-top-color: rgba(255, 255, 255, 0.05);
+    }
+  }
+
+  // 修改滚动条样式
+  ::-webkit-scrollbar {
+    width: 4px;
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 2px;
+  }
 }
 </style>

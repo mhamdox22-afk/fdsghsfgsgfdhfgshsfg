@@ -149,45 +149,123 @@ const toRecharge = (url) => {
 <style lang="scss" scoped>
 * {
   font-size: 14px;
-  color: var(--ex-default-font-color);
+  color: #ffffff;
 }
+
 .userAmount {
-  // margin-top: 61px;
-  padding: 30px 15px;
-  // border-bottom: 1px solid var(--ex-border-color);
-  display: flex;
-  flex-direction: column;
+  background: linear-gradient(145deg, #1a1a1a, #2d2d2d);
+  border-radius: 16px;
+  padding: 30px 20px;
+  margin: 15px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.36);
+  backdrop-filter: blur(4px);
+  transition: all 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 40px 0 rgba(0, 0, 0, 0.45);
+  }
+
   div {
     display: flex;
     align-items: center;
     margin-bottom: 25px;
+    
     .yanjin {
-      font-size: 14px;
+      font-size: 16px;
       margin-left: 15px;
       margin-right: 15px;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+      
+      &:hover {
+        transform: scale(1.1);
+      }
     }
+    
     .shuaxin {
-      font-size: 12px;
+      font-size: 14px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      
+      &:hover {
+        transform: rotate(180deg);
+      }
     }
+    
     p {
       font-size: 14px;
-      color: var(--ex-passive-font-color);
+      color: rgba(255, 255, 255, 0.7);
     }
   }
+  
   & > p {
-    font-size: 30px;
+    font-size: 34px;
+    font-weight: 600;
+    background: linear-gradient(90deg, #fff, #a5a5a5);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: fadeIn 0.5s ease;
   }
 }
+
 .currencyAbout {
-  padding: 0 5px 20px;
-  display: flex;
-  text-align: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  gap: 15px;
+  padding: 20px 15px;
+  
   & > div {
-    width: 25%;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 15px 10px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+    &:hover {
+      background: rgba(255, 255, 255, 0.1);
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    }
+    
+    .currencyIcon {
+      font-size: 32px;
+      margin-bottom: 10px;
+      transition: transform 0.3s ease;
+    }
+    
+    &:hover .currencyIcon {
+      transform: scale(1.1);
+    }
+    
+    p {
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.9);
+      margin-top: 8px;
+      text-align: center;
+    }
   }
-  .currencyIcon {
-    font-size: 40px;
-    margin-bottom: 10px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
   }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// 添加深色主题相关的CSS变量覆盖
+:root {
+  --ex-default-font-color: #ffffff;
+  --ex-passive-font-color: rgba(255, 255, 255, 0.7);
+  --ex-border-color: rgba(255, 255, 255, 0.1);
 }
 </style>
