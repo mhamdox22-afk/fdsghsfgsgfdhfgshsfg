@@ -120,123 +120,209 @@ const submit = () => {
 <style lang="scss" scoped>
 * {
   font-size: 16px;
-  color: var(--ex-default-font-color);
+  color: #ffffff;
 }
+
 .header {
   display: flex;
   .title {
     margin-left: 10px;
   }
 }
+
 .content-box {
   width: 100%;
+  min-height: calc(100vh - 60px);
+  background: #1a1a1a;
+  padding: 20px 0;
 
   .bind-not {
     padding: 0 15px;
+    animation: fadeIn 0.5s ease;
+
     .item {
       width: 100%;
-
+      
       .text {
         margin: 20px 0;
         font-size: 14px;
-        color: var(--ex-default-font-color);
+        color: #ffffff;
+        opacity: 0.9;
+        transform: translateY(0);
+        transition: all 0.3s ease;
+        
+        &:hover {
+          transform: translateY(-2px);
+        }
       }
 
       .input {
         width: 100%;
         height: 50px;
-        padding: 0 10px;
-        border: 1px solid var(--ex-border-color1);
-        background: var(--ex-default-background-color);
-        border-radius: 3px 3px 3px 3px;
+        padding: 0 15px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 8px;
         display: flex;
         justify-content: space-between;
         align-items: center;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+
+        &:focus-within {
+          border-color: rgba(255, 255, 255, 0.2);
+          box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+          transform: translateY(-2px);
+        }
 
         input {
           height: 100%;
           background: none;
           border: none;
           font-size: 14px;
+          color: #ffffff;
+          width: 100%;
+
+          &::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+          }
         }
+
         .code-box {
           min-width: 44px;
           height: 30px;
-          background: var(--ex-div-bgColor1);
-          border-radius: 2px 2px 2px 2px;
+          background: rgba(255, 255, 255, 0.1);
+          border-radius: 6px;
           display: flex;
           justify-content: center;
           align-items: center;
-          color: var(--ex-font-color);
+          transition: all 0.3s ease;
+
+          &:active {
+            transform: scale(0.95);
+          }
+
           div {
             font-size: 14px;
-            color: var(--ex-font-color);
+            color: #ffffff;
           }
         }
       }
     }
+
     .btnBox {
       margin-top: 50px;
-    }
+      transform: translateY(0);
+      transition: all 0.3s ease;
 
-    .back {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 50px;
-      background: var(--ex-default-background-color);
-      border: 1px solid var(--ex-border-color4);
-      color: var(--ex-font-color9);
-      font-size: 14px;
+      &:active {
+        transform: translateY(2px);
+      }
     }
   }
 
   .bind-yes {
     padding: 0 15px;
+    animation: slideUp 0.6s ease;
+
     .top {
       margin-top: 80px;
       display: flex;
       flex-direction: column;
       align-items: center;
+
       img {
         width: 132px;
         height: 100px;
+        animation: float 3s ease-in-out infinite;
       }
+
       .text {
-        color: var(--ex-font-color6);
+        color: #ffffff;
         text-align: center;
-        font-size: 16px;
+        font-size: 18px;
         margin: 30px 0 20px 0;
+        font-weight: 500;
       }
+
       .email {
         text-align: center;
         font-size: 14px;
-        color: var(--ex-font-color17);
+        color: rgba(255, 255, 255, 0.7);
       }
     }
+
     .change-email {
-      margin: 50px 0 20px 0;
       margin: 100px 0 20px 0;
+      height: 50px;
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 50px;
-      color: var(--ex-font-color);
-      background: var(--ex-div-bgColor1);
+      background: rgba(255, 255, 255, 0.1);
+      color: #ffffff;
       font-size: 14px;
-      border-radius: 3px 3px 3px 3px;
-      opacity: 1;
+      border-radius: 8px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+
+      &:active {
+        transform: scale(0.98);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+      }
     }
+
     .back {
       font-size: 14px;
+      height: 50px;
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 50px;
-      background: var(--ex-default-background-color);
-      border: 1px solid var(--ex-border-color4);
-      color: var(--ex-font-color9);
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: rgba(255, 255, 255, 0.7);
+      border-radius: 8px;
+      transition: all 0.3s ease;
+
+      &:active {
+        transform: scale(0.98);
+      }
     }
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
   }
 }
 </style>

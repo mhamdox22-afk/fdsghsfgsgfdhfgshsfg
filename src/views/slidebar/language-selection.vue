@@ -10,8 +10,8 @@
     <div class="content">
       <!-- 选择语言 -->
       <!-- <div>{{$t('sidebar_language_title')}}</div> -->
-      <div>{{ _t18('sidebar_language') }}</div>
-      <van-radio-group v-model="checked">
+      <div class="title">{{ _t18('sidebar_language') }}</div>
+      <van-radio-group v-model="checked" class="language-list">
         <van-radio
           :name="index"
           shape="square"
@@ -20,12 +20,15 @@
           label-position="left"
           :checked-color="'#17AC74'"
           @click="setLanguage(item)"
+          class="language-item"
         >
-          <image-load :filePath="item.imgUrl" alt="" width="20" class="nation" v-if="item.imgUrl" />
-          <svg-load v-else :name="item.dictValue" class="nation"></svg-load>
-          {{ item.remark }}
+          <div class="language-icon">
+            <image-load :filePath="item.imgUrl" alt="" width="20" class="nation" v-if="item.imgUrl" />
+            <svg-load v-else :name="item.dictValue" class="nation"></svg-load>
+          </div>
+          <span class="language-name">{{ item.remark }}</span>
           <template #icon="props">
-            <svg-load :name="props.checked ? `gou-yuyan` : `gou-yuyanno`"></svg-load>
+            <svg-load :name="props.checked ? `gou-yuyan` : `gou-yuyanno`" class="check-icon"></svg-load>
           </template>
         </van-radio>
       </van-radio-group>
@@ -68,28 +71,99 @@ const languageList = mainStore.languageList
 const cuttentRight = { iconRight: [{ iconName: 'kefu', clickTo: 'event_serviceChange' }] }
 </script>
 <style lang="scss" scoped>
-* {
-  color: var(--ex-default-font-color);
+.bind-card {
+  min-height: 100vh;
+  background: linear-gradient(145deg, #1a1a1a, #2d2d2d);
 }
+
 .content {
-  padding: 30px 15px;
-  text-align: left;
-  & > div {
-    font-size: 16px;
+  padding: 30px 20px;
+  
+  .title {
+    font-size: 24px;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
   }
-  .van-radio {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 0 10px 0;
-    :deep(.van-radio__label) {
-      font-size: 14px;
-      color: var(--ex-default-font-color);
+
+  .language-list {
+    display: grid;
+    gap: 15px;
+  }
+
+  .language-item {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 20px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .language-icon {
+      display: flex;
+      align-items: center;
+      margin-right: 15px;
+
+      .nation {
+        font-size: 28px;
+        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+      }
+    }
+
+    .language-name {
+      font-size: 16px;
+      color: #ffffff;
+      font-weight: 500;
+    }
+
+    .check-icon {
+      color: #17AC74;
+      filter: drop-shadow(0 2px 4px rgba(23, 172, 116, 0.3));
     }
   }
-  .nation {
-    font-size: 24px;
-    margin-right: 20px;
+
+  :deep(.van-radio) {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin: 0;
+    
+    .van-radio__label {
+      flex: 1;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+    }
+  }
+}
+
+// 添加动画
+.language-item {
+  animation: fadeInUp 0.5s ease forwards;
+  opacity: 0;
+  @for $i from 1 through 10 {
+    &:nth-child(#{$i}) {
+      animation-delay: $i * 0.1s;
+    }
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 </style>
+

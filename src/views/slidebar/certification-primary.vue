@@ -101,66 +101,153 @@ const reSubmit = () => {
 <style lang="scss" scoped>
 .content {
   padding: 30px 15px 0 15px;
-  color: var(--ex-default-font-color);
+  color: #fff;
+  animation: fadeIn 0.5s ease-in-out;
+
   .tip {
     font-size: 12px;
-    color: var(--ex-tip-font-color);
+    color: rgba(255, 255, 255, 0.6);
+    transform: translateY(0);
+    transition: all 0.3s ease;
+    
+    &:hover {
+      transform: translateY(-2px);
+    }
   }
+
   .tip_info {
     font-size: 12px;
     text-align: left;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    backdrop-filter: blur(10px);
+    margin: 15px 0;
   }
+
   .advanced_txt {
     margin-bottom: 20px;
     text-align: left;
   }
+
   .form {
     padding-top: 5px;
     .formInput {
-      padding: 0 10px;
+      padding: 0 15px;
       display: flex;
       justify-content: flex-start;
-      background: var(--ex-input-background-color);
-      border-radius: 3px;
-      border: 1px solid var(--ex-border-color1);
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
       align-items: center;
       margin: 20px 0;
+      transition: all 0.3s ease;
+      
+      &:focus-within {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        border-color: rgba(255, 255, 255, 0.2);
+      }
+
       .label {
         width: 70px;
         font-size: 14px;
-        color: var(--ex-input-label-color);
+        color: rgba(255, 255, 255, 0.8);
         text-align: left;
       }
+
       input {
         width: 100%;
         height: 46px;
         font-size: 14px;
+        color: #fff;
         background-color: transparent;
+        
         &::placeholder {
-          color: var(--ex-input-font-color);
+          color: rgba(255, 255, 255, 0.3);
           font-size: 14px;
         }
       }
     }
   }
+
   .btnBox {
     width: 100%;
     margin-top: 50px;
+    transform: translateY(0);
+    transition: all 0.3s ease;
+    
+    &:active {
+      transform: scale(0.98);
+    }
   }
 }
+
 .fromContent {
-  color: var(--ex-default-font-color);
+  color: #fff;
   padding: 30px 15px;
+  animation: slideUp 0.5s ease-out;
+  
   div {
     margin-bottom: 20px;
     padding: 16px 13px;
-    background-color: var(--ex-div-bgColor20);
-    border-radius: 3px;
-    color: var(--ex-default-font-color);
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
   }
 }
+
 .success {
-  color: var(--ex-default-font-color);
+  color: #fff;
   margin-top: 100px;
+  animation: bounceIn 0.6s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes bounceIn {
+  0% {
+    transform: scale(0.3);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.8;
+  }
+  70% {
+    transform: scale(0.9);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 </style>

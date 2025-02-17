@@ -36,34 +36,134 @@ const changeMethod = () => {
 </script>
 
 <template>
-  <div>
+  <div class="change-password-container">
     <!-- 导航条 -->
     <HeaderBar
         :currentName="notPwd ? _t18('sidebar_loginPwd',['bitmake']) : _t18('password_set')"
         :cuttentRight="cuttentRight"
         :border_bottom="true"
+        class="header-animate"
     ></HeaderBar>
-    <!-- 添加登录密码 -->
-    <SetForm v-if="!loginPassword && updateLoginPwdMethod"></SetForm>
-    <!-- 修改登录密码 -->
-    <AccountForm v-if="loginPassword && updateLoginPwdMethod"></AccountForm>
-    <EmailForm v-if="loginPassword &&  !updateLoginPwdMethod"></EmailForm>
-    <div class="box" v-if="loginPassword">
-      <div class="set" @click="changeMethod" v-if="!updateLoginPwdMethod ">{{ _t18('password_update_pwd') }}</div>
-      <div class="set" @click="changeMethod" v-else>{{ _t18('password_update_email') }}</div>
+    
+    <div class="form-container">
+      <!-- 添加登录密码 -->
+      <transition name="fade">
+        <SetForm v-if="!loginPassword && updateLoginPwdMethod" class="form-card"></SetForm>
+      </transition>
+      <!-- 修改登录密码 -->
+      <transition name="fade">
+        <AccountForm v-if="loginPassword && updateLoginPwdMethod" class="form-card"></AccountForm>
+      </transition>
+      <transition name="fade">
+        <EmailForm v-if="loginPassword &&  !updateLoginPwdMethod" class="form-card"></EmailForm>
+      </transition>
     </div>
+
+    <transition name="slide-up">
+      <div class="box" v-if="loginPassword">
+        <div class="set-button" @click="changeMethod" v-if="!updateLoginPwdMethod">
+          {{ _t18('password_update_pwd') }}
+        </div>
+        <div class="set-button" @click="changeMethod" v-else>
+          {{ _t18('password_update_email') }}
+        </div>
+      </div>
+    </transition>
   </div>
 </template>
 
 <style lang="scss" scoped>
-.box {
-  padding: 0 15px;
+.change-password-container {
+  min-height: 100vh;
+  background: #1a1a1a;
+  color: #ffffff;
+}
 
-  .set {
+.header-animate {
+  animation: slideDown 0.3s ease-out;
+}
+
+.form-container {
+  padding: 20px;
+}
+
+.form-card {
+  background: #2a2a2a;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  transform-origin: top;
+  animation: scaleIn 0.3s ease-out;
+}
+
+.box {
+  padding: 0 20px;
+  
+  .set-button {
+    background: #333333;
     margin-top: 20px;
+    padding: 15px;
+    border-radius: 8px;
     text-align: left;
     font-size: 14px;
-    color: var(--ex-font-color9);
+    color: #ffffff;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    
+    &:active {
+      transform: scale(0.98);
+      background: #404040;
+    }
   }
+}
+
+// 动画定义
+@keyframes slideDown {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+// 过渡动画
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.3s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.slide-up-enter-active,
+.slide-up-leave-active {
+  transition: all 0.3s ease;
+}
+
+.slide-up-enter-from {
+  transform: translateY(20px);
+  opacity: 0;
+}
+
+.slide-up-leave-to {
+  transform: translateY(-20px);
+  opacity: 0;
 }
 </style>
