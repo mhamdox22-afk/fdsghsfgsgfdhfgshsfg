@@ -649,43 +649,59 @@ onUnmounted(() => {
 .content {
   display: flex;
   padding: 20px 15px;
+  background: #1a1a1a; // 深色背景
+  min-height: 100vh;
+  
+  // 添加渐变背景
+  background: linear-gradient(145deg, #1a1a1a, #2d2d2d);
 }
 .content_right {
   flex: 1;
+  transition: all 0.3s ease;
+
   .rightFirst {
     height: 33px;
     font-size: 12px;
     display: flex;
     justify-content: space-between;
+    gap: 10px;
+
     .firstItem {
-      background: var(--ex-div-bgColor);
-      border-radius: 2px 2px 2px 2px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 8px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+      }
     }
-    .left {
-      width: 104px;
-    }
-    .right {
-      width: 66px;
-    }
+
     .entrustSelect {
-      // background: var(--ex-default-background-color);
-      padding: 0 10px;
+      color: #fff;
+      padding: 0 15px;
       height: 33px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       position: relative;
-      color: var(--ex-default-font-color);
+      border-radius: 8px;
+      transition: all 0.3s ease;
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.1);
+      }
 
       .img {
         width: 10px;
         height: 5px;
+        transition: transform 0.3s ease;
       }
     }
-    .entrustSelect2 {
-      justify-content: center;
-    }
   }
+
   .rightThird {
     margin-top: 10px;
     width: 180px;
@@ -761,15 +777,18 @@ onUnmounted(() => {
     margin-top: 10px;
     .amount {
       width: 180px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 33px;
-      background: var(--ex-div-bgColor);
-      border-radius: 2px;
-      font-size: 12px;
-      color: var(--ex-default-font-color);
+      height: 40px; // 增加高度
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: #fff;
       text-align: center;
+      transition: all 0.3s ease;
+      
+      &:focus {
+        border-color: #3498db;
+        box-shadow: 0 0 10px rgba(52, 152, 219, 0.3);
+      }
     }
     input::-webkit-input-placeholder {
       color: var(--ex-font-color1);
@@ -797,28 +816,47 @@ onUnmounted(() => {
   .rightSeven {
     margin-top: 16px;
     .maybutton {
-      height: 40px;
-      background: var(--ex-div-bgColor1);
-      border-radius: 3px 3px 3px 3px;
+      height: 45px; // 增加按钮高度
+      background: linear-gradient(45deg, #3498db, #2980b9);
+      border-radius: 8px;
       font-size: 14px;
-      color: var(--ex-font-color);
+      color: #fff;
       display: flex;
       justify-content: center;
       align-items: center;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
+      }
+
+      &.hightColorRed {
+        background: linear-gradient(45deg, #e74c3c, #c0392b);
+        box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+
+        &:hover {
+          box-shadow: 0 6px 20px rgba(231, 76, 60, 0.4);
+        }
+      }
     }
   }
   .nineSix {
+    padding: 12px;
     margin-top: 15px;
-    flex: 1;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 12px;
-    color: var(--ex-passive-font-color);
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.08);
+    }
+
     .number {
-      text-align: right;
-      color: var(--ex-default-font-color);
+      color: #fff;
+      font-weight: 500;
     }
   }
 }
@@ -851,8 +889,20 @@ onUnmounted(() => {
   z-index: 2;
   height: 1px;
   top: -1px;
+  .van-slider__button {
+    width: 20px;
+    height: 20px;
+    background: #3498db;
+    box-shadow: 0 2px 10px rgba(52, 152, 219, 0.4);
+    transition: all 0.3s ease;
+
+    &:active {
+      transform: scale(1.1);
+    }
+  }
+
   .van-slider__bar {
-    transform: scaleY(2);
+    background: linear-gradient(90deg, #3498db, #2980b9);
   }
 }
 .line {
@@ -875,5 +925,31 @@ onUnmounted(() => {
     padding: 0 8px;
     font-size: 12px;
   }
+}
+
+// 添加页面切换动画
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.3s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+// 添加滚动条样式
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
 }
 </style>

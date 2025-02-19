@@ -64,109 +64,183 @@ const emits = defineEmits(['showSidePopup'])
 .top {
   padding: 20px 15px 0;
   z-index: 9;
-  background-color: var(--ex-default-background-color);
+  background: linear-gradient(180deg, #1a1a1a 0%, #252525 100%);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  border-radius: 0 0 20px 20px;
+  transition: all 0.3s ease;
+
   .first {
     display: flex;
     justify-content: space-between;
+    animation: slideDown 0.5s ease;
+
     .firLeft {
       display: flex;
       align-items: center;
       font-size: 16px;
-      color: var(--ex-default-font-color);
+      color: #ffffff;
+      padding: 8px 15px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 12px;
+      backdrop-filter: blur(5px);
+      transition: all 0.3s ease;
+
+      &:active {
+        transform: scale(0.98);
+      }
+
       .firLeftImg {
         width: 17px;
         height: 14px;
         margin-right: 10px;
+        filter: brightness(2);
+        transition: transform 0.3s ease;
+
+        &:hover {
+          transform: rotate(-5deg);
+        }
       }
-      .firNum {
-        font-size: 14px;
-        margin-left: 10px;
+
+      .fw-bold {
+        background: linear-gradient(90deg, #fff 0%, #e0e0e0 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
       }
     }
+
     .senLeftImg {
-      margin-left: 10px;
+      margin-left: 15px;
       display: block;
       width: 24px;
       height: 24px;
+      padding: 5px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 50%;
+      transition: all 0.3s ease;
+      filter: brightness(2);
+
+      &:active {
+        transform: scale(0.95);
+        background: rgba(255, 255, 255, 0.1);
+      }
     }
   }
+
   .second {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 0 10px;
+    padding: 25px 0 15px;
+    animation: slideUp 0.5s ease 0.2s both;
+
     .secondLeft {
       font-size: 36px;
       font-weight: bold;
-      color: var(--ex-font-color10);
-      > * {
-        transition: 0.3s;
-      }
+      color: #ffffff;
+      text-shadow: 0 2px 10px rgba(255, 255, 255, 0.1);
+      
       .secondLeftB {
         font-size: 14px;
         margin-top: 5px;
+        color: rgba(255, 255, 255, 0.7);
       }
     }
+
     .secondRight {
       .secondItem {
         display: flex;
         align-items: center;
-        padding: 6px 0;
+        padding: 8px 0;
         font-size: 14px;
         justify-content: space-between;
+        
         .itemL {
-          color: var(--ex-passive-font-color);
-          margin-right: 10px;
+          color: rgba(255, 255, 255, 0.5);
+          margin-right: 12px;
         }
 
         .itemR {
-          color: var(--ex-default-font-color);
+          color: #ffffff;
         }
       }
     }
   }
+
   .third {
     margin-top: 20px;
+    animation: slideUp 0.5s ease 0.3s both;
+
     .list {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      padding: 10px 0;
+
       .thirdLeft {
         display: flex;
         font-size: 14px;
-        color: var(--ex-default-font-color);
+        color: #ffffff;
+
         .item {
           margin-right: 30px;
+          position: relative;
+          
+          &:after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #fff;
+            transition: width 0.3s ease;
+          }
+
+          &:hover:after {
+            width: 100%;
+          }
         }
       }
+
       .thirdRight {
         display: flex;
         align-items: center;
         font-size: 14px;
-        color: var(--ex-font-color9);
+        color: rgba(255, 255, 255, 0.7);
+        
         .thirdRightImg {
           width: 10px;
           height: 6px;
           margin-left: 5px;
+          transition: transform 0.3s ease;
+        }
+
+        &:hover .thirdRightImg {
+          transform: translateY(2px);
         }
       }
     }
   }
 }
+
 .selectTimes {
   position: fixed;
   height: 100vh;
   width: var(--ex-max-width);
-  background: rgba($color: #000000, $alpha: 0.6);
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(5px);
   z-index: 10;
+
   .times {
-    background-color: var(--ex-default-background-color);
+    background: linear-gradient(180deg, #1a1a1a 0%, #252525 100%);
     position: absolute;
     width: 100%;
     height: 84px;
     display: flex;
     align-items: center;
-    border-radius: 0px 0px 15px 15px;
+    border-radius: 0 0 20px 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+
     .item {
       display: flex;
       align-items: center;
@@ -174,11 +248,39 @@ const emits = defineEmits(['showSidePopup'])
       margin: 0 15px;
       width: 37px;
       height: 23px;
-      background: var(--ex-div-bgColor12);
-      border-radius: 2px 2px 2px 2px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 6px;
       font-size: 12px;
-      color: var(--ex-default-font-color);
+      color: #ffffff;
+      transition: all 0.3s ease;
+
+      &:active {
+        transform: scale(0.95);
+        background: rgba(255, 255, 255, 0.1);
+      }
     }
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 </style>
