@@ -328,21 +328,66 @@ dataFeedInstance.resolveSymbol = async () => {
 const initWidget = () => {
   datafeeds = new Datafees(dataFeedInstance)
   // 主题
-  let theme = window.__theme
+  let theme = 'dark' // 强制使用深色主题
   widget = new TradingView.widget({
     symbol: props.coinInfo.symbolUpperCase,
     theme,
     debug: false,
     autosize: true,
-    // 默认分辨率
     interval: currentInterval.interval,
     container_id: klineId.value,
     datafeed: datafeeds,
     library_path: '/charting_library/',
     custom_css_url: `../tradingview_${theme}.css`,
     locale: 'en',
-
     timezone: mainStore.timezone,
+    
+    // 自定义样式配置
+    overrides: {
+      "paneProperties.background": "#121826",
+      "paneProperties.vertGridProperties.color": "rgba(255, 255, 255, 0.05)",
+      "paneProperties.horzGridProperties.color": "rgba(255, 255, 255, 0.05)",
+      "scalesProperties.textColor": "#ffffff",
+      "scalesProperties.backgroundColor": "#1a2233",
+      
+      // 蜡烛图颜色
+      "mainSeriesProperties.candleStyle.upColor": "#26a69a",
+      "mainSeriesProperties.candleStyle.downColor": "#ef5350",
+      "mainSeriesProperties.candleStyle.drawWick": true,
+      "mainSeriesProperties.candleStyle.drawBorder": true,
+      "mainSeriesProperties.candleStyle.borderUpColor": "#26a69a",
+      "mainSeriesProperties.candleStyle.borderDownColor": "#ef5350",
+      "mainSeriesProperties.candleStyle.wickUpColor": "#26a69a",
+      "mainSeriesProperties.candleStyle.wickDownColor": "#ef5350",
+      
+      // 图表样式
+      "mainSeriesProperties.style": 1,
+      "mainSeriesProperties.showCountdown": true,
+      
+      // 成交量颜色
+      "volumePaneSize": "medium",
+      "volume.volume.color.0": "rgba(239, 83, 80, 0.5)",
+      "volume.volume.color.1": "rgba(38, 166, 154, 0.5)", 
+    },
+    
+    // 禁用一些功能按钮
+    disabled_features: [
+      "header_symbol_search",
+      "header_settings",
+      "header_compare",
+      "header_undo_redo",
+      "timeframes_toolbar",
+      "volume_force_overlay"
+    ],
+    
+    // 启用的功能
+    enabled_features: [
+      "hide_left_toolbar_by_default",
+      "use_localstorage_for_settings",
+      "save_chart_properties_to_local_storage",
+      "create_volume_indicator_by_default"
+    ],
+
     // 自定义日期格式化
     customFormatters: {
       dateFormatter: {
@@ -357,9 +402,18 @@ const initWidget = () => {
       }
     },
 
-    preset: 'mobile',
-    ...getConfig(theme)
+    // 图表样式
+    charts_storage_url: 'https://saveload.tradingview.com',
+    client_id: 'tradingview.com',
+    user_id: 'public_user',
+    loading_screen: {
+      backgroundColor: "#121826",
+      foregroundColor: "#2962FF"
+    },
+
+    preset: "mobile"
   })
+  
   widget.onChartReady(() => {
     createStudy()
   })
@@ -615,82 +669,150 @@ const setStudy = (name) => {
 <style lang="scss" scoped>
 .candlestick {
   height: 348px;
-  background-color: var(--ex-candlestick-bg);
+  background-color: #121826;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  margin: 0 8px;
+  transition: all 0.3s ease;
 }
-.hightItem {
-  color: var(--ex-font-color9) !important;
-}
+
 .third {
   margin-top: 10px;
   padding: 0px 15px 10px;
-  border-bottom: 1px solid var(--ex-border-color);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  
   .list {
-    background-color: #000;
+    background-color: #121826;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    border-radius: 8px;
+    padding: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+
     .thirdLeft {
       flex: 1;
-      background-color: var(--ex-default-background-color);
+      background-color: #1a2233;
       display: flex;
       font-size: 14px;
-      color: var(--ex-default-font-color);
+      color: #ffffff;
+      border-radius: 6px;
+      padding: 4px;
+
       .item {
         flex: 1;
         margin-right: 30px;
+        padding: 6px 12px;
+        border-radius: 4px;
+        transition: all 0.2s ease;
+        text-align: center;
+        
+        &:hover {
+          background: rgba(255, 255, 255, 0.1);
+        }
+
+        &.hightItem {
+          background: #2c3d63;
+          color: #fff;
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
         &:last-child {
           margin-right: 0;
         }
       }
     }
-    .thirdRight {
-      display: flex;
-      align-items: center;
-      font-size: 14px;
-      color: var(--ex-font-color9);
-      .thirdRightImg {
-        width: 10px;
-        height: 6px;
-        margin-left: 5px;
-      }
-    }
   }
 }
+
 .selectTimes {
-  position: absolute;
+  position: fixed;
   height: 100vh;
-  width: var(--ex-max-width);
-  background: rgba($color: #000000, $alpha: 0.6);
+  width: 100%;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(4px);
   z-index: 10;
+  animation: fadeIn 0.2s ease;
+
   .times {
-    background-color: var(--ex-default-background-color);
+    background-color: #121826;
     position: absolute;
     width: 100%;
-    height: 84px;
+    padding: 16px;
     display: flex;
-    align-items: center;
-    border-radius: 0px 0px 15px 15px;
+    flex-wrap: wrap;
+    gap: 8px;
+    border-radius: 0 0 16px 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    animation: slideDown 0.3s ease;
+
     .item {
       display: flex;
       align-items: center;
       justify-content: center;
-      margin: 0 15px;
-      width: 37px;
-      height: 23px;
-      background: var(--ex-div-bgColor12);
-      border-radius: 2px 2px 2px 2px;
-      font-size: 12px;
-      color: var(--ex-default-font-color);
+      padding: 8px 16px;
+      background: #1a2233;
+      border-radius: 6px;
+      font-size: 13px;
+      color: #ffffff;
+      transition: all 0.2s ease;
+      
+      &:hover {
+        background: #2c3d63;
+        transform: translateY(-1px);
+      }
+
+      &.hightItem {
+        background: #3366cc;
+        box-shadow: 0 2px 8px rgba(51, 102, 204, 0.3);
+      }
     }
   }
 }
+
 .studyList {
   display: flex;
-  padding: 10px 15px;
+  padding: 12px 15px;
+  background: #121826;
+  border-radius: 8px;
+  margin: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+
   .studyItem {
     font-size: 14px;
-    color: var(--ex-default-font-color);
+    color: #ffffff;
     margin-right: 30px;
+    padding: 6px 12px;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    &.hightItem {
+      background: #2c3d63;
+      color: #fff;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
   }
 }
 </style>

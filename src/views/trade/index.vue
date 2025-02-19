@@ -1,11 +1,11 @@
 <!-- 交易页面：秒合约，币币交易，U本位 -->
 <template>
-  <div>
+  <div class="trade-container">
     <!-- tabs -->
     <van-sticky>
       <div class="headerList">
         <div class="left">
-          <svg-load name="jiantou-z" class="leftImg" @click="_back()"></svg-load>
+          <svg-load name="jiantou-z" class="leftImg pulse-animation" @click="_back()"></svg-load>
         </div>
         <div class="headerChoose">
           <van-tabs
@@ -13,11 +13,9 @@
             shrink
             :swipe-threshold="2"
             v-model:active="currentIndex"
-            line-width="20"
-            line-height="2"
-            color="#17ac74"
-            title-active-color="#17AC74"
-            title-inactive-color="#5d626d"
+            :line-width="0"
+            title-active-color="#00ff9d"
+            title-inactive-color="#8b8b8b"
           >
             <van-tab v-for="(item, index) in headerList" :key="index" :title="item.title">
             </van-tab>
@@ -121,39 +119,52 @@ onMounted(()=>{
 </script>
 
 <style lang="scss" scoped>
+.trade-container {
+  background: #121212;
+  min-height: 100vh;
+}
+
 .headerList {
-  height: 60px;
-  border-bottom: 1px solid var(--ex-border-color);
+  height: 70px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   display: flex;
   align-items: center;
-  background: var(--ex-home-list-bgcolor);
-  z-index: 9;
+  background: #1a1a1a;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
   padding-left: 15px;
 
   .left {
     display: flex;
     font-size: 16px;
     font-weight: normal;
-    color: var(--ex-default-font-color);
+    color: #ffffff;
 
     .leftImg {
-      width: 16px;
-      height: 12px;
+      width: 18px;
+      height: 14px;
       margin-right: 15px;
+      filter: brightness(0) invert(1);
+      transition: transform 0.3s ease;
+
+      &:active {
+        transform: scale(0.95);
+      }
     }
   }
 
   .headerChoose {
     display: flex;
     padding: 0 15px 0 0;
-    background: var(--ex-home-list-bgcolor);
+    background: transparent;
 
     :deep(.van-tabs__wrap) {
-      height: 59px;
+      height: 69px;
     }
 
     :deep(.van-tabs__nav) {
-      background: var(--ex-home-list-bgcolor);
+      background: transparent;
     }
 
     :deep(.van-tab) {
@@ -161,14 +172,64 @@ onMounted(()=>{
       font-size: 16px;
       margin-right: 30px;
       padding: 0;
-      color: var(--ex-home-list-ftcolor) !important;
-      background: var(--ex-home-list-bgcolor);
+      color: #ffffff !important;
+      background: transparent;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+
+    :deep(.van-tab::after) {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 0;
+      height: 2px;
+      background: #00ff9d;
+      transition: all 0.3s ease;
+      transform: translateX(-50%);
+      opacity: 0;
     }
 
     :deep(.van-tab--active) {
-      font-weight: normal;
-      color: var(--ex-home-list-ftcolor3) !important;
+      transform: scale(1.05);
+      font-weight: 500;
+      color: #00ff9d !important;
+      text-shadow: 0 0 10px rgba(0, 255, 157, 0.3);
+    }
+
+    :deep(.van-tab--active::after) {
+      width: 100%;
+      opacity: 1;
     }
   }
+}
+
+// 添加动画
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.pulse-animation {
+  animation: pulse 2s infinite;
+}
+
+// 添加过渡动画
+.component-fade-enter-active,
+.component-fade-leave-active {
+  transition: opacity 0.3s ease;
+}
+
+.component-fade-enter-from,
+.component-fade-leave-to {
+  opacity: 0;
 }
 </style>

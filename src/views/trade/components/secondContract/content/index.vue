@@ -286,13 +286,37 @@ const submit = () => {
   height: 104px;
 }
 
+// 添加深色主题基础颜色
+:root {
+  --dark-bg: #121212;
+  --dark-surface: #1e1e1e;
+  --dark-primary: #2196f3;
+  --dark-text: #ffffff;
+  --dark-secondary-text: #b3b3b3;
+  --dark-border: #333333;
+}
+
 .hightItem {
-  color: var(--ex-active-font-color) !important;
+  color: var(--dark-primary) !important;
+  position: relative;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--dark-primary);
+    transform: scaleX(1);
+    transition: transform 0.3s ease;
+  }
 }
 
 .line {
   height: 5px;
-  background: var(--ex-div-bgColor10);
+  background: var(--dark-surface);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .entrust {
@@ -301,15 +325,30 @@ const submit = () => {
   padding: 0 15px;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 1px solid var(--ex-border-color);
+  border-bottom: 1px solid var(--dark-border);
+  background: var(--dark-bg);
+  transition: all 0.3s ease;
 
   .entrustL {
     font-size: 14px;
-    color: var(--ex-default-font-color);
+    color: var(--dark-text);
     display: flex;
 
     .entrustItem {
       margin-right: 16px;
+      padding: 8px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      
+      &:hover {
+        background: rgba(255, 255, 255, 0.05);
+        transform: translateY(-1px);
+      }
+      
+      &:active {
+        transform: translateY(1px);
+      }
     }
   }
 
@@ -320,19 +359,34 @@ const submit = () => {
     .entrustRImg {
       width: 16px;
       height: 12px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      
+      &:hover {
+        transform: scale(1.1);
+      }
     }
 
     .entrustRUpdateImg {
       margin-left: 20px;
       width: 12px;
       height: 12px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      
+      &:hover {
+        transform: rotate(180deg);
+      }
     }
   }
 }
 
-// 分享弹出层
+// 分享弹出层优化
 .share-revenue-box {
   z-index: 99;
+  backdrop-filter: blur(5px);
+  background: rgba(0, 0, 0, 0.7);
+  transition: all 0.3s ease;
 
   .share-revenue {
     :deep(.share-commission) {
@@ -340,10 +394,63 @@ const submit = () => {
       left: 50%;
       top: 50%;
       transform: translate(-50%, -50%);
-      background: var(--ex-default-background-color);
+      background: var(--dark-surface);
       min-width: 300px;
       border-radius: 30px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+      animation: slideIn 0.3s ease;
+      
+      @keyframes slideIn {
+        from {
+          opacity: 0;
+          transform: translate(-50%, -40%);
+        }
+        to {
+          opacity: 1;
+          transform: translate(-50%, -50%);
+        }
+      }
     }
   }
+}
+
+// 合约历史列表项动画
+:deep(.contract-history-item) {
+  background: var(--dark-surface);
+  margin: 8px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+  }
+}
+
+// 无数据状态优化
+:deep(.no-data) {
+  color: var(--dark-secondary-text);
+  padding: 40px 0;
+  text-align: center;
+  animation: fadeIn 0.5s ease;
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+}
+
+// K线图容器优化
+:deep(.candlestick-container) {
+  background: var(--dark-bg);
+  border-radius: 12px;
+  margin: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
 }
 </style>

@@ -766,9 +766,12 @@ input::-ms-input-placeholder {
   justify-content: space-between;
   bottom: 0;
   height: 104px;
-  background-color: var(--ex-default-background-color);
+  background-color: #1a1a1a; // 深色背景
   z-index: 9;
   padding: 0 15px;
+  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+
   .item {
     display: flex;
     align-items: center;
@@ -776,14 +779,23 @@ input::-ms-input-placeholder {
     width: 165px;
     height: 50px;
     font-size: 16px;
-    color: var(--ex-font-color);
-    border-radius: 3px 3px 3px 3px;
+    color: #ffffff;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    
+    &:active {
+      transform: scale(0.95);
+    }
   }
+
   .ups {
-    background: var(--ex-div-bgColor1);
+    background: linear-gradient(135deg, #2ebd85 0%, #1c8f64 100%);
+    box-shadow: 0 4px 15px rgba(46, 189, 133, 0.3);
   }
+
   .downs {
-    background-color: var(--ex-div-bgColor7);
+    background: linear-gradient(135deg, #f6465d 0%, #cf304a 100%);
+    box-shadow: 0 4px 15px rgba(246, 70, 93, 0.3);
   }
 }
 .titleLeft {
@@ -807,114 +819,133 @@ input::-ms-input-placeholder {
   }
 }
 .popupContain {
+  background: #1a1a1a;
+  
   .item {
     .firstHeader {
-      margin-bottom: 10px;
-      font-size: 14px;
-      color: var(--ex-default-font-color);
+      color: #ffffff;
+      font-size: 16px;
+      margin-bottom: 15px;
     }
-    .firstList {
-      overflow-x: scroll;
-      white-space: nowrap;
-      margin-bottom: 30px;
-      .firstItem {
-        width: 75px;
-        height: 66px;
-        background: var(--ex-div-bgColor17);
-        border-radius: 3px;
-        text-align: center;
-        font-size: 14px;
-        color: var(--ex-default-font-color);
-        margin-right: 15px;
 
-        .firstItemTop {
-          line-height: 38px;
+    .firstList {
+      .firstItem {
+        background: #2a2a2a;
+        border-radius: 8px;
+        color: #ffffff;
+        transition: all 0.3s ease;
+        
+        &:hover {
+          transform: translateY(-2px);
+        }
+
+        &.hightColor {
+          background: linear-gradient(135deg, #2ebd85 0%, #1c8f64 100%);
+          box-shadow: 0 4px 15px rgba(46, 189, 133, 0.3);
         }
       }
-      .firstItem:last-child {
-        margin-right: 0;
+    }
+  }
+
+  .inputQuantity {
+    background: #2a2a2a !important;
+    border: 1px solid #3a3a3a;
+    border-radius: 8px;
+    color: #ffffff;
+    transition: all 0.3s ease;
+
+    &:focus {
+      border-color: #2ebd85;
+      box-shadow: 0 0 0 2px rgba(46, 189, 133, 0.2);
+    }
+  }
+
+  .quantityList {
+    .item {
+      background: #2a2a2a;
+      color: #ffffff;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+
+      &:hover {
+        transform: translateY(-2px);
+      }
+
+      &.hightColor {
+        background: linear-gradient(135deg, #2ebd85 0%, #1c8f64 100%);
+        box-shadow: 0 4px 15px rgba(46, 189, 133, 0.3);
       }
     }
   }
-  .balance {
-    font-size: 14px;
-    color: var(--ex-default-font-color);
-    display: flex;
-  }
+
   .okButton {
-    padding-top: 50px;
     .button {
-      height: 50px;
-      background: var(--ex-div-bgColor1);
-      border-radius: 3px 3px 3px 3px;
-      font-size: 16px;
-      color: var(--ex-font-color);
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      background: linear-gradient(135deg, #2ebd85 0%, #1c8f64 100%);
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(46, 189, 133, 0.3);
+      transition: all 0.3s ease;
+
+      &:active {
+        transform: scale(0.98);
+      }
     }
   }
 }
 .countdown {
-  font-size: 16px;
-  color: var(--ex-default-font-color);
-  .closeBtn {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 20px;
-    .closeSvg {
-      width: 24px;
-      height: 24px;
-    }
-  }
-  .countdownHeader {
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-    font-size: 36px;
-    font-weight: bold;
-    margin-bottom: 15px;
-    .countdownHeaderName {
-      margin-left: 5px;
-      font-size: 16px;
-      color: var(--ex-passive-font-color);
-    }
-  }
-  .countdownOver {
-    color: var(--ex-passive-font-color);
-    font-size: 14px;
-    margin-bottom: 20px;
-    text-align: center;
-  }
+  background: #1a1a1a;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+
   .circle {
-    margin-top: 20px;
-    text-align: center;
+    position: relative;
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 160px;
+      height: 160px;
+      background: radial-gradient(circle, rgba(46, 189, 133, 0.1) 0%, transparent 70%);
+      border-radius: 50%;
+      z-index: -1;
+    }
   }
-  :deep(.van-circle__text) {
-    font-size: 28px;
-    color: var(--ex-default-font-color);
-    font-family: 'DINOT-Medium' !important;
-  }
+
   .countList {
     .item {
-      display: flex;
-      justify-content: space-between;
-      font-size: 14px;
-      color: var(--ex-passive-font-color);
-      padding: 10px 0;
+      border-bottom: 1px solid #2a2a2a;
+      padding: 15px 0;
+      transition: all 0.3s ease;
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.05);
+      }
+
       .itemRight {
-        color: var(--ex-default-font-color);
+        color: #ffffff;
+        
+        &.hightUp {
+          color: #2ebd85;
+        }
+        
+        &.hightDown {
+          color: #f6465d;
+        }
       }
     }
   }
-  .margin20 {
-    padding-top: 20px;
-  }
-  .countFooter {
-    padding-top: 20px;
-    font-size: 14px;
-    color: var(--ex-default-font-color);
-  }
+}
+
+// 添加暗色主题变量覆盖
+:root {
+  --ex-default-background-color: #1a1a1a;
+  --ex-default-font-color: #ffffff;
+  --ex-passive-font-color: #808080;
+  --ex-border-color2: #2a2a2a;
+  --ex-div-bgColor1: #2ebd85;
+  --ex-div-bgColor7: #f6465d;
+  --ex-div-bgColor17: #2a2a2a;
 }
 </style>

@@ -6,9 +6,13 @@
 -->
 <!-- 合约规则 -->
 <template>
-  <HeaderBar :currentName="currentName" />
-  <div class="itemDetailObj" v-html="currentHtml"></div>
-  <Nodata v-if="!currentHtml"></Nodata>
+  <div class="trading-rules-container">
+    <HeaderBar :currentName="currentName" class="header-animate" />
+    <div class="content-wrapper">
+      <div class="itemDetailObj content-animate" v-html="currentHtml"></div>
+      <Nodata v-if="!currentHtml"></Nodata>
+    </div>
+  </div>
 </template>
 <script setup>
 import { useMainStore } from '@/store/index'
@@ -67,14 +71,130 @@ onMounted(() => {
 })
 </script>
 <style lang="scss" scoped>
-.itemDetailObj {
-  font-size: 12px;
-  padding: 10px 15px;
-  color: var(--ex-default-font-color);
-  line-height: 24px;
-  word-wrap: break-word;
+.trading-rules-container {
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #1a1a1a, #2d2d2d);
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100px;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.3), transparent);
+    pointer-events: none;
+  }
 }
-.itemDetailObj img {
-  width: 100%;
+
+.header-animate {
+  animation: slideDown 0.5s ease-out;
+}
+
+.content-wrapper {
+  padding: 15px;
+  animation: fadeIn 0.6s ease-out;
+}
+
+.itemDetailObj {
+  font-size: 14px;
+  padding: 20px;
+  color: #ffffff;
+  line-height: 1.6;
+  word-wrap: break-word;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2),
+              0 1px 2px rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25),
+                0 1px 2px rgba(255, 255, 255, 0.1);
+  }
+
+  img {
+    width: 100%;
+    border-radius: 8px;
+    margin: 10px 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: scale(1.02);
+    }
+  }
+
+  // 添加自定义滚动条样式
+  :deep(*) {
+    color: #ffffff !important;
+    
+    h1, h2, h3, h4, h5, h6 {
+      color: #fff;
+      margin: 15px 0;
+      font-weight: 600;
+    }
+
+    p {
+      margin: 10px 0;
+      line-height: 1.8;
+    }
+
+    a {
+      color: #3498db !important;
+      text-decoration: none;
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: #2980b9 !important;
+      }
+    }
+  }
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// 自定义滚动条
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 3px;
+  
+  &:hover {
+    background: rgba(255, 255, 255, 0.3);
+  }
 }
 </style>

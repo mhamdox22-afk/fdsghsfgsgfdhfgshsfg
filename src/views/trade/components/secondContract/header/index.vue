@@ -121,109 +121,267 @@ const setCollectByCoin = () => {}
 .top {
   padding: 20px 15px 0;
   z-index: 9;
-  background-color: var(--ex-default-background-color);
+  background: linear-gradient(180deg, #1a1a1a 0%, #252525 100%);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  border-radius: 0 0 25px 25px;
+  position: relative;
+  transition: all 0.3s ease;
+  overflow: hidden;
+
+  // 添加炫酷背景效果
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, 
+      transparent,
+      rgba(255, 255, 255, 0.2),
+      transparent
+    );
+  }
+
+  // 添加光晕效果
+ 
   .first {
     display: flex;
     justify-content: space-between;
+    
     .firLeft {
       display: flex;
       align-items: center;
       font-size: 16px;
-      color: var(--ex-default-font-color);
+      color: #ffffff;
+      backdrop-filter: blur(5px);
+      padding: 8px 12px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s ease;
+      
+      &:hover {
+        background: rgba(255, 255, 255, 0.1);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+      }
+
       .firLeftImg {
         width: 17px;
         height: 14px;
         margin-right: 10px;
-      }
-      .firNum {
-        font-size: 14px;
-        margin-left: 10px;
+        opacity: 0.9;
+        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
       }
     }
+
     .senLeftImg {
       margin-left: 10px;
       display: block;
       width: 24px;
       height: 24px;
+      transition: transform 0.3s ease;
+      
+      &:active {
+        transform: scale(0.9) rotate(10deg);
+      }
     }
   }
+
   .second {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px 0 10px;
+
     .secondLeft {
       font-size: 36px;
       font-weight: bold;
-      color: var(--ex-font-color10);
-      > * {
-        transition: 0.3s;
+      color: #ffffff;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      position: relative;
+      
+      &.animate {
+        animation: numberChange 0.5s ease;
       }
+      
+      &::after {
+        content: '';
+        position: absolute;
+        right: -20px;
+        top: 50%;
+        width: 4px;
+        height: 4px;
+        border-radius: 50%;
+        background: currentColor;
+        box-shadow: 0 0 10px currentColor;
+      }
+      
+      > * {
+        transition: all 0.3s ease;
+      }
+
       .secondLeftB {
         font-size: 14px;
         margin-top: 5px;
+        opacity: 0.9;
+        background: rgba(255, 255, 255, 0.05);
+        padding: 4px 8px;
+        border-radius: 8px;
+        display: inline-block;
       }
     }
+
     .secondRight {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+      transform: translateZ(0);
+      padding: 10px;
+      border-radius: 12px;
+      
       .secondItem {
         display: flex;
         align-items: center;
-        padding: 6px 0;
-        font-size: 14px;
-        justify-content: space-between;
+        padding: 8px 12px;
+        margin: 4px 0;
+        border-radius: 8px;
+        position: relative;
+        
+        &::before {
+          content: '';
+          position: absolute;
+          inset: 0;
+          background: rgba(255, 255, 255, 0.03);
+          border-radius: 8px;
+          opacity: 0;
+          transition: opacity 0.2s ease;
+        }
+
+        &:hover::before {
+          opacity: 1;
+        }
+
         .itemL {
-          color: var(--ex-passive-font-color);
+          color: rgba(255, 255, 255, 0.6);
           margin-right: 10px;
         }
 
         .itemR {
-          color: var(--ex-default-font-color);
-        }
-      }
-    }
-  }
-  .third {
-    margin-top: 20px;
-    .list {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      .thirdLeft {
-        display: flex;
-        font-size: 14px;
-        color: var(--ex-default-font-color);
-        .item {
-          margin-right: 30px;
-        }
-      }
-      .thirdRight {
-        display: flex;
-        align-items: center;
-        font-size: 14px;
-        color: var(--ex-font-color9);
-        .thirdRightImg {
-          width: 10px;
-          height: 6px;
-          margin-left: 5px;
+          color: #ffffff;
+          font-weight: 500;
+          position: relative;
+          padding-left: 12px;
+          
+          &::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: #ffffff;
+            opacity: 0.5;
+          }
         }
       }
     }
   }
 }
+
+// 添加新的动画
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes numberChange {
+  0% {
+    transform: translateY(-10px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+}
+
+// 优化涨跌样式
+.rise {
+  color: #00b897 !important;
+  text-shadow: 0 0 15px rgba(0, 184, 151, 0.4);
+  position: relative;
+  
+  &::after {
+    animation: pulse 2s infinite;
+  }
+}
+
+.fall {
+  color: #f84960 !important;
+  text-shadow: 0 0 15px rgba(248, 73, 96, 0.4);
+  position: relative;
+  
+  &::after {
+    animation: pulse 2s infinite;
+  }
+}
+
+// 添加动画类
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .selectTimes {
   position: fixed;
   height: 100vh;
   width: var(--ex-max-width);
-  background: rgba($color: #000000, $alpha: 0.6);
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(5px);
   z-index: 10;
+  animation: fadeIn 0.3s ease;
+
   .times {
-    background-color: var(--ex-default-background-color);
+    background: linear-gradient(180deg, #1a1a1a 0%, #252525 100%);
     position: absolute;
     width: 100%;
     height: 84px;
     display: flex;
     align-items: center;
-    border-radius: 0px 0px 15px 15px;
+    border-radius: 0 0 20px 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+
     .item {
       display: flex;
       align-items: center;
@@ -231,10 +389,38 @@ const setCollectByCoin = () => {}
       margin: 0 15px;
       width: 37px;
       height: 23px;
-      background: var(--ex-div-bgColor12);
-      border-radius: 2px 2px 2px 2px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 8px;
       font-size: 12px;
-      color: var(--ex-default-font-color);
+      color: #ffffff;
+      transition: all 0.2s ease;
+      position: relative;
+      overflow: hidden;
+      
+      &::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: linear-gradient(
+          45deg,
+          transparent,
+          rgba(255, 255, 255, 0.1),
+          transparent
+        );
+        transition: transform 0.3s ease;
+        transform: translateX(-100%);
+      }
+
+      &:hover::before {
+        transform: translateX(100%);
+      }
+
+      &:active {
+        transform: scale(0.95);
+      }
     }
   }
 }
