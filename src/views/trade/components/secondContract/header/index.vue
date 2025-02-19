@@ -172,8 +172,12 @@ const setCollectByCoin = () => {}
         width: 17px;
         height: 14px;
         margin-right: 10px;
-        opacity: 0.9;
-        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+        filter: brightness(2);
+        transition: transform 0.3s ease;
+
+        &:hover {
+          transform: rotate(5deg);
+        }
       }
     }
 

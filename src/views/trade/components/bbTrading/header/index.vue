@@ -72,109 +72,199 @@ const emits = defineEmits(['showSidePopup'])
 .top {
   padding: 20px 15px 0;
   z-index: 9;
-  background-color: var(--ex-default-background-color);
+  background: linear-gradient(180deg, #1a1a1a 0%, #232323 100%);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  border-radius: 0 0 20px 20px;
+  position: relative;
+  transition: all 0.3s ease;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, 
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.1) 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+  }
+
   .first {
     display: flex;
     justify-content: space-between;
+    padding: 10px 0;
+
     .firLeft {
       display: flex;
       align-items: center;
       font-size: 16px;
-      color: var(--ex-default-font-color);
+      color: #ffffff;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 8px 15px;
+      border-radius: 12px;
+      backdrop-filter: blur(5px);
+      transition: all 0.3s ease;
+
+      &:active {
+        transform: scale(0.98);
+      }
+
       .firLeftImg {
         width: 17px;
         height: 14px;
         margin-right: 10px;
+        filter: brightness(2);
+        transition: transform 0.3s ease;
+
+        &:hover {
+          transform: rotate(5deg);
+        }
       }
+
       .firNum {
         font-size: 14px;
         margin-left: 10px;
+        padding: 2px 8px;
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.05);
       }
     }
+
     .senLeftImg {
-      margin-left: 10px;
+      margin-left: 15px;
       display: block;
       width: 24px;
       height: 24px;
+      padding: 5px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.05);
+      transition: all 0.3s ease;
+      
+      &:active {
+        transform: scale(0.9);
+        background: rgba(255, 255, 255, 0.1);
+      }
     }
   }
+
   .second {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px 0 10px;
+
     .secondLeft {
       font-size: 36px;
       font-weight: bold;
-      color: var(--ex-font-color10);
+      color: #ffffff;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      
       > * {
         transition: 0.3s;
       }
+
       .secondLeftB {
         font-size: 14px;
         margin-top: 5px;
+        opacity: 0.8;
       }
     }
+
     .secondRight {
       .secondItem {
         display: flex;
         align-items: center;
-        padding: 6px 0;
+        padding: 8px 12px;
         font-size: 14px;
         justify-content: space-between;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 10px;
+        margin-bottom: 8px;
+        backdrop-filter: blur(5px);
+
         .itemL {
-          color: var(--ex-passive-font-color);
+          color: rgba(255, 255, 255, 0.6);
           margin-right: 10px;
         }
 
         .itemR {
-          color: var(--ex-default-font-color);
+          color: #ffffff;
         }
       }
     }
   }
+
   .third {
     margin-top: 20px;
+    
     .list {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      padding: 10px 0;
+
       .thirdLeft {
         display: flex;
         font-size: 14px;
-        color: var(--ex-default-font-color);
+        color: #ffffff;
+
         .item {
           margin-right: 30px;
+          padding: 5px 10px;
+          border-radius: 8px;
+          transition: all 0.3s ease;
+          
+          &:hover {
+            background: rgba(255, 255, 255, 0.05);
+          }
         }
       }
+
       .thirdRight {
         display: flex;
         align-items: center;
         font-size: 14px;
-        color: var(--ex-font-color9);
+        color: rgba(255, 255, 255, 0.8);
+        padding: 5px 10px;
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.05);
+
         .thirdRightImg {
           width: 10px;
           height: 6px;
           margin-left: 5px;
+          transition: transform 0.3s ease;
+        }
+
+        &:active {
+          background: rgba(255, 255, 255, 0.1);
         }
       }
     }
   }
 }
+
 .selectTimes {
   position: fixed;
   height: 100vh;
   width: var(--ex-max-width);
-  background: rgba($color: #000000, $alpha: 0.6);
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(5px);
   z-index: 10;
+
   .times {
-    background-color: var(--ex-default-background-color);
+    background: linear-gradient(180deg, #1a1a1a 0%, #232323 100%);
     position: absolute;
     width: 100%;
     height: 84px;
     display: flex;
     align-items: center;
-    border-radius: 0px 0px 15px 15px;
+    border-radius: 0 0 20px 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+
     .item {
       display: flex;
       align-items: center;
@@ -182,11 +272,46 @@ const emits = defineEmits(['showSidePopup'])
       margin: 0 15px;
       width: 37px;
       height: 23px;
-      background: var(--ex-div-bgColor12);
-      border-radius: 2px 2px 2px 2px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 8px;
       font-size: 12px;
-      color: var(--ex-default-font-color);
+      color: #ffffff;
+      transition: all 0.3s ease;
+
+      &:active {
+        transform: scale(0.95);
+        background: rgba(255, 255, 255, 0.1);
+      }
     }
   }
+}
+
+// 添加涟漪动画效果
+@keyframes ripple {
+  0% {
+    transform: scale(1);
+    opacity: 0.4;
+  }
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+// 添加上升动画
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+// 为主要元素添加动画
+.top {
+  animation: slideUp 0.3s ease-out;
 }
 </style>

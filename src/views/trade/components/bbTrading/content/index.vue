@@ -531,45 +531,68 @@ onUnmounted(() => {
 .content {
   display: flex;
   padding: 20px 15px;
+  background: #1a1a1a; // 深色背景
+  
   & > div {
     flex: 1;
+    transition: all 0.3s ease;
+    
     .rightFirst {
-      height: 27px;
+      height: 32px; // 稍微增加高度
       display: flex;
+      gap: 8px; // 添加间距
+      
       .name {
         display: flex;
         align-items: center;
         justify-content: center;
         flex: 1;
-        font-size: 12px;
-        color: var(--ex-default-font-color);
-        background: var(--ex-div-bgColor);
-        border-radius: 2px 2px 2px 2px;
+        font-size: 13px;
+        color: #fff;
+        background: #2c2c2c;
+        border-radius: 6px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        transition: all 0.3s ease;
+        
+        &:active {
+          transform: scale(0.98);
+        }
       }
     }
+
     .rightScond {
-      margin-top: 10px;
+      margin-top: 12px;
+      
       .entrustSelect {
-        font-size: 12px;
+        font-size: 13px;
         width: 180px;
-        height: 33px;
-        background: var(--ex-div-bgColor);
-        border-radius: 2px 2px 2px 2px;
+        height: 38px;
+        background: #2c2c2c;
+        border-radius: 6px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.2);
         display: flex;
         align-items: center;
         justify-content: center;
         position: relative;
-        color: var(--ex-default-font-color);
+        color: #fff;
+        transition: all 0.3s ease;
+
+        &:active {
+          transform: scale(0.98);
+        }
+
         .img {
           width: 10px;
           height: 5px;
           position: absolute;
-          right: 10px;
+          right: 12px;
           top: 50%;
           transform: translateY(-50%);
+          transition: all 0.3s ease;
         }
       }
     }
+
     .rightThird {
       margin-top: 10px;
       width: 180px;
@@ -582,64 +605,74 @@ onUnmounted(() => {
       justify-content: center;
       align-items: center;
     }
+
     .rightFourth {
-      margin-top: 10px;
+      margin: 15px 0;
+      padding: 10px;
+      background: #2c2c2c;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+
       .slider-t {
         display: flex;
         justify-content: space-between;
+        gap: 4px;
+        
         .item {
-          width: 42px;
-          height: 7px;
-          background: var(--ex-div-bgColor);
-          border-radius: 1px 1px 1px 1px;
+          height: 8px;
+          background: #3a3a3a;
+          border-radius: 4px;
+          overflow: hidden;
+          
           .hightItem {
-            width: 42px;
-            height: 7px;
-            background: var(--ex-div-bgColor);
-            border-radius: 1px 1px 1px 1px;
-            background: var(--ex-div-bgColor1);
-            // transition: 0.5s;
+            height: 100%;
+            background: linear-gradient(90deg, #4a9eff, #2d7bd4);
+            border-radius: 4px;
+            transition: width 0.3s ease;
           }
         }
       }
+
       .slider-name {
-        margin-top: 5px;
-        margin-bottom: 1px;
-        display: flex;
-        justify-content: space-between;
+        margin: 8px 0;
+        
         .item {
-          width: 42px;
-          height: 7px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
           font-size: 12px;
-          color: var(--ex-passive-font-color);
-        }
-        .itemHight {
-          color: var(--ex-default-font-color) !important;
+          color: #888;
+          transition: color 0.3s ease;
+          
+          &.itemHight {
+            color: #fff;
+          }
         }
       }
     }
+
     .rightFifth {
-      margin-top: 10px;
+      margin-top: 12px;
+      
       .amount {
         width: 180px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 33px;
-        background: var(--ex-div-bgColor);
-        border-radius: 2px;
-        font-size: 12px;
-        color: var(--ex-default-font-color);
+        height: 38px;
+        background: #2c2c2c;
+        border-radius: 6px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        font-size: 13px;
+        color: #fff;
         text-align: center;
+        transition: all 0.3s ease;
+
+        &:focus {
+          box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+          transform: translateY(-1px);
+        }
       }
 
       input::placeholder {
-        color: var(--ex-font-color5);
+        color: #666;
       }
     }
+
     .rightSix {
       flex: 1;
       width: 100%;
@@ -653,25 +686,89 @@ onUnmounted(() => {
         color: var(--ex-default-font-color);
       }
     }
+
     .rightSeat {
       height: 43px;
     }
+
     .rightSeven {
-      // flex: 1;
-      margin-top: 10px;
+      margin-top: 15px;
+      
       .maybutton {
-        height: 40px;
-        background: var(--ex-div-bgColor1);
-        border-radius: 3px 3px 3px 3px;
-        font-size: 14px;
-        color: var(--ex-font-color);
+        height: 44px;
+        background: linear-gradient(90deg, #4a9eff, #2d7bd4);
+        border-radius: 8px;
+        font-size: 15px;
+        color: #fff;
+        font-weight: 500;
         display: flex;
         justify-content: center;
         align-items: center;
+        box-shadow: 0 4px 12px rgba(74,158,255,0.3);
+        transition: all 0.3s ease;
+
+        &:active {
+          transform: scale(0.98);
+          box-shadow: 0 2px 8px rgba(74,158,255,0.2);
+        }
+
+        &.hightColorRed {
+          background: linear-gradient(90deg, #ff4a4a, #d42d2d);
+          box-shadow: 0 4px 12px rgba(255,74,74,0.3);
+        }
       }
     }
   }
 }
+
+.rightScondList {
+  width: 180px;
+  background: #2c2c2c;
+  border-radius: 8px;
+  padding: 8px 0;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+
+  .rightScondListItem {
+    padding: 12px 0;
+    text-align: center;
+    color: #888;
+    transition: all 0.3s ease;
+    
+    &:hover {
+      background: #3a3a3a;
+      color: #fff;
+    }
+  }
+}
+
+// 添加深色主题变量覆盖
+:root {
+  --ex-default-background-color: #1a1a1a;
+  --ex-div-bgColor: #2c2c2c;
+  --ex-div-bgColor1: #4a9eff;
+  --ex-div-bgColor7: #ff4a4a;
+  --ex-default-font-color: #fff;
+  --ex-passive-font-color: #888;
+  --ex-font-color: #fff;
+  --ex-font-color5: #666;
+}
+
+// 添加滑入动画
+.content > div {
+  animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .line {
   height: 5px;
   background: var(--ex-div-bgColor10);

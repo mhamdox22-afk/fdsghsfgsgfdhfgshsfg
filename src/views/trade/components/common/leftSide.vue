@@ -117,48 +117,152 @@ const toSort = (v) => {
 
 <style lang="scss" scoped>
 .leftSide {
+  background: #1a1a1a;
+  min-height: 100vh;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  overflow-y: auto;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+
   .leftSideHeader {
-    margin: 20px 15px 0;
-    padding-top: 10px;
+    margin: 0 15px;
+    padding-top: 5px;
     font-size: 24px;
     font-weight: bold;
-    color: var(--ex-default-font-color);
+    color: #ffffff;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    animation: fadeInDown 0.5s ease;
   }
+
   .search {
     margin: 30px 15px 15px;
     height: 46px;
-    background: var(--ex-div-bgColor8);
+    background: #2a2a2a;
     border-radius: 23px;
     display: flex;
     padding: 0 20px;
     align-items: center;
     justify-content: space-between;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    animation: fadeInUp 0.5s ease;
+
+    &:focus-within {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      background: #333333;
+    }
+
     .searchImg {
       width: 20px;
       height: 20px;
       margin-right: 10px;
+      opacity: 0.8;
+      transition: all 0.3s ease;
     }
+
     .contain {
       flex: 1;
       display: flex;
       justify-content: space-between;
       align-items: center;
       font-size: 14px;
-      color: var(--ex-default-font-color);
+      color: #ffffff;
+
       .inputSearch {
         flex: 1;
-        background: var(--ex-div-bgColor8);
+        background: transparent;
+        color: #ffffff;
+        transition: all 0.3s ease;
+        
+        &:focus {
+          outline: none;
+        }
       }
+
       input::-webkit-input-placeholder {
-        color: var(--ex-font-color5);
+        color: rgba(255, 255, 255, 0.5);
       }
       input::-moz-input-placeholder {
-        color: var(--ex-font-color5);
+        color: rgba(255, 255, 255, 0.5);
       }
       input::-ms-input-placeholder {
-        color: var(--ex-font-color5);
+        color: rgba(255, 255, 255, 0.5);
       }
     }
+  }
+
+  .leftList {
+    padding: 0 10px;
+    animation: fadeIn 0.6s ease;
+
+    :deep(.currency-item) {
+      margin: 8px 5px;
+      padding: 12px;
+      border-radius: 12px;
+      background: #2a2a2a;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+
+      &:hover, &:active {
+        transform: translateY(-2px);
+        background: #333333;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      }
+    }
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+// 添加深色模式的滚动条样式
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #444;
+  border-radius: 3px;
+  
+  &:hover {
+    background: #555;
   }
 }
 </style>

@@ -49,7 +49,7 @@ const props = defineProps({
 </script>
 <style lang="scss" scoped>
 .currencyItem {
-  padding: 12px 15px;
+  padding: 12px 10px;
   display: flex;
   justify-content: space-between;
   background: linear-gradient(145deg, #1a1a1a, #2a2a2a);
@@ -66,11 +66,13 @@ const props = defineProps({
   .left {
     display: flex;
     align-items: center;
+    flex: 0 0 auto;
+    min-width: 100px;
     
     .leftImg {
-      width: 32px;
-      height: 32px;
-      margin-right: 12px;
+      width: 28px;
+      height: 28px;
+      margin-right: 8px;
       border-radius: 50%;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
       transition: transform 0.3s ease;
@@ -88,7 +90,7 @@ const props = defineProps({
 
       .textTop {
         color: rgba(255, 255, 255, 0.9);
-        font-size: 16px;
+        font-size: 15px;
         font-weight: 500;
         letter-spacing: 0.5px;
       }
@@ -109,13 +111,17 @@ const props = defineProps({
   .right {
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 8px;
+    flex: 1;
+    justify-content: flex-end;
 
     .rightLeft {
       color: rgba(255, 255, 255, 0.9);
       text-align: right;
-      font-size: 16px;
+      font-size: 15px;
       font-weight: 500;
+      margin-right: auto;
+      min-width: 80px;
 
       .numRight {
         font-size: 13px;
@@ -130,13 +136,13 @@ const props = defineProps({
       align-items: center;
 
       .rightRight {
-        min-width: 85px;
-        padding: 8px 12px;
+        min-width: 65px;
+        padding: 4px 8px;
         border-radius: 8px;
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 14px;
+        font-size: 13px;
         font-weight: 500;
         transition: all 0.3s ease;
         

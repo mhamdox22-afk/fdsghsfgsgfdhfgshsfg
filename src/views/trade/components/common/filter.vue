@@ -121,20 +121,39 @@ const toRafSort = () => {
 
 <style lang="scss" scoped>
 .mainBgc {
-  background: var(--ex-div-bgColor8);
+  background: #1a1a1a; // 深色背景
+  min-height: 100px;
+  transition: all 0.3s ease;
 
   .main {
-    background-color: var(--ex-default-background-color);
+    background-color: #232323;
     border-radius: 20px 20px 0px 0;
     padding: 20px 15px 10px;
     font-size: 12px;
-    color: var(--ex-passive-font-color);
+    color: #8c8c8c;
     display: flex;
     justify-content: space-between;
+    box-shadow: 0 -8px 20px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    transform: translateY(0);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 -10px 25px rgba(0, 0, 0, 0.25);
+    }
 
     .mainItem {
       display: flex;
       align-items: center;
+      padding: 8px 12px;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      
+      &:hover {
+        background: rgba(255, 255, 255, 0.05);
+      }
 
       .arrows {
         display: flex;
@@ -144,6 +163,13 @@ const toRafSort = () => {
         .itemImg {
           width: 6px;
           height: 8px;
+          opacity: 0.7;
+          transition: all 0.2s ease;
+
+          &:hover {
+            opacity: 1;
+            transform: scale(1.1);
+          }
         }
       }
     }
@@ -164,26 +190,50 @@ const toRafSort = () => {
   }
 
   .main_collect {
-    background-color: var(--ex-default-background-color);
-    padding: 10px 15px 10px;
+    background-color: #232323;
+    padding: 15px;
     font-size: 12px;
-    color: var(--ex-passive-font-color);
+    color: #8c8c8c;
+    border-radius: 20px 20px 0 0;
+    box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.15);
 
     .main_header {
       display: flex;
       justify-content: space-between;
       font-size: 14px;
-      color: var(--ex-font-color22);
-      padding: 10px 15px 0;
+      color: #ffffff;
+      padding: 10px 15px 15px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      margin-bottom: 10px;
+
+      .right {
+        cursor: pointer;
+        opacity: 0.8;
+        transition: all 0.2s ease;
+
+        &:hover {
+          opacity: 1;
+          transform: scale(1.05);
+        }
+      }
     }
 
     .main {
       display: flex;
       justify-content: space-between;
+      padding: 10px 0;
 
       .mainItem {
         display: flex;
         align-items: center;
+        padding: 8px 12px;
+        border-radius: 12px;
+        transition: all 0.2s ease;
+        
+        &:active {
+          background: rgba(255, 255, 255, 0.08);
+          transform: scale(0.98);
+        }
 
         .arrows {
           display: flex;
@@ -193,24 +243,32 @@ const toRafSort = () => {
           .itemImg {
             width: 6px;
             height: 8px;
+            opacity: 0.7;
+            transition: transform 0.2s ease;
+
+            &:hover {
+              opacity: 1;
+            }
           }
         }
       }
     }
-
-    .mainItem:nth-child(2) {
-      flex: 1;
-      text-align: right;
-      justify-content: right;
-    }
-
-    .mainItem:nth-child(3) {
-      margin-left: 20px;
-      max-width: 80px;
-      min-width: 80px;
-      text-align: right;
-      justify-content: flex-end;
-    }
   }
+}
+
+// 添加动画类
+@keyframes slideIn {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.mainBgc {
+  animation: slideIn 0.3s ease-out;
 }
 </style>
