@@ -276,14 +276,14 @@ const toRecharge = () => {
     min-height: 55px;
     flex: 1;
     display: flex;
-    gap: 14px;
-    animation: fadeInLeft 0.5s ease;
+    flex-direction: column;
+    gap: 10px;
 
     .item {
-      flex: 1;
+      width: 100%;
       display: flex;
       align-items: center;
-      justify-content: center;
+      justify-content: flex-start;
       border-radius: 12px;
       padding: 12px;
       background: #1E1E1E;
@@ -298,8 +298,8 @@ const toRecharge = () => {
       }
 
       .leftImg {
-        width: 28px;
-        height: 28px;
+        width: 24px;
+        height: 24px;
         margin-right: 12px;
         filter: brightness(1.2);
       }
@@ -308,15 +308,11 @@ const toRecharge = () => {
         flex-shrink: 0;
         font-size: 12px;
         color: rgba(255, 255, 255, 0.7);
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
 
         .top {
           font-size: 14px;
           color: rgba(255, 255, 255, 0.95);
           font-weight: 500;
-          margin-bottom: 2px;
           white-space: nowrap;
         }
       }
@@ -334,6 +330,7 @@ const toRecharge = () => {
   }
 
   .linkRight {
+    align-self: center;
     max-width: 50px;
     min-width: 50px;
     display: flex;
@@ -342,8 +339,8 @@ const toRecharge = () => {
     justify-content: center;
     font-size: 12px;
     color: rgba(255, 255, 255, 0.95);
-    margin-left: 15px;
     padding: 10px;
+    margin-left: 20px;
     border-radius: 12px;
     background: #1E1E1E;
     transition: all 0.3s ease;

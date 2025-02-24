@@ -120,8 +120,8 @@ const props = defineProps({
       text-align: right;
       font-size: 15px;
       font-weight: 500;
-      margin-right: auto;
-      min-width: 80px;
+      width: 120px;
+      min-width: 120px;
 
       .numRight {
         font-size: 13px;
@@ -136,7 +136,8 @@ const props = defineProps({
       align-items: center;
 
       .rightRight {
-        min-width: 65px;
+        width: 80px;
+        min-width: 80px;
         padding: 4px 8px;
         border-radius: 8px;
         display: flex;

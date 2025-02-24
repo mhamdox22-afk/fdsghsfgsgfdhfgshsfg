@@ -790,19 +790,20 @@ input::-ms-input-placeholder {
 
   .ups {
     background: linear-gradient(135deg, #2ebd85 0%, #1c8f64 100%);
-    box-shadow: 0 4px 15px rgba(46, 189, 133, 0.3);
+    box-shadow: 0 4px 15px rgba(46, 189, 133, 0.2);
   }
 
   .downs {
     background: linear-gradient(135deg, #f6465d 0%, #cf304a 100%);
-    box-shadow: 0 4px 15px rgba(246, 70, 93, 0.3);
+    box-shadow: 0 4px 15px rgba(246, 70, 93, 0.2);
   }
 }
 .titleLeft {
   font-size: 16px;
-  color: var(--ex-default-font-color);
+  color: #E0E0E0;
   display: flex;
   align-items: center;
+  
   .titleName {
     display: flex;
     align-items: center;
@@ -811,91 +812,181 @@ input::-ms-input-placeholder {
     background-color: var(--ex-div-bgColor1);
     border-radius: 2px;
     font-size: 12px;
-    color: var(--ex-font-color);
+    color: #FFFFFF;
     margin-left: 10px;
   }
+  
   .titleColor {
-    background: var(--ex-div-bgColor9);
+    background: var(--ex-div-bgColor7);
   }
 }
 .popupContain {
-  background: #1a1a1a;
+  background: #121212;
+  padding: 20px;
+  height: calc(66vh - 60px); // 减去标题栏高度
+  overflow-y: auto;
+  
+  // 自定义滚动条样式
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+  
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    background: #333;
+    border-radius: 2px;
+  }
   
   .item {
+    margin-bottom: 24px;
+
     .firstHeader {
-      color: #ffffff;
+      color: #E0E0E0;
       font-size: 16px;
       margin-bottom: 15px;
+      font-weight: 600;
     }
 
     .firstList {
+      display: flex;
+      gap: 12px;
+      overflow-x: auto;
+      padding: 4px;
+      margin: 0 -4px;
+      
       .firstItem {
-        background: #2a2a2a;
-        border-radius: 8px;
-        color: #ffffff;
-        transition: all 0.3s ease;
+        min-width: 80px;
+        padding: 12px 16px;
+        background: #1E1E1E;
+        border-radius: 12px;
+        color: #E0E0E0;
+        text-align: center;
+        cursor: pointer;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         
         &:hover {
           transform: translateY(-2px);
+          background: #252525;
+        }
+
+        .firstItemTop {
+          font-size: 15px;
+          margin-bottom: 4px;
         }
 
         &.hightColor {
           background: linear-gradient(135deg, #2ebd85 0%, #1c8f64 100%);
-          box-shadow: 0 4px 15px rgba(46, 189, 133, 0.3);
+          box-shadow: 0 4px 15px rgba(46, 189, 133, 0.2);
         }
       }
     }
   }
 
   .inputQuantity {
-    background: #2a2a2a !important;
-    border: 1px solid #3a3a3a;
-    border-radius: 8px;
-    color: #ffffff;
-    transition: all 0.3s ease;
-
+    background: #1E1E1E !important;
+    border: 1px solid #2C2C2C;
+    border-radius: 12px;
+    color: #E0E0E0;
+    
     &:focus {
       border-color: #2ebd85;
-      box-shadow: 0 0 0 2px rgba(46, 189, 133, 0.2);
+      box-shadow: 0 0 0 2px rgba(46, 189, 133, 0.15);
+    }
+
+    &::placeholder {
+      color: #666666;
     }
   }
 
   .quantityList {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(75px, 1fr));
+    gap: 12px;
+    padding: 4px;
+    margin: 0 -4px 16px;
+
     .item {
-      background: #2a2a2a;
-      color: #ffffff;
+      height: 40px;
+      background: #1E1E1E;
+      color: #E0E0E0;
       border-radius: 8px;
-      transition: all 0.3s ease;
+      font-size: 14px;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
       &:hover {
         transform: translateY(-2px);
+        background: #252525;
       }
 
       &.hightColor {
         background: linear-gradient(135deg, #2ebd85 0%, #1c8f64 100%);
-        box-shadow: 0 4px 15px rgba(46, 189, 133, 0.3);
+        box-shadow: 0 4px 15px rgba(46, 189, 133, 0.2);
       }
     }
+  }
+
+  .balance {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #666666;
+    font-size: 14px;
+    margin-bottom: 24px;
   }
 
   .okButton {
     .button {
+      height: 48px;
       background: linear-gradient(135deg, #2ebd85 0%, #1c8f64 100%);
-      border-radius: 8px;
-      box-shadow: 0 4px 15px rgba(46, 189, 133, 0.3);
-      transition: all 0.3s ease;
+      border-radius: 12px;
+      color: #ffffff;
+      font-size: 16px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 4px 15px rgba(46, 189, 133, 0.2);
 
       &:active {
         transform: scale(0.98);
       }
+
+      &:hover {
+        box-shadow: 0 4px 15px rgba(46, 189, 133, 0.3);
+      }
     }
   }
 }
+
+// Add animation classes
+.popup-enter-active,
+.popup-leave-active {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.popup-enter-from,
+.popup-leave-to {
+  transform: translateY(100%);
+  opacity: 0;
+}
+
+.popup-enter-to,
+.popup-leave-from {
+  transform: translateY(0);
+  opacity: 1;
+}
+
 .countdown {
-  background: #1a1a1a;
+  background: #121212;
   border-radius: 12px;
   padding: 20px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
 
   .circle {
     position: relative;
@@ -915,16 +1006,16 @@ input::-ms-input-placeholder {
 
   .countList {
     .item {
-      border-bottom: 1px solid #2a2a2a;
+      border-bottom: 1px solid #1E1E1E;
       padding: 15px 0;
       transition: all 0.3s ease;
 
       &:hover {
-        background: rgba(255, 255, 255, 0.05);
+        background: rgba(255, 255, 255, 0.03);
       }
 
       .itemRight {
-        color: #ffffff;
+        color: #E0E0E0;
         
         &.hightUp {
           color: #2ebd85;
@@ -938,14 +1029,26 @@ input::-ms-input-placeholder {
   }
 }
 
-// 添加暗色主题变量覆盖
+// 更新根变量
 :root {
-  --ex-default-background-color: #1a1a1a;
-  --ex-default-font-color: #ffffff;
-  --ex-passive-font-color: #808080;
-  --ex-border-color2: #2a2a2a;
+  --ex-default-background-color: #121212;
+  --ex-default-font-color: #E0E0E0;
+  --ex-passive-font-color: #666666;
+  --ex-border-color2: #1E1E1E;
   --ex-div-bgColor1: #2ebd85;
   --ex-div-bgColor7: #f6465d;
-  --ex-div-bgColor17: #2a2a2a;
+  --ex-div-bgColor17: #1E1E1E;
+}
+
+// 修改 PublicPopup 相关样式
+:deep(.van-popup) {
+  background: #121212 !important;
+  height: 66vh !important; // 设置为视窗高度的三分之二
+  max-height: 66vh !important;
+  border-radius: 16px 16px 0 0;
+}
+
+:deep(.van-overlay) {
+  background-color: rgba(0, 0, 0, 0.7) !important;
 }
 </style>
