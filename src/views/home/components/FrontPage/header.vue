@@ -11,49 +11,49 @@
         </van-swipe-item>
       </van-swipe>
       <div class="top">
-        <div>
-<!-- 
+        <div style="display: flex;align-items: center;justify-content: center;">
           <Logo></Logo>
-
-           -->
-
-          <MobileHeader></MobileHeader>
+          <span class="gradient-text">ANTBITT</span>
         </div>
-        <div>
-          <svg-load name="user" class="rightImg" @click="openSideBar"></svg-load>
+        <div style="display: flex;align-items: center;justify-content: center;">
+          <img 
+            src="https://pic.xfdown.com/uploads/2023-12/20231281046205388.png"
+            class="rightImg" 
+            alt="Profile"
+            style="border-radius: 50%;"
+            @click="dispatchCustomEvent('event_serviceChange')"
+          />
+          <MobileHeader></MobileHeader>
+          <img 
+            src="https://png.pngtree.com/png-vector/20240823/ourmid/pngtree-colorful-user-profile-icon-clipart-illustration-png-image_13598380.png"
+            class="rightImg" 
+            @click="openSideBar"
+            alt="User Profile"
+          />
         </div>
       </div>
     </div>
     <div class="currentList">
-      <div
-        class="item centerItem"
-        v-for="(item, index) in dataList.filter((it, idx) => {
-          return idx < 4
-        })"
-        :key="index"
-        @click="linkTo(item)"
-      >
+      <div class="item centerItem" v-for="(item, index) in dataList.filter((it, idx) => {
+        return idx < 4
+      })" :key="index" @click="linkTo(item)">
         <div class="itemTop fw-num">{{ item.showSymbol }}</div>
-        <div
-          :class="[
-            _isRFD(
-              tradeStore.allCoinPriceInfo[item.coin]?.openPrice,
-              tradeStore.allCoinPriceInfo[item.coin]?.close
-            ),
-            'rfd-sign itemMain fw-num'
-          ]"
-        >
+        <div :class="[
+          _isRFD(
+            tradeStore.allCoinPriceInfo[item.coin]?.openPrice,
+            tradeStore.allCoinPriceInfo[item.coin]?.close
+          ),
+          'rfd-sign itemMain fw-num'
+        ]">
           {{ tradeStore.allCoinPriceInfo[item.coin]?.priceChangePercent }}%
         </div>
-        <div
-          :class="[
-            _isRFD(
-              tradeStore.allCoinPriceInfo[item.coin]?.open,
-              tradeStore.allCoinPriceInfo[item.coin]?.close
-            ),
-            'itemFooter fw-num'
-          ]"
-        >
+        <div :class="[
+          _isRFD(
+            tradeStore.allCoinPriceInfo[item.coin]?.open,
+            tradeStore.allCoinPriceInfo[item.coin]?.close
+          ),
+          'itemFooter fw-num'
+        ]">
           {{ tradeStore.allCoinPriceInfo[item.coin]?.close }}
         </div>
       </div>
@@ -69,7 +69,7 @@ import { publiceNotice } from '@/api/common/index'
 import { computed } from 'vue'
 import SideBar from '@/views/home/sidebar/index.vue'
 import MobileHeader from './MobileHeader.vue'
-
+import { dispatchCustomEvent } from '@/utils'
 
 const show = ref(false)
 const openSideBar = () => {
@@ -126,19 +126,73 @@ onMounted(async () => {
   try {
     const res = await publiceNotice('ACTIVITY_NOTICE', 'HOME_ACTIVITY ')
     if (res.code === 200) {
-      carouselList.value = res.data.filter((item) => {
+      console.log("res.data", res.data);
+      const defaultImg = [
+    {
+        "createBy": null,
+        "createTime": "2023-08-08 11:09:56",
+        "updateBy": null,
+        "updateTime": "2024-08-21 02:18:41",
+        "remark": null,
+        "noticeId": 58,
+        "noticeTitle": "test",
+        "noticeType": "活动公告",
+        "modelType": "首页轮播活动",
+        "noticeContent": "<p><br></p>",
+        "commentsNum": 0,
+        "cover": null,
+        "viewNum": 0,
+        "expireTime": null,
+        "imgUrl": "https://tg-mahalebi.oss-cn-hongkong.aliyuncs.com/mahalebi/9e680a3ea2dc4935ac5678eae069818e.jpg",
+        "chainedUrl": "1",
+        "detailUrl": "",
+        "languageId": "zh",
+        "status": "0",
+        "sort": null,
+        "source": null,
+        "key": null,
+        "modelKey": null
+    },
+    {
+        "createBy": null,
+        "createTime": "2024-08-26 03:14:31",
+        "updateBy": null,
+        "updateTime": null,
+        "remark": null,
+        "noticeId": 127,
+        "noticeTitle": "中简",
+        "noticeType": "活动公告",
+        "modelType": "首页轮播活动",
+        "noticeContent": null,
+        "commentsNum": 0,
+        "cover": null,
+        "viewNum": 0,
+        "expireTime": null,
+        "imgUrl": "https://tg-mahalebi.oss-cn-hongkong.aliyuncs.com/mahalebi/b20148da82e847149393dfde8ee05ebd.jpg",
+        "chainedUrl": null,
+        "detailUrl": null,
+        "languageId": "zh",
+        "status": "0",
+        "sort": null,
+        "source": null,
+        "key": null,
+        "modelKey": null
+    }
+]
+
+      carouselList.value = defaultImg.filter((item) => {
         return item.status != '1'
       })
     }
-  } catch (error) {}
-  
+  } catch (error) { }
+
   // Initialize price data
   await tradeStore.getCoinList()
-  
+
   // Set up interval to continuously update price data (every 5 seconds)
   priceUpdateInterval.value = setInterval(async () => {
     await tradeStore.getCoinList()
-  }, 1000) 
+  }, 1000)
 })
 
 // Cleanup interval when component is unmounted
@@ -159,7 +213,7 @@ onUnmounted(() => {
     margin-top: 58px;
     object-fit: cover;
     transition: transform 0.3s ease;
-    
+
     &:hover {
       transform: scale(1.05);
     }
@@ -187,7 +241,7 @@ onUnmounted(() => {
       height: 24px;
       cursor: pointer;
       transition: transform 0.3s ease;
-      
+
       &:hover {
         transform: scale(1.1);
       }
@@ -220,7 +274,7 @@ onUnmounted(() => {
     flex-direction: column;
     padding: 10px;
     transition: transform 0.2s ease;
-    
+
     &:hover {
       transform: translateY(-3px);
     }
@@ -238,11 +292,11 @@ onUnmounted(() => {
       align-items: center;
       font-size: 16px;
       font-weight: 600;
-      
+
       &.rise {
         color: #00f7b5;
       }
-      
+
       &.fall {
         color: #ff4976;
       }
@@ -261,7 +315,7 @@ onUnmounted(() => {
     justify-content: center;
     align-items: center;
     position: relative;
-    
+
     &::after {
       content: '';
       position: absolute;
@@ -271,7 +325,7 @@ onUnmounted(() => {
       width: 1px;
       background: rgba(255, 255, 255, 0.1);
     }
-    
+
     &:last-child::after {
       display: none;
     }
@@ -293,5 +347,15 @@ onUnmounted(() => {
   height: 100%;
   background: #1c1c23;
   box-shadow: -5px 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.gradient-text {
+  background-image: linear-gradient(to right, #00f7d8, #4db9ff, #aa5fff, #ff56c1);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-weight: bold;
+  font-size: 10px;
+  letter-spacing: 1px;
 }
 </style>

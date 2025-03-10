@@ -221,7 +221,7 @@ const handleQuickBuy = () => {
         position: absolute;
         width: 100%;
         height: 2px;
-        background-color: #FFFFFF;
+        background: linear-gradient(90deg, #00E0FF, #9F56FF);
         transition: all 0.3s ease;
         border-radius: 2px;
         
