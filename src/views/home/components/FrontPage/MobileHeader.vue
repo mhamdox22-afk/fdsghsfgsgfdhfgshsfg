@@ -285,8 +285,19 @@ const handleQuickBuy = () => {
   animation-duration: 0.12s;
   border-right: 1px solid rgba(255, 255, 255, 0.1);
 
+  @media (min-width: 768px) {
+    left: 50%;
+    margin-left: -187.5px; /* Half of max-width to center it */
+    transform: translateX(-50%) translateY(0) translateX(-100%);
+  }
+
   &.drawer-visible {
     transform: translateX(0);
+    
+    @media (min-width: 768px) {
+      transform: translateX(-50%) translateY(0);
+    }
+    
     .menu-item, .submenu-wrapper {
       animation-duration: 0.3s !important;
     }
@@ -294,6 +305,10 @@ const handleQuickBuy = () => {
 
   &.animate__slideOutLeft {
     animation-duration: 0.12s;
+    
+    @media (min-width: 768px) {
+      transform: translateX(-50%) translateY(0) translateX(-100%);
+    }
   }
 }
 

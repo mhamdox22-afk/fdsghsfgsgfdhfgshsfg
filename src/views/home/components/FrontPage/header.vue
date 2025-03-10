@@ -64,7 +64,7 @@
 import { useTradeStore } from '@/store/trade/index'
 import { useMainStore } from '@/store/index.js'
 import { useRouter } from 'vue-router'
-import { onMounted } from 'vue'
+import { onMounted, onUnmounted } from 'vue'
 import { publiceNotice } from '@/api/common/index'
 import { computed } from 'vue'
 import SideBar from '@/views/home/sidebar/index.vue'
@@ -119,6 +119,9 @@ const linkto = (detail) => {
   }
 }
 
+// Variable to store the interval ID
+const priceUpdateInterval = ref(null)
+
 onMounted(async () => {
   try {
     const res = await publiceNotice('ACTIVITY_NOTICE', 'HOME_ACTIVITY ')
@@ -128,6 +131,21 @@ onMounted(async () => {
       })
     }
   } catch (error) {}
+  
+  // Initialize price data
+  await tradeStore.getCoinList()
+  
+  // Set up interval to continuously update price data (every 5 seconds)
+  priceUpdateInterval.value = setInterval(async () => {
+    await tradeStore.getCoinList()
+  }, 1000) 
+})
+
+// Cleanup interval when component is unmounted
+onUnmounted(() => {
+  if (priceUpdateInterval.value) {
+    clearInterval(priceUpdateInterval.value)
+  }
 })
 </script>
 <style lang="scss" scoped>

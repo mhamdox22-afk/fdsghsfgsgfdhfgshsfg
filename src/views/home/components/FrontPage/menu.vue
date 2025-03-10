@@ -12,12 +12,12 @@
       </div>
     </div>
   </div>
-  <!-- <div class="notice">
+  <div class="notice">
     <div class="itemNo">
       <svg-load name="mengbanzu12" class="noticeImg"></svg-load>
       <van-notice-bar class="currentNotice" :text="currentNotice" />
     </div>
-  </div> -->
+  </div>
   <div class="linkList">
     <div class="linkLeft">
       <!-- 快捷充币 -->
