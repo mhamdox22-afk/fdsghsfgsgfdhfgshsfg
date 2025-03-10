@@ -8,14 +8,10 @@
     margin: 20px 0 10px;
   }
   & > div {
-    border: 1px solid var(--ex-login-input-border-color);
-    padding: 8px 10px;
-    border-radius: 3px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    line-height: 1.5;
-    background: var(--ex-login-input-background-color);
+    
     img {
       height: 100%;
     }
@@ -35,11 +31,14 @@
     }
     input::placeholder {
       color: var(--ex-login-input-font-color);
+      font-size: 10px;
     }
     input {
       background: var(--ex-login-input-background-color);
       padding: 3px 0;
       flex: 1;
+      height: 30px;
+
     }
     span {
       // width: 50px;

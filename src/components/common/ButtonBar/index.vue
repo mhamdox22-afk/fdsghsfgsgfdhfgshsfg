@@ -27,7 +27,7 @@ div {
   text-align: center;
   border-radius: 3px;
   font-size: 16px;
-  padding: 16px 0;
+  padding: 8px 0;
 }
 
 .btn1 {

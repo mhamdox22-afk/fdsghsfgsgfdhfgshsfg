@@ -340,12 +340,13 @@ const forgerPasswordSubmit = (params) => {
 .box {
   padding: 0 15px 50px;
   .btnBox {
-    margin-top: 50px;
+    margin-top: 30px;
   }
   .account {
-    padding: 50px 0 50px;
+    padding: 30px 0 30px;
     font-size: 16px;
     text-align: center;
+    color: #fff;
     span {
       font-size: 16px;
       color: var(--ex-font-color9);
