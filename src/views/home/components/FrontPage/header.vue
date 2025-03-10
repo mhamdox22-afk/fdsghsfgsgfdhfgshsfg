@@ -27,6 +27,7 @@
           <img 
             src="https://png.pngtree.com/png-vector/20240823/ourmid/pngtree-colorful-user-profile-icon-clipart-illustration-png-image_13598380.png"
             class="rightImg" 
+            style="width: 30px;height: 30px;"
             @click="openSideBar"
             alt="User Profile"
           />

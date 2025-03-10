@@ -1131,5 +1131,321 @@
   "robinhood2_recharge_fast": "快捷充幣",
   "math_exchange_bullish": "看漲",
   "password_num": "請設置數字密碼",
-  "math_exchange_bearish": "看跌"
+  "math_exchange_bearish": "看跌",
+  "home": {
+    "hero": {
+      "title": "超過1800萬用戶加入Antbitt",
+      "subtitle": "歡迎探索 全新體驗",
+      "startTrading": "開始交易"
+    },
+    "statistics": {
+      "title": "是適合所有人的加密貨幣交易所",
+      "customers": "客戶",
+      "countries": "支持的國家",
+      "volume": "季度交易量",
+      "plus": "+"
+    },
+    "purchaseSteps": {
+      "title": "只需幾分鐘就能購買加密貨幣",
+      "steps": {
+        "createAccount": "創建您的免費 antbitt 帳戶",
+        "connect": "連接您的融資方式",
+        "trade": "買賣200多種加密貨幣",
+        "security": "充分的安全保證"
+      }
+    },
+    "cryptoComposition": {
+      "title": "建立你的加密貨幣組合",
+      "cta": "去交易中心 購買心儀的加密貨幣"
+    },
+    "securityFeatures": {
+      "mainFeatures": {
+        "reserve": {
+          "title": "儲備金說明",
+          "desc": "我們承諾，平台以至少 1:1 的儲備比例持有所有用戶資產。"
+        },
+        "storage": {
+          "title": "安全的冷儲存",
+          "desc": "我們將大部分的數字資產安全存放在離線的多重簽名錢包中。"
+        },
+        "protection": {
+          "title": "用戶保護基金",
+          "desc": "我們具有價值 3億USDT 的用戶保護基金，為潛在的安全風險提供多一層保障。"
+        }
+      },
+      "additionalFeatures": {
+        "technology": {
+          "title": "安全穩定可靠的技術",
+          "desc": "我們擁有頂尖的技術團隊，專注於全方位安全保護，自主研發高效引擎，使系統在海量訂單情況下仍能保持可靠運行"
+        },
+        "philosophy": {
+          "title": "用戶至上的理念",
+          "desc": "面向全球市場，多語言支持，7*24小時在線客服，專業的客戶服務。"
+        },
+        "operation": {
+          "title": "全球化運營",
+          "desc": "國際化運營團隊，多年區塊鏈及金融從業經驗，全球市場擴展50多個地區"
+        },
+        "rewards": {
+          "title": "豐富的活動和獎勵",
+          "desc": "精彩的運營活動，高額獎勵拿到手軟"
+        }
+      }
+    },
+    "faq": {
+      "title": "常見問題",
+      "items": {
+        "whoWeAre": {
+          "question": "我們是誰？",
+          "answer": "我們是全球領先的數字資產交易平台，致力於為用戶提供安全、便捷、專業的加密貨幣交易服務。我們擁有頂尖的技術團隊和豐富的行業經驗，為全球超過1800萬用戶提供服務。"
+        },
+        "advantages": {
+          "question": "我們的優勢",
+          "answer": "我們擁有業內領先的安全技術、豐富的交易品種、24/7全天候客戶服務、多語言支持、高流動性和完善的風控體系。我們始終將用戶的資產安全放在首位，採用多重簽名冷錢包存儲和實時監控系統。"
+        },
+        "blockchain": {
+          "question": "區塊鏈如何幫助世界變得更美好？",
+          "answer": "區塊鏈技術通過去中心化、透明性和不可篡改性，為金融、供應鏈、醫療、教育等領域帶來革新。它能降低交易成本、提高效率、增強信任、促進普惠金融，讓更多人享受到科技發展的紅利。"
+        },
+        "charity": {
+          "question": "使用區塊鏈來幫助慈善機構",
+          "answer": "區塊鏈技術可以幫助慈善機構提高透明度和效率。通過智能合約自動執行捐贈，資金流向可追蹤，確保善款使用透明。同時，跨境捐贈更便捷，降低運營成本，讓更多資源用於公益事業。"
+        }
+      }
+    },
+    "footer": {
+      "about": {
+        "title": "關於我們",
+        "company": "公司簡介",
+        "careers": "加入我們",
+        "news": "新聞資訊",
+        "contact": "聯繫我們"
+      },
+      "products": {
+        "title": "產品服務",
+        "spot": "現貨交易",
+        "futures": "永續合約",
+        "otc": "法幣交易",
+        "staking": "質押挖礦"
+      },
+      "support": {
+        "title": "服務支持",
+        "help": "幫助中心",
+        "fees": "費率說明",
+        "api": "API文檔",
+        "security": "安全說明"
+      },
+      "terms": {
+        "title": "條款政策",
+        "service": "服務條款",
+        "privacy": "隱私政策",
+        "disclaimer": "免責聲明",
+        "aml": "反洗錢政策"
+      },
+      "contact": {
+        "support": "客服郵箱：support@antbitt.com",
+        "business": "商務合作：business@antbitt.com",
+        "email": "官方郵箱："
+      },
+      "copyright": {
+        "text": "© 2024 antbitt. All rights reserved.",
+        "description": "一家專注虛擬貨幣的服務公司"
+      },
+      "productIntro": "產品介紹",
+      "quote": "行情",
+      "trade": "交易",
+      "assets": "資產",
+      "support": "支持服務",
+      "terms": "服務條款",
+      "help": "幫助中心",
+      "allRightsReserved": "保留所有權利",
+      "companyDesc": "一家專注虛擬貨幣的服務公司"
+    }
+  },
+  "menu_home": "首頁",
+  "menu_quote": "行情",
+  "menu_loan": "借貸",
+  "menu_financial": "投資組合",
+  "menu_pledge": "AI質押",
+  "menu_trade": "交易",
+  "menu_quick_buy": "快捷買幣",
+  "menu_finance": "金融理財",
+  "menu_defi_loan": "DeFi借幣",
+  "menu_defi_loan_desc": "去中心化借貸服務",
+  "menu_promotion": "推廣中心",
+  "menu_user_center": "資產中心",
+  "menu_user_center_desc": "管理您的資產信息和設置",
+  "menu_simulated_trade": "模擬交易",
+  "menu_simulated_trade_desc": "體驗無風險的交易環境",
+  "simulated_balance": "模擬餘額",
+  "reset_balance": "重置餘額",
+  "market": "市場",
+  "market_data_loading": "加載市場數據中...",
+  "place_order": "下單",
+  "trading_pair": "交易對",
+  "order_type": "訂單類型",
+  "buy": "買入",
+  "sell": "賣出",
+  "price": "價格",
+  "amount": "數量",
+  "total": "總計",
+  "order_history": "訂單歷史",
+  "no_orders_yet": "暫無訂單記錄",
+  "menu_fund_security": "資金安全",
+  "menu_reserve_proof": "儲備金證明",
+  "menu_beginner_academy": "新手學院",
+  "menu_activity_hall": "活動大廳",
+  "fund_security_title_1": "多重簽名冷錢包",
+  "fund_security_desc_1": "我們將95%以上的用戶資產存儲在多重簽名冷錢包中，確保資金安全。",
+  "fund_security_title_2": "實時監控系統",
+  "fund_security_desc_2": "我們的安全團隊24/7全天候監控所有交易活動，及時發現並處理異常情況。",
+  "fund_security_title_3": "用戶保護基金",
+  "fund_security_desc_3": "我們設立了專門的用戶保護基金，為用戶提供額外的資金安全保障。",
+  "fund_security_measures": "安全措施",
+  "fund_security_measures_desc": "我們採取了多項措施保障用戶資金安全：",
+  "fund_security_measure_1": "兩因素認證 (2FA)",
+  "fund_security_measure_1_desc": "我們強烈建議所有用戶啟用兩因素認證，為帳戶添加額外的安全層級。",
+  "fund_security_measure_2": "高級加密技術",
+  "fund_security_measure_2_desc": "我們使用行業領先的加密技術保護用戶數據和資金傳輸過程。",
+  "fund_security_measure_3": "風險控制系統",
+  "fund_security_measure_3_desc": "我們的風險控制系統能夠識別異常交易行為，並採取相應措施保護用戶帳戶。",
+  "reserve_ratio": "儲備金比例",
+  "total_reserves": "總儲備金額",
+  "daily": "每日",
+  "audit_frequency": "審計頻率",
+  "reserve_proof_details": "儲備金明細",
+  "reserve_proof_description": "我們承諾以至少1:1的比例持有所有用戶資產。以下是我們當前的儲備金明細：",
+  "asset": "資產",
+  "total_balance": "總餘額",
+  "user_liabilities": "用戶負債",
+  "proof_date": "證明日期",
+  "verification": "驗證",
+  "verify": "驗證",
+  "verification_methodology": "驗證方法",
+  "verification_methodology_desc": "我們採用零知識證明技術，允許用戶驗證我們的儲備金而不洩露敏感信息。我們定期進行第三方審計，確保儲備金充足。",
+  "beginner_basics": "新手基礎",
+  "trading_guides": "交易指南",
+  "crypto_knowledge": "加密知識",
+  "beginner_article_1_title": "什麼是加密貨幣？",
+  "beginner_article_1_content": "<p>加密貨幣是一種數字或虛擬貨幣，使用密碼學技術確保安全。它不依賴於中央機構（如銀行或政府）來驗證交易和創建新單位。</p><p>比特幣是第一個也是最知名的加密貨幣，於2009年由中本聰創建。此後，出現了數千種不同的加密貨幣，每種都有其獨特的功能和用例。</p><p>加密貨幣的核心技術是區塊鏈，這是一種分佈式賬本技術，記錄所有交易並在網絡中的所有參與者之間共享。</p>",
+  "beginner_article_2_title": "如何開始交易加密貨幣？",
+  "beginner_article_2_content": "<p>開始交易加密貨幣的步驟：</p><ol><li>選擇一個可靠的加密貨幣交易所（如我們的平台）</li><li>完成註冊和身份驗證流程</li><li>連接您的支付方式（銀行賬戶或信用卡）</li><li>存入資金到您的交易賬戶</li><li>選擇您想要購買的加密貨幣</li><li>下單購買</li><li>考慮使用安全的錢包存儲您的加密貨幣</li></ol><p>記住，加密貨幣市場波動性很大，只投資您能承受損失的金額。</p>",
+  "beginner_article_3_title": "加密貨幣錢包指南",
+  "beginner_article_3_content": "<p>加密貨幣錢包是存儲您的數字資產的工具。主要類型包括：</p><ul><li><strong>熱錢包</strong>：連接互聯網，方便快速交易，但安全性較低</li><li><strong>冷錢包</strong>：離線存儲，提供更高的安全性，適合長期持有</li><li><strong>硬件錢包</strong>：物理設備，提供冷存儲和高安全性</li><li><strong>軟件錢包</strong>：應用程序或程序，可以是熱錢包或冷錢包</li><li><strong>紙錢包</strong>：打印出的私鑰和地址</li></ul><p>選擇錢包時，考慮安全性、便利性和您的使用需求。</p>",
+  "trading_guide_1_title": "基本交易策略",
+  "trading_guide_1_content": "<p>加密貨幣交易策略：</p><ul><li><strong>買入並持有</strong>：長期投資策略，忽略短期波動</li><li><strong>日內交易</strong>：在同一天內進行多次交易，利用短期價格波動</li><li><strong>波段交易</strong>：在價格波動範圍內買入低點，賣出高點</li><li><strong>美元成本平均法</strong>：定期投資固定金額，不考慮價格</li><li><strong>套利交易</strong>：利用不同交易所或市場之間的價格差異</li></ul><p>無論選擇哪種策略，都要做好風險管理，設置止損位，並只使用您能承受損失的資金。</p>",
+  "trading_guide_2_title": "技術分析基礎",
+  "trading_guide_2_content": "<p>技術分析是通過研究價格走勢和交易量來預測未來價格走向的方法。基本概念包括：</p><ul><li><strong>支撐位和阻力位</strong>：價格難以突破的水平</li><li><strong>趨勢線</strong>：連接價格高點或低點的線</li><li><strong>移動平均線</strong>：平滑價格數據的指標</li><li><strong>相對強弱指數(RSI)</strong>：衡量價格變動速度和變化的指標</li><li><strong>MACD</strong>：趨勢跟蹤動量指標</li><li><strong>蠟燭圖形態</strong>：價格圖表上的特定形態，可能預示價格變動</li></ul><p>技術分析是一種工具，而非保證。始終結合其他分析方法和風險管理策略。</p>",
+  "crypto_article_1_title": "區塊鏈技術解析",
+  "crypto_article_1_content": "<p>區塊鏈是一種分佈式賬本技術，允許數據以安全、透明和不可篡改的方式記錄。其核心特點包括：</p><ul><li><strong>去中心化</strong>：沒有單一控制點，由網絡參與者共同維護</li><li><strong>透明性</strong>：所有交易對網絡中的所有人可見</li><li><strong>不可篡改性</strong>：一旦記錄被添加，幾乎不可能更改</li><li><strong>安全性</strong>：使用密碼學確保數據安全</li><li><strong>共識機制</strong>：網絡參與者就交易有效性達成一致的方法</li></ul><p>區塊鏈技術的應用遠超加密貨幣，包括供應鏈管理、醫療記錄、投票系統等多個領域。</p>",
+  "crypto_article_2_title": "DeFi（去中心化金融）入門",
+  "crypto_article_2_content": "<p>去中心化金融(DeFi)是一種新興的金融系統，建立在區塊鏈技術上，無需傳統的中介機構。主要應用包括：</p><ul><li><strong>去中心化交易所(DEX)</strong>：無需中介的點對點交易平台</li><li><strong>借貸平台</strong>：用戶可以借出或借入加密資產</li><li><strong>穩定幣</strong>：與法定貨幣掛鉤的加密貨幣</li><li><strong>收益農場</strong>：通過提供流動性獲取回報</li><li><strong>去中心化保險</strong>：對加密資產的保險覆蓋</li></ul><p>DeFi提供了金融包容性和創新，但也帶來了風險，包括智能合約漏洞、高波動性和監管不確定性。</p>",
+  "views": "瀏覽",
+  "previous": "上一頁",
+  "next": "下一頁",
+  "filter_by": "篩選",
+  "all_activities": "全部活動",
+  "ongoing": "進行中",
+  "upcoming": "即將開始",
+  "ended": "已結束",
+  "search_activities": "搜索活動",
+  "rewards": "獎勵",
+  "join_now": "立即參與",
+  "remind_me": "提醒我",
+  "view_details": "查看詳情",
+  "fundSecurity": {
+    "title": "守護您的資產",
+    "description1": "ANTBITT利用安全的冷/熱錢包系統、多重簽名和多重備份，全天候保障您的資產安全。",
+    "description2": "即使遇到突發情況，還有ANTBITT萬全基金繼續為您護航。",
+    "altText": "守護您的資產",
+    "coldWallet": "冷錢包",
+    "hotWallet": "熱錢包",
+    "antbittFund": "ANTBITT萬全基金",
+    "coldWalletTitle": "安全的冷錢包設計",
+    "coldWalletSubtitle": "ANTBITT保障冷錢包的安全運行，不止於承諾，更是行動。",
+    "coldWalletDescription": "平台在長期的實踐中形成了系統的解決方案，如今正推進該方案的公開與共享，歡迎社區建設者與安全專家提出寶貴的建議。",
+    "coldWalletKeyPoints": "方案要點",
+    "coldWalletFeature1": "所有私鑰在完全離線的設備上存儲。",
+    "coldWalletFeature2": "確保私鑰不會直接接觸過網絡。",
+    "coldWalletFeature3": "在異地存儲私鑰備份。",
+    "coldWalletResults": "實現結果",
+    "coldWalletResult1": "每個私鑰的使用需要多重授權。",
+    "coldWalletResult2": "私鑰有異地備份，即使出現自然災害，也不會發生丟幣。",
+    "coldWalletResult3": "從保險庫取得密鑰需要本人進入，從而避免了授權員工可能受到威脅的情況。",
+    "hotWalletTitle": "可靠的熱錢包技術",
+    "hotWalletDescription": "相比冷錢包，如何安全穩定地運行熱錢包具有更大的技術挑戰。ANTBITT獨創熱錢包半離線多重簽名技術，在保障資金安全的同時，還能提供快捷、安全的數字資產的充提服務。",
+    "hotWalletKeyPoints": "方案要點",
+    "hotWalletFeature1": "多場景的備份私鑰啟用預案",
+    "hotWalletFeature2": "多重風控檢測方案，前置性地預防可疑代幣通過ANTBITT流入或轉出",
+    "hotWalletResults": "實現結果",
+    "hotWalletResult1": "能同時防止網絡和物理攻擊，私鑰安全性極高",
+    "hotWalletResult2": "擁有多簽、多備份的機制以及完善的備用私鑰啟用預案，最大限度降低因私鑰管理對平台正常運營產生的影響",
+    "hotWalletResult3": "完善的風控管理系統，預防異常充值和提現的行為",
+    "antbittFundTitle": "什麼是ANTBITT萬全基金？",
+    "antbittFundDescription": "ANTBITT萬全基金，是ANTBITT為了保障用戶資產而成立的資產風險儲備基金，持續從平台收益中撥出一定的比例，在出現數字貨幣安全風險時保障用戶資產。",
+    "fundNeedTitle": "我們為什麼需要該項基金？",
+    "fundNeedDescription": "隨著數字貨幣日益普及，ANTBITT致力於為所有用戶打造一個安全、可靠和負責任的數字貨幣交易環境。ANTBITT將運用本基金和業界領先的資產安全風險控制系統，為所有新老用戶提供強有力的保護，保障資產安全。"
+  },
+  "reserveProof": {
+    "title": "儲備金證明",
+    "content": "ANTBIT對平台上所有賬戶資產均持有 1:1 的備金，並定期發布備金證明報告，為平台資產帶來更高透明度。",
+    "videoTitle": "儲備金證明。數字貨幣專家在儲備金證明發布一週年之際強調了平台透明度和信譽的重要性。",
+    "processTitle": "儲備金證明的流程",
+    "processDescription": "我們的儲備金證明流程包括以下幾個步驟：",
+    "step1": "定期審計：我們每季度進行獨立審計，確保資產的真實性。",
+    "step2": "報告生成：審計完成後，我們會生成詳細的報告。",
+    "step3": "報告發布：將審計報告發布在我們的官方網站上，供用戶查閱。",
+    "trustTitle": "用戶的信任與支持",
+    "trustDescription": "我們深知用戶的信任是我們最寶貴的資產。通過透明的財務報告和持續的溝通，我們致力於建立與用戶之間的信任關係。",
+    "feedback": "我們鼓勵用戶隨時提出問題和反饋，以便我們不斷改進服務。",
+    "commitmentTitle": "我們的承諾",
+    "commitmentDescription": "我們承諾將繼續保持透明度，確保用戶的資產安全。我們的團隊將不斷努力，提供更好的服務和支持。",
+    "updateCommitment": "我們將定期更新儲備金證明，確保用戶始終能夠獲取最新的信息。",
+    "advantagesTitle": "儲備金證明的優勢",
+    "advantageTransparency": "透明性：用戶可以隨時查看我們的財務報告，了解平台的真實情況。",
+    "advantageSecurity": "安全性：所有資產均由獨立的第三方保管，確保用戶資金的安全。",
+    "advantageConvenience": "便捷性：用戶可以通過我們的平台輕鬆訪問儲備金證明，獲取最新信息。",
+    "faqTitle": "常見問題解答",
+    "faq1": {
+      "question": "儲備金證明的頻率是怎樣的？",
+      "answer": "我們每季度進行一次審計，並發布相應的報告。"
+    },
+    "faq2": {
+      "question": "如何獲取儲備金證明？",
+      "answer": "用戶可以在我們的官方網站上查看最新的儲備金證明報告。"
+    }
+  },
+  "index_title": "數字貨幣全攻略",
+  "index_subtitle": "新手必讀、操作指南、進階策略、行業熱點盡在新手學院，精彩一站直達，輕鬆玩轉數字貨幣。",
+  "activity_title_1": "交易大賽 - 贏取 10,000 USDT",
+  "activity_description_1": "參與我們的交易大賽，有機會贏取高達 10,000 USDT 的獎勵！",
+  "activity_rewards_1": "10,000 USDT",
+  
+  "activity_title_2": "新用戶註冊獎勵",
+  "activity_description_2": "新用戶註冊並完成KYC驗證，即可獲得 50 USDT 的獎勵！",
+  "activity_rewards_2": "50 USDT",
+  
+  "activity_title_3": "質押挖礦活動",
+  "activity_description_3": "質押您的加密貨幣，每日獲得高達 15% APY 的收益！",
+  "activity_rewards_3": "最高 15% APY",
+  
+  "activity_title_4": "社區AMA活動",
+  "activity_description_4": "參與我們的社群活動，與行業專家交流並贏取獎勵，獎勵最高1000 USDT！",
+  "activity_rewards_4": "最高 1000 USDT",
+  
+  "activity_title_5": "推薦好友計劃",
+  "activity_description_5": "推薦好友註冊並交易，雙方均可獲得獎勵！",
+  "activity_rewards_5": "交易手續費 30%",
+  
+  "activity_title_6": "空投活動",
+  "activity_description_6": "持有平台代幣，參與我們的空投活動！",
+  "activity_rewards_6": "5,000 平台代幣",
+  
+  "activity_title_7": "交易手續費減免，最高獎勵交易的10%",
+  "activity_description_7": "限時活動：所有交易手續費減半！",
+  "activity_rewards_7": "50% 手續費減免",
+  
+  "activity_title_8": "期權合約上線慶祝活動",
+  "activity_description_8": "慶祝期權合約上線，參與交易即可瓜分獎池！",
+  "activity_rewards_8": "20,000 USDT 獎池"
 }

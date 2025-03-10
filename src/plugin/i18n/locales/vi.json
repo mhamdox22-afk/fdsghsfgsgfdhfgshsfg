@@ -1131,5 +1131,321 @@
   "robinhood2_quick_recharge": "Nạp tiền nhanh",
   "robinhood2_recharge_fast": "Gửi tiền nhanh",
   "math_exchange_bullish": "lạc quan",
-  "math_exchange_bearish": "giảm giá"
+  "math_exchange_bearish": "giảm giá",
+  "home": {
+    "hero": {
+      "title": "Hơn 18 triệu người dùng đã tham gia Antbitt",
+      "subtitle": "Chào mừng bạn đến với trải nghiệm hoàn toàn mới",
+      "startTrading": "Bắt đầu giao dịch"
+    },
+    "statistics": {
+      "title": "Sàn giao dịch tiền điện tử phù hợp với mọi người",
+      "customers": "Khách hàng",
+      "countries": "Các quốc gia hỗ trợ",
+      "volume": "Khối lượng giao dịch hàng quý",
+      "plus": "+"
+    },
+    "purchaseSteps": {
+      "title": "Chỉ cần vài phút để mua tiền điện tử",
+      "steps": {
+        "createAccount": "Tạo tài khoản antbitt miễn phí của bạn",
+        "connect": "Kết nối phương thức tài chính của bạn",
+        "trade": "Mua bán hơn 200 loại tiền điện tử",
+        "security": "Đảm bảo an toàn đầy đủ"
+      }
+    },
+    "cryptoComposition": {
+      "title": "Xây dựng danh mục tiền điện tử của bạn",
+      "cta": "Đi đến trung tâm giao dịch để mua tiền điện tử bạn yêu thích"
+    },
+    "securityFeatures": {
+      "mainFeatures": {
+        "reserve": {
+          "title": "Giải thích về quỹ dự trữ",
+          "desc": "Chúng tôi cam kết giữ tất cả tài sản của người dùng với tỷ lệ dự trữ ít nhất là 1:1."
+        },
+        "storage": {
+          "title": "Lưu trữ lạnh an toàn",
+          "desc": "Chúng tôi lưu trữ phần lớn tài sản kỹ thuật số của mình trong ví đa chữ ký ngoại tuyến."
+        },
+        "protection": {
+          "title": "Quỹ bảo vệ người dùng",
+          "desc": "Chúng tôi có quỹ bảo vệ người dùng trị giá 300 triệu USDT, cung cấp thêm một lớp bảo vệ cho các rủi ro an ninh tiềm ẩn."
+        }
+      },
+      "additionalFeatures": {
+        "technology": {
+          "title": "Công nghệ an toàn, ổn định và đáng tin cậy",
+          "desc": "Chúng tôi có đội ngũ kỹ thuật hàng đầu, tập trung vào bảo vệ an toàn toàn diện, phát triển động cơ hiệu quả độc lập, giúp hệ thống vẫn hoạt động đáng tin cậy trong trường hợp có lượng đơn hàng lớn."
+        },
+        "philosophy": {
+          "title": "Triết lý đặt người dùng lên hàng đầu",
+          "desc": "Hướng tới thị trường toàn cầu, hỗ trợ đa ngôn ngữ, dịch vụ khách hàng trực tuyến 24/7, dịch vụ khách hàng chuyên nghiệp."
+        },
+        "operation": {
+          "title": "Hoạt động toàn cầu",
+          "desc": "Đội ngũ vận hành quốc tế, nhiều năm kinh nghiệm trong lĩnh vực blockchain và tài chính, mở rộng thị trường toàn cầu đến hơn 50 khu vực."
+        },
+        "rewards": {
+          "title": "Nhiều hoạt động và phần thưởng phong phú",
+          "desc": "Các hoạt động vận hành thú vị, phần thưởng cao đến tay bạn."
+        }
+      }
+    },
+    "faq": {
+      "title": "Câu hỏi thường gặp",
+      "items": {
+        "whoWeAre": {
+          "question": "Chúng tôi là ai?",
+          "answer": "Chúng tôi là nền tảng giao dịch tài sản kỹ thuật số hàng đầu thế giới, cam kết cung cấp dịch vụ giao dịch tiền điện tử an toàn, tiện lợi và chuyên nghiệp cho người dùng. Chúng tôi có đội ngũ kỹ thuật hàng đầu và kinh nghiệm phong phú trong ngành, phục vụ hơn 18 triệu người dùng trên toàn cầu."
+        },
+        "advantages": {
+          "question": "Lợi thế của chúng tôi",
+          "answer": "Chúng tôi có công nghệ an toàn hàng đầu trong ngành, nhiều loại giao dịch phong phú, dịch vụ khách hàng 24/7, hỗ trợ đa ngôn ngữ, tính thanh khoản cao và hệ thống kiểm soát rủi ro hoàn thiện. Chúng tôi luôn đặt sự an toàn của tài sản người dùng lên hàng đầu, sử dụng ví lạnh đa chữ ký và hệ thống giám sát thời gian thực."
+        },
+        "blockchain": {
+          "question": "Blockchain giúp thế giới trở nên tốt đẹp hơn như thế nào?",
+          "answer": "Công nghệ blockchain mang lại sự đổi mới cho các lĩnh vực tài chính, chuỗi cung ứng, y tế, giáo dục, thông qua tính phi tập trung, minh bạch và không thể thay đổi. Nó có thể giảm chi phí giao dịch, tăng hiệu quả, nâng cao niềm tin và thúc đẩy tài chính toàn diện, giúp nhiều người hơn hưởng lợi từ sự phát triển của công nghệ."
+        },
+        "charity": {
+          "question": "Sử dụng blockchain để giúp các tổ chức từ thiện",
+          "answer": "Công nghệ blockchain có thể giúp các tổ chức từ thiện nâng cao tính minh bạch và hiệu quả. Thông qua hợp đồng thông minh tự động thực hiện quyên góp, dòng tiền có thể được theo dõi, đảm bảo việc sử dụng quỹ từ thiện minh bạch. Đồng thời, quyên góp xuyên biên giới trở nên thuận tiện hơn, giảm chi phí hoạt động, giúp nhiều nguồn lực hơn được sử dụng cho các hoạt động từ thiện."
+        }
+      }
+    },
+    "footer": {
+      "about": {
+        "title": "Về chúng tôi",
+        "company": "Giới thiệu công ty",
+        "careers": "Tham gia cùng chúng tôi",
+        "news": "Tin tức",
+        "contact": "Liên hệ"
+      },
+      "products": {
+        "title": "Dịch vụ sản phẩm",
+        "spot": "Giao dịch giao ngay",
+        "futures": "Hợp đồng vĩnh viễn",
+        "otc": "Giao dịch tiền pháp định",
+        "staking": "Khai thác staking"
+      },
+      "support": {
+        "title": "Hỗ trợ dịch vụ",
+        "help": "Trung tâm trợ giúp",
+        "fees": "Giải thích phí",
+        "api": "Tài liệu API",
+        "security": "Giải thích an ninh"
+      },
+      "terms": {
+        "title": "Điều khoản và chính sách",
+        "service": "Điều khoản dịch vụ",
+        "privacy": "Chính sách bảo mật",
+        "disclaimer": "Tuyên bố từ chối trách nhiệm",
+        "aml": "Chính sách chống rửa tiền"
+      },
+      "contact": {
+        "support": "Email hỗ trợ: support@antbitt.com",
+        "business": "Hợp tác kinh doanh: business@antbitt.com",
+        "email": "Email chính thức:"
+      },
+      "copyright": {
+        "text": "© 2024 antbitt. Tất cả quyền được bảo lưu.",
+        "description": "Một công ty chuyên về dịch vụ tiền ảo"
+      },
+      "productIntro": "Giới thiệu sản phẩm",
+      "quote": "Báo giá",
+      "trade": "Giao dịch",
+      "assets": "Tài sản",
+      "support": "Dịch vụ hỗ trợ",
+      "terms": "Điều khoản dịch vụ",
+      "help": "Trung tâm trợ giúp",
+      "allRightsReserved": "Bảo lưu mọi quyền",
+      "companyDesc": "Một công ty chuyên về dịch vụ tiền ảo"
+    }
+  },
+  "menu_home": "Trang chủ",
+  "menu_quote": "Báo giá",
+  "menu_loan": "Cho vay",
+  "menu_financial": "Danh mục đầu tư",
+  "menu_pledge": "Staking AI",
+  "menu_trade": "Giao dịch",
+  "menu_quick_buy": "Mua nhanh",
+  "menu_finance": "Tài chính",
+  "menu_defi_loan": "Cho vay DeFi",
+  "menu_defi_loan_desc": "Dịch vụ cho vay phi tập trung",
+  "menu_promotion": "Trung tâm khuyến mãi",
+  "menu_user_center": "Trung tâm tài sản",
+  "menu_user_center_desc": "Quản lý thông tin và cài đặt tài sản của bạn",
+  "menu_simulated_trade": "Giao dịch mô phỏng",
+  "menu_simulated_trade_desc": "Trải nghiệm môi trường giao dịch không rủi ro",
+  "simulated_balance": "Số dư mô phỏng",
+  "reset_balance": "Đặt lại số dư",
+  "market": "Thị trường",
+  "market_data_loading": "Đang tải dữ liệu thị trường...",
+  "place_order": "Đặt hàng",
+  "trading_pair": "Cặp giao dịch",
+  "order_type": "Loại đơn hàng",
+  "buy": "Mua",
+  "sell": "Bán",
+  "price": "Giá",
+  "amount": "Số lượng",
+  "total": "Tổng cộng",
+  "order_history": "Lịch sử đơn hàng",
+  "no_orders_yet": "Chưa có đơn hàng nào",
+  "menu_fund_security": "An toàn quỹ",
+  "menu_reserve_proof": "Chứng minh quỹ dự trữ",
+  "menu_beginner_academy": "Học viện người mới",
+  "menu_activity_hall": "Hội trường hoạt động",
+  "fund_security_title_1": "Ví lạnh đa chữ ký",
+  "fund_security_desc_1": "Chúng tôi lưu trữ hơn 95% tài sản của người dùng trong ví lạnh đa chữ ký, đảm bảo an toàn quỹ.",
+  "fund_security_title_2": "Hệ thống giám sát thời gian thực",
+  "fund_security_desc_2": "Đội ngũ an ninh của chúng tôi giám sát tất cả các hoạt động giao dịch 24/7, kịp thời phát hiện và xử lý các tình huống bất thường.",
+  "fund_security_title_3": "Quỹ bảo vệ người dùng",
+  "fund_security_desc_3": "Chúng tôi đã thành lập quỹ bảo vệ người dùng để cung cấp bảo vệ tài chính bổ sung cho người dùng.",
+  "fund_security_measures": "Biện pháp an toàn",
+  "fund_security_measures_desc": "Chúng tôi đã thực hiện nhiều biện pháp để đảm bảo an toàn tài sản của người dùng:",
+  "fund_security_measure_1": "Xác thực hai yếu tố (2FA)",
+  "fund_security_measure_1_desc": "Chúng tôi khuyến nghị tất cả người dùng bật xác thực hai yếu tố để thêm một lớp bảo mật cho tài khoản.",
+  "fund_security_measure_2": "Công nghệ mã hóa tiên tiến",
+  "fund_security_measure_2_desc": "Chúng tôi sử dụng công nghệ mã hóa hàng đầu trong ngành để bảo vệ dữ liệu và quá trình chuyển tiền của người dùng.",
+  "fund_security_measure_3": "Hệ thống kiểm soát rủi ro",
+  "fund_security_measure_3_desc": "Hệ thống kiểm soát rủi ro của chúng tôi có thể nhận diện hành vi giao dịch bất thường và thực hiện các biện pháp bảo vệ tài khoản người dùng.",
+  "reserve_ratio": "Tỷ lệ dự trữ",
+  "total_reserves": "Tổng số dự trữ",
+  "daily": "Hàng ngày",
+  "audit_frequency": "Tần suất kiểm toán",
+  "reserve_proof_details": "Chi tiết quỹ dự trữ",
+  "reserve_proof_description": "Chúng tôi cam kết giữ tất cả tài sản của người dùng với tỷ lệ ít nhất là 1:1. Dưới đây là chi tiết quỹ dự trữ hiện tại của chúng tôi:",
+  "asset": "Tài sản",
+  "total_balance": "Tổng số dư",
+  "user_liabilities": "Nợ của người dùng",
+  "proof_date": "Ngày chứng minh",
+  "verification": "Xác minh",
+  "verify": "Xác minh",
+  "verification_methodology": "Phương pháp xác minh",
+  "verification_methodology_desc": "Chúng tôi sử dụng công nghệ chứng minh không tiết lộ thông tin, cho phép người dùng xác minh quỹ dự trữ của chúng tôi mà không tiết lộ thông tin nhạy cảm. Chúng tôi thường xuyên thực hiện kiểm toán bên thứ ba để đảm bảo quỹ dự trữ đầy đủ.",
+  "beginner_basics": "Cơ bản cho người mới",
+  "trading_guides": "Hướng dẫn giao dịch",
+  "crypto_knowledge": "Kiến thức về tiền điện tử",
+  "beginner_article_1_title": "Tiền điện tử là gì?",
+  "beginner_article_1_content": "<p>Tiền điện tử là một loại tiền tệ kỹ thuật số hoặc ảo, sử dụng công nghệ mã hóa để đảm bảo an toàn. Nó không phụ thuộc vào các tổ chức trung ương (như ngân hàng hoặc chính phủ) để xác minh giao dịch và tạo ra các đơn vị mới.</p><p>Bitcoin là loại tiền điện tử đầu tiên và nổi tiếng nhất, được tạo ra vào năm 2009 bởi Satoshi Nakamoto. Kể từ đó, đã xuất hiện hàng ngàn loại tiền điện tử khác nhau, mỗi loại đều có chức năng và ứng dụng riêng.</p><p>Công nghệ cốt lõi của tiền điện tử là blockchain, một công nghệ sổ cái phân tán, ghi lại tất cả các giao dịch và chia sẻ giữa tất cả các bên tham gia trong mạng lưới.</p>",
+  "beginner_article_2_title": "Làm thế nào để bắt đầu giao dịch tiền điện tử?",
+  "beginner_article_2_content": "<p>Các bước để bắt đầu giao dịch tiền điện tử:</p><ol><li>Chọn một sàn giao dịch tiền điện tử đáng tin cậy (như nền tảng của chúng tôi)</li><li>Hoàn thành quy trình đăng ký và xác minh danh tính</li><li>Kết nối phương thức thanh toán của bạn (tài khoản ngân hàng hoặc thẻ tín dụng)</li><li>Gửi tiền vào tài khoản giao dịch của bạn</li><li>Chọn loại tiền điện tử bạn muốn mua</li><li>Đặt hàng mua</li><li>Xem xét việc sử dụng ví an toàn để lưu trữ tiền điện tử của bạn</li></ol><p>Hãy nhớ rằng thị trường tiền điện tử có tính biến động cao, chỉ đầu tư số tiền mà bạn có thể chịu được khi mất.</p>",
+  "beginner_article_3_title": "Hướng dẫn về ví tiền điện tử",
+  "beginner_article_3_content": "<p>Ví tiền điện tử là công cụ để lưu trữ tài sản kỹ thuật số của bạn. Các loại chính bao gồm:</p><ul><li><strong>Ví nóng</strong>: Kết nối internet, thuận tiện cho giao dịch nhanh chóng nhưng có độ an toàn thấp hơn</li><li><strong>Ví lạnh</strong>: Lưu trữ ngoại tuyến, cung cấp độ an toàn cao hơn, phù hợp cho việc nắm giữ lâu dài</li><li><strong>Ví phần cứng</strong>: Thiết bị vật lý, cung cấp lưu trữ lạnh và độ an toàn cao</li><li><strong>Ví phần mềm</strong>: Ứng dụng hoặc chương trình, có thể là ví nóng hoặc ví lạnh</li><li><strong>Ví giấy</strong>: In ra khóa riêng và địa chỉ</li></ul><p>Khi chọn ví, hãy xem xét độ an toàn, tính tiện lợi và nhu cầu sử dụng của bạn.</p>",
+  "trading_guide_1_title": "Chiến lược giao dịch cơ bản",
+  "trading_guide_1_content": "<p>Chiến lược giao dịch tiền điện tử:</p><ul><li><strong>Mua và giữ</strong>: Chiến lược đầu tư dài hạn, bỏ qua biến động ngắn hạn</li><li><strong>Giao dịch trong ngày</strong>: Thực hiện nhiều giao dịch trong cùng một ngày, tận dụng biến động giá ngắn hạn</li><li><strong>Giao dịch theo xu hướng</strong>: Mua ở mức thấp trong khoảng biến động giá, bán ở mức cao</li><li><strong>Phương pháp trung bình chi phí đô la</strong>: Đầu tư một số tiền cố định định kỳ, không quan tâm đến giá</li><li><strong>Giao dịch chênh lệch giá</strong>: Tận dụng sự chênh lệch giá giữa các sàn giao dịch hoặc thị trường khác nhau</li></ul><p>Dù chọn chiến lược nào, hãy đảm bảo quản lý rủi ro, thiết lập mức dừng lỗ và chỉ sử dụng số tiền mà bạn có thể chịu được khi mất.</p>",
+  "trading_guide_2_title": "Cơ bản về phân tích kỹ thuật",
+  "trading_guide_2_content": "<p>Phân tích kỹ thuật là phương pháp dự đoán xu hướng giá trong tương lai bằng cách nghiên cứu xu hướng giá và khối lượng giao dịch. Các khái niệm cơ bản bao gồm:</p><ul><li><strong>Mức hỗ trợ và kháng cự</strong>: Mức giá khó vượt qua</li><li><strong>Đường xu hướng</strong>: Đường nối các điểm cao hoặc thấp của giá</li><li><strong>Đường trung bình động</strong>: Chỉ báo làm mượt dữ liệu giá</li><li><strong>Chỉ số sức mạnh tương đối (RSI)</strong>: Chỉ báo đo lường tốc độ và sự thay đổi của biến động giá</li><li><strong>MACD</strong>: Chỉ báo động lượng theo xu hướng</li><li><strong>Mô hình nến</strong>: Hình dạng cụ thể trên biểu đồ giá, có thể báo hiệu sự biến động giá</li></ul><p>Phân tích kỹ thuật là một công cụ, không phải là một bảo đảm. Luôn kết hợp với các phương pháp phân tích khác và chiến lược quản lý rủi ro.</p>",
+  "crypto_article_1_title": "Phân tích công nghệ blockchain",
+  "crypto_article_1_content": "<p>Blockchain là một công nghệ sổ cái phân tán, cho phép dữ liệu được ghi lại một cách an toàn, minh bạch và không thể thay đổi. Các đặc điểm cốt lõi bao gồm:</p><ul><li><strong>Phi tập trung</strong>: Không có điểm kiểm soát duy nhất, được duy trì bởi các bên tham gia trong mạng lưới</li><li><strong>Minh bạch</strong>: Tất cả giao dịch đều có thể nhìn thấy bởi tất cả mọi người trong mạng lưới</li><li><strong>Không thể thay đổi</strong>: Một khi dữ liệu được ghi lại, gần như không thể thay đổi</li><li><strong>An toàn</strong>: Sử dụng mã hóa để đảm bảo an toàn dữ liệu</li><li><strong>Cơ chế đồng thuận</strong>: Phương pháp mà các bên tham gia trong mạng đạt được sự đồng thuận về tính hợp lệ của giao dịch</li></ul><p>Ứng dụng của công nghệ blockchain vượt xa tiền điện tử, bao gồm quản lý chuỗi cung ứng, hồ sơ y tế, hệ thống bỏ phiếu và nhiều lĩnh vực khác.</p>",
+  "crypto_article_2_title": "Giới thiệu về DeFi (Tài chính phi tập trung)",
+  "crypto_article_2_content": "<p>Tài chính phi tập trung (DeFi) là một hệ thống tài chính mới nổi, được xây dựng trên công nghệ blockchain, không cần các tổ chức trung gian truyền thống. Các ứng dụng chính bao gồm:</p><ul><li><strong>Sàn giao dịch phi tập trung (DEX)</strong>: Nền tảng giao dịch ngang hàng không cần trung gian</li><li><strong>Nền tảng cho vay</strong>: Người dùng có thể cho vay hoặc vay tài sản tiền điện tử</li><li><strong>Stablecoin</strong>: Tiền điện tử gắn với tiền pháp định</li><li><strong>Farm lợi nhuận</strong>: Nhận phần thưởng bằng cách cung cấp thanh khoản</li><li><strong>Bảo hiểm phi tập trung</strong>: Bảo hiểm cho tài sản tiền điện tử</li></ul><p>DeFi cung cấp tính bao trùm tài chính và sự đổi mới, nhưng cũng mang lại rủi ro, bao gồm lỗ hổng hợp đồng thông minh, tính biến động cao và sự không chắc chắn về quy định.</p>",
+  "views": "Lượt xem",
+  "previous": "Trang trước",
+  "next": "Trang tiếp theo",
+  "filter_by": "Lọc theo",
+  "all_activities": "Tất cả hoạt động",
+  "ongoing": "Đang diễn ra",
+  "upcoming": "Sắp diễn ra",
+  "ended": "Đã kết thúc",
+  "search_activities": "Tìm kiếm hoạt động",
+  "rewards": "Phần thưởng",
+  "join_now": "Tham gia ngay",
+  "remind_me": "Nhắc tôi",
+  "view_details": "Xem chi tiết",
+  "fundSecurity": {
+    "title": "Bảo vệ tài sản của bạn",
+    "description1": "ANTBITT sử dụng hệ thống ví lạnh/nóng an toàn, đa chữ ký và nhiều bản sao lưu, đảm bảo tài sản của bạn an toàn 24/7.",
+    "description2": "Ngay cả khi gặp sự cố bất ngờ, quỹ ANTBITT vẫn sẽ tiếp tục bảo vệ bạn.",
+    "altText": "Bảo vệ tài sản của bạn",
+    "coldWallet": "Ví lạnh",
+    "hotWallet": "Ví nóng",
+    "antbittFund": "Quỹ ANTBITT",
+    "coldWalletTitle": "Thiết kế ví lạnh an toàn",
+    "coldWalletSubtitle": "ANTBITT đảm bảo hoạt động an toàn của ví lạnh, không chỉ là lời hứa mà còn là hành động.",
+    "coldWalletDescription": "Nền tảng đã hình thành giải pháp hệ thống trong quá trình thực tiễn lâu dài, hiện đang thúc đẩy công khai và chia sẻ giải pháp này, chào đón các nhà xây dựng cộng đồng và chuyên gia an ninh đưa ra ý kiến quý báu.",
+    "coldWalletKeyPoints": "Điểm chính của giải pháp",
+    "coldWalletFeature1": "Tất cả khóa riêng được lưu trữ trên thiết bị hoàn toàn ngoại tuyến.",
+    "coldWalletFeature2": "Đảm bảo khóa riêng không tiếp xúc trực tiếp với mạng.",
+    "coldWalletFeature3": "Lưu trữ bản sao lưu khóa riêng ở địa điểm khác.",
+    "coldWalletResults": "Kết quả đạt được",
+    "coldWalletResult1": "Việc sử dụng mỗi khóa riêng cần có nhiều quyền hạn.",
+    "coldWalletResult2": "Khóa riêng có bản sao lưu ở địa điểm khác, ngay cả khi xảy ra thiên tai, cũng không bị mất tiền.",
+    "coldWalletResult3": "Việc lấy khóa từ kho cần có sự hiện diện của người dùng, nhằm tránh tình huống nhân viên được ủy quyền có thể bị đe dọa.",
+    "hotWalletTitle": "Công nghệ ví nóng đáng tin cậy",
+    "hotWalletDescription": "So với ví lạnh, việc vận hành ví nóng một cách an toàn và ổn định có nhiều thách thức kỹ thuật hơn. ANTBITT đã phát triển công nghệ đa chữ ký bán ngoại tuyến cho ví nóng, đảm bảo an toàn quỹ trong khi vẫn cung cấp dịch vụ nạp và rút tiền điện tử nhanh chóng và an toàn.",
+    "hotWalletKeyPoints": "Điểm chính của giải pháp",
+    "hotWalletFeature1": "Kế hoạch kích hoạt sao lưu khóa riêng cho nhiều tình huống",
+    "hotWalletFeature2": "Nhiều kế hoạch kiểm soát rủi ro, ngăn chặn trước các mã thông báo nghi ngờ từ việc vào hoặc ra khỏi ANTBITT",
+    "hotWalletResults": "Kết quả đạt được",
+    "hotWalletResult1": "Có thể ngăn chặn cả tấn công mạng và vật lý, độ an toàn của khóa riêng rất cao",
+    "hotWalletResult2": "Có cơ chế đa chữ ký, nhiều bản sao lưu và kế hoạch kích hoạt khóa dự phòng hoàn thiện, giảm thiểu tối đa ảnh hưởng của việc quản lý khóa riêng đến hoạt động bình thường của nền tảng",
+    "hotWalletResult3": "Hệ thống quản lý rủi ro hoàn thiện, ngăn chặn hành vi nạp và rút tiền bất thường.",
+    "antbittFundTitle": "Quỹ ANTBITT là gì?",
+    "antbittFundDescription": "Quỹ ANTBITT là quỹ dự trữ rủi ro tài sản được thành lập bởi ANTBITT nhằm bảo vệ tài sản của người dùng, liên tục trích một tỷ lệ nhất định từ lợi nhuận của nền tảng để bảo vệ tài sản của người dùng khi có rủi ro an ninh tiền điện tử.",
+    "fundNeedTitle": "Tại sao chúng ta cần quỹ này?",
+    "fundNeedDescription": "Với sự phổ biến ngày càng tăng của tiền điện tử, ANTBITT cam kết tạo ra một môi trường giao dịch tiền điện tử an toàn, đáng tin cậy và có trách nhiệm cho tất cả người dùng. ANTBITT sẽ sử dụng quỹ này và hệ thống kiểm soát rủi ro tài sản hàng đầu trong ngành để cung cấp bảo vệ mạnh mẽ cho tất cả người dùng mới và cũ, đảm bảo an toàn tài sản."
+  },
+  "reserveProof": {
+    "title": "Chứng minh quỹ dự trữ",
+    "content": "ANTBIT giữ quỹ dự trữ 1:1 cho tất cả tài sản trên nền tảng, và định kỳ phát hành báo cáo chứng minh quỹ, mang lại tính minh bạch cao hơn cho tài sản trên nền tảng.",
+    "videoTitle": "Chứng minh quỹ dự trữ. Chuyên gia tiền điện tử nhấn mạnh tầm quan trọng của tính minh bạch và uy tín của nền tảng nhân dịp kỷ niệm một năm phát hành chứng minh quỹ.",
+    "processTitle": "Quy trình chứng minh quỹ dự trữ",
+    "processDescription": "Quy trình chứng minh quỹ dự trữ của chúng tôi bao gồm các bước sau:",
+    "step1": "Kiểm toán định kỳ: Chúng tôi thực hiện kiểm toán độc lập hàng quý để đảm bảo tính xác thực của tài sản.",
+    "step2": "Tạo báo cáo: Sau khi kiểm toán hoàn tất, chúng tôi sẽ tạo báo cáo chi tiết.",
+    "step3": "Công bố báo cáo: Công bố báo cáo kiểm toán trên trang web chính thức của chúng tôi để người dùng tham khảo.",
+    "trustTitle": "Niềm tin và hỗ trợ của người dùng",
+    "trustDescription": "Chúng tôi hiểu rằng niềm tin của người dùng là tài sản quý giá nhất của chúng tôi. Thông qua các báo cáo tài chính minh bạch và giao tiếp liên tục, chúng tôi cam kết xây dựng mối quan hệ tin cậy với người dùng.",
+    "feedback": "Chúng tôi khuyến khích người dùng đưa ra câu hỏi và phản hồi bất cứ lúc nào để chúng tôi có thể cải thiện dịch vụ.",
+    "commitmentTitle": "Cam kết của chúng tôi",
+    "commitmentDescription": "Chúng tôi cam kết duy trì tính minh bạch và đảm bảo an toàn cho tài sản của người dùng. Đội ngũ của chúng tôi sẽ không ngừng nỗ lực để cung cấp dịch vụ và hỗ trợ tốt hơn.",
+    "updateCommitment": "Chúng tôi sẽ định kỳ cập nhật chứng minh quỹ dự trữ, đảm bảo người dùng luôn có thể nhận được thông tin mới nhất.",
+    "advantagesTitle": "Lợi ích của chứng minh quỹ dự trữ",
+    "advantageTransparency": "Tính minh bạch: Người dùng có thể xem báo cáo tài chính của chúng tôi bất cứ lúc nào để hiểu rõ tình hình thực tế của nền tảng.",
+    "advantageSecurity": "Độ an toàn: Tất cả tài sản đều được bảo quản bởi bên thứ ba độc lập, đảm bảo an toàn cho quỹ của người dùng.",
+    "advantageConvenience": "Tính tiện lợi: Người dùng có thể dễ dàng truy cập chứng minh quỹ dự trữ thông qua nền tảng của chúng tôi để nhận thông tin mới nhất.",
+    "faqTitle": "Câu hỏi thường gặp",
+    "faq1": {
+      "question": "Tần suất chứng minh quỹ dự trữ là bao nhiêu?",
+      "answer": "Chúng tôi thực hiện kiểm toán hàng quý và công bố báo cáo tương ứng."
+    },
+    "faq2": {
+      "question": "Làm thế nào để nhận chứng minh quỹ dự trữ?",
+      "answer": "Người dùng có thể xem báo cáo chứng minh quỹ dự trữ mới nhất trên trang web chính thức của chúng tôi."
+    }
+  },
+  "index_title": "Hướng dẫn toàn diện về tiền điện tử",
+  "index_subtitle": "Những điều cần đọc cho người mới, hướng dẫn thao tác, chiến lược nâng cao, và các điểm nóng trong ngành đều có tại Học viện người mới, một điểm đến thú vị để dễ dàng khám phá tiền điện tử.",
+  "activity_title_1": "Cuộc thi giao dịch - Giành 10,000 USDT",
+  "activity_description_1": "Tham gia cuộc thi giao dịch của chúng tôi để có cơ hội giành giải thưởng lên đến 10,000 USDT!",
+  "activity_rewards_1": "10,000 USDT",
+  
+  "activity_title_2": "Phần thưởng đăng ký cho người dùng mới",
+  "activity_description_2": "Người dùng mới đăng ký và hoàn thành xác minh KYC sẽ nhận được phần thưởng 50 USDT!",
+  "activity_rewards_2": "50 USDT",
+  
+  "activity_title_3": "Hoạt động khai thác staking",
+  "activity_description_3": "Staking tiền điện tử của bạn để nhận lãi suất lên đến 15% APY mỗi ngày!",
+  "activity_rewards_3": "Tối đa 15% APY",
+  
+  "activity_title_4": "Hoạt động AMA cộng đồng",
+  "activity_description_4": "Tham gia hoạt động cộng đồng của chúng tôi, giao lưu với các chuyên gia trong ngành và giành giải thưởng, giải thưởng lên đến 1000 USDT!",
+  "activity_rewards_4": "Tối đa 1000 USDT",
+  
+  "activity_title_5": "Chương trình giới thiệu bạn bè",
+  "activity_description_5": "Giới thiệu bạn bè đăng ký và giao dịch, cả hai bên đều nhận được phần thưởng!",
+  "activity_rewards_5": "Giảm 30% phí giao dịch",
+  
+  "activity_title_6": "Hoạt động airdrop",
+  "activity_description_6": "Sở hữu token của nền tảng, tham gia hoạt động airdrop của chúng tôi!",
+  "activity_rewards_6": "5,000 token của nền tảng",
+  
+  "activity_title_7": "Giảm phí giao dịch, tối đa phần thưởng 10% giao dịch",
+  "activity_description_7": "Hoạt động có thời hạn: Giảm một nửa tất cả phí giao dịch!",
+  "activity_rewards_7": "Giảm 50% phí giao dịch",
+  
+  "activity_title_8": "Hoạt động kỷ niệm ra mắt hợp đồng quyền chọn",
+  "activity_description_8": "Chúc mừng ra mắt hợp đồng quyền chọn, tham gia giao dịch để chia sẻ giải thưởng!",
+  "activity_rewards_8": "Giải thưởng 20,000 USDT"
 }

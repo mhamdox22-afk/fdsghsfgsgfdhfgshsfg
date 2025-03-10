@@ -214,8 +214,8 @@ onMounted(() => {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0 80px;
-  gap: 40px;
+  padding: 60px 80px;
+  gap: 60px;
 }
 
 .step {
@@ -373,8 +373,8 @@ onMounted(() => {
 @media (max-width: 968px) {
   .steps-container {
     flex-direction: column;
-    gap: 20px;
-    padding: 0 40px;
+    gap: 40px;
+    padding: 40px;
   }
 
   .connector {

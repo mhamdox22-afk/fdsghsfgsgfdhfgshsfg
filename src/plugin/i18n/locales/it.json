@@ -1129,5 +1129,321 @@
   "robinhood2_recharge_fast": "Deposito rapido",
   "math_exchange_bullish": "rialzista",
   "password_num": "Imposta una password numerica",
-  "math_exchange_bearish": "ribassista"
+  "math_exchange_bearish": "ribassista",
+  "home": {
+    "hero": {
+      "title": "Daugiau nei 18 milijonų vartotojų prisijungė prie Antbitt",
+      "subtitle": "Kviečiame ištirti naują patirtį",
+      "startTrading": "Pradėti prekybą"
+    },
+    "statistics": {
+      "title": "Kriptovaliutų birža, tinkanti visiems",
+      "customers": "Klientai",
+      "countries": "Palaikomos šalys",
+      "volume": "Ketvirčio prekybos apimtis",
+      "plus": "+"
+    },
+    "purchaseSteps": {
+      "title": "Įsigykite kriptovaliutą vos per kelias minutes",
+      "steps": {
+        "createAccount": "Sukurkite nemokamą antbitt paskyrą",
+        "connect": "Prijunkite savo finansavimo būdą",
+        "trade": "Pirkite ir parduokite daugiau nei 200 kriptovaliutų",
+        "security": "Visiškas saugumo užtikrinimas"
+      }
+    },
+    "cryptoComposition": {
+      "title": "Sukurkite savo kriptovaliutų portfelį",
+      "cta": "Eikite į prekybos centrą ir įsigykite pageidaujamų kriptovaliutų"
+    },
+    "securityFeatures": {
+      "mainFeatures": {
+        "reserve": {
+          "title": "Rezervo paaiškinimas",
+          "desc": "Mes įsipareigojame išlaikyti visus vartotojų turtus mažiausiai 1:1 santykiu."
+        },
+        "storage": {
+          "title": "Saugus šaltas saugojimas",
+          "desc": "Didžiąją dalį skaitmeninių turtų saugiai laikome autonominėse daugiasluoksnėse piniginėse."
+        },
+        "protection": {
+          "title": "Vartotojų apsaugos fondas",
+          "desc": "Turime 300 milijonų USDT vertės vartotojų apsaugos fondą, suteikiantį papildomą apsaugą nuo galimų saugumo rizikų."
+        }
+      },
+      "additionalFeatures": {
+        "technology": {
+          "title": "Saugi, stabili ir patikima technologija",
+          "desc": "Mūsų aukščiausio lygio technologijų komanda skiria dėmesį visapusiškai saugumo apsaugai, kuria efektyvius variklius, užtikrinančius patikimą sistemos veikimą net ir esant dideliam užsakymų kiekiui"
+        },
+        "philosophy": {
+          "title": "Filosofija, orientuota į vartotojus",
+          "desc": "Orientuota į pasaulinę rinką, palaikoma daugelio kalbų, klientų aptarnavimas 24/7, profesionalios klientų paslaugos."
+        },
+        "operation": {
+          "title": "Pasaulinė veikla",
+          "desc": "Tarptautinė operacijų komanda, daugiametė blokų grandinės ir finansų srities patirtis, globali plėtra į daugiau nei 50 regionų"
+        },
+        "rewards": {
+          "title": "Gausios veiklos ir apdovanojimai",
+          "desc": "Įdomios veiklos, dideli apdovanojimai, kurie nenuvils"
+        }
+      }
+    },
+    "faq": {
+      "title": "Dažnai užduodami klausimai",
+      "items": {
+        "whoWeAre": {
+          "question": "Kas mes esame?",
+          "answer": "Mes esame pasaulinė skaitmeninių aktyvų prekybos platforma, įsipareigojusi teikti saugias, patogias ir profesionalias kriptovaliutų prekybos paslaugas. Turime aukščiausio lygio technologijų komandą ir turtingą pramonės patirtį, aptarnaujame daugiau nei 18 milijonų vartotojų visame pasaulyje."
+        },
+        "advantages": {
+          "question": "Mūsų privalumai",
+          "answer": "Mes turime pirmaujančias saugumo technologijas, įvairius prekybos produktus, 24/7 klientų aptarnavimą, daugiakalbę paramą, aukštą likvidumą ir išsamią rizikos kontrolės sistemą. Visada teikiame pirmenybę vartotojų turto saugumui, naudojame daugiasluoksnes šaltas pinigines ir realaus laiko stebėjimo sistemas."
+        },
+        "blockchain": {
+          "question": "Kaip blokų grandinė padeda pasauliui tapti geresne vieta?",
+          "answer": "Blokų grandinės technologija, per decentralizaciją, skaidrumą ir nesuklastojamumą, atneša inovacijas finansų, tiekimo grandinės, sveikatos priežiūros, švietimo ir kitose srityse. Ji gali sumažinti sandorių išlaidas, padidinti efektyvumą, sustiprinti pasitikėjimą, skatinti finansinę įtrauktį, leisdama daugeliui žmonių mėgautis technologijų plėtros nauda."
+        },
+        "charity": {
+          "question": "Blokų grandinės naudojimas labdaros organizacijoms",
+          "answer": "Blokų grandinės technologija gali padėti labdaros organizacijoms padidinti skaidrumą ir efektyvumą. Per išmaniąsias sutartis automatiškai vykdomos aukos, lėšų srautai gali būti sekami, užtikrinant skaidrų lėšų naudojimą. Tuo pačiu metu tarpvalstybinės aukos yra patogesnės, mažina veiklos išlaidas, leidžia daugiau išteklių skirti visuomenės labui."
+        }
+      }
+    },
+    "footer": {
+      "about": {
+        "title": "Apie mus",
+        "company": "Įmonės aprašymas",
+        "careers": "Prisijunkite prie mūsų",
+        "news": "Naujienos",
+        "contact": "Susisiekite su mumis"
+      },
+      "products": {
+        "title": "Produktų paslaugos",
+        "spot": "Spot prekyba",
+        "futures": "Nuolatiniai kontraktai",
+        "otc": "Fiat prekyba",
+        "staking": "Staking mining"
+      },
+      "support": {
+        "title": "Paslaugų parama",
+        "help": "Pagalbos centras",
+        "fees": "Mokesčių aprašymas",
+        "api": "API dokumentacija",
+        "security": "Saugumo instrukcijos"
+      },
+      "terms": {
+        "title": "Sąlygos ir politikos",
+        "service": "Paslaugų teikimo sąlygos",
+        "privacy": "Privatumo politika",
+        "disclaimer": "Atsakomybės apribojimas",
+        "aml": "Kovos su pinigų plovimu politika"
+      },
+      "contact": {
+        "support": "Klientų aptarnavimo el. paštas: support@antbitt.com",
+        "business": "Verslo bendradarbiavimas: business@antbitt.com",
+        "email": "Oficialus el. paštas:"
+      },
+      "copyright": {
+        "text": "© 2024 antbitt. All rights reserved.",
+        "description": "Įmonė, orientuota į virtualių valiutų paslaugas"
+      },
+      "productIntro": "Produkto pristatymas",
+      "quote": "Kursai",
+      "trade": "Prekyba",
+      "assets": "Turtas",
+      "support": "Palaikymo paslaugos",
+      "terms": "Paslaugų teikimo sąlygos",
+      "help": "Pagalbos centras",
+      "allRightsReserved": "Visos teisės saugomos",
+      "companyDesc": "Įmonė, orientuota į virtualių valiutų paslaugas"
+    }
+  },
+  "menu_home": "Pagrindinis",
+  "menu_quote": "Kursai",
+  "menu_loan": "Paskolos",
+  "menu_financial": "Investicijų portfelis",
+  "menu_pledge": "AI staking",
+  "menu_trade": "Prekyba",
+  "menu_quick_buy": "Greitas pirkimas",
+  "menu_finance": "Finansai ir investicijos",
+  "menu_defi_loan": "DeFi skolinimasis",
+  "menu_defi_loan_desc": "Decentralizuotos skolinimosi paslaugos",
+  "menu_promotion": "Reklamos centras",
+  "menu_user_center": "Turto centras",
+  "menu_user_center_desc": "Valdykite savo turtą ir nustatymus",
+  "menu_simulated_trade": "Simuliacinė prekyba",
+  "menu_simulated_trade_desc": "Patirkite prekybą be rizikos",
+  "simulated_balance": "Simuliacinis balansas",
+  "reset_balance": "Atstatyti balansą",
+  "market": "Rinka",
+  "market_data_loading": "Rinkos duomenų įkėlimas...",
+  "place_order": "Pateikti užsakymą",
+  "trading_pair": "Prekybos pora",
+  "order_type": "Užsakymo tipas",
+  "buy": "Pirkti",
+  "sell": "Parduoti",
+  "price": "Kaina",
+  "amount": "Kiekis",
+  "total": "Iš viso",
+  "order_history": "Užsakymų istorija",
+  "no_orders_yet": "Kol kas nėra užsakymų",
+  "menu_fund_security": "Lėšų saugumas",
+  "menu_reserve_proof": "Rezervo įrodymas",
+  "menu_beginner_academy": "Pradedančiųjų akademija",
+  "menu_activity_hall": "Veiklos salė",
+  "fund_security_title_1": "Daugiasluoksnė šalta piniginė",
+  "fund_security_desc_1": "Mes saugome daugiau nei 95% vartotojų turto daugiasluoksnėse šaltose piniginėse, užtikrindami lėšų saugumą.",
+  "fund_security_title_2": "Realaus laiko stebėjimo sistema",
+  "fund_security_desc_2": "Mūsų saugumo komanda 24/7 stebi visą prekybos veiklą, greitai aptikdama ir tvarkydama neįprastas situacijas.",
+  "fund_security_title_3": "Vartotojų apsaugos fondas",
+  "fund_security_desc_3": "Mes įsteigėme specialų vartotojų apsaugos fondą, teikiantį papildomą lėšų saugumo garantiją vartotojams.",
+  "fund_security_measures": "Saugumo priemonės",
+  "fund_security_measures_desc": "Mes taikome įvairias priemones, skirtas apsaugoti vartotojų lėšas:",
+  "fund_security_measure_1": "Dviejų veiksnių autentifikavimas (2FA)",
+  "fund_security_measure_1_desc": "Mes primygtinai rekomenduojame visiems vartotojams įjungti dviejų veiksnių autentifikavimą, suteikiantį papildomą saugumo lygį jūsų paskyrai.",
+  "fund_security_measure_2": "Pažangi šifravimo technologija",
+  "fund_security_measure_2_desc": "Mes naudojame pažangiausias šifravimo technologijas vartotojų duomenims ir lėšų pervedimams apsaugoti.",
+  "fund_security_measure_3": "Rizikos kontrolės sistema",
+  "fund_security_measure_3_desc": "Mūsų rizikos kontrolės sistema gali atpažinti neįprastą prekybos elgesį ir imtis atitinkamų priemonių vartotojų paskyroms apsaugoti.",
+  "reserve_ratio": "Rezervo santykis",
+  "total_reserves": "Bendras rezervų kiekis",
+  "daily": "Kasdien",
+  "audit_frequency": "Audito dažnumas",
+  "reserve_proof_details": "Rezervo išsami informacija",
+  "reserve_proof_description": "Mes įsipareigojame išlaikyti visus vartotojų turtus mažiausiai 1:1 santykiu. Štai mūsų dabartinės rezervo detalės:",
+  "asset": "Turtas",
+  "total_balance": "Bendras balansas",
+  "user_liabilities": "Vartotojų įsipareigojimai",
+  "proof_date": "Įrodymo data",
+  "verification": "Patvirtinimas",
+  "verify": "Patvirtinti",
+  "verification_methodology": "Patvirtinimo metodologija",
+  "verification_methodology_desc": "Mes naudojame nulinio žinojimo įrodymo technologiją, leidžiančią vartotojams patikrinti mūsų rezervus neatskleidžiant slaptos informacijos. Mes reguliariai atliekame trečiųjų šalių auditus, užtikrindami rezervų pakankamumą.",
+  "beginner_basics": "Pradedančiųjų pagrindai",
+  "trading_guides": "Prekybos gidai",
+  "crypto_knowledge": "Kriptovaliutų žinios",
+  "beginner_article_1_title": "Kas yra kriptovaliuta?",
+  "beginner_article_1_content": "<p>Kriptovaliuta yra skaitmeninė arba virtuali valiuta, naudojanti kriptografiją saugumui užtikrinti. Ji nepriklauso nuo centrinių institucijų (kaip bankai ar vyriausybės) sandoriams patvirtinti ir naujiems vienetams kurti.</p><p>Bitcoin buvo pirmoji ir labiausiai žinoma kriptovaliuta, sukurta 2009 m. Satoshi Nakamoto. Nuo tada atsirado tūkstančiai skirtingų kriptovaliutų, kiekviena su savo unikaliomis funkcijomis ir naudojimo atvejais.</p><p>Kriptovaliutų pagrindinė technologija yra blokų grandinė - tai paskirstytų registrų technologija, kuri registruoja visus sandorius ir dalinasi tarp visų tinklo dalyvių.</p>",
+  "beginner_article_2_title": "Kaip pradėti prekiauti kriptovaliutomis?",
+  "beginner_article_2_content": "<p>Žingsniai, kaip pradėti prekiauti kriptovaliutomis:</p><ol><li>Pasirinkite patikimą kriptovaliutų biržą (kaip mūsų platforma)</li><li>Užbaikite registracijos ir tapatybės patvirtinimo procesą</li><li>Prijunkite mokėjimo būdą (banko sąskaitą ar kredito kortelę)</li><li>Įneškite lėšas į savo prekybos sąskaitą</li><li>Pasirinkite kriptovaliutą, kurią norite pirkti</li><li>Pateikite pirkimo užsakymą</li><li>Apsvarstykite saugios piniginės naudojimą savo kriptovaliutoms saugoti</li></ol><p>Atminkite, kad kriptovaliutų rinka yra labai nepastovi, investuokite tik tiek, kiek galite sau leisti prarasti.</p>",
+  "beginner_article_3_title": "Kriptovaliutų piniginių vadovas",
+  "beginner_article_3_content": "<p>Kriptovaliutų piniginė yra įrankis, skirtas saugoti jūsų skaitmeninius turtus. Pagrindiniai tipai:</p><ul><li><strong>Karštos piniginės</strong>: prijungtos prie interneto, patogios greitoms operacijoms, bet mažiau saugios</li><li><strong>Šaltos piniginės</strong>: neprisijungusios prie interneto, teikia didesnį saugumą, tinka ilgalaikiam laikymui</li><li><strong>Aparatinės piniginės</strong>: fiziniai įrenginiai, suteikiantys šaltą saugojimą ir aukštą saugumą</li><li><strong>Programinės piniginės</strong>: programos arba aplikacijos, gali būti karštos arba šaltos piniginės</li><li><strong>Popierinės piniginės</strong>: atspausdinti privatūs raktai ir adresai</li></ul><p>Renkantis piniginę, apsvarstykite saugumą, patogumą ir savo naudojimo poreikius.</p>",
+  "trading_guide_1_title": "Pagrindinės prekybos strategijos",
+  "trading_guide_1_content": "<p>Kriptovaliutų prekybos strategijos:</p><ul><li><strong>Pirkti ir laikyti</strong>: ilgalaikė investavimo strategija, ignoruojanti trumpalaikius svyravimus</li><li><strong>Dienos prekyba</strong>: daugkartiniai sandoriai per tą pačią dieną, išnaudojant trumpalaikius kainų svyravimus</li><li><strong>Juostinė prekyba</strong>: pirkimas žemose kainose ir pardavimas aukštose kainų svyravimo ribose</li><li><strong>Vidutinės dolerių kainos metodas</strong>: reguliarus investavimas fiksuotos sumos, nepriklausomai nuo kainos</li><li><strong>Arbitražo prekyba</strong>: išnaudojant kainų skirtumus tarp skirtingų biržų ar rinkų</li></ul><p>Nepriklausomai nuo pasirinktos strategijos, užsiimkite rizikos valdymu, nustatykite nuostolių ribojimo taškus ir naudokite tik tas lėšas, kurių galite sau leisti netekti.</p>",
+  "trading_guide_2_title": "Techninės analizės pagrindai",
+  "trading_guide_2_content": "<p>Techninė analizė yra metodas, kuris tiria kainų tendencijas ir prekybos apimtis, siekiant numatyti būsimus kainų judėjimus. Pagrindinės sąvokos:</p><ul><li><strong>Palaikymo ir pasipriešinimo lygiai</strong>: kainų lygiai, kuriuos sunku pramušti</li><li><strong>Tendencijų linijos</strong>: linijos, jungiančios kainų aukščiausius ar žemiausius taškus</li><li><strong>Judančių vidurkių linijos</strong>: rodikliai, išlyginantys kainų duomenis</li><li><strong>Santykinis stiprumo indeksas (RSI)</strong>: rodiklis, matuojantis kainų pokyčių greitį ir dydį</li><li><strong>MACD</strong>: tendencijų sekimo momento rodiklis</li><li><strong>Žvakių formacijos</strong>: specifinės formacijos kainų grafikuose, galinčios rodyti kainų pokyčius</li></ul><p>Techninė analizė yra įrankis, o ne garantija. Visada derinkite ją su kitais analizės metodais ir rizikos valdymo strategijomis.</p>",
+  "crypto_article_1_title": "Blokų grandinės technologijos analizė",
+  "crypto_article_1_content": "<p>Blokų grandinė yra paskirstytų registrų technologija, leidžianti duomenims būti registruotiems saugiu, skaidriu ir nesuklastojamuoju būdu. Pagrindinės savybės:</p><ul><li><strong>Decentralizacija</strong>: nėra vieno kontrolės taško, palaikoma visų tinklo dalyvių</li><li><strong>Skaidrumas</strong>: visi sandoriai matomi visiems tinklo dalyviams</li><li><strong>Nesuklastojamumas</strong>: kai įrašas pridedamas, jį beveik neįmanoma pakeisti</li><li><strong>Saugumas</strong>: naudoja kriptografiją duomenų saugumui užtikrinti</li><li><strong>Konsensuso mechanizmas</strong>: būdas, kuriuo tinklo dalyviai sutaria dėl sandorių galiojimo</li></ul><p>Blokų grandinės technologija naudojama ne tik kriptovaliutose, bet ir tiekimo grandinės valdyme, medicinos įrašuose, balsavimo sistemose ir daugelyje kitų sričių.</p>",
+  "crypto_article_2_title": "DeFi (Decentralizuoti finansai) įvadas",
+  "crypto_article_2_content": "<p>Decentralizuoti finansai (DeFi) yra nauja finansų sistema, pastatyta ant blokų grandinės technologijos, kuri nereikalauja tradicinių tarpininkų. Pagrindiniai pritaikymai:</p><ul><li><strong>Decentralizuotos biržos (DEX)</strong>: tiesioginės prekybos platformos be tarpininkų</li><li><strong>Skolinimosi platformos</strong>: vartotojai gali skolinti ar skolintis kriptovaliutas</li><li><strong>Stabilios valiutos</strong>: kriptovaliutos, susietos su tradicinėmis valiutomis</li><li><strong>Pajamų ūkiai</strong>: uždirbkite atlygį teikdami likvidumą</li><li><strong>Decentralizuotas draudimas</strong>: draudimo apsauga kriptovaliutų turtui</li></ul><p>DeFi siūlo finansinę įtrauktį ir inovacijas, tačiau taip pat kelia riziką, įskaitant išmaniųjų sutarčių pažeidžiamumą, didelį kintamumą ir reguliavimo neapibrėžtumą.</p>",
+  "views": "Peržiūros",
+  "previous": "Ankstesnis",
+  "next": "Kitas",
+  "filter_by": "Filtruoti pagal",
+  "all_activities": "Visos veiklos",
+  "ongoing": "Vykstančios",
+  "upcoming": "Būsimos",
+  "ended": "Pasibaigusios",
+  "search_activities": "Ieškoti veiklų",
+  "rewards": "Apdovanojimai",
+  "join_now": "Prisijunkite dabar",
+  "remind_me": "Priminti man",
+  "view_details": "Žiūrėti detaliau",
+  "fundSecurity": {
+    "title": "Jūsų turto apsauga",
+    "description1": "ANTBITT naudoja saugias šaltas/karštas piniginių sistemas, daugiasluoksnius parašus ir atsargines kopijas, kad apsaugotų jūsų turtą visą parą.",
+    "description2": "Net ir netikėtų situacijų atveju, ANTBITT specialus fondas toliau jus saugo.",
+    "altText": "Jūsų turto apsauga",
+    "coldWallet": "Šalta piniginė",
+    "hotWallet": "Karšta piniginė",
+    "antbittFund": "ANTBITT specialus fondas",
+    "coldWalletTitle": "Saugus šaltos piniginės dizainas",
+    "coldWalletSubtitle": "ANTBITT užtikrina saugų šaltos piniginės veikimą, ne tik pažadais, bet ir veiksmais.",
+    "coldWalletDescription": "Platforma per ilgalaikę praktiką sukūrė sisteminį sprendimą, dabar skatindama šio sprendimo viešą dalijimąsi, kviečiame bendruomenės kūrėjus ir saugumo ekspertus teikti vertingus pasiūlymus.",
+    "coldWalletKeyPoints": "Sprendimo pagrindiniai punktai",
+    "coldWalletFeature1": "Visi privatūs raktai saugomi visiškai neprisijungusiuose įrenginiuose.",
+    "coldWalletFeature2": "Užtikrinama, kad privatūs raktai niekada tiesiogiai nekontaktuoja su internetu.",
+    "coldWalletFeature3": "Privatūs raktai saugomi skirtingose vietose.",
+    "coldWalletResults": "Pasiekti rezultatai",
+    "coldWalletResult1": "Kiekvieno privataus rakto naudojimui reikalingas daugialypis patvirtinimas.",
+    "coldWalletResult2": "Privatūs raktai turi atsargines kopijas skirtingose vietose, todėl net stichinių nelaimių atveju nėra rizikos prarasti monetas.",
+    "coldWalletResult3": "Norint gauti raktus iš saugyklos, reikia asmeniškai atvykti, taip išvengiant situacijų, kai įgaliotam darbuotojui gali būti grasinama.",
+    "hotWalletTitle": "Patikima karštos piniginės technologija",
+    "hotWalletDescription": "Palyginti su šalta pinigine, saugus ir stabilus karštos piniginės veikimas kelia didesnius technologinius iššūkius. ANTBITT sukūrė unikalią pusiau autonominę daugiasluoksnio parašo karštos piniginės technologiją, kuri užtikrina saugumą ir kartu teikia greitas, saugias skaitmeninių aktyvų įnešimo ir išėmimo paslaugas.",
+    "hotWalletKeyPoints": "Sprendimo pagrindiniai punktai",
+    "hotWalletFeature1": "Įvairių scenarijų atsarginių privačių raktų aktyvavimo planai",
+    "hotWalletFeature2": "Įvairios rizikos kontrolės stebėjimo schemos, prevenciniai metodai prieš įtartinų monetų įplaukimą ar išplaukimą per ANTBITT",
+    "hotWalletResults": "Pasiekti rezultatai",
+    "hotWalletResult1": "Gali vienu metu apsisaugoti nuo tinklo ir fizinių atakų, ypač aukštas privačių raktų saugumas",
+    "hotWalletResult2": "Turi daugiasluoksnį parašų mechanizmą, atsargines kopijas ir išsamius atsarginių privačių raktų aktyvavimo planus, maksimaliai sumažinant privataus rakto valdymo poveikį platformos įprastai veiklai",
+    "hotWalletResult3": "Išsami rizikos kontrolės valdymo sistema, užkertanti kelią neįprastiems įnešimams ir išėmimams",
+    "antbittFundTitle": "Kas yra ANTBITT specialus fondas?",
+    "antbittFundDescription": "ANTBITT specialus fondas yra turto rizikos rezervo fondas, įkurtas ANTBITT siekiant apsaugoti vartotojų turtą, nuolat skiriant tam tikrą procentą iš platformos pajamų, kad būtų apsaugoti vartotojų aktyvai kriptovaliutų saugumo rizikos atveju.",
+    "fundNeedTitle": "Kodėl mums reikalingas šis fondas?",
+    "fundNeedDescription": "Kriptovaliutoms tampant vis populiaresnėmis, ANTBITT siekia sukurti saugią, patikimą ir atsakingą kriptovaliutų prekybos aplinką visiems vartotojams. ANTBITT naudos šį fondą ir pramonėje pirmaujančią turto saugumo rizikos kontrolės sistemą, kad suteiktų stiprią apsaugą visiems naujiems ir esamiems vartotojams, užtikrinant turto saugumą."
+  },
+  "reserveProof": {
+    "title": "Rezervo įrodymas",
+    "content": "ANTBIT išlaiko 1:1 rezervo santykį visiems platformos sąskaitų turtams ir reguliariai skelbia rezervo įrodymo ataskaitas, suteikdamas didesnį platformos turto skaidrumą.",
+    "videoTitle": "Rezervo įrodymas. Kriptovaliutų ekspertai pabrėžia platformos skaidrumo ir patikimumo svarbą rezervo įrodymo metinių proga.",
+    "processTitle": "Rezervo įrodymo procesas",
+    "processDescription": "Mūsų rezervo įrodymo procesas apima šiuos žingsnius:",
+    "step1": "Reguliarūs auditai: kas ketvirtį atliekame nepriklausomus auditus, užtikrindami turto autentiškumą.",
+    "step2": "Ataskaitos generavimas: užbaigus auditą, generuojame išsamią ataskaitą.",
+    "step3": "Ataskaitos publikavimas: audito ataskaitą skelbiame mūsų oficialioje svetainėje, kad vartotojai galėtų ją peržiūrėti.",
+    "trustTitle": "Vartotojų pasitikėjimas ir parama",
+    "trustDescription": "Mes puikiai suprantame, kad vartotojų pasitikėjimas yra mūsų vertingiausias turtas. Per skaidrias finansines ataskaitas ir nuolatinį bendravimą, mes siekiame sukurti pasitikėjimo santykius su vartotojais.",
+    "feedback": "Mes skatiname vartotojus bet kada užduoti klausimus ir teikti atsiliepimus, kad galėtume nuolat tobulinti savo paslaugas.",
+    "commitmentTitle": "Mūsų įsipareigojimas",
+    "commitmentDescription": "Mes įsipareigojame išlaikyti skaidrumą ir užtikrinti vartotojų turto saugumą. Mūsų komanda nuolat dirbs, kad teiktų geresnes paslaugas ir paramą.",
+    "updateCommitment": "Mes reguliariai atnaujinsime rezervo įrodymus, užtikrindami, kad vartotojai visada galėtų gauti naujausią informaciją.",
+    "advantagesTitle": "Rezervo įrodymo privalumai",
+    "advantageTransparency": "Skaidrumas: vartotojai gali bet kada peržiūrėti mūsų finansines ataskaitas ir sužinoti realią platformos situaciją.",
+    "advantageSecurity": "Saugumas: visas turtas yra saugomas nepriklausomų trečiųjų šalių, užtikrinant vartotojų lėšų saugumą.",
+    "advantageConvenience": "Patogumas: vartotojai gali lengvai pasiekti rezervo įrodymą per mūsų platformą ir gauti naujausią informaciją.",
+    "faqTitle": "Dažnai užduodami klausimai",
+    "faq1": {
+      "question": "Koks yra rezervo įrodymo dažnumas?",
+      "answer": "Mes atliekame auditą kas ketvirtį ir skelbiame atitinkamas ataskaitas."
+    },
+    "faq2": {
+      "question": "Kaip gauti rezervo įrodymą?",
+      "answer": "Vartotojai gali peržiūrėti naujausias rezervo įrodymo ataskaitas mūsų oficialioje svetainėje."
+    }
+  },
+  "index_title": "Visapusiški kriptovaliutų vadovai",
+  "index_subtitle": "Pradedančiųjų rekomendacijos, veikimo instrukcijos, pažangios strategijos, pramonės aktualijos - viskas pradedančiųjų akademijoje, viskas viename taške, lengvai valdykite kriptovaliutas.",
+  "activity_title_1": "Prekybos konkursas - laimėkite 10,000 USDT",
+  "activity_description_1": "Dalyvaukite mūsų prekybos konkurse ir turėkite galimybę laimėti iki 10,000 USDT prizą!",
+  "activity_rewards_1": "10,000 USDT",
+  
+  "activity_title_2": "Naujų vartotojų registracijos premija",
+  "activity_description_2": "Registruokitės kaip naujas vartotojas ir užbaikite KYC patikrinimą, gaukite 50 USDT premiją!",
+  "activity_rewards_2": "50 USDT",
+  
+  "activity_title_3": "Staking mining veikla",
+  "activity_description_3": "Staking jūsų kriptovaliutos, gaukite iki 15% metinių pajamų kasdien!",
+  "activity_rewards_3": "Iki 15% APY",
+  
+  "activity_title_4": "Bendruomenės AMA renginys",
+  "activity_description_4": "Dalyvaukite mūsų bendruomenės veikloje, bendraukite su pramonės ekspertais ir laimėkite prizus, didžiausias prizas - 1000 USDT!",
+  "activity_rewards_4": "Iki 1000 USDT",
+  
+  "activity_title_5": "Draugų rekomendacijų programa",
+  "activity_description_5": "Rekomenduokite draugus registruotis ir prekiauti, abiem pusėms bus skirta premija!",
+  "activity_rewards_5": "30% prekybos mokesčių",
+  
+  "activity_title_6": "Airdrop renginys",
+  "activity_description_6": "Turėkite platformos žetonus, dalyvaukite mūsų airdrop renginyje!",
+  "activity_rewards_6": "5,000 platformos žetonų",
+  
+  "activity_title_7": "Prekybos mokesčių nuolaida, didžiausias atlygis - 10% nuo prekybos",
+  "activity_description_7": "Ribotos trukmės veikla: visi prekybos mokesčiai sumažinti per pusę!",
+  "activity_rewards_7": "50% mokesčių nuolaida",
+  
+  "activity_title_8": "Pasirinkimo sandorių paleidimo šventinis renginys",
+  "activity_description_8": "Švenčiame pasirinkimo sandorių paleidimą, dalyvaukite prekyboje ir dalinkitės prizų fondu!",
+  "activity_rewards_8": "20,000 USDT prizų fondas"
 }

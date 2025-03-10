@@ -1131,5 +1131,321 @@
   "robinhood2_recharge_fast": "高速入金",
   "math_exchange_bullish": "上昇",
   "password_num": "数値パスワードを設定してください",
-  "math_exchange_bearish": "下落"
+  "math_exchange_bearish": "下落",
+  "home": {
+    "hero": {
+      "title": "1800万人以上のユーザーがAntbittに参加",
+      "subtitle": "新しい体験を探求することを歓迎します",
+      "startTrading": "取引を開始"
+    },
+    "statistics": {
+      "title": "すべての人に適した暗号通貨取引所",
+      "customers": "顧客",
+      "countries": "サポートされている国",
+      "volume": "四半期取引量",
+      "plus": "+"
+    },
+    "purchaseSteps": {
+      "title": "数分で暗号通貨を購入",
+      "steps": {
+        "createAccount": "無料のAntbittアカウントを作成",
+        "connect": "資金調達方法を接続",
+        "trade": "200以上の暗号通貨を売買",
+        "security": "十分なセキュリティ保証"
+      }
+    },
+    "cryptoComposition": {
+      "title": "暗号通貨ポートフォリオを構築",
+      "cta": "取引所に行き、好きな暗号通貨を購入"
+    },
+    "securityFeatures": {
+      "mainFeatures": {
+        "reserve": {
+          "title": "準備金の説明",
+          "desc": "プラットフォームは、すべてのユーザー資産を少なくとも1:1の準備比率で保有することを約束します。"
+        },
+        "storage": {
+          "title": "安全なコールドストレージ",
+          "desc": "私たちは、ほとんどのデジタル資産をオフラインのマルチシグウォレットに安全に保管します。"
+        },
+        "protection": {
+          "title": "ユーザー保護基金",
+          "desc": "私たちは、3億USDTの価値を持つユーザー保護基金を設立し、潜在的なセキュリティリスクに対して追加の保護を提供します。"
+        }
+      },
+      "additionalFeatures": {
+        "technology": {
+          "title": "安全で安定した信頼性のある技術",
+          "desc": "私たちは、全方位のセキュリティ保護に専念するトップクラスの技術チームを持ち、自社開発の効率的なエンジンにより、システムが大量の注文の中でも信頼性を保つことができるようにしています。"
+        },
+        "philosophy": {
+          "title": "ユーザー第一の理念",
+          "desc": "グローバル市場に向けて、多言語サポート、24時間365日のカスタマーサービス、専門的な顧客サービスを提供します。"
+        },
+        "operation": {
+          "title": "グローバルな運営",
+          "desc": "国際的な運営チームが数年のブロックチェーンおよび金融業界の経験を持ち、50以上の地域でグローバル市場を拡大しています。"
+        },
+        "rewards": {
+          "title": "豊富な活動と報酬",
+          "desc": "素晴らしい運営活動と高額な報酬を手に入れましょう。"
+        }
+      }
+    },
+    "faq": {
+      "title": "よくある質問",
+      "items": {
+        "whoWeAre": {
+          "question": "私たちは誰ですか？",
+          "answer": "私たちは、ユーザーに安全で便利で専門的な暗号通貨取引サービスを提供することに専念する、世界をリードするデジタル資産取引プラットフォームです。私たちは、トップクラスの技術チームと豊富な業界経験を持ち、1800万人以上のユーザーにサービスを提供しています。"
+        },
+        "advantages": {
+          "question": "私たちの利点は何ですか？",
+          "answer": "私たちは、業界をリードするセキュリティ技術、豊富な取引品目、24時間365日のカスタマーサービス、多言語サポート、高い流動性、そして完璧なリスク管理システムを持っています。私たちは常にユーザーの資産の安全を最優先に考え、マルチシグコールドウォレットストレージとリアルタイム監視システムを採用しています。"
+        },
+        "blockchain": {
+          "question": "ブロックチェーンはどのように世界をより良くするのか？",
+          "answer": "ブロックチェーン技術は、分散化、透明性、不変性を通じて、金融、サプライチェーン、医療、教育などの分野に革新をもたらします。取引コストを削減し、効率を向上させ、信頼を強化し、金融包摂を促進し、より多くの人々が技術の進展の恩恵を受けられるようにします。"
+        },
+        "charity": {
+          "question": "ブロックチェーンを使用して慈善団体を支援する",
+          "answer": "ブロックチェーン技術は、慈善団体の透明性と効率を向上させるのに役立ちます。スマートコントラクトを通じて寄付を自動的に実行し、資金の流れを追跡可能にし、寄付金の使用を透明にします。また、国境を越えた寄付がより便利になり、運営コストが削減され、より多くのリソースが公益事業に使用されます。"
+        }
+      }
+    },
+    "footer": {
+      "about": {
+        "title": "私たちについて",
+        "company": "会社概要",
+        "careers": "私たちに参加する",
+        "news": "ニュース",
+        "contact": "お問い合わせ"
+      },
+      "products": {
+        "title": "製品サービス",
+        "spot": "現物取引",
+        "futures": "先物契約",
+        "otc": "法定通貨取引",
+        "staking": "ステーキング"
+      },
+      "support": {
+        "title": "サービスサポート",
+        "help": "ヘルプセンター",
+        "fees": "料金説明",
+        "api": "APIドキュメント",
+        "security": "セキュリティ説明"
+      },
+      "terms": {
+        "title": "利用規約",
+        "service": "サービス利用規約",
+        "privacy": "プライバシーポリシー",
+        "disclaimer": "免責事項",
+        "aml": "マネーロンダリング防止ポリシー"
+      },
+      "contact": {
+        "support": "カスタマーサポートメール：support@antbitt.com",
+        "business": "ビジネス協力：business@antbitt.com",
+        "email": "公式メール："
+      },
+      "copyright": {
+        "text": "© 2024 antbitt. All rights reserved.",
+        "description": "仮想通貨に特化したサービス会社"
+      },
+      "productIntro": "製品紹介",
+      "quote": "相場",
+      "trade": "取引",
+      "assets": "資産",
+      "support": "サポートサービス",
+      "terms": "サービス利用規約",
+      "help": "ヘルプセンター",
+      "allRightsReserved": "すべての権利を保留",
+      "companyDesc": "仮想通貨に特化したサービス会社"
+    }
+  },
+  "menu_home": "ホーム",
+  "menu_quote": "相場",
+  "menu_loan": "貸付",
+  "menu_financial": "投資ポートフォリオ",
+  "menu_pledge": "AIステーキング",
+  "menu_trade": "取引",
+  "menu_quick_buy": "クイック購入",
+  "menu_finance": "金融投資",
+  "menu_defi_loan": "DeFi借入",
+  "menu_defi_loan_desc": "分散型貸付サービス",
+  "menu_promotion": "プロモーションセンター",
+  "menu_user_center": "資産センター",
+  "menu_user_center_desc": "資産情報と設定を管理",
+  "menu_simulated_trade": "シミュレーション取引",
+  "menu_simulated_trade_desc": "リスクのない取引環境を体験",
+  "simulated_balance": "シミュレーション残高",
+  "reset_balance": "残高をリセット",
+  "market": "市場",
+  "market_data_loading": "市場データを読み込んでいます...",
+  "place_order": "注文する",
+  "trading_pair": "取引ペア",
+  "order_type": "注文タイプ",
+  "buy": "購入",
+  "sell": "売却",
+  "price": "価格",
+  "amount": "数量",
+  "total": "合計",
+  "order_history": "注文履歴",
+  "no_orders_yet": "まだ注文履歴はありません",
+  "menu_fund_security": "資金の安全性",
+  "menu_reserve_proof": "準備金証明",
+  "menu_beginner_academy": "初心者アカデミー",
+  "menu_activity_hall": "アクティビティホール",
+  "fund_security_title_1": "マルチシグコールドウォレット",
+  "fund_security_desc_1": "私たちは95%以上のユーザー資産をマルチシグコールドウォレットに保管し、資金の安全を確保します。",
+  "fund_security_title_2": "リアルタイム監視システム",
+  "fund_security_desc_2": "私たちのセキュリティチームは24時間365日、すべての取引活動を監視し、異常を迅速に発見し対処します。",
+  "fund_security_title_3": "ユーザー保護基金",
+  "fund_security_desc_3": "私たちは特別なユーザー保護基金を設立し、ユーザーに追加の資金安全保障を提供します。",
+  "fund_security_measures": "安全対策",
+  "fund_security_measures_desc": "私たちはユーザー資金の安全を確保するために、いくつかの対策を講じています：",
+  "fund_security_measure_1": "二要素認証 (2FA)",
+  "fund_security_measure_1_desc": "すべてのユーザーに二要素認証を有効にすることを強く推奨し、アカウントに追加のセキュリティレイヤーを追加します。",
+  "fund_security_measure_2": "高度な暗号技術",
+  "fund_security_measure_2_desc": "私たちは業界をリードする暗号技術を使用して、ユーザーデータと資金の送信プロセスを保護します。",
+  "fund_security_measure_3": "リスク管理システム",
+  "fund_security_measure_3_desc": "私たちのリスク管理システムは異常な取引行動を識別し、ユーザーアカウントを保護するための措置を講じます。",
+  "reserve_ratio": "準備金比率",
+  "total_reserves": "総準備金額",
+  "daily": "毎日",
+  "audit_frequency": "監査頻度",
+  "reserve_proof_details": "準備金明細",
+  "reserve_proof_description": "私たちはすべてのユーザー資産を少なくとも1:1の比率で保有することを約束します。以下は現在の準備金明細です：",
+  "asset": "資産",
+  "total_balance": "総残高",
+  "user_liabilities": "ユーザー負債",
+  "proof_date": "証明日",
+  "verification": "検証",
+  "verify": "検証",
+  "verification_methodology": "検証方法",
+  "verification_methodology_desc": "私たちはゼロ知識証明技術を採用し、ユーザーが敏感な情報を漏らすことなく準備金を検証できるようにします。定期的に第三者監査を行い、準備金が十分であることを確認します。",
+  "beginner_basics": "初心者の基礎",
+  "trading_guides": "取引ガイド",
+  "crypto_knowledge": "暗号知識",
+  "beginner_article_1_title": "暗号通貨とは何ですか？",
+  "beginner_article_1_content": "<p>暗号通貨は、セキュリティを確保するために暗号技術を使用するデジタルまたは仮想通貨です。銀行や政府などの中央機関に依存せず、取引を検証し新しい単位を作成します。</p><p>ビットコインは最初で最も有名な暗号通貨で、2009年に中本聡によって作成されました。その後、数千種類の異なる暗号通貨が登場し、それぞれ独自の機能とユースケースを持っています。</p><p>暗号通貨のコア技術はブロックチェーンで、これはすべての取引を記録し、ネットワーク内のすべての参加者と共有する分散型台帳技術です。</p>",
+  "beginner_article_2_title": "暗号通貨の取引を始めるには？",
+  "beginner_article_2_content": "<p>暗号通貨の取引を始める手順：</p><ol><li>信頼できる暗号通貨取引所（私たちのプラットフォームなど）を選択</li><li>登録と本人確認プロセスを完了</li><li>支払い方法（銀行口座またはクレジットカード）を接続</li><li>取引口座に資金を入金</li><li>購入したい暗号通貨を選択</li><li>注文を出す</li><li>安全なウォレットを使用して暗号通貨を保管することを検討</li></ol><p>暗号通貨市場は非常に変動が激しいため、損失を受け入れられる金額だけを投資してください。</p>",
+  "beginner_article_3_title": "暗号通貨ウォレットガイド",
+  "beginner_article_3_content": "<p>暗号通貨ウォレットは、デジタル資産を保管するためのツールです。主なタイプは：</p><ul><li><strong>ホットウォレット</strong>：インターネットに接続されており、迅速な取引が可能ですが、安全性は低い</li><li><strong>コールドウォレット</strong>：オフラインで保管されており、より高い安全性を提供し、長期保有に適している</li><li><strong>ハードウェアウォレット</strong>：物理デバイスで、コールドストレージと高い安全性を提供</li><li><strong>ソフトウェアウォレット</strong>：アプリケーションまたはプログラムで、ホットウォレットまたはコールドウォレットのいずれかである可能性がある</li><li><strong>ペーパーウォレット</strong>：印刷された秘密鍵とアドレス</li></ul><p>ウォレットを選択する際は、安全性、利便性、および使用ニーズを考慮してください。</p>",
+  "trading_guide_1_title": "基本的な取引戦略",
+  "trading_guide_1_content": "<p>暗号通貨取引戦略：</p><ul><li><strong>買って保持する</strong>：長期投資戦略で、短期的な変動を無視する</li><li><strong>デイトレード</strong>：同じ日に複数回取引を行い、短期的な価格変動を利用する</li><li><strong>スイングトレード</strong>：価格の変動範囲内で安値で購入し、高値で売却する</li><li><strong>ドルコスト平均法</strong>：固定金額を定期的に投資し、価格を考慮しない</li><li><strong>アービトラージ取引</strong>：異なる取引所や市場間の価格差を利用する</li></ul><p>どの戦略を選択しても、リスク管理を行い、ストップロスを設定し、損失を受け入れられる資金のみを使用してください。</p>",
+  "trading_guide_2_title": "テクニカル分析の基礎",
+  "trading_guide_2_content": "<p>テクニカル分析は、価格の動きと取引量を研究して将来の価格動向を予測する方法です。基本的な概念には：</p><ul><li><strong>サポートとレジスタンス</strong>：価格が突破しにくいレベル</li><li><strong>トレンドライン</strong>：価格の高値または安値を結ぶ線</li><li><strong>移動平均線</strong>：価格データを平滑化する指標</li><li><strong>相対力指数(RSI)</strong>：価格変動の速度と変化を測定する指標</li><li><strong>MACD</strong>：トレンド追跡モメンタム指標</li><li><strong>ローソク足パターン</strong>：価格チャート上の特定のパターンで、価格変動を示唆する可能性がある</li></ul><p>テクニカル分析はツールであり、保証ではありません。常に他の分析方法やリスク管理戦略と組み合わせて使用してください。</p>",
+  "crypto_article_1_title": "ブロックチェーン技術の解析",
+  "crypto_article_1_content": "<p>ブロックチェーンは、データを安全、透明、不変な方法で記録することを可能にする分散型台帳技術です。そのコア特性には：</p><ul><li><strong>分散化</strong>：単一の制御点がなく、ネットワーク参加者が共同で維持</li><li><strong>透明性</strong>：すべての取引がネットワーク内のすべての人に見える</li><li><strong>不変性</strong>：一度記録が追加されると、ほぼ変更不可能</li><li><strong>セキュリティ</strong>：暗号技術を使用してデータの安全性を確保</li><li><strong>コンセンサスメカニズム</strong>：ネットワーク参加者が取引の有効性について合意する方法</li></ul><p>ブロックチェーン技術の応用は暗号通貨を超え、サプライチェーン管理、医療記録、投票システムなど多くの分野に広がっています。</p>",
+  "crypto_article_2_title": "DeFi（分散型金融）入門",
+  "crypto_article_2_content": "<p>分散型金融（DeFi）は、ブロックチェーン技術に基づく新しい金融システムで、従来の仲介機関を必要としません。主な応用には：</p><ul><li><strong>分散型取引所（DEX）</strong>：仲介なしのピアツーピア取引プラットフォーム</li><li><strong>貸付プラットフォーム</strong>：ユーザーが暗号資産を貸し出したり借りたりできる</li><li><strong>ステーブルコイン</strong>：法定通貨にペッグされた暗号通貨</li><li><strong>流動性マイニング</strong>：流動性を提供することで報酬を得る</li><li><strong>分散型保険</strong>：暗号資産に対する保険カバレッジ</li></ul><p>DeFiは金融包摂と革新を提供しますが、スマートコントラクトの脆弱性、高いボラティリティ、規制の不確実性などのリスクも伴います。</p>",
+  "views": "ビュー",
+  "previous": "前のページ",
+  "next": "次のページ",
+  "filter_by": "フィルター",
+  "all_activities": "すべての活動",
+  "ongoing": "進行中",
+  "upcoming": "今後の予定",
+  "ended": "終了",
+  "search_activities": "活動を検索",
+  "rewards": "報酬",
+  "join_now": "今すぐ参加",
+  "remind_me": "リマインド",
+  "view_details": "詳細を見る",
+  "fundSecurity": {
+    "title": "あなたの資産を守る",
+    "description1": "ANTBITTは、安全なコールド/ホットウォレットシステム、マルチシグ、マルチバックアップを利用して、24時間体制であなたの資産を保護します。",
+    "description2": "緊急事態が発生しても、ANTBITTの万全基金があなたをサポートします。",
+    "altText": "あなたの資産を守る",
+    "coldWallet": "コールドウォレット",
+    "hotWallet": "ホットウォレット",
+    "antbittFund": "ANTBITT万全基金",
+    "coldWalletTitle": "安全なコールドウォレット設計",
+    "coldWalletSubtitle": "ANTBITTはコールドウォレットの安全な運用を保証し、約束だけでなく行動でも示します。",
+    "coldWalletDescription": "プラットフォームは長年の実績に基づいたシステム的な解決策を形成し、現在その方案の公開と共有を進めています。コミュニティの構築者やセキュリティ専門家からの貴重な提案を歓迎します。",
+    "coldWalletKeyPoints": "方案の要点",
+    "coldWalletFeature1": "すべての秘密鍵は完全にオフラインのデバイスに保存されます。",
+    "coldWalletFeature2": "秘密鍵はネットワークに直接接触しません。",
+    "coldWalletFeature3": "異地に秘密鍵のバックアップを保存します。",
+    "coldWalletResults": "実現結果",
+    "coldWalletResult1": "各秘密鍵の使用にはマルチオーソリゼーションが必要です。",
+    "coldWalletResult2": "秘密鍵は異地にバックアップされており、自然災害が発生しても資産の喪失はありません。",
+    "coldWalletResult3": "金庫から鍵を取得するには本人が入る必要があり、権限を持つ従業員が脅迫される可能性を回避します。",
+    "hotWalletTitle": "信頼できるホットウォレット技術",
+    "hotWalletDescription": "コールドウォレットに比べ、ホットウォレットを安全かつ安定的に運用することはより大きな技術的課題です。ANTBITTは独自のホットウォレット半オフラインマルチシグ技術を開発し、資金の安全を確保しつつ、迅速かつ安全なデジタル資産の入出金サービスを提供します。",
+    "hotWalletKeyPoints": "方案の要点",
+    "hotWalletFeature1": "多シーンのバックアップ秘密鍵の使用計画",
+    "hotWalletFeature2": "多重リスク管理検出計画により、ANTBITTを通じて疑わしいトークンが流入または流出するのを事前に防ぎます。",
+    "hotWalletResults": "実現結果",
+    "hotWalletResult1": "ネットワーク攻撃と物理攻撃の両方を防ぎ、秘密鍵の安全性が非常に高いです。",
+    "hotWalletResult2": "マルチシグとマルチバックアップのメカニズムを持ち、秘密鍵管理がプラットフォームの正常な運営に与える影響を最小限に抑えます。",
+    "hotWalletResult3": "完璧なリスク管理システムが異常な入金と出金の行動を防ぎます。",
+    "antbittFundTitle": "ANTBITT万全基金とは？",
+    "antbittFundDescription": "ANTBITT万全基金は、ユーザー資産を保護するためにANTBITTが設立した資産リスク準備基金で、プラットフォームの収益から一定の割合を継続的に拠出し、デジタル通貨の安全リスクが発生した際にユーザー資産を保護します。",
+    "fundNeedTitle": "なぜこの基金が必要なのか？",
+    "fundNeedDescription": "デジタル通貨がますます普及する中、ANTBITTはすべてのユーザーに安全で信頼性が高く責任あるデジタル通貨取引環境を提供することに尽力しています。ANTBITTはこの基金と業界をリードする資産安全リスク管理システムを活用し、新旧のすべてのユーザーに強力な保護を提供し、資産の安全を確保します。"
+  },
+  "reserveProof": {
+    "title": "準備金証明",
+    "content": "ANTBITはプラットフォーム上のすべてのアカウント資産を1:1の準備金で保有し、定期的に準備金証明レポートを発表し、プラットフォーム資産の透明性を高めます。",
+    "videoTitle": "準備金証明。デジタル通貨の専門家が準備金証明の発表1周年を祝し、プラットフォームの透明性と信頼性の重要性を強調しました。",
+    "processTitle": "準備金証明のプロセス",
+    "processDescription": "私たちの準備金証明プロセスは以下のステップを含みます：",
+    "step1": "定期監査：私たちは四半期ごとに独立した監査を行い、資産の真実性を確保します。",
+    "step2": "レポート生成：監査が完了した後、詳細なレポートを生成します。",
+    "step3": "レポート発表：監査レポートを公式ウェブサイトに発表し、ユーザーが確認できるようにします。",
+    "trustTitle": "ユーザーの信頼とサポート",
+    "trustDescription": "私たちはユーザーの信頼が最も貴重な資産であることを深く理解しています。透明な財務報告と継続的なコミュニケーションを通じて、ユーザーとの信頼関係を築くことに尽力しています。",
+    "feedback": "私たちはユーザーからの質問やフィードバックを随時受け付けており、サービスの改善に努めています。",
+    "commitmentTitle": "私たちの約束",
+    "commitmentDescription": "私たちは透明性を維持し、ユーザーの資産の安全を確保することを約束します。私たちのチームは、より良いサービスとサポートを提供するために不断の努力を続けます。",
+    "updateCommitment": "私たちは定期的に準備金証明を更新し、ユーザーが常に最新の情報を得られるようにします。",
+    "advantagesTitle": "準備金証明の利点",
+    "advantageTransparency": "透明性：ユーザーはいつでも私たちの財務報告を確認し、プラットフォームの実際の状況を理解できます。",
+    "advantageSecurity": "安全性：すべての資産は独立した第三者によって保管され、ユーザー資金の安全が確保されます。",
+    "advantageConvenience": "便捷性：ユーザーは私たちのプラットフォームを通じて簡単に準備金証明にアクセスし、最新の情報を得ることができます。",
+    "faqTitle": "よくある質問",
+    "faq1": {
+      "question": "準備金証明の頻度はどのようになっていますか？",
+      "answer": "私たちは四半期ごとに監査を行い、相応のレポートを発表します。"
+    },
+    "faq2": {
+      "question": "準備金証明をどのように取得できますか？",
+      "answer": "ユーザーは私たちの公式ウェブサイトで最新の準備金証明レポートを確認できます。"
+    }
+  },
+  "index_title": "暗号通貨完全ガイド",
+  "index_subtitle": "初心者必読、操作ガイド、進階戦略、業界のホットトピックが新手アカデミーに集結。素晴らしい一歩で、暗号通貨を簡単に楽しむことができます。",
+  "activity_title_1": "取引大会 - 10,000 USDTを獲得",
+  "activity_description_1": "私たちの取引大会に参加し、最大10,000 USDTの報酬を獲得するチャンスがあります！",
+  "activity_rewards_1": "10,000 USDT",
+  
+  "activity_title_2": "新規ユーザー登録報酬",
+  "activity_description_2": "新規ユーザーが登録し、KYC認証を完了すると、50 USDTの報酬を獲得できます！",
+  "activity_rewards_2": "50 USDT",
+  
+  "activity_title_3": "ステーキングマイニング活動",
+  "activity_description_3": "暗号通貨をステーキングし、最大15%のAPYを得る！",
+  "activity_rewards_3": "最大15% APY",
+  
+  "activity_title_4": "コミュニティAMA活動",
+  "activity_description_4": "私たちのコミュニティ活動に参加し、業界の専門家と交流し、報酬を獲得しましょう。報酬は最大1000 USDT！",
+  "activity_rewards_4": "最大1000 USDT",
+  
+  "activity_title_5": "友達紹介プログラム",
+  "activity_description_5": "友達を紹介して登録し、取引を行うと、双方が報酬を獲得できます！",
+  "activity_rewards_5": "取引手数料30%",
+  
+  "activity_title_6": "エアドロップ活動",
+  "activity_description_6": "プラットフォームトークンを保有し、私たちのエアドロップ活動に参加！",
+  "activity_rewards_6": "5,000プラットフォームトークン",
+  
+  "activity_title_7": "取引手数料の減免、最大取引の10%の報酬",
+  "activity_description_7": "期間限定活動：すべての取引手数料が半額！",
+  "activity_rewards_7": "50%手数料減免",
+  
+  "activity_title_8": "オプション契約のローンチを祝う活動",
+  "activity_description_8": "オプション契約のローンチを祝し、取引に参加することで賞金プールを分け合いましょう！",
+  "activity_rewards_8": "20,000 USDTの賞金プール"
 }

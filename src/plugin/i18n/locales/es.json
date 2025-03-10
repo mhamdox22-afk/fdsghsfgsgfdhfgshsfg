@@ -1129,5 +1129,321 @@
   "robinhood2_recharge_fast": "Depósito rápido",
   "math_exchange_bullish": "alcista",
   "password_num": "Defina por favor uma senha numérica",
-  "math_exchange_bearish": "osuno"
+  "math_exchange_bearish": "osuno",
+  "home": {
+    "hero": {
+      "title": "Más de 18 millones de usuarios se unieron a Antbitt",
+      "subtitle": "Bienvenido a explorar una nueva experiencia",
+      "startTrading": "Comenzar a comerciar"
+    },
+    "statistics": {
+      "title": "Un intercambio de criptomonedas adecuado para todos",
+      "customers": "Clientes",
+      "countries": "Países soportados",
+      "volume": "Volumen de comercio trimestral",
+      "plus": "+"
+    },
+    "purchaseSteps": {
+      "title": "Compra criptomonedas en solo unos minutos",
+      "steps": {
+        "createAccount": "Crea tu cuenta gratuita de antbitt",
+        "connect": "Conecta tu método de financiamiento",
+        "trade": "Compra y vende más de 200 criptomonedas",
+        "security": "Sólidas garantías de seguridad"
+      }
+    },
+    "cryptoComposition": {
+      "title": "Construye tu cartera de criptomonedas",
+      "cta": "Ve al centro de comercio para comprar las criptomonedas que deseas"
+    },
+    "securityFeatures": {
+      "mainFeatures": {
+        "reserve": {
+          "title": "Descripción de la reserva",
+          "desc": "Nos comprometemos a que la plataforma mantenga al menos un 1:1 de reservas para todos los activos de los usuarios."
+        },
+        "storage": {
+          "title": "Almacenamiento seguro en frío",
+          "desc": "La mayoría de los activos digitales se almacenan de forma segura en billeteras multifirma fuera de línea."
+        },
+        "protection": {
+          "title": "Fondo de protección del usuario",
+          "desc": "Contamos con un fondo de protección del usuario valorado en 300 millones de USDT, proporcionando una capa adicional de seguridad contra riesgos potenciales."
+        }
+      },
+      "additionalFeatures": {
+        "technology": {
+          "title": "Tecnología segura, estable y confiable",
+          "desc": "Contamos con un equipo técnico de primer nivel, enfocado en la protección integral de la seguridad, desarrollando un motor eficiente que mantiene el sistema funcionando de manera confiable incluso con un gran volumen de órdenes."
+        },
+        "philosophy": {
+          "title": "Filosofía centrada en el usuario",
+          "desc": "Orientado al mercado global, soporte multilingüe, servicio al cliente en línea 24/7, servicio al cliente profesional."
+        },
+        "operation": {
+          "title": "Operación global",
+          "desc": "Equipo de operación internacional con años de experiencia en blockchain y finanzas, expandiendo el mercado global a más de 50 regiones."
+        },
+        "rewards": {
+          "title": "Actividades y recompensas abundantes",
+          "desc": "Actividades operativas emocionantes y recompensas generosas."
+        }
+      }
+    },
+    "faq": {
+      "title": "Preguntas frecuentes",
+      "items": {
+        "whoWeAre": {
+          "question": "¿Quiénes somos?",
+          "answer": "Somos una plataforma de intercambio de activos digitales líder en el mundo, dedicada a proporcionar servicios de comercio de criptomonedas seguros, convenientes y profesionales a los usuarios. Contamos con un equipo técnico de primer nivel y una rica experiencia en la industria, sirviendo a más de 18 millones de usuarios en todo el mundo."
+        },
+        "advantages": {
+          "question": "¿Cuáles son nuestras ventajas?",
+          "answer": "Contamos con tecnología de seguridad líder en la industria, una amplia variedad de productos de comercio, servicio al cliente 24/7, soporte multilingüe, alta liquidez y un sistema de control de riesgos completo. Siempre priorizamos la seguridad de los activos de los usuarios, utilizando almacenamiento en billeteras frías multifirma y un sistema de monitoreo en tiempo real."
+        },
+        "blockchain": {
+          "question": "¿Cómo ayuda la blockchain a hacer del mundo un lugar mejor?",
+          "answer": "La tecnología blockchain trae innovación a campos como las finanzas, la cadena de suministro, la salud y la educación a través de la descentralización, la transparencia y la inmutabilidad. Puede reducir costos de transacción, aumentar la eficiencia, mejorar la confianza y promover la inclusión financiera, permitiendo que más personas disfruten de los beneficios del desarrollo tecnológico."
+        },
+        "charity": {
+          "question": "Uso de blockchain para ayudar a organizaciones benéficas",
+          "answer": "La tecnología blockchain puede ayudar a las organizaciones benéficas a mejorar la transparencia y la eficiencia. A través de contratos inteligentes, se pueden ejecutar donaciones automáticamente, rastreando el flujo de fondos y asegurando la transparencia en el uso de los fondos. Además, las donaciones transfronterizas son más convenientes, reduciendo los costos operativos y permitiendo que más recursos se destinen a causas benéficas."
+        }
+      }
+    },
+    "footer": {
+      "about": {
+        "title": "Sobre nosotros",
+        "company": "Descripción de la empresa",
+        "careers": "Únete a nosotros",
+        "news": "Noticias",
+        "contact": "Contáctenos"
+      },
+      "products": {
+        "title": "Servicios de productos",
+        "spot": "Comercio al contado",
+        "futures": "Contratos perpetuos",
+        "otc": "Comercio de moneda fiduciaria",
+        "staking": "Minado de participación"
+      },
+      "support": {
+        "title": "Soporte de servicio",
+        "help": "Centro de ayuda",
+        "fees": "Descripción de tarifas",
+        "api": "Documentación de API",
+        "security": "Descripción de seguridad"
+      },
+      "terms": {
+        "title": "Términos y políticas",
+        "service": "Términos de servicio",
+        "privacy": "Política de privacidad",
+        "disclaimer": "Descargo de responsabilidad",
+        "aml": "Política de anti-lavado de dinero"
+      },
+      "contact": {
+        "support": "Correo de soporte: support@antbitt.com",
+        "business": "Colaboración comercial: business@antbitt.com",
+        "email": "Correo oficial:"
+      },
+      "copyright": {
+        "text": "© 2024 antbitt. Todos los derechos reservados.",
+        "description": "Una empresa enfocada en servicios de criptomonedas"
+      },
+      "productIntro": "Introducción al producto",
+      "quote": "Cotización",
+      "trade": "Comercio",
+      "assets": "Activos",
+      "support": "Servicios de soporte",
+      "terms": "Términos de servicio",
+      "help": "Centro de ayuda",
+      "allRightsReserved": "Todos los derechos reservados",
+      "companyDesc": "Una empresa enfocada en servicios de criptomonedas"
+    }
+  },
+  "menu_home": "Inicio",
+  "menu_quote": "Cotización",
+  "menu_loan": "Préstamo",
+  "menu_financial": "Cartera de inversiones",
+  "menu_pledge": "Staking de IA",
+  "menu_trade": "Comercio",
+  "menu_quick_buy": "Compra rápida",
+  "menu_finance": "Finanzas",
+  "menu_defi_loan": "Préstamo DeFi",
+  "menu_defi_loan_desc": "Servicio de préstamo descentralizado",
+  "menu_promotion": "Centro de promoción",
+  "menu_user_center": "Centro de activos",
+  "menu_user_center_desc": "Administra tu información y configuraciones de activos",
+  "menu_simulated_trade": "Comercio simulado",
+  "menu_simulated_trade_desc": "Experimenta un entorno de comercio sin riesgo",
+  "simulated_balance": "Saldo simulado",
+  "reset_balance": "Restablecer saldo",
+  "market": "Mercado",
+  "market_data_loading": "Cargando datos del mercado...",
+  "place_order": "Realizar pedido",
+  "trading_pair": "Par de comercio",
+  "order_type": "Tipo de pedido",
+  "buy": "Comprar",
+  "sell": "Vender",
+  "price": "Precio",
+  "amount": "Cantidad",
+  "total": "Total",
+  "order_history": "Historial de pedidos",
+  "no_orders_yet": "No hay registros de pedidos aún",
+  "menu_fund_security": "Seguridad de fondos",
+  "menu_reserve_proof": "Prueba de reservas",
+  "menu_beginner_academy": "Academia para principiantes",
+  "menu_activity_hall": "Sala de actividades",
+  "fund_security_title_1": "Billetera fría multifirma",
+  "fund_security_desc_1": "Almacenamos más del 95% de los activos de los usuarios en billeteras frías multifirma para garantizar la seguridad de los fondos.",
+  "fund_security_title_2": "Sistema de monitoreo en tiempo real",
+  "fund_security_desc_2": "Nuestro equipo de seguridad monitorea todas las actividades comerciales 24/7, detectando y manejando situaciones anómalas de manera oportuna.",
+  "fund_security_title_3": "Fondo de protección del usuario",
+  "fund_security_desc_3": "Hemos establecido un fondo de protección del usuario para proporcionar una garantía adicional de seguridad de los fondos.",
+  "fund_security_measures": "Medidas de seguridad",
+  "fund_security_measures_desc": "Hemos tomado varias medidas para garantizar la seguridad de los fondos de los usuarios:",
+  "fund_security_measure_1": "Autenticación de dos factores (2FA)",
+  "fund_security_measure_1_desc": "Recomendamos encarecidamente a todos los usuarios habilitar la autenticación de dos factores para agregar una capa adicional de seguridad a sus cuentas.",
+  "fund_security_measure_2": "Tecnología de cifrado avanzada",
+  "fund_security_measure_2_desc": "Utilizamos tecnología de cifrado líder en la industria para proteger los datos de los usuarios y el proceso de transferencia de fondos.",
+  "fund_security_measure_3": "Sistema de control de riesgos",
+  "fund_security_measure_3_desc": "Nuestro sistema de control de riesgos puede identificar comportamientos comerciales anómalos y tomar medidas adecuadas para proteger las cuentas de los usuarios.",
+  "reserve_ratio": "Proporción de reservas",
+  "total_reserves": "Total de reservas",
+  "daily": "Diario",
+  "audit_frequency": "Frecuencia de auditoría",
+  "reserve_proof_details": "Detalles de las reservas",
+  "reserve_proof_description": "Nos comprometemos a mantener al menos un 1:1 de reservas para todos los activos de los usuarios. A continuación se presentan los detalles actuales de nuestras reservas:",
+  "asset": "Activo",
+  "total_balance": "Saldo total",
+  "user_liabilities": "Pasivos del usuario",
+  "proof_date": "Fecha de prueba",
+  "verification": "Verificación",
+  "verify": "Verificar",
+  "verification_methodology": "Metodología de verificación",
+  "verification_methodology_desc": "Utilizamos tecnología de prueba de conocimiento cero que permite a los usuarios verificar nuestras reservas sin revelar información sensible. Realizamos auditorías de terceros regularmente para garantizar que las reservas sean suficientes.",
+  "beginner_basics": "Fundamentos para principiantes",
+  "trading_guides": "Guías de comercio",
+  "crypto_knowledge": "Conocimiento de criptomonedas",
+  "beginner_article_1_title": "¿Qué es una criptomoneda?",
+  "beginner_article_1_content": "<p>Una criptomoneda es un tipo de moneda digital o virtual que utiliza técnicas criptográficas para asegurar su seguridad. No depende de una autoridad central (como un banco o gobierno) para verificar transacciones y crear nuevas unidades.</p><p>Bitcoin es la primera y más conocida criptomoneda, creada en 2009 por Satoshi Nakamoto. Desde entonces, han surgido miles de criptomonedas diferentes, cada una con sus propias características y casos de uso.</p><p>La tecnología central detrás de las criptomonedas es la blockchain, que es una tecnología de libro mayor distribuido que registra todas las transacciones y se comparte entre todos los participantes de la red.</p>",
+  "beginner_article_2_title": "¿Cómo empezar a comerciar con criptomonedas?",
+  "beginner_article_2_content": "<p>Los pasos para comenzar a comerciar con criptomonedas son:</p><ol><li>Elige un intercambio de criptomonedas confiable (como nuestra plataforma)</li><li>Completa el proceso de registro y verificación de identidad</li><li>Conecta tu método de pago (cuenta bancaria o tarjeta de crédito)</li><li>Deposita fondos en tu cuenta de comercio</li><li>Selecciona la criptomoneda que deseas comprar</li><li>Realiza un pedido de compra</li><li>Considera usar una billetera segura para almacenar tus criptomonedas</li></ol><p>Recuerda que el mercado de criptomonedas es muy volátil, invierte solo lo que puedas permitirte perder.</p>",
+  "beginner_article_3_title": "Guía de billeteras de criptomonedas",
+  "beginner_article_3_content": "<p>Una billetera de criptomonedas es una herramienta para almacenar tus activos digitales. Los principales tipos incluyen:</p><ul><li><strong>Billetera caliente</strong>: Conectada a Internet, conveniente para transacciones rápidas, pero con menor seguridad</li><li><strong>Billetera fría</strong>: Almacenamiento fuera de línea, proporciona mayor seguridad, adecuada para mantener a largo plazo</li><li><strong>Billetera de hardware</strong>: Dispositivo físico que proporciona almacenamiento en frío y alta seguridad</li><li><strong>Billetera de software</strong>: Aplicación o programa que puede ser billetera caliente o fría</li><li><strong>Billetera de papel</strong>: Clave privada y dirección impresas</li></ul><p>Al elegir una billetera, considera la seguridad, la conveniencia y tus necesidades de uso.</p>",
+  "trading_guide_1_title": "Estrategias básicas de comercio",
+  "trading_guide_1_content": "<p>Estrategias de comercio de criptomonedas:</p><ul><li><strong>Comprar y mantener</strong>: Estrategia de inversión a largo plazo, ignorando las fluctuaciones a corto plazo</li><li><strong>Comercio diario</strong>: Realizar múltiples transacciones en un mismo día, aprovechando las fluctuaciones de precios a corto plazo</li><li><strong>Comercio de rango</strong>: Comprar en puntos bajos y vender en puntos altos dentro de un rango de fluctuación de precios</li><li><strong>Promedio de costo en dólares</strong>: Invertir una cantidad fija regularmente, sin importar el precio</li><li><strong>Comercio de arbitraje</strong>: Aprovechar las diferencias de precios entre diferentes intercambios o mercados</li></ul><p>Independientemente de la estrategia que elijas, asegúrate de gestionar el riesgo, establecer niveles de stop-loss y usar solo los fondos que puedas permitirte perder.</p>",
+  "trading_guide_2_title": "Fundamentos del análisis técnico",
+  "trading_guide_2_content": "<p>El análisis técnico es un método para predecir la dirección futura de los precios mediante el estudio de los movimientos de precios y el volumen de comercio. Los conceptos básicos incluyen:</p><ul><li><strong>Niveles de soporte y resistencia</strong>: Niveles de precios que son difíciles de superar</li><li><strong>Lineas de tendencia</strong>: Líneas que conectan los picos o valles de precios</li><li><strong>Medias móviles</strong>: Indicadores que suavizan los datos de precios</li><li><strong>Índice de fuerza relativa (RSI)</strong>: Indicador que mide la velocidad y el cambio de los movimientos de precios</li><li><strong>MACD</strong>: Indicador de momentum que sigue la tendencia</li><li><strong>Patrones de velas</strong>: Formas específicas en los gráficos de precios que pueden indicar cambios en los precios</li></ul><p>El análisis técnico es una herramienta, no una garantía. Siempre combínalo con otros métodos de análisis y estrategias de gestión de riesgos.</p>",
+  "crypto_article_1_title": "Análisis de la tecnología blockchain",
+  "crypto_article_1_content": "<p>La blockchain es una tecnología de libro mayor distribuido que permite registrar datos de manera segura, transparente e inmutable. Sus características clave incluyen:</p><ul><li><strong>Descentralización</strong>: No hay un único punto de control, es mantenido por los participantes de la red</li><li><strong>Transparencia</strong>: Todas las transacciones son visibles para todos en la red</li><li><strong>Inmutabilidad</strong>: Una vez que se agrega un registro, es casi imposible cambiarlo</li><li><strong>Seguridad</strong>: Se utiliza criptografía para asegurar los datos</li><li><strong>Mecanismo de consenso</strong>: Método mediante el cual los participantes de la red acuerdan la validez de las transacciones</li></ul><p>Las aplicaciones de la tecnología blockchain van más allá de las criptomonedas, incluyendo la gestión de la cadena de suministro, registros médicos, sistemas de votación y más.</p>",
+  "crypto_article_2_title": "Introducción a DeFi (finanzas descentralizadas)",
+  "crypto_article_2_content": "<p>Las finanzas descentralizadas (DeFi) son un sistema financiero emergente construido sobre la tecnología blockchain, que no requiere intermediarios tradicionales. Las principales aplicaciones incluyen:</p><ul><li><strong>Intercambios descentralizados (DEX)</strong>: Plataformas de comercio punto a punto sin intermediarios</li><li><strong>Plataformas de préstamo</strong>: Los usuarios pueden prestar o pedir prestado activos criptográficos</li><li><strong>Stablecoins</strong>: Criptomonedas vinculadas a monedas fiduciarias</li><li><strong>Farming de rendimiento</strong>: Obtener recompensas al proporcionar liquidez</li><li><strong>Seguros descentralizados</strong>: Cobertura de seguros para activos criptográficos</li></ul><p>DeFi ofrece inclusión financiera e innovación, pero también conlleva riesgos, incluyendo vulnerabilidades en contratos inteligentes, alta volatilidad e incertidumbre regulatoria.</p>",
+  "views": "Vistas",
+  "previous": "Página anterior",
+  "next": "Página siguiente",
+  "filter_by": "Filtrar",
+  "all_activities": "Todas las actividades",
+  "ongoing": "En curso",
+  "upcoming": "Próximamente",
+  "ended": "Finalizado",
+  "search_activities": "Buscar actividades",
+  "rewards": "Recompensas",
+  "join_now": "Únete ahora",
+  "remind_me": "Recuérdame",
+  "view_details": "Ver detalles",
+  "fundSecurity": {
+    "title": "Protegiendo tus activos",
+    "description1": "ANTBITT utiliza un sistema seguro de billeteras frías/cálidas, multifirma y múltiples copias de seguridad para garantizar la seguridad de tus activos las 24 horas.",
+    "description2": "Incluso en situaciones inesperadas, el fondo de seguridad de ANTBITT sigue protegiéndote.",
+    "altText": "Protegiendo tus activos",
+    "coldWallet": "Billetera fría",
+    "hotWallet": "Billetera caliente",
+    "antbittFund": "Fondo de seguridad ANTBITT",
+    "coldWalletTitle": "Diseño seguro de billetera fría",
+    "coldWalletSubtitle": "ANTBITT garantiza el funcionamiento seguro de la billetera fría, no solo con promesas, sino con acciones.",
+    "coldWalletDescription": "La plataforma ha desarrollado soluciones sistemáticas a lo largo de la práctica, y ahora está promoviendo la divulgación y el intercambio de estas soluciones, invitando a constructores de la comunidad y expertos en seguridad a ofrecer sugerencias valiosas.",
+    "coldWalletKeyPoints": "Puntos clave de la solución",
+    "coldWalletFeature1": "Todas las claves privadas se almacenan en dispositivos completamente fuera de línea.",
+    "coldWalletFeature2": "Aseguramos que las claves privadas no entren en contacto directo con la red.",
+    "coldWalletFeature3": "Las copias de seguridad de las claves privadas se almacenan en ubicaciones diferentes.",
+    "coldWalletResults": "Resultados logrados",
+    "coldWalletResult1": "El uso de cada clave privada requiere múltiples autorizaciones.",
+    "coldWalletResult2": "Las claves privadas tienen copias de seguridad en diferentes ubicaciones, evitando la pérdida de fondos incluso en caso de desastres naturales.",
+    "coldWalletResult3": "La obtención de claves desde la caja fuerte requiere la presencia del propietario, evitando situaciones en las que el personal autorizado pueda estar amenazado.",
+    "hotWalletTitle": "Tecnología confiable de billetera caliente",
+    "hotWalletDescription": "En comparación con las billeteras frías, operar una billetera caliente de manera segura y estable presenta mayores desafíos técnicos. ANTBITT ha desarrollado una tecnología de firma múltiple semi-fuera de línea para la billetera caliente, que garantiza la seguridad de los fondos mientras proporciona un servicio rápido y seguro para la carga y descarga de activos digitales.",
+    "hotWalletKeyPoints": "Puntos clave de la solución",
+    "hotWalletFeature1": "Planes de respaldo de claves privadas para múltiples escenarios",
+    "hotWalletFeature2": "Planes de detección de riesgos múltiples, previniendo proactivamente que tokens sospechosos fluyan dentro o fuera de ANTBITT",
+    "hotWalletResults": "Resultados logrados",
+    "hotWalletResult1": "Previene simultáneamente ataques en línea y físicos, garantizando una alta seguridad de las claves privadas",
+    "hotWalletResult2": "Cuenta con mecanismos de múltiples firmas y copias de seguridad, así como planes de activación de claves de respaldo, minimizando el impacto de la gestión de claves privadas en la operación normal de la plataforma.",
+    "hotWalletResult3": "Sistema de gestión de riesgos completo, previniendo comportamientos anómalos de carga y descarga.",
+    "antbittFundTitle": "¿Qué es el fondo de seguridad ANTBITT?",
+    "antbittFundDescription": "El fondo de seguridad ANTBITT es un fondo de reserva de riesgos de activos establecido por ANTBITT para proteger los activos de los usuarios, asignando continuamente un porcentaje de los ingresos de la plataforma para garantizar los activos de los usuarios en caso de riesgos de seguridad de criptomonedas.",
+    "fundNeedTitle": "¿Por qué necesitamos este fondo?",
+    "fundNeedDescription": "Con la creciente popularidad de las criptomonedas, ANTBITT se compromete a crear un entorno de comercio de criptomonedas seguro, confiable y responsable para todos los usuarios. ANTBITT utilizará este fondo y un sistema de control de riesgos de seguridad de activos líder en la industria para proporcionar una fuerte protección a todos los usuarios, nuevos y antiguos, garantizando la seguridad de los activos."
+  },
+  "reserveProof": {
+    "title": "Prueba de reservas",
+    "content": "ANTBIT mantiene un respaldo de 1:1 para todos los activos de las cuentas en la plataforma y publica informes de prueba de reservas regularmente, brindando mayor transparencia a los activos de la plataforma.",
+    "videoTitle": "Prueba de reservas. Expertos en criptomonedas enfatizan la importancia de la transparencia y la reputación de la plataforma en el primer aniversario de la publicación de la prueba de reservas.",
+    "processTitle": "Proceso de prueba de reservas",
+    "processDescription": "Nuestro proceso de prueba de reservas incluye los siguientes pasos:",
+    "step1": "Auditoría regular: realizamos auditorías independientes cada trimestre para garantizar la autenticidad de los activos.",
+    "step2": "Generación de informes: después de la auditoría, generamos un informe detallado.",
+    "step3": "Publicación de informes: publicamos el informe de auditoría en nuestro sitio web oficial para que los usuarios lo consulten.",
+    "trustTitle": "Confianza y apoyo de los usuarios",
+    "trustDescription": "Sabemos que la confianza de los usuarios es nuestro activo más valioso. A través de informes financieros transparentes y comunicación continua, nos comprometemos a establecer una relación de confianza con los usuarios.",
+    "feedback": "Animamos a los usuarios a plantear preguntas y comentarios en cualquier momento para que podamos mejorar continuamente nuestros servicios.",
+    "commitmentTitle": "Nuestro compromiso",
+    "commitmentDescription": "Nos comprometemos a mantener la transparencia y garantizar la seguridad de los activos de los usuarios. Nuestro equipo seguirá esforzándose por ofrecer un mejor servicio y apoyo.",
+    "updateCommitment": "Actualizaremos regularmente la prueba de reservas para asegurarnos de que los usuarios siempre puedan acceder a la información más reciente.",
+    "advantagesTitle": "Ventajas de la prueba de reservas",
+    "advantageTransparency": "Transparencia: los usuarios pueden consultar nuestros informes financieros en cualquier momento para conocer la situación real de la plataforma.",
+    "advantageSecurity": "Seguridad: todos los activos son custodiados por terceros independientes, asegurando la seguridad de los fondos de los usuarios.",
+    "advantageConvenience": "Conveniencia: los usuarios pueden acceder fácilmente a la prueba de reservas a través de nuestra plataforma para obtener información actualizada.",
+    "faqTitle": "Preguntas frecuentes",
+    "faq1": {
+      "question": "¿Con qué frecuencia se realiza la prueba de reservas?",
+      "answer": "Realizamos una auditoría cada trimestre y publicamos el informe correspondiente."
+    },
+    "faq2": {
+      "question": "¿Cómo obtener la prueba de reservas?",
+      "answer": "Los usuarios pueden consultar el informe más reciente de prueba de reservas en nuestro sitio web oficial."
+    }
+  },
+  "index_title": "Guía completa de criptomonedas",
+  "index_subtitle": "Lectura obligada para principiantes, guías de operación, estrategias avanzadas y tendencias de la industria, todo en la Academia para principiantes, un acceso fácil a la emoción de las criptomonedas.",
+  "activity_title_1": "Competencia de comercio - Gana 10,000 USDT",
+  "activity_description_1": "¡Participa en nuestra competencia de comercio y tendrás la oportunidad de ganar hasta 10,000 USDT!",
+  "activity_rewards_1": "10,000 USDT",
+  
+  "activity_title_2": "Recompensa por registro de nuevos usuarios",
+  "activity_description_2": "¡Los nuevos usuarios que se registren y completen la verificación KYC recibirán una recompensa de 50 USDT!",
+  "activity_rewards_2": "50 USDT",
+  
+  "activity_title_3": "Actividad de minería de participación",
+  "activity_description_3": "¡Participa tus criptomonedas y gana hasta un 15% APY diario!",
+  "activity_rewards_3": "Hasta un 15% APY",
+  
+  "activity_title_4": "Actividad AMA de la comunidad",
+  "activity_description_4": "¡Participa en nuestras actividades comunitarias, interactúa con expertos de la industria y gana recompensas, hasta 1000 USDT!",
+  "activity_rewards_4": "Hasta 1000 USDT",
+  
+  "activity_title_5": "Programa de recomendación de amigos",
+  "activity_description_5": "¡Recomienda a amigos para registrarse y comerciar, ambos recibirán recompensas!",
+  "activity_rewards_5": "30% de comisión de comercio",
+  
+  "activity_title_6": "Actividad de airdrop",
+  "activity_description_6": "¡Ten tokens de la plataforma y participa en nuestra actividad de airdrop!",
+  "activity_rewards_6": "5,000 tokens de la plataforma",
+  
+  "activity_title_7": "Reducción de tarifas de comercio, hasta el 10% de recompensa por comercio",
+  "activity_description_7": "Actividad por tiempo limitado: ¡todas las tarifas de comercio se reducen a la mitad!",
+  "activity_rewards_7": "50% de reducción de tarifas",
+  
+  "activity_title_8": "Actividad de celebración por el lanzamiento de contratos de opciones",
+  "activity_description_8": "¡Celebra el lanzamiento de contratos de opciones, participa en el comercio y comparte el fondo de premios!",
+  "activity_rewards_8": "Fondo de premios de 20,000 USDT"
 }

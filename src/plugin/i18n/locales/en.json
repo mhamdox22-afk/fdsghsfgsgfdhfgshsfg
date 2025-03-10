@@ -303,7 +303,7 @@
   "promotion_center": "Promotion Center",
   "trade_tab3": "Spot",
   "trade_tab5": "U-standard contract",
-  "trade_tab6": "Second contract",
+  "trade_tab6": "Options Contracts",
   "home_recharge": "Quick coin charging",
   "clickto_recharge": "Click to recharge coins",
   "quick_withdrawal": "Quick withdrawal of coins",
@@ -1134,57 +1134,57 @@
   "math_exchange_bearish": "buy down",
   "home": {
     "hero": {
-      "title": "Over 18 Million Users Have Joined Antbitt",
-      "subtitle": "Welcome to Explore the New Experience",
+      "title": "Join over 18 million users on Antbitt",
+      "subtitle": "Welcome to explore a brand new experience",
       "startTrading": "Start Trading"
     },
     "statistics": {
-      "title": "A Cryptocurrency Exchange for Everyone",
+      "title": "The cryptocurrency exchange suitable for everyone",
       "customers": "Customers",
-      "countries": "Countries Supported",
-      "volume": "Quarterly Volume",
+      "countries": "Supported Countries",
+      "volume": "Quarterly Trading Volume",
       "plus": "+"
     },
     "purchaseSteps": {
-      "title": "Buy Cryptocurrency in Minutes",
+      "title": "Buy cryptocurrency in just a few minutes",
       "steps": {
-        "createAccount": "Create Your Free Antbitt Account",
-        "connect": "Connect Your Payment Method",
-        "trade": "Trade 200+ Cryptocurrencies",
-        "security": "Full Security Guarantee"
+        "createAccount": "Create your free Antbitt account",
+        "connect": "Connect your funding method",
+        "trade": "Buy and sell over 200 cryptocurrencies",
+        "security": "Comprehensive security guarantees"
       }
     },
     "cryptoComposition": {
-      "title": "Build Your Cryptocurrency Portfolio",
-      "cta": "Go to Trading Center to Buy Your Favorite Cryptocurrencies"
+      "title": "Build your cryptocurrency portfolio",
+      "cta": "Go to the trading center to buy your favorite cryptocurrency"
     },
     "securityFeatures": {
       "mainFeatures": {
         "reserve": {
-          "title": "Reserve Fund",
-          "desc": "We commit to maintaining at least a 1:1 reserve ratio for all user assets."
+          "title": "Reserve Explanation",
+          "desc": "We promise that the platform holds all user assets with a reserve ratio of at least 1:1."
         },
         "storage": {
           "title": "Secure Cold Storage",
-          "desc": "We store the majority of digital assets in offline multi-signature wallets."
+          "desc": "We securely store most digital assets in offline multi-signature wallets."
         },
         "protection": {
           "title": "User Protection Fund",
-          "desc": "We maintain a 300 million USDT user protection fund to provide an extra layer of security against potential risks."
+          "desc": "We have a user protection fund worth 300 million USDT, providing an extra layer of security against potential risks."
         }
       },
       "additionalFeatures": {
         "technology": {
-          "title": "Secure and Reliable Technology",
-          "desc": "Our top-tier technical team focuses on comprehensive security protection and develops efficient engines to maintain reliable operation under massive order volumes."
+          "title": "Secure, Stable, and Reliable Technology",
+          "desc": "We have a top-notch technical team focused on comprehensive security protection, independently developing efficient engines to ensure reliable operation under massive orders."
         },
         "philosophy": {
           "title": "User-Centric Philosophy",
-          "desc": "Global market coverage, multi-language support, 24/7 customer service, and professional support."
+          "desc": "Targeting the global market, multi-language support, 24/7 online customer service, and professional customer support."
         },
         "operation": {
           "title": "Global Operations",
-          "desc": "International operations team with years of blockchain and financial experience, expanding to over 50 regions globally."
+          "desc": "An international operation team with years of blockchain and financial experience, expanding to over 50 regions worldwide."
         },
         "rewards": {
           "title": "Rich Activities and Rewards",
@@ -1196,20 +1196,20 @@
       "title": "Frequently Asked Questions",
       "items": {
         "whoWeAre": {
-          "question": "Who Are We?",
-          "answer": "We are a leading global digital asset trading platform dedicated to providing secure, convenient, and professional cryptocurrency trading services. With our top-tier technical team and rich industry experience, we serve over 18 million users worldwide."
+          "question": "Who are we?",
+          "answer": "We are a leading global digital asset trading platform dedicated to providing users with safe, convenient, and professional cryptocurrency trading services. We have a top-notch technical team and rich industry experience, serving over 18 million users worldwide."
         },
         "advantages": {
-          "question": "Our Advantages",
-          "answer": "We possess industry-leading security technology, diverse trading options, 24/7 customer service, multi-language support, high liquidity, and comprehensive risk control systems. We prioritize asset security through multi-signature cold wallet storage and real-time monitoring."
+          "question": "What are our advantages?",
+          "answer": "We have industry-leading security technology, a wide variety of trading products, 24/7 customer service, multi-language support, high liquidity, and a comprehensive risk control system. We always prioritize the safety of users' assets, using multi-signature cold wallet storage and real-time monitoring systems."
         },
         "blockchain": {
-          "question": "How Does Blockchain Make the World Better?",
-          "answer": "Blockchain technology brings innovation to finance, supply chain, healthcare, and education through decentralization, transparency, and immutability. It reduces transaction costs, improves efficiency, enhances trust, and promotes financial inclusion."
+          "question": "How does blockchain help make the world a better place?",
+          "answer": "Blockchain technology brings innovation to finance, supply chain, healthcare, education, and other fields through decentralization, transparency, and immutability. It can reduce transaction costs, improve efficiency, enhance trust, and promote inclusive finance, allowing more people to enjoy the benefits of technological development."
         },
         "charity": {
-          "question": "Using Blockchain to Help Charities",
-          "answer": "Blockchain technology helps charities improve transparency and efficiency. Smart contracts automate donations, enable fund tracking, and ensure transparent use of charitable funds. It also facilitates cross-border donations and reduces operational costs."
+          "question": "Using blockchain to help charitable organizations",
+          "answer": "Blockchain technology can help charitable organizations improve transparency and efficiency. By automatically executing donations through smart contracts, the flow of funds can be tracked, ensuring transparency in the use of donations. At the same time, cross-border donations become more convenient, reducing operational costs and allowing more resources to be used for public welfare."
         }
       }
     },
@@ -1222,47 +1222,230 @@
         "contact": "Contact Us"
       },
       "products": {
-        "title": "Products",
+        "title": "Product Services",
         "spot": "Spot Trading",
         "futures": "Perpetual Contracts",
         "otc": "Fiat Trading",
-        "staking": "Staking"
+        "staking": "Staking Mining"
       },
       "support": {
-        "title": "Support",
+        "title": "Service Support",
         "help": "Help Center",
-        "fees": "Fee Structure",
+        "fees": "Fee Schedule",
         "api": "API Documentation",
-        "security": "Security"
+        "security": "Security Information"
       },
       "terms": {
-        "title": "Terms",
-        "service": "Terms of Service",
+        "title": "Terms and Policies",
+        "service": "Service Terms",
         "privacy": "Privacy Policy",
         "disclaimer": "Disclaimer",
-        "aml": "AML Policy"
+        "aml": "Anti-Money Laundering Policy"
       },
       "contact": {
-        "support": "Support: support@antbitt.com",
-        "business": "Business: business@antbitt.com"
+        "support": "Customer Service Email: support@antbitt.com",
+        "business": "Business Cooperation: business@antbitt.com",
+        "email": "Official Email:"
       },
       "copyright": {
-        "text": "© 2024 antbitt. All rights reserved.",
-        "description": "A Company Focused on Cryptocurrency Services"
-      }
+        "text": "© 2024 Antbitt. All rights reserved.",
+        "description": "A company focused on virtual currency services."
+      },
+      "productIntro": "Product Introduction",
+      "quote": "Market Data",
+      "trade": "Trade",
+      "assets": "Assets",
+      "support": "Support Services",
+      "terms": "Service Terms",
+      "help": "Help Center",
+      "allRightsReserved": "All rights reserved.",
+      "companyDesc": "A company focused on virtual currency services."
     }
   },
   "menu_home": "Home",
-  "menu_quote": "Quote",
-  "menu_loan": "Power Loan",
-  "menu_financial": "Financial",
-  "menu_pledge": "Pledge Mining",
+  "menu_quote": "Market Data",
+  "menu_loan": "Loan",
+  "menu_financial": "Portfolio",
+  "menu_pledge": "AI Staking",
   "menu_trade": "Trade",
   "menu_quick_buy": "Quick Buy",
-  "menu_finance": "Finance",
+  "menu_finance": "Financial Management",
   "menu_defi_loan": "DeFi Loan",
-  "menu_defi_loan_desc": "Decentralized Lending Service",
+  "menu_defi_loan_desc": "Decentralized lending service",
   "menu_promotion": "Promotion Center",
-  "menu_user_center": "User Center",
-  "menu_user_center_desc": "Manage your personal information and settings"
+  "menu_user_center": "Asset Center",
+  "menu_user_center_desc": "Manage your asset information and settings",
+  "menu_simulated_trade": "Simulated Trading",
+  "menu_simulated_trade_desc": "Experience a risk-free trading environment",
+  "simulated_balance": "Simulated Balance",
+  "reset_balance": "Reset Balance",
+  "market": "Market",
+  "market_data_loading": "Loading market data...",
+  "place_order": "Place Order",
+  "trading_pair": "Trading Pair",
+  "order_type": "Order Type",
+  "buy": "Buy",
+  "sell": "Sell",
+  "price": "Price",
+  "amount": "Amount",
+  "total": "Total",
+  "order_history": "Order History",
+  "no_orders_yet": "No order records yet",
+  "menu_fund_security": "Fund Security",
+  "menu_reserve_proof": "Reserve Proof",
+  "menu_beginner_academy": "Beginner Academy",
+  "menu_activity_hall": "Activity Hall",
+  "fund_security_title_1": "Multi-Signature Cold Wallet",
+  "fund_security_desc_1": "We store over 95% of user assets in multi-signature cold wallets to ensure fund security.",
+  "fund_security_title_2": "Real-Time Monitoring System",
+  "fund_security_desc_2": "Our security team monitors all trading activities 24/7, promptly detecting and addressing anomalies.",
+  "fund_security_title_3": "User Protection Fund",
+  "fund_security_desc_3": "We have established a dedicated user protection fund to provide users with additional security for their funds.",
+  "fund_security_measures": "Security Measures",
+  "fund_security_measures_desc": "We have implemented multiple measures to ensure the security of user funds:",
+  "fund_security_measure_1": "Two-Factor Authentication (2FA)",
+  "fund_security_measure_1_desc": "We strongly recommend all users enable two-factor authentication to add an extra layer of security to their accounts.",
+  "fund_security_measure_2": "Advanced Encryption Technology",
+  "fund_security_measure_2_desc": "We use industry-leading encryption technology to protect user data and fund transfer processes.",
+  "fund_security_measure_3": "Risk Control System",
+  "fund_security_measure_3_desc": "Our risk control system can identify abnormal trading behaviors and take corresponding measures to protect user accounts.",
+  "reserve_ratio": "Reserve Ratio",
+  "total_reserves": "Total Reserves",
+  "daily": "Daily",
+  "audit_frequency": "Audit Frequency",
+  "reserve_proof_details": "Reserve Details",
+  "reserve_proof_description": "We promise to hold all user assets at a ratio of at least 1:1. Below are our current reserve details:",
+  "asset": "Asset",
+  "total_balance": "Total Balance",
+  "user_liabilities": "User Liabilities",
+  "proof_date": "Proof Date",
+  "verification": "Verification",
+  "verify": "Verify",
+  "verification_methodology": "Verification Methodology",
+  "verification_methodology_desc": "We use zero-knowledge proof technology, allowing users to verify our reserves without disclosing sensitive information. We conduct regular third-party audits to ensure reserves are sufficient.",
+  "beginner_basics": "Beginner Basics",
+  "trading_guides": "Trading Guides",
+  "crypto_knowledge": "Crypto Knowledge",
+  "beginner_article_1_title": "What is Cryptocurrency?",
+  "beginner_article_1_content": "<p>Cryptocurrency is a type of digital or virtual currency that uses cryptographic techniques to ensure security. It does not rely on central authorities (such as banks or governments) to verify transactions and create new units.</p><p>Bitcoin is the first and most well-known cryptocurrency, created in 2009 by Satoshi Nakamoto. Since then, thousands of different cryptocurrencies have emerged, each with its unique features and use cases.</p><p>The core technology behind cryptocurrency is blockchain, a distributed ledger technology that records all transactions and shares them among all participants in the network.</p>",
+  "beginner_article_2_title": "How to Start Trading Cryptocurrency?",
+  "beginner_article_2_content": "<p>Steps to start trading cryptocurrency:</p><ol><li>Choose a reliable cryptocurrency exchange (like our platform)</li><li>Complete the registration and identity verification process</li><li>Connect your payment method (bank account or credit card)</li><li>Deposit funds into your trading account</li><li>Select the cryptocurrency you want to buy</li><li>Place an order to buy</li><li>Consider using a secure wallet to store your cryptocurrency</li></ol><p>Remember, the cryptocurrency market is highly volatile, only invest what you can afford to lose.</p>",
+  "beginner_article_3_title": "Cryptocurrency Wallet Guide",
+  "beginner_article_3_content": "<p>A cryptocurrency wallet is a tool for storing your digital assets. The main types include:</p><ul><li><strong>Hot Wallet</strong>: Connected to the internet, convenient for quick transactions but less secure</li><li><strong>Cold Wallet</strong>: Offline storage, providing higher security, suitable for long-term holding</li><li><strong>Hardware Wallet</strong>: A physical device that provides cold storage and high security</li><li><strong>Software Wallet</strong>: An application or program that can be either a hot or cold wallet</li><li><strong>Paper Wallet</strong>: Printed private keys and addresses</li></ul><p>When choosing a wallet, consider security, convenience, and your usage needs.</p>",
+  "trading_guide_1_title": "Basic Trading Strategies",
+  "trading_guide_1_content": "<p>Cryptocurrency trading strategies:</p><ul><li><strong>Buy and Hold</strong>: A long-term investment strategy that ignores short-term fluctuations</li><li><strong>Day Trading</strong>: Conducting multiple trades within the same day to take advantage of short-term price movements</li><li><strong>Swing Trading</strong>: Buying at low points and selling at high points within a price range</li><li><strong>Dollar-Cost Averaging</strong>: Regularly investing a fixed amount regardless of price</li><li><strong>Arbitrage Trading</strong>: Taking advantage of price differences between different exchanges or markets</li></ul><p>Whichever strategy you choose, ensure proper risk management, set stop-loss levels, and only use funds you can afford to lose.</p>",
+  "trading_guide_2_title": "Basics of Technical Analysis",
+  "trading_guide_2_content": "<p>Technical analysis is a method of predicting future price movements by studying price trends and trading volumes. Basic concepts include:</p><ul><li><strong>Support and Resistance Levels</strong>: Price levels that are difficult to break through</li><li><strong>Trend Lines</strong>: Lines connecting price highs or lows</li><li><strong>Moving Averages</strong>: Indicators that smooth price data</li><li><strong>Relative Strength Index (RSI)</strong>: An indicator measuring the speed and change of price movements</li><li><strong>MACD</strong>: A trend-following momentum indicator</li><li><strong>Candlestick Patterns</strong>: Specific shapes on price charts that may indicate price movements</li></ul><p>Technical analysis is a tool, not a guarantee. Always combine it with other analysis methods and risk management strategies.</p>",
+  "crypto_article_1_title": "Understanding Blockchain Technology",
+  "crypto_article_1_content": "<p>Blockchain is a distributed ledger technology that allows data to be recorded in a secure, transparent, and immutable manner. Its core features include:</p><ul><li><strong>Decentralization</strong>: No single control point, maintained collectively by network participants</li><li><strong>Transparency</strong>: All transactions are visible to everyone in the network</li><li><strong>Immutability</strong>: Once recorded, it is nearly impossible to change</li><li><strong>Security</strong>: Uses cryptography to ensure data security</li><li><strong>Consensus Mechanism</strong>: A method for network participants to agree on the validity of transactions</li></ul><p>The applications of blockchain technology extend far beyond cryptocurrencies, including supply chain management, medical records, voting systems, and more.</p>",
+  "crypto_article_2_title": "Introduction to DeFi (Decentralized Finance)",
+  "crypto_article_2_content": "<p>Decentralized Finance (DeFi) is an emerging financial system built on blockchain technology that does not require traditional intermediaries. Major applications include:</p><ul><li><strong>Decentralized Exchanges (DEX)</strong>: Peer-to-peer trading platforms without intermediaries</li><li><strong>Lending Platforms</strong>: Users can lend or borrow crypto assets</li><li><strong>Stablecoins</strong>: Cryptocurrencies pegged to fiat currencies</li><li><strong>Yield Farming</strong>: Earning returns by providing liquidity</li><li><strong>Decentralized Insurance</strong>: Insurance coverage for crypto assets</li></ul><p>DeFi offers financial inclusivity and innovation but also brings risks, including smart contract vulnerabilities, high volatility, and regulatory uncertainties.</p>",
+  "views": "Views",
+  "previous": "Previous",
+  "next": "Next",
+  "filter_by": "Filter by",
+  "all_activities": "All Activities",
+  "ongoing": "Ongoing",
+  "upcoming": "Upcoming",
+  "ended": "Ended",
+  "search_activities": "Search Activities",
+  "rewards": "Rewards",
+  "join_now": "Join Now",
+  "remind_me": "Remind Me",
+  "view_details": "View Details",
+  "fundSecurity": {
+    "title": "Protect Your Assets",
+    "description1": "ANTBITT utilizes secure cold/hot wallet systems, multi-signature, and multiple backups to ensure your assets are protected 24/7.",
+    "description2": "Even in emergencies, ANTBITT's comprehensive fund continues to safeguard you.",
+    "altText": "Protect Your Assets",
+    "coldWallet": "Cold Wallet",
+    "hotWallet": "Hot Wallet",
+    "antbittFund": "ANTBITT Comprehensive Fund",
+    "coldWalletTitle": "Secure Cold Wallet Design",
+    "coldWalletSubtitle": "ANTBITT ensures the safe operation of cold wallets, not just in promise but in action.",
+    "coldWalletDescription": "The platform has developed a systematic solution through long-term practice, and is now promoting the public sharing of this solution, welcoming valuable suggestions from community builders and security experts.",
+    "coldWalletKeyPoints": "Key Points of the Solution",
+    "coldWalletFeature1": "All private keys are stored on completely offline devices.",
+    "coldWalletFeature2": "Ensures private keys do not directly contact the network.",
+    "coldWalletFeature3": "Backups of private keys are stored in different locations.",
+    "coldWalletResults": "Results Achieved",
+    "coldWalletResult1": "The use of each private key requires multiple authorizations.",
+    "coldWalletResult2": "Private keys have off-site backups, ensuring no loss of coins even in natural disasters.",
+    "coldWalletResult3": "Accessing keys from the vault requires personal entry, thus avoiding situations where authorized staff may be threatened.",
+    "hotWalletTitle": "Reliable Hot Wallet Technology",
+    "hotWalletDescription": "Compared to cold wallets, running hot wallets securely and stably presents greater technical challenges. ANTBITT has developed a semi-offline multi-signature technology for hot wallets, providing fast and secure digital asset deposit and withdrawal services while ensuring fund security.",
+    "hotWalletKeyPoints": "Key Points of the Solution",
+    "hotWalletFeature1": "Backup plans for private keys in multiple scenarios",
+    "hotWalletFeature2": "Multiple risk control detection plans to proactively prevent suspicious tokens from flowing in or out of ANTBITT",
+    "hotWalletResults": "Results Achieved",
+    "hotWalletResult1": "Can simultaneously prevent both network and physical attacks, ensuring high security of private keys",
+    "hotWalletResult2": "Has multi-signature, multiple backups, and a complete backup plan for private key activation, minimizing the impact of private key management on the normal operation of the platform",
+    "hotWalletResult3": "A comprehensive risk management system to prevent abnormal deposits and withdrawals",
+    "antbittFundTitle": "What is the ANTBITT Comprehensive Fund?",
+    "antbittFundDescription": "The ANTBITT Comprehensive Fund is an asset risk reserve fund established by ANTBITT to protect user assets, continuously allocating a certain percentage from platform profits to safeguard user assets in the event of digital currency security risks.",
+    "fundNeedTitle": "Why do we need this fund?",
+    "fundNeedDescription": "As digital currencies become increasingly popular, ANTBITT is committed to creating a safe, reliable, and responsible digital currency trading environment for all users. ANTBITT will use this fund and industry-leading asset security risk control systems to provide strong protection for all new and existing users, ensuring asset safety."
+  },
+  "reserveProof": {
+    "title": "Reserve Proof",
+    "content": "ANTBIT holds a 1:1 reserve for all account assets on the platform and regularly publishes reserve proof reports to bring higher transparency to platform assets.",
+    "videoTitle": "Reserve Proof. Digital currency experts emphasize the importance of platform transparency and credibility on the first anniversary of the reserve proof release.",
+    "processTitle": "Process of Reserve Proof",
+    "processDescription": "Our reserve proof process includes the following steps:",
+    "step1": "Regular Audits: We conduct independent audits quarterly to ensure the authenticity of assets.",
+    "step2": "Report Generation: After the audit is completed, we generate a detailed report.",
+    "step3": "Report Publication: The audit report is published on our official website for users to review.",
+    "trustTitle": "User Trust and Support",
+    "trustDescription": "We understand that user trust is our most valuable asset. Through transparent financial reports and ongoing communication, we are committed to building a trust relationship with users.",
+    "feedback": "We encourage users to raise questions and feedback at any time so that we can continuously improve our services.",
+    "commitmentTitle": "Our Commitment",
+    "commitmentDescription": "We promise to maintain transparency and ensure the safety of user assets. Our team will continue to work hard to provide better services and support.",
+    "updateCommitment": "We will regularly update the reserve proof to ensure users can always access the latest information.",
+    "advantagesTitle": "Advantages of Reserve Proof",
+    "advantageTransparency": "Transparency: Users can view our financial reports at any time to understand the platform's real situation.",
+    "advantageSecurity": "Security: All assets are held by independent third parties to ensure the safety of user funds.",
+    "advantageConvenience": "Convenience: Users can easily access reserve proof through our platform to obtain the latest information.",
+    "faqTitle": "Frequently Asked Questions",
+    "faq1": {
+      "question": "What is the frequency of reserve proof?",
+      "answer": "We conduct an audit every quarter and publish the corresponding report."
+    },
+    "faq2": {
+      "question": "How can I obtain reserve proof?",
+      "answer": "Users can view the latest reserve proof report on our official website."
+    }
+  },
+  "index_title": "Complete Guide to Digital Currency",
+  "index_subtitle": "Must-read for beginners, operation guides, advanced strategies, and industry hotspots are all in the Beginner Academy, exciting one-stop access to easily navigate digital currency.",
+  "activity_title_1": "Trading Competition - Win 10,000 USDT",
+  "activity_description_1": "Participate in our trading competition for a chance to win up to 10,000 USDT!",
+  "activity_rewards_1": "10,000 USDT",
+  
+  "activity_title_2": "New User Registration Reward",
+  "activity_description_2": "New users who register and complete KYC verification will receive a reward of 50 USDT!",
+  "activity_rewards_2": "50 USDT",
+  
+  "activity_title_3": "Staking Mining Activity",
+  "activity_description_3": "Stake your cryptocurrency to earn up to 15% APY daily!",
+  "activity_rewards_3": "Up to 15% APY",
+  
+  "activity_title_4": "Community AMA Activity",
+  "activity_description_4": "Participate in our community activities, interact with industry experts, and win rewards, with rewards up to 1000 USDT!",
+  "activity_rewards_4": "Up to 1000 USDT",
+  
+  "activity_title_5": "Referral Program",
+  "activity_description_5": "Refer friends to register and trade, and both parties can receive rewards!",
+  "activity_rewards_5": "30% trading fee",
+  
+  "activity_title_6": "Airdrop Activity",
+  "activity_description_6": "Hold platform tokens to participate in our airdrop activity!",
+  "activity_rewards_6": "5,000 platform tokens",
+  
+  "activity_title_7": "Trading Fee Discount, Up to 10% Reward on Trades",
+  "activity_description_7": "Limited-time event: All trading fees are halved!",
+  "activity_rewards_7": "50% fee discount",
+  
+  "activity_title_8": "Options Contract Launch Celebration Activity",
+  "activity_description_8": "Celebrate the launch of options contracts, participate in trading to share the prize pool!",
+  "activity_rewards_8": "20,000 USDT prize pool"
 }

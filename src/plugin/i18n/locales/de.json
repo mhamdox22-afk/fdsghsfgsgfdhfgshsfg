@@ -1129,5 +1129,321 @@
   "robinhood2_recharge_fast": "Schnelle Einzahlung",
   "math_exchange_bullish": "bullisch",
   "password_num": "Bitte geben Sie ein numerisches Passwort ein",
-  "math_exchange_bearish": "bärisch"
+  "math_exchange_bearish": "bärisch",
+  "home": {
+    "hero": {
+      "title": "Mehr als 18 Millionen Nutzer haben sich Antbitt angeschlossen",
+      "subtitle": "Willkommen zum Erkunden einer völlig neuen Erfahrung",
+      "startTrading": "Mit dem Handel beginnen"
+    },
+    "statistics": {
+      "title": "Eine Kryptowährungsbörse für alle",
+      "customers": "Kunden",
+      "countries": "Unterstützte Länder",
+      "volume": "Quartalshandelsvolumen",
+      "plus": "+"
+    },
+    "purchaseSteps": {
+      "title": "Kaufen Sie Kryptowährungen in nur wenigen Minuten",
+      "steps": {
+        "createAccount": "Erstellen Sie Ihr kostenloses Antbitt-Konto",
+        "connect": "Verbinden Sie Ihre Finanzierungsmethode",
+        "trade": "Kaufen und verkaufen Sie über 200 Kryptowährungen",
+        "security": "Vollständige Sicherheitsgarantie"
+      }
+    },
+    "cryptoComposition": {
+      "title": "Bauen Sie Ihr Kryptowährungsportfolio auf",
+      "cta": "Zum Handelszentrum, um Ihre bevorzugten Kryptowährungen zu kaufen"
+    },
+    "securityFeatures": {
+      "mainFeatures": {
+        "reserve": {
+          "title": "Erklärung zu den Reserven",
+          "desc": "Wir verpflichten uns, alle Vermögenswerte der Nutzer im Verhältnis von mindestens 1:1 zu halten."
+        },
+        "storage": {
+          "title": "Sichere Kaltlagerung",
+          "desc": "Wir bewahren den Großteil der digitalen Vermögenswerte sicher in Offline-Multi-Signatur-Wallets auf."
+        },
+        "protection": {
+          "title": "Nutzerschutzfonds",
+          "desc": "Wir verfügen über einen Nutzerschutzfonds im Wert von 300 Millionen USDT, der eine zusätzliche Absicherung gegen potenzielle Sicherheitsrisiken bietet."
+        }
+      },
+      "additionalFeatures": {
+        "technology": {
+          "title": "Sichere, stabile und zuverlässige Technologie",
+          "desc": "Wir verfügen über ein Top-Technologieteam, das sich auf umfassenden Sicherheitsschutz konzentriert und eine hocheffiziente Engine entwickelt, die auch bei massiven Bestellungen zuverlässig funktioniert"
+        },
+        "philosophy": {
+          "title": "Nutzerorientierte Philosophie",
+          "desc": "Ausrichtung auf globale Märkte, mehrsprachiger Support, 24/7 Online-Kundendienst, professioneller Kundenservice."
+        },
+        "operation": {
+          "title": "Globaler Betrieb",
+          "desc": "Internationales Betriebsteam, langjährige Erfahrung in Blockchain und Finanzen, Expansion in über 50 Regionen weltweit"
+        },
+        "rewards": {
+          "title": "Reichhaltige Aktivitäten und Belohnungen",
+          "desc": "Spannende Betriebsaktivitäten, hohe Belohnungen im Überfluss"
+        }
+      }
+    },
+    "faq": {
+      "title": "Häufig gestellte Fragen",
+      "items": {
+        "whoWeAre": {
+          "question": "Wer sind wir?",
+          "answer": "Wir sind eine weltweit führende Plattform für den Handel mit digitalen Vermögenswerten, die sich dafür einsetzt, den Nutzern sichere, bequeme und professionelle Kryptowährungshandelsdienste anzubieten. Wir verfügen über ein erstklassiges Technologieteam und umfangreiche Branchenerfahrung und betreuen weltweit mehr als 18 Millionen Nutzer."
+        },
+        "advantages": {
+          "question": "Unsere Vorteile",
+          "answer": "Wir verfügen über branchenführende Sicherheitstechnologie, eine Vielzahl von Handelsinstrumenten, 24/7-Kundendienst, mehrsprachigen Support, hohe Liquidität und ein solides Risikomanagementsystem. Wir stellen die Sicherheit der Vermögenswerte unserer Nutzer stets an erste Stelle und verwenden Multi-Signatur-Kaltwallets und Echtzeit-Überwachungssysteme."
+        },
+        "blockchain": {
+          "question": "Wie kann die Blockchain-Technologie dazu beitragen, die Welt zu verbessern?",
+          "answer": "Die Blockchain-Technologie bringt durch Dezentralisierung, Transparenz und Unveränderlichkeit Innovationen in Bereichen wie Finanzen, Lieferketten, Gesundheitswesen und Bildung. Sie kann Transaktionskosten senken, die Effizienz steigern, das Vertrauen stärken und die finanzielle Inklusion fördern, sodass mehr Menschen von den Vorteilen der technologischen Entwicklung profitieren können."
+        },
+        "charity": {
+          "question": "Verwendung der Blockchain-Technologie zur Unterstützung von Wohltätigkeitsorganisationen",
+          "answer": "Die Blockchain-Technologie kann Wohltätigkeitsorganisationen helfen, Transparenz und Effizienz zu verbessern. Durch Smart Contracts werden Spenden automatisch ausgeführt, Geldflüsse können nachverfolgt werden, und die Transparenz der Spendennutzung wird sichergestellt. Gleichzeitig werden grenzüberschreitende Spenden einfacher, Betriebskosten werden gesenkt und mehr Ressourcen können für wohltätige Zwecke verwendet werden."
+        }
+      }
+    },
+    "footer": {
+      "about": {
+        "title": "Über uns",
+        "company": "Unternehmensprofil",
+        "careers": "Karriere",
+        "news": "Neuigkeiten",
+        "contact": "Kontakt"
+      },
+      "products": {
+        "title": "Produkte & Dienstleistungen",
+        "spot": "Spot-Handel",
+        "futures": "Perpetual-Futures",
+        "otc": "Fiat-Handel",
+        "staking": "Staking-Mining"
+      },
+      "support": {
+        "title": "Kundenservice",
+        "help": "Hilfezentrum",
+        "fees": "Gebühreninformationen",
+        "api": "API-Dokumentation",
+        "security": "Sicherheitshinweise"
+      },
+      "terms": {
+        "title": "Bedingungen & Richtlinien",
+        "service": "Nutzungsbedingungen",
+        "privacy": "Datenschutzrichtlinie",
+        "disclaimer": "Haftungsausschluss",
+        "aml": "Anti-Geldwäsche-Richtlinie"
+      },
+      "contact": {
+        "support": "Kundendienst-E-Mail: support@antbitt.com",
+        "business": "Geschäftliche Zusammenarbeit: business@antbitt.com",
+        "email": "Offizielle E-Mail:"
+      },
+      "copyright": {
+        "text": "© 2024 antbitt. Alle Rechte vorbehalten.",
+        "description": "Ein Unternehmen, das sich auf Kryptowährungsdienstleistungen spezialisiert hat"
+      },
+      "productIntro": "Produkteinführung",
+      "quote": "Kurse",
+      "trade": "Handel",
+      "assets": "Vermögenswerte",
+      "support": "Support",
+      "terms": "Nutzungsbedingungen",
+      "help": "Hilfezentrum",
+      "allRightsReserved": "Alle Rechte vorbehalten",
+      "companyDesc": "Ein Unternehmen, das sich auf Kryptowährungsdienstleistungen spezialisiert hat"
+    }
+  },
+  "menu_home": "Startseite",
+  "menu_quote": "Kurse",
+  "menu_loan": "Kredite",
+  "menu_financial": "Portfolio",
+  "menu_pledge": "AI-Staking",
+  "menu_trade": "Handel",
+  "menu_quick_buy": "Schnellkauf",
+  "menu_finance": "Finanzanlage",
+  "menu_defi_loan": "DeFi-Kredite",
+  "menu_defi_loan_desc": "Dezentralisierter Kreditdienst",
+  "menu_promotion": "Werbebereich",
+  "menu_user_center": "Asset-Center",
+  "menu_user_center_desc": "Verwalten Sie Ihre Vermögensinformationen und Einstellungen",
+  "menu_simulated_trade": "Simulationshandel",
+  "menu_simulated_trade_desc": "Erleben Sie eine risikofreie Handelsumgebung",
+  "simulated_balance": "Simuliertes Guthaben",
+  "reset_balance": "Guthaben zurücksetzen",
+  "market": "Markt",
+  "market_data_loading": "Marktdaten werden geladen...",
+  "place_order": "Auftrag erteilen",
+  "trading_pair": "Handelspaar",
+  "order_type": "Auftragstyp",
+  "buy": "Kaufen",
+  "sell": "Verkaufen",
+  "price": "Preis",
+  "amount": "Menge",
+  "total": "Gesamt",
+  "order_history": "Auftragshistorie",
+  "no_orders_yet": "Noch keine Aufträge",
+  "menu_fund_security": "Fondssicherheit",
+  "menu_reserve_proof": "Reservenachweis",
+  "menu_beginner_academy": "Anfängerakademie",
+  "menu_activity_hall": "Aktivitätshalle",
+  "fund_security_title_1": "Multi-Signatur-Kalt-Wallets",
+  "fund_security_desc_1": "Wir speichern mehr als 95% der Nutzeranlagen in Multi-Signatur-Kalt-Wallets, um die Sicherheit der Gelder zu gewährleisten.",
+  "fund_security_title_2": "Echtzeit-Überwachungssystem",
+  "fund_security_desc_2": "Unser Sicherheitsteam überwacht alle Handelsaktivitäten rund um die Uhr und entdeckt und behebt umgehend ungewöhnliche Situationen.",
+  "fund_security_title_3": "Nutzerschutzfonds",
+  "fund_security_desc_3": "Wir haben einen speziellen Nutzerschutzfonds eingerichtet, der den Nutzern zusätzlichen Schutz für ihre Gelder bietet.",
+  "fund_security_measures": "Sicherheitsmaßnahmen",
+  "fund_security_measures_desc": "Wir haben mehrere Maßnahmen ergriffen, um die Sicherheit der Gelder unserer Nutzer zu gewährleisten:",
+  "fund_security_measure_1": "Zwei-Faktor-Authentifizierung (2FA)",
+  "fund_security_measure_1_desc": "Wir empfehlen allen Nutzern dringend, die Zwei-Faktor-Authentifizierung zu aktivieren, um ihrem Konto eine zusätzliche Sicherheitsebene hinzuzufügen.",
+  "fund_security_measure_2": "Fortschrittliche Verschlüsselungstechnologie",
+  "fund_security_measure_2_desc": "Wir verwenden branchenführende Verschlüsselungstechnologie, um Nutzerdaten und Geldtransfers zu schützen.",
+  "fund_security_measure_3": "Risikosteuerungssystem",
+  "fund_security_measure_3_desc": "Unser Risikosteuerungssystem kann ungewöhnliches Handelsverhalten erkennen und entsprechende Maßnahmen zum Schutz der Nutzerkonten ergreifen.",
+  "reserve_ratio": "Reservequote",
+  "total_reserves": "Gesamtreserven",
+  "daily": "Täglich",
+  "audit_frequency": "Prüfungshäufigkeit",
+  "reserve_proof_details": "Reservendetails",
+  "reserve_proof_description": "Wir verpflichten uns, alle Nutzeranlagen im Verhältnis von mindestens 1:1 zu halten. Im Folgenden finden Sie eine Aufschlüsselung unserer aktuellen Reserven:",
+  "asset": "Vermögenswert",
+  "total_balance": "Gesamtguthaben",
+  "user_liabilities": "Nutzerverbindlichkeiten",
+  "proof_date": "Nachweisdatum",
+  "verification": "Verifizierung",
+  "verify": "Verifizieren",
+  "verification_methodology": "Verifizierungsmethodik",
+  "verification_methodology_desc": "Wir nutzen Zero-Knowledge-Proof-Technologie, die es Nutzern ermöglicht, unsere Reserven zu überprüfen, ohne sensible Informationen preiszugeben. Wir führen regelmäßig Prüfungen durch Dritte durch, um sicherzustellen, dass die Reserven ausreichend sind.",
+  "beginner_basics": "Grundlagen für Anfänger",
+  "trading_guides": "Handelsanleitungen",
+  "crypto_knowledge": "Krypto-Wissen",
+  "beginner_article_1_title": "Was sind Kryptowährungen?",
+  "beginner_article_1_content": "<p>Kryptowährungen sind digitale oder virtuelle Währungen, die Kryptographie zur Sicherung verwenden. Sie sind nicht auf zentrale Behörden (wie Banken oder Regierungen) angewiesen, um Transaktionen zu verifizieren und neue Einheiten zu erstellen.</p><p>Bitcoin ist die erste und bekannteste Kryptowährung, die 2009 von Satoshi Nakamoto geschaffen wurde. Seitdem sind Tausende verschiedener Kryptowährungen entstanden, jede mit ihren eigenen Funktionen und Anwendungsfällen.</p><p>Die Kerntechnologie von Kryptowährungen ist die Blockchain, eine verteilte Ledger-Technologie, die alle Transaktionen aufzeichnet und unter allen Teilnehmern im Netzwerk teilt.</p>",
+  "beginner_article_2_title": "Wie beginnt man mit dem Handel von Kryptowährungen?",
+  "beginner_article_2_content": "<p>Schritte zum Einstieg in den Kryptowährungshandel:</p><ol><li>Wählen Sie eine zuverlässige Kryptowährungsbörse (wie unsere Plattform)</li><li>Schließen Sie den Registrierungs- und Identitätsverifizierungsprozess ab</li><li>Verbinden Sie Ihre Zahlungsmethode (Bankkonto oder Kreditkarte)</li><li>Zahlen Sie Geld auf Ihr Handelskonto ein</li><li>Wählen Sie die Kryptowährung aus, die Sie kaufen möchten</li><li>Erteilen Sie eine Kauforder</li><li>Erwägen Sie, ein sicheres Wallet zur Aufbewahrung Ihrer Kryptowährungen zu verwenden</li></ol><p>Denken Sie daran, dass der Kryptowährungsmarkt sehr volatil ist. Investieren Sie nur Beträge, deren Verlust Sie verkraften können.</p>",
+  "beginner_article_3_title": "Leitfaden für Kryptowährungs-Wallets",
+  "beginner_article_3_content": "<p>Ein Kryptowährungs-Wallet ist ein Tool zur Aufbewahrung Ihrer digitalen Assets. Die Haupttypen sind:</p><ul><li><strong>Hot Wallets</strong>: Mit dem Internet verbunden, bequem für schnelle Transaktionen, aber weniger sicher</li><li><strong>Cold Wallets</strong>: Offline-Speicherung, bietet höhere Sicherheit, geeignet für langfristiges Halten</li><li><strong>Hardware Wallets</strong>: Physische Geräte, die Cold Storage und hohe Sicherheit bieten</li><li><strong>Software Wallets</strong>: Anwendungen oder Programme, können Hot oder Cold Wallets sein</li><li><strong>Paper Wallets</strong>: Ausgedruckte private Schlüssel und Adressen</li></ul><p>Berücksichtigen Sie bei der Auswahl eines Wallets die Sicherheit, Bequemlichkeit und Ihre Nutzungsanforderungen.</p>",
+  "trading_guide_1_title": "Grundlegende Handelsstrategien",
+  "trading_guide_1_content": "<p>Handelsstrategien für Kryptowährungen:</p><ul><li><strong>Kaufen und Halten</strong>: Langfristige Anlagestrategie, ignoriert kurzfristige Schwankungen</li><li><strong>Day Trading</strong>: Mehrere Trades innerhalb eines Tages, nutzt kurzfristige Preisschwankungen</li><li><strong>Swing Trading</strong>: Kaufen am unteren Ende und Verkaufen am oberen Ende von Preisschwankungen</li><li><strong>Dollar-Cost-Averaging</strong>: Regelmäßige Investition fester Beträge, unabhängig vom Preis</li><li><strong>Arbitrage-Trading</strong>: Ausnutzen von Preisunterschieden zwischen verschiedenen Börsen oder Märkten</li></ul><p>Unabhängig von der gewählten Strategie ist ein gutes Risikomanagement wichtig. Setzen Sie Stop-Loss-Limits und verwenden Sie nur Gelder, deren Verlust Sie verkraften können.</p>",
+  "trading_guide_2_title": "Grundlagen der technischen Analyse",
+  "trading_guide_2_content": "<p>Die technische Analyse ist eine Methode, um zukünftige Preisbewegungen durch Untersuchung von Preisverläufen und Handelsvolumen vorherzusagen. Grundlegende Konzepte umfassen:</p><ul><li><strong>Support- und Widerstandslinien</strong>: Preisniveaus, die schwer zu durchbrechen sind</li><li><strong>Trendlinien</strong>: Linien, die Preishochs oder -tiefs verbinden</li><li><strong>Gleitende Durchschnitte</strong>: Indikatoren, die Preisdaten glätten</li><li><strong>Relative Strength Index (RSI)</strong>: Misst die Geschwindigkeit und Veränderung von Preisbewegungen</li><li><strong>MACD</strong>: Trendfolge-Momentum-Indikator</li><li><strong>Candlestick-Muster</strong>: Spezifische Formationen auf Preischarts, die mögliche Preisbewegungen signalisieren können</li></ul><p>Die technische Analyse ist ein Werkzeug, keine Garantie. Kombinieren Sie sie immer mit anderen Analysemethoden und Risikomanagementstrategien.</p>",
+  "crypto_article_1_title": "Analyse der Blockchain-Technologie",
+  "crypto_article_1_content": "<p>Die Blockchain ist eine verteilte Ledger-Technologie, die es ermöglicht, Daten sicher, transparent und unveränderlich zu erfassen. Ihre Kernmerkmale sind:</p><ul><li><strong>Dezentralisierung</strong>: Kein einzelner Kontrollpunkt, sondern gemeinsame Wartung durch Netzwerkteilnehmer</li><li><strong>Transparenz</strong>: Alle Transaktionen sind für alle im Netzwerk sichtbar</li><li><strong>Unveränderlichkeit</strong>: Einmal hinzugefügte Aufzeichnungen können praktisch nicht mehr geändert werden</li><li><strong>Sicherheit</strong>: Verwendung von Kryptographie zur Datensicherung</li><li><strong>Konsensmechanismen</strong>: Methoden, mit denen Netzwerkteilnehmer die Gültigkeit von Transaktionen vereinbaren</li></ul><p>Die Anwendungen der Blockchain-Technologie gehen weit über Kryptowährungen hinaus und umfassen Lieferkettenmanagement, medizinische Aufzeichnungen, Wahlsysteme und viele andere Bereiche.</p>",
+  "crypto_article_2_title": "Einführung in DeFi (Dezentralisierte Finanzen)",
+  "crypto_article_2_content": "<p>Dezentralisierte Finanzen (DeFi) sind ein aufkommendes Finanzsystem, das auf Blockchain-Technologie aufbaut und ohne traditionelle Vermittler auskommt. Hauptanwendungen umfassen:</p><ul><li><strong>Dezentralisierte Börsen (DEX)</strong>: Peer-to-Peer-Handelsplattformen ohne Vermittler</li><li><strong>Kreditplattformen</strong>: Nutzer können Krypto-Assets verleihen oder ausleihen</li><li><strong>Stablecoins</strong>: Kryptowährungen, die an Fiat-Währungen gekoppelt sind</li><li><strong>Yield Farming</strong>: Erträge durch Bereitstellung von Liquidität erzielen</li><li><strong>Dezentralisierte Versicherung</strong>: Versicherungsschutz für Krypto-Assets</li></ul><p>DeFi bietet finanzielle Inklusion und Innovation, bringt aber auch Risiken mit sich, darunter Smart-Contract-Schwachstellen, hohe Volatilität und regulatorische Unsicherheit.</p>",
+  "views": "Ansichten",
+  "previous": "Zurück",
+  "next": "Weiter",
+  "filter_by": "Filtern nach",
+  "all_activities": "Alle Aktivitäten",
+  "ongoing": "Laufend",
+  "upcoming": "Bevorstehend",
+  "ended": "Beendet",
+  "search_activities": "Aktivitäten suchen",
+  "rewards": "Belohnungen",
+  "join_now": "Jetzt teilnehmen",
+  "remind_me": "Erinnere mich",
+  "view_details": "Details anzeigen",
+  "fundSecurity": {
+    "title": "Schutz Ihrer Vermögenswerte",
+    "description1": "ANTBITT nutzt sichere Kalt-/Heiß-Wallet-Systeme, Multi-Signatur und mehrfache Sicherungen, um Ihre Vermögenswerte rund um die Uhr zu schützen.",
+    "description2": "Selbst in unerwarteten Situationen steht der ANTBITT-Fonds bereit, um Sie zu schützen.",
+    "altText": "Schutz Ihrer Vermögenswerte",
+    "coldWallet": "Kalt-Wallet",
+    "hotWallet": "Heiß-Wallet",
+    "antbittFund": "ANTBITT-Sicherheitsfonds",
+    "coldWalletTitle": "Sicheres Kalt-Wallet-Design",
+    "coldWalletSubtitle": "ANTBITT gewährleistet den sicheren Betrieb von Kalt-Wallets, nicht nur als Versprechen, sondern als Handlung.",
+    "coldWalletDescription": "Die Plattform hat im Laufe der Zeit eine systematische Lösung entwickelt und fördert nun die Offenlegung und Weitergabe dieser Lösung. Wir begrüßen wertvolle Vorschläge von Community-Baumeistern und Sicherheitsexperten.",
+    "coldWalletKeyPoints": "Hauptpunkte der Lösung",
+    "coldWalletFeature1": "Alle privaten Schlüssel werden auf vollständig offline Geräten gespeichert.",
+    "coldWalletFeature2": "Sicherstellen, dass private Schlüssel nie direkt mit dem Netzwerk in Kontakt kommen.",
+    "coldWalletFeature3": "Backup privater Schlüssel an verschiedenen Orten.",
+    "coldWalletResults": "Erreichte Ergebnisse",
+    "coldWalletResult1": "Die Verwendung jedes privaten Schlüssels erfordert mehrfache Autorisierung.",
+    "coldWalletResult2": "Private Schlüssel haben Backups an verschiedenen Orten, sodass selbst bei Naturkatastrophen keine Coins verloren gehen.",
+    "coldWalletResult3": "Der Zugriff auf Schlüssel aus dem Tresor erfordert persönliches Erscheinen, wodurch Situationen vermieden werden, in denen autorisierte Mitarbeiter bedroht werden könnten.",
+    "hotWalletTitle": "Zuverlässige Heiß-Wallet-Technologie",
+    "hotWalletDescription": "Im Vergleich zu Kalt-Wallets stellt der sichere und stabile Betrieb von Heiß-Wallets eine größere technische Herausforderung dar. ANTBITT hat eine einzigartige halboffline Multi-Signatur-Technologie für Heiß-Wallets entwickelt, die sowohl die Sicherheit der Gelder gewährleistet als auch schnelle und sichere Ein- und Auszahlungsdienste für digitale Vermögenswerte bietet.",
+    "hotWalletKeyPoints": "Hauptpunkte der Lösung",
+    "hotWalletFeature1": "Notfallpläne für Backup-Schlüssel in verschiedenen Szenarien",
+    "hotWalletFeature2": "Mehrschichtige Risikokontrolle zur proaktiven Verhinderung verdächtiger Token-Transfers über ANTBITT",
+    "hotWalletResults": "Erreichte Ergebnisse",
+    "hotWalletResult1": "Schutz vor sowohl Netzwerk- als auch physischen Angriffen, extrem hohe Sicherheit der privaten Schlüssel",
+    "hotWalletResult2": "Verfügt über Multi-Signatur- und mehrfache Backup-Mechanismen sowie umfassende Notfallpläne für die Aktivierung von Backup-Schlüsseln, um die Auswirkungen der Schlüsselverwaltung auf den normalen Betrieb der Plattform zu minimieren",
+    "hotWalletResult3": "Umfassendes Risikomanagementsystem zur Verhinderung ungewöhnlicher Ein- und Auszahlungen",
+    "antbittFundTitle": "Was ist der ANTBITT-Sicherheitsfonds?",
+    "antbittFundDescription": "Der ANTBITT-Sicherheitsfonds ist ein Reservefonds für Vermögensrisiken, der von ANTBITT zum Schutz der Nutzervermögen eingerichtet wurde. Ein bestimmter Prozentsatz der Plattformeinnahmen wird kontinuierlich für diesen Fonds bereitgestellt, um Nutzervermögen im Falle von Sicherheitsrisiken für digitale Währungen zu schützen.",
+    "fundNeedTitle": "Warum brauchen wir diesen Fonds?",
+    "fundNeedDescription": "Mit der zunehmenden Verbreitung digitaler Währungen ist ANTBITT bestrebt, für alle Nutzer eine sichere, zuverlässige und verantwortungsvolle Handelsumgebung für digitale Währungen zu schaffen. ANTBITT wird diesen Fonds und ein branchenführendes Sicherheitsrisikokontrollsystem für Vermögenswerte einsetzen, um allen neuen und bestehenden Nutzern starken Schutz zu bieten und die Sicherheit ihrer Vermögenswerte zu gewährleisten."
+  },
+  "reserveProof": {
+    "title": "Reservenachweis",
+    "content": "ANTBIT hält für alle Kontobestände auf der Plattform Reserven im Verhältnis 1:1 und veröffentlicht regelmäßig Reservenachweisberichte, um mehr Transparenz für die Plattformvermögen zu schaffen.",
+    "videoTitle": "Reservenachweis. Kryptowährungsexperten betonen die Bedeutung von Plattformtransparenz und Glaubwürdigkeit zum einjährigen Jubiläum des Reservennachweises.",
+    "processTitle": "Der Prozess des Reservennachweises",
+    "processDescription": "Unser Reservenachweisprozess umfasst die folgenden Schritte:",
+    "step1": "Regelmäßige Prüfung: Wir führen vierteljährlich unabhängige Prüfungen durch, um die Echtheit der Vermögenswerte zu gewährleisten.",
+    "step2": "Berichtserstellung: Nach Abschluss der Prüfung erstellen wir einen detaillierten Bericht.",
+    "step3": "Berichtsveröffentlichung: Wir veröffentlichen den Prüfbericht auf unserer offiziellen Website zur Einsicht durch die Nutzer.",
+    "trustTitle": "Das Vertrauen und die Unterstützung der Nutzer",
+    "trustDescription": "Wir wissen, dass das Vertrauen der Nutzer unser wertvollstes Gut ist. Durch transparente Finanzberichte und kontinuierliche Kommunikation bemühen wir uns, eine vertrauensvolle Beziehung zu unseren Nutzern aufzubauen.",
+    "feedback": "Wir ermutigen Nutzer, jederzeit Fragen zu stellen und Feedback zu geben, damit wir unsere Dienste kontinuierlich verbessern können.",
+    "commitmentTitle": "Unser Engagement",
+    "commitmentDescription": "Wir verpflichten uns zu fortgesetzter Transparenz und zur Gewährleistung der Sicherheit der Vermögenswerte unserer Nutzer. Unser Team wird kontinuierlich daran arbeiten, bessere Dienste und Unterstützung zu bieten.",
+    "updateCommitment": "Wir werden den Reservenachweis regelmäßig aktualisieren, um sicherzustellen, dass die Nutzer stets Zugang zu den neuesten Informationen haben.",
+    "advantagesTitle": "Vorteile des Reservennachweises",
+    "advantageTransparency": "Transparenz: Nutzer können jederzeit unsere Finanzberichte einsehen, um die tatsächliche Situation der Plattform zu verstehen.",
+    "advantageSecurity": "Sicherheit: Alle Vermögenswerte werden von unabhängigen Dritten verwahrt, um die Sicherheit der Nutzergelder zu gewährleisten.",
+    "advantageConvenience": "Benutzerfreundlichkeit: Nutzer können über unsere Plattform einfach auf den Reservenachweis zugreifen und die neuesten Informationen erhalten.",
+    "faqTitle": "Häufig gestellte Fragen",
+    "faq1": {
+      "question": "Wie oft wird der Reservenachweis durchgeführt?",
+      "answer": "Wir führen vierteljährlich eine Prüfung durch und veröffentlichen den entsprechenden Bericht."
+    },
+    "faq2": {
+      "question": "Wie kann ich den Reservenachweis einsehen?",
+      "answer": "Nutzer können den neuesten Reservenachweisbericht auf unserer offiziellen Website einsehen."
+    }
+  },
+  "index_title": "Umfassender Leitfaden für digitale Währungen",
+  "index_subtitle": "Anfängerlektüre, Betriebsanleitungen, fortgeschrittene Strategien und Branchentrends in der Anfängerakademie - alles an einem Ort, um digitale Währungen mühelos zu meistern.",
+  "activity_title_1": "Handelswettbewerb - Gewinnen Sie 10.000 USDT",
+  "activity_description_1": "Nehmen Sie an unserem Handelswettbewerb teil und haben Sie die Chance, Preise von bis zu 10.000 USDT zu gewinnen!",
+  "activity_rewards_1": "10.000 USDT",
+  
+  "activity_title_2": "Anmeldebonus für Neukunden",
+  "activity_description_2": "Neukunden erhalten nach Registrierung und KYC-Verifizierung einen Bonus von 50 USDT!",
+  "activity_rewards_2": "50 USDT",
+  
+  "activity_title_3": "Staking-Mining-Aktivität",
+  "activity_description_3": "Staken Sie Ihre Kryptowährungen und erhalten Sie täglich bis zu 15% APY an Rendite!",
+  "activity_rewards_3": "Bis zu 15% APY",
+  
+  "activity_title_4": "Community-AMA-Veranstaltung",
+  "activity_description_4": "Nehmen Sie an unseren Community-Aktivitäten teil, tauschen Sie sich mit Branchenexperten aus und gewinnen Sie Preise von bis zu 1000 USDT!",
+  "activity_rewards_4": "Bis zu 1000 USDT",
+  
+  "activity_title_5": "Freunde-Empfehlungsprogramm",
+  "activity_description_5": "Empfehlen Sie Freunde zur Registrierung und zum Handel, und beide Seiten erhalten Belohnungen!",
+  "activity_rewards_5": "30% der Handelsgebühren",
+  
+  "activity_title_6": "Airdrop-Aktion",
+  "activity_description_6": "Halten Sie Plattform-Token und nehmen Sie an unserer Airdrop-Aktion teil!",
+  "activity_rewards_6": "5.000 Plattform-Token",
+  
+  "activity_title_7": "Handelsgebührenermäßigung, mit Belohnungen von bis zu 10% Ihres Handels",
+  "activity_description_7": "Zeitlich begrenzte Aktion: Alle Handelsgebühren werden halbiert!",
+  "activity_rewards_7": "50% Gebührenermäßigung",
+  
+  "activity_title_8": "Feier zum Start von Optionskontrakten",
+  "activity_description_8": "Zur Feier des Starts von Optionskontrakten können Sie durch Teilnahme am Handel einen Anteil am Preispool gewinnen!",
+  "activity_rewards_8": "20.000 USDT Preispool"
 }
