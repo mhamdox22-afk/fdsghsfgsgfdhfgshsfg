@@ -1,6 +1,10 @@
 <!-- 行情页面：自选，秒合约，币币交易，U本位 -->
 <template>
   <div>
+    <HeaderBar
+    :currentName="_t18('quote')"
+    :border_bottom="true"
+  ></HeaderBar>
     <!-- 搜索 -->
     <div class="search">
       <div class="searchBtn">

@@ -1,4 +1,8 @@
 <template>
+    <HeaderBar
+    :currentName="_t18('menu_user_center')"
+    :border_bottom="true"
+  ></HeaderBar>
   <div class="assets-container">
     <van-tabs
       shrink

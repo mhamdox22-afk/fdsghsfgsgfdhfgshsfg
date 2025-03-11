@@ -403,6 +403,7 @@ const handleQuickBuy = () => {
     padding: 12px 20px;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
+    perspective: 1000px;
 
     &::-webkit-scrollbar {
       width: 4px;
@@ -413,69 +414,109 @@ const handleQuickBuy = () => {
     }
 
     &::-webkit-scrollbar-thumb {
-      background: rgba(255, 255, 255, 0.2);
-      border-radius: 2px;
+      background: linear-gradient(180deg, #00E0FF, #9F56FF);
+      border-radius: 4px;
     }
 
     .menu-item, .submenu-title {
       padding: 16px;
-      margin: 6px 0;
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      margin: 12px 0;
+      background: linear-gradient(
+        135deg, 
+        rgba(255, 255, 255, 0.08) 0%,
+        rgba(255, 255, 255, 0.03) 100%
+      );
+      border: none;
+      box-shadow: 
+        0 4px 24px -1px rgba(0, 0, 0, 0.2),
+        0 0 16px -2px rgba(0, 224, 255, 0.15),
+        inset 0 0 6px rgba(159, 86, 255, 0.2);
       backdrop-filter: blur(10px);
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
       display: flex;
       align-items: center;
       gap: 12px;
       cursor: pointer;
-      transition: all 0.1s;
-      border-radius: 12px;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      border-radius: 20px;
       color: #fff;
+      position: relative;
+      overflow: hidden;
       
-      &:hover, &.active {
-        background: rgba(255, 255, 255, 0.12);
-        transform: translateX(6px);
-        border-color: rgba(255, 255, 255, 0.2);
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-        animation: animate__pulse 0.5s;
+      &::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.1),
+          transparent
+        );
+        transform: translateX(-100%);
+        transition: transform 0.6s ease;
+      }
+      
+      &:hover {
+        transform: translateY(-2px) scale(1.02);
+        background: linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.12) 0%,
+          rgba(255, 255, 255, 0.06) 100%
+        );
+        box-shadow: 
+          0 8px 32px -4px rgba(0, 0, 0, 0.3),
+          0 0 24px -2px rgba(0, 224, 255, 0.25),
+          inset 0 0 12px rgba(159, 86, 255, 0.3);
+        
+        &::before {
+          transform: translateX(100%);
+        }
+
+        .menu-icon-box {
+          transform: rotateY(180deg);
+          background: linear-gradient(135deg, #00E0FF, #9F56FF);
+          
+          .emoji-icon {
+            transform: rotateY(-180deg);
+            filter: brightness(1.2);
+          }
+        }
       }
 
       .menu-icon-box {
-        width: 36px;
-        height: 36px;
-        background: linear-gradient(145deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.05));
-        border-radius: 10px;
+        flex: 0 0 42px;
+        height: 42px;
+        background: linear-gradient(
+          135deg,
+          rgba(0, 224, 255, 0.2),
+          rgba(159, 86, 255, 0.2)
+        );
+        border-radius: 14px;
         display: flex;
         align-items: center;
         justify-content: center;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-        transition: all 0.3s;
+        transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 
+          0 4px 12px rgba(0, 0, 0, 0.2),
+          inset 0 2px 4px rgba(255, 255, 255, 0.1);
         
         .emoji-icon {
-          font-size: 20px;
-          line-height: 1;
-          transition: all 0.3s;
-          filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.2));
-          
-          &:hover {
-            transform: scale(1.2);
-          }
-        }
-        
-        .icon-placeholder {
-          width: 10px;
-          height: 10px;
-          background: linear-gradient(145deg, #fff, #e0e0e0);
-          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-          border-radius: 50%;
+          font-size: 22px;
+          transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+          filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
         }
       }
 
       .label {
+        flex: 1;
         font-size: 16px;
-        font-weight: 600;
-        letter-spacing: 0.5px;
-        background: linear-gradient(90deg, #FFFFFF, #E0E0E0);
+        font-weight: 500;
+        line-height: 1.4;
+        padding: 0 4px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        background: linear-gradient(90deg, #fff 60%, rgba(255, 255, 255, 0.8));
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         position: relative;
@@ -483,26 +524,17 @@ const handleQuickBuy = () => {
         &::after {
           content: '';
           position: absolute;
-          bottom: -2px;
+          bottom: -4px;
           left: 0;
           width: 0;
-          height: 1px;
-          background: linear-gradient(90deg, #FFFFFF, transparent);
+          height: 2px;
+          background: linear-gradient(90deg, #00E0FF, #9F56FF);
           transition: width 0.3s ease;
+          border-radius: 1px;
         }
         
         &:hover::after {
           width: 100%;
-        }
-      }
-
-      .icon-arrow-down {
-        font-size: 16px;
-        transition: transform 0.3s;
-        opacity: 0.7;
-        
-        &.is-active {
-          transform: rotate(180deg);
         }
       }
     }
@@ -510,19 +542,20 @@ const handleQuickBuy = () => {
     .submenu-wrapper {
       .submenu-content {
         max-height: 0;
-        overflow: hidden;
-        transition: all 0.12s cubic-bezier(0.4, 0, 0.2, 1);
-        padding: 0 4px;
         opacity: 0;
+        overflow: hidden;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        padding: 0;
+        margin: 0;
         
         &.is-expanded {
           max-height: 500px;
           opacity: 1;
-          animation: animate__fadeIn 0.3s;
+          padding: 4px 0 4px 20px;
+          margin: 4px 0;
           
           .sub-menu-item {
-            animation: animate__slideInLeft 0.3s;
-            animation-fill-mode: both;
+            animation: slideInAndFade 0.4s ease forwards;
             
             @for $i from 1 through 10 {
               &:nth-child(#{$i}) {
@@ -533,36 +566,80 @@ const handleQuickBuy = () => {
         }
 
         .sub-menu-item {
-          padding: 14px 16px 14px 56px;
-          margin: 4px 0;
-          background: rgba(255, 255, 255, 0.03);
-          border: 1px solid rgba(255, 255, 255, 0.08);
+          display: flex;
+          align-items: center;
+          padding: 12px;
+          margin: 6px 0;
+          background: linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.03),
+            rgba(255, 255, 255, 0.01)
+          );
+          border: none;
+          box-shadow: 
+            0 4px 12px -2px rgba(0, 0, 0, 0.1),
+            inset 0 0 6px rgba(159, 86, 255, 0.08);
           backdrop-filter: blur(8px);
+          border-radius: 14px;
+          transition: all 0.3s;
+          gap: 12px;
+          opacity: 0;
+          transform: translateX(-10px);
+          
+          .menu-icon-box {
+            flex: 0 0 32px;
+            height: 32px;
+            border-radius: 10px;
+            font-size: 16px;
+          }
+          
+          .label {
+            flex: 1;
+            font-size: 14px;
+            font-weight: 500;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            padding: 0;
+            line-height: 1.4;
+          }
           
           &:hover {
-            background: rgba(255, 255, 255, 0.1);
+            background: linear-gradient(
+              135deg,
+              rgba(255, 255, 255, 0.06),
+              rgba(255, 255, 255, 0.02)
+            );
             transform: translateX(8px);
-            border-color: rgba(255, 255, 255, 0.15);
-            animation: animate__pulse 0.5s;
-          }
-
-          .label {
-            font-size: 15px;
-            font-weight: 500;
-            opacity: 0.9;
-          }
-
-          .menu-icon-box {
-            width: 32px;
-            height: 32px;
+            box-shadow: 
+              0 6px 16px -4px rgba(0, 0, 0, 0.15),
+              0 0 12px -2px rgba(0, 224, 255, 0.12),
+              inset 0 0 8px rgba(159, 86, 255, 0.12);
             
-            .emoji-icon {
-              font-size: 18px;
+            .menu-icon-box {
+              transform: rotateY(180deg);
+              background: linear-gradient(135deg, #00E0FF, #9F56FF);
+              
+              .emoji-icon {
+                transform: rotateY(-180deg);
+                filter: brightness(1.2);
+              }
             }
           }
         }
       }
     }
+  }
+}
+
+@keyframes slideInAndFade {
+  0% {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
   }
 }
 
@@ -584,6 +661,13 @@ const handleQuickBuy = () => {
 .hover-bounce {
   &:hover {
     animation: animate__bounce 0.5s;
+  }
+}
+
+.sub-menu-item {
+  .label {
+    font-size: 14px;
+    padding-left: 0;
   }
 }
 </style>
