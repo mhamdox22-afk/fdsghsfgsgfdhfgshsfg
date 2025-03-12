@@ -419,25 +419,13 @@ const handleQuickBuy = () => {
     }
 
     .menu-item, .submenu-title {
-      padding: 16px;
-      margin: 12px 0;
-      background: linear-gradient(
-        135deg, 
-        rgba(255, 255, 255, 0.08) 0%,
-        rgba(255, 255, 255, 0.03) 100%
-      );
+      padding: 12px;
       border: none;
-      box-shadow: 
-        0 4px 24px -1px rgba(0, 0, 0, 0.2),
-        0 0 16px -2px rgba(0, 224, 255, 0.15),
-        inset 0 0 6px rgba(159, 86, 255, 0.2);
-      backdrop-filter: blur(10px);
       display: flex;
       align-items: center;
       gap: 12px;
       cursor: pointer;
       transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-      border-radius: 20px;
       color: #fff;
       position: relative;
       overflow: hidden;
@@ -569,17 +557,9 @@ const handleQuickBuy = () => {
           display: flex;
           align-items: center;
           padding: 12px;
-          margin: 6px 0;
-          background: linear-gradient(
-            135deg,
-            rgba(255, 255, 255, 0.03),
-            rgba(255, 255, 255, 0.01)
-          );
+        
           border: none;
-          box-shadow: 
-            0 4px 12px -2px rgba(0, 0, 0, 0.1),
-            inset 0 0 6px rgba(159, 86, 255, 0.08);
-          backdrop-filter: blur(8px);
+         
           border-radius: 14px;
           transition: all 0.3s;
           gap: 12px;
