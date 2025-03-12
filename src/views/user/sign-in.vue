@@ -98,7 +98,6 @@ const active = ref(0)
     left: 0;
     right: 0;
     bottom: 0;
-    background: radial-gradient(circle at 50% 50%, rgba(23, 172, 116, 0.15), transparent 70%);
     pointer-events: none;
     z-index: 1;
   }
@@ -110,7 +109,6 @@ const active = ref(0)
     height: 200%;
     top: -50%;
     left: -50%;
-    background: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
     pointer-events: none;
     opacity: 0.3;
     animation: grain 8s steps(10) infinite;
@@ -135,13 +133,6 @@ const active = ref(0)
   position: relative;
   width: 90%;
   max-width: 500px;
-  padding: 35px 25px;
-  background: rgba(30, 30, 30, 0.8);
-  backdrop-filter: blur(10px);
-  border-radius: 16px;
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5),
-              0 4px 10px rgba(0, 0, 0, 0.3),
-              0 0 0 1px rgba(255, 255, 255, 0.05);
   overflow: hidden;
   animation: fadeIn 0.6s ease-out;
   z-index: 2;
@@ -150,25 +141,17 @@ const active = ref(0)
     opacity: 1;
   }
   
-  &::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(circle at 50% 0%, rgba(23, 172, 116, 0.1), transparent 70%);
-    z-index: -1;
-  }
+ 
 }
 
 .login-glow {
   position: absolute;
   width: 100%;
   height: 5px;
-  background: linear-gradient(90deg, #17AC74, #25d997);
   top: 0;
   left: 0;
   opacity: 0.8;
   transition: opacity 0.3s ease;
-  box-shadow: 0 0 20px 2px rgba(23, 172, 116, 0.5);
 }
 
 .loginMethod {
@@ -315,8 +298,7 @@ const active = ref(0)
   
   /* 表单其他元素优化 */
   :deep(.van-checkbox__icon--checked) {
-    background-color: #17AC74 !important;
-    border-color: #17AC74 !important;
+  
   }
   
   :deep(.van-checkbox__label) {
@@ -324,7 +306,6 @@ const active = ref(0)
   }
   
   :deep(a), :deep(.link) {
-    color: #17AC74 !important;
     transition: all 0.3s ease;
     position: relative;
     
@@ -375,21 +356,26 @@ const active = ref(0)
 /* 主图片样式 */
 .main-image {
   width: 100%;
+  height: 50vh;
   margin: 10px auto;
   text-align: center;
   position: relative;
   z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   
   img {
-    height: auto;
-    filter: drop-shadow(0 10px 20px rgba(23, 172, 116, 0.3));
-    animation: float 6s ease-in-out infinite;
-    transition: all 0.5s ease;
-    
-    &:hover {
-      filter: drop-shadow(0 15px 30px rgba(23, 172, 116, 0.5)) brightness(1.1);
-      transform: translateY(-5px) scale(1.02);
-    }
+      height: 100%;
+      width: auto;
+      object-fit: contain;
+      animation: float 6s ease-in-out infinite;
+      transition: all 0.5s ease;
+      
+      &:hover {
+        filter: drop-shadow(0 15px 30px rgba(23, 172, 116, 0.5)) brightness(1.1);
+        transform: translateY(-5px) scale(1.02);
+      }
   }
   
   &::after {
@@ -429,12 +415,11 @@ const active = ref(0)
 /* 响应式调整 */
 @media (max-width: 480px) {
   .login-card {
-    padding: 25px 20px;
-    margin: 20px auto;
+    padding: 0 20px;
   }
   
   .main-image {
-    max-width: 180px;
+    height: 35vh;
     margin: 15px auto;
   }
   

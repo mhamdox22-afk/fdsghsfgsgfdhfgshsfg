@@ -58,10 +58,7 @@
                     <div v-else class="icon-placeholder"></div>
                   </div>
                   <span class="label">{{ $t(item.label) }}</span>
-                  <i 
-                    class="iconfont icon-arrow-down"
-                    :class="{ 'is-active': activeSubmenu === item.key }"
-                  ></i>
+                  <div class="arrow-icon" :class="{ 'is-active': activeSubmenu === item.key }"></div>
                 </div>
                 <div 
                   class="submenu-content"
@@ -114,73 +111,176 @@ const toggleSubmenu = (key) => {
 }
 
 const menuItems = [
+  // 首页
   {
     key: 'home',
     label: 'menu_home',
     path: '/',
     icon: '🏠'
   },
-  {
-    key: 'trade',
-    label: 'menu_trade',
-    path: '/trade',
-    icon: '💱'
-  },
+  // 行情
   {
     key: 'quote',
     label: 'menu_quote',
     path: '/quote',
     icon: '📊'
   },
+  // 交易
   {
-    key: 'loan',
-    label: 'menu_loan',
-    path: '/loan',
-    icon: '💰'
+    key: 'trade',
+    label: 'menu_trade',
+    path: '/trade',
+    icon: '💱',
+    subMenu: [
+      {
+        label: 'trade_tab6',
+        path: '/trade?componentName=SecondContract',
+        icon: '📈'
+      },
+      {
+        label: 'trade_tab3',
+        path: '/trade?componentName=BBTrading',
+        icon: '🔄'
+      },
+      {
+        label: 'trade_tab5',
+        path: '/trade?componentName=Ustandard',
+        icon: '📉'
+      },
+      // 模拟交易
+      {
+        label: 'menu_simulated_trade',
+        description: 'menu_simulated_trade_desc',
+        path: '/simulated-trade',
+        icon: '🎮'
+      },
+    ]
   },
-  {
-    key: 'financial',
-    label: 'menu_financial',
-    path: '/financial',
-    icon: '📈'
-  },
+  // AI质押
   {
     key: 'pledge',
     label: 'menu_pledge',
     path: '/pledge',
-    icon: '🔒'
+    icon: '🤖'
   },
+
+
+  // 金融理财
   {
     key: 'finance',
     label: 'menu_finance',
-    icon: '💎',
+    icon: '💰',
     subMenu: [
+      // 理财 
+      {
+        key: 'financial',
+        label: 'menu_financial',
+        path: '/financial',
+        icon: '📈'
+      },
+      // 助力贷
+      {
+        key: 'loan',
+        label: 'menu_loan',
+        path: '/loan',
+        icon: '💸'
+      },
+      //  快捷买币
       {
         key: 'recharge',
         label: 'home_recharge',
         path: '/recharge',
         icon: '💳'
       },
+
+      //  快捷提币
       {
         key: 'withdraw',
         label: 'quick_withdrawal',
         path: '/withdraw',
-        icon: '💸'
+        icon: '💱'
       },
+
+      // {
+      //   key: 'quickBuy',
+      //   label: 'menu_quick_buy',
+      //   path: '/third-trade',
+      //   onClick: handleQuickBuy
+      // },
+      // defi借币
+      // {
+      //   // icon: '💰',
+      //   label: 'menu_defi_loan',
+      //   description: 'menu_defi_loan_desc',
+      //   path: '/defi',
+      //   onClick: handleDefiClick
+      // },
+      // 推广中心
+      // {
+      //   key: 'plug',
+      //   label: 'menu_promotion',
+      //   path: '/plug'
+      // },
+    ]
+  },
+
+  // 更多
+  {
+    key: 'exchange_more',
+    label: 'exchange_more',
+    icon: '⚡',
+    subMenu: [
+      // 资产中心
+      {
+        // icon: '🏠',
+        label: 'menu_user_center',
+        description: 'menu_user_center_desc',
+        path: '/assets',
+        icon: '👤'
+      },
+
+      // 推广中心
       {
         key: 'plug',
         label: 'menu_promotion',
         path: '/plug',
-        icon: '🎁'
+        icon: '🎯'
+      },
+      
+      // 资金安全
+      {
+        key: 'fund_security',
+        label: 'menu_fund_security',
+        path: '/fund-security',
+        icon: '🔒'
+      },
+      
+      // 储备金证明
+      {
+        key: 'reserve_proof',
+        label: 'menu_reserve_proof',
+        path: '/reserve-proof',
+        icon: '📋'
+      },
+      
+      // 新手学院
+      {
+        key: 'beginner_academy',
+        label: 'menu_beginner_academy',
+        path: '/beginner-academy',
+        icon: '🎓'
+      },
+      
+      // 活动大厅
+      {
+        key: 'activity_hall',
+        label: 'menu_activity_hall',
+        path: '/activity-hall',
+        icon: '🎪'
       },
     ]
   },
-  {
-    icon: '👤',
-    label: 'menu_user_center',
-    description: 'menu_user_center_desc',
-    path: '/assets',
-  }
+
 ]
 
 const handleMenuClick = (item) => {
@@ -528,6 +628,36 @@ const handleQuickBuy = () => {
     }
 
     .submenu-wrapper {
+      .submenu-title {
+        .arrow-icon {
+          width: 20px;
+          height: 20px;
+          position: relative;
+          transition: transform 0.3s ease;
+          
+          &::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 8px;
+            height: 8px;
+            border-right: 2px solid rgba(255, 255, 255, 0.8);
+            border-bottom: 2px solid rgba(255, 255, 255, 0.8);
+            transform: translate(-50%, -75%) rotate(45deg);
+            transition: transform 0.3s ease;
+          }
+          
+          &.is-active::after {
+            transform: translate(-50%, -25%) rotate(-135deg);
+          }
+        }
+
+        &:hover .arrow-icon::after {
+          border-color: #fff;
+        }
+      }
+
       .submenu-content {
         max-height: 0;
         opacity: 0;

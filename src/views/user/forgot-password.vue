@@ -1,6 +1,9 @@
 <!-- 忘记密码 -->
 <template>
-  <Header :type="2"></Header>
+ <HeaderBar
+    :currentName="_t18('forget_pwd')"
+    :border_bottom="true"
+  ></HeaderBar>
   <div class="content">
     <div class="formData">
       <!-- 邮箱 -->
@@ -51,6 +54,8 @@
 </template>
 
 <script setup>
+import HeaderBar from '@/components/HeaderBar/index.vue'
+
 import Header from './components/signHeader.vue'
 import Footer from './components/signFooter.vue'
 import { emailCode } from '@/api/user'
@@ -99,7 +104,7 @@ const finish = () => {
 
 <style lang="scss" scoped>
 * {
-  color: var(--ex-default-font-color);
+  color: #fff;
   font-size: 14px;
 }
 .content {
@@ -107,56 +112,66 @@ const finish = () => {
 }
 :deep(.van-count-down) {
   font-size: 14px;
-  color: var(--ex-font-color);
+  color: #fff;
   padding: 0;
 }
 .requirePass {
   font-size: 10px;
   margin-top: 8px;
-  color: var(--ex-font-color14);
+  color: #fff;
 }
 .formData {
   & > p {
     margin: 20px 0 10px;
+    color: #fff;
   }
   & > div {
-    border: 1px solid var(--ex-border-color1);
-    padding: 8px 10px;
-    border-radius: 3px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     line-height: 1.5;
+    background: rgba(255, 255, 255, 0.05);
+    height: 44px;
+    padding: 0 15px;
+
     div {
       display: flex;
       align-items: center;
       i {
-        color: var(--ex-font-color9);
+        color: #fff;
       }
       p {
         margin: 0 5px;
-        color: var(--ex-font-color9);
+        color: #fff;
       }
     }
-    .jiantou {
-      font-size: 10px;
-    }
-    input::placeholder {
-      color: var(--ex-font-color5);
-    }
+    
     input {
-      padding: 3px 0;
+      flex: 1;
+      background: transparent;
+      border: none;
+      height: 100%;
+      color: #fff;
+      padding: 0;
+      
+      &::placeholder {
+        color: rgba(255, 255, 255, 0.3);
+      }
+      
+      &:focus {
+        outline: none;
+      }
     }
-    span {
-      width: 50px;
-      background-color: var(--ex-passive-font-color);
-      height: 25px;
-    }
+
     & > p {
       background-color: var(--ex-div-bgColor1);
-      border-radius: 2px;
-      padding: 3px 8px;
-      color: var(--ex-font-color);
+      border-radius: 4px;
+      padding: 6px 12px;
+      color: #fff;
+      font-size: 14px;
+      margin-left: 10px;
     }
   }
 }
