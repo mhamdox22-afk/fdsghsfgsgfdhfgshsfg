@@ -1,8 +1,6 @@
 <template>
   <div class="header">
-    <div class="bgImg" v-if="finaImg">
-      <image-load :filePath="finaImg" class="img" />
-    </div>
+   
     <div class="navigationList">
       <div
         class="item"

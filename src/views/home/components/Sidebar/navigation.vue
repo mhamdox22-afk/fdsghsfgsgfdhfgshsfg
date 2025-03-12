@@ -19,7 +19,7 @@
             <span v-if="item.key == 'advanced' && userInfo.detail?.auditStatusAdvanced === '1'" class="verified-badge">{{
               _t18('verified_ok')
             }}</span>
-            <svg-load name="jiantou-y" class="rightImg"></svg-load>
+            <!-- <svg-load name="jiantou-y" class="rightImg"></svg-load> -->
           </div>
         </div>
       </div>
@@ -173,9 +173,7 @@ const toView = (item) => {
     }
 
     .item-content {
-      background: #2a2a2a;
-      border-radius: 12px;
-      padding: 16px;
+      padding: 6px;
       display: flex;
       align-items: center;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);

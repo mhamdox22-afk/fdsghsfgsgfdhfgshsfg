@@ -43,6 +43,8 @@
       <div style="scale: 0.8; text-align: center">{{ _t18(`home_service`) }}</div>
     </div>
     <InfoPopup :show="showInfoPopup" :data="infoData" @closeBtn="closeBtn"></InfoPopup>
+  
+  </div>
     <!-- 直播弹窗 -->
     <van-popup v-model:show="showNotice" round closeable>
       <div class="showNoticeContent">
@@ -54,7 +56,6 @@
         </div>
       </div>
     </van-popup>
-  </div>
 </template>
 <script setup>
 import { DIFF_RECHARGE_COSTORM, DIFF_HOME_BANNER } from '@/config/index'
@@ -235,7 +236,6 @@ const toRecharge = () => {
     display: flex;
     height: 40px;
     align-items: center;
-    background: rgba(255, 255, 255, 0.05);
     border-radius: 20px;
     backdrop-filter: blur(10px);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
@@ -263,11 +263,10 @@ const toRecharge = () => {
 }
 
 .linkList {
-  padding: 20px 15px;
+  padding: 0 15px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #121212;
   border-radius: 16px;
   margin: 0 15px;
   animation: fadeInUp 0.8s ease;
@@ -277,7 +276,7 @@ const toRecharge = () => {
     flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 6px;
 
     .item {
       width: 100%;
@@ -285,8 +284,7 @@ const toRecharge = () => {
       align-items: center;
       justify-content: flex-start;
       border-radius: 12px;
-      padding: 12px;
-      background: #1E1E1E;
+      padding: 8px;
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
       transition: all 0.3s ease;
 
@@ -319,8 +317,6 @@ const toRecharge = () => {
     }
 
     .rightItem {
-      background: #252525;
-      border: 1px solid rgba(255, 255, 255, 0.1);
       animation: fadeInRight 0.5s ease;
 
       &:hover {
@@ -339,10 +335,9 @@ const toRecharge = () => {
     justify-content: center;
     font-size: 12px;
     color: rgba(255, 255, 255, 0.95);
-    padding: 10px;
+    padding: 8px;
     margin-left: 20px;
     border-radius: 12px;
-    background: #1E1E1E;
     transition: all 0.3s ease;
     animation: fadeInRight 0.5s ease;
 

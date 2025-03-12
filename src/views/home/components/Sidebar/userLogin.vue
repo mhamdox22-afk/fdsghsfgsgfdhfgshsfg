@@ -72,7 +72,6 @@ const vipClass = computed(() => {
   padding: 20px 15px;
   display: flex;
   align-items: center;
-  background: linear-gradient(145deg, #1a1a1a, #2d2d2d);
   border-radius: 15px;
   margin: 10px 15px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
@@ -127,7 +126,6 @@ const vipClass = computed(() => {
 
 .copyName {
   margin: 10px 15px;
-  background: linear-gradient(145deg, #232323, #2a2a2a);
   font-size: 14px;
   border-radius: 10px;
   padding: 12px 15px;

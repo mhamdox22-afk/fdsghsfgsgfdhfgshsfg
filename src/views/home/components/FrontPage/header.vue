@@ -256,7 +256,7 @@ onUnmounted(() => {
   transform: translateX(-50%);
   width: calc(100% - 30px);
   box-sizing: border-box;
-  top: 240px;
+  top: 268px;
   background: linear-gradient(145deg, #1c1c23, #2a2a35);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
   border-radius: 15px;

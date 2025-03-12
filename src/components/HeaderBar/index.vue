@@ -1,6 +1,6 @@
 <template>
   <div class="placeholder" v-if="topHeight"></div>
-  <van-sticky>
+  <van-sticky style="z-index: 9999;">
     <header
       :class="[border_bottom ? 'border_bottom' : '', 'header-animate']"
       :style="{ 'background-color': bgColor }"

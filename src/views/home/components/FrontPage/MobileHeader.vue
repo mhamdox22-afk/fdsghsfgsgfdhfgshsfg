@@ -79,6 +79,18 @@
                 </div>
               </div>
             </template>
+
+            <!-- Language Selection Item -->
+            <div 
+              class="menu-item language-item animate__animated animate__fadeInLeft"
+              :style="{ 'animation-delay': `${menuItems.length * 0.05}s` }"
+              @click="handleLanguageClick"
+            >
+              <div class="menu-icon-box">
+                <span class="emoji-icon">🌍</span>
+              </div>
+              <span class="label">{{ $t('paxpay_sidebar_language') }}</span>
+            </div>
           </div>
         </div>
       </div>
@@ -295,6 +307,11 @@ const handleMenuClick = (item) => {
 const handleQuickBuy = () => {
   // 实现快捷买币的逻辑
   console.log('Quick buy clicked')
+}
+
+const handleLanguageClick = () => {
+  router.push('/language-selection')
+  drawerVisible.value = false
 }
 </script>
 
@@ -739,6 +756,19 @@ const handleQuickBuy = () => {
         }
       }
     }
+
+    .language-item {
+      margin-top: auto;  // Push to bottom
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      margin-top: 20px;
+      padding-top: 20px;
+      
+      &:hover {
+        .menu-icon-box {
+          animation: globe-spin 1s ease-in-out;
+        }
+      }
+    }
   }
 }
 
@@ -750,6 +780,15 @@ const handleQuickBuy = () => {
   100% {
     opacity: 1;
     transform: translateX(0);
+  }
+}
+
+@keyframes globe-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
   }
 }
 

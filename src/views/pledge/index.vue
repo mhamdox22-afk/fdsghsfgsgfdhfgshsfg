@@ -172,10 +172,6 @@ const manual = computed(() => {
       :cuttentRight="cuttentRight"
       @showPopup="showPopup"
     ></HeaderBar>
-    <!-- 广告图 -->
-    <div class="banner">
-      <image-load filePath="zhiyabg.png" name="defi"></image-load>
-    </div>
     <!-- 收益信息（资金、收益） -->
     <div class="userAccount">
       <div class="title">
@@ -229,6 +225,26 @@ const manual = computed(() => {
   min-height: 100vh;
   background: linear-gradient(145deg, #121212, #1e1e1e);
   color: #ffffff;
+  background-image: url('@/assets/icons/zhiyabg.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  position: relative;
+  &::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(145deg, rgba(18, 18, 18, 0.9), rgba(30, 30, 30, 0.9));
+    z-index: 0;
+  }
+  > * {
+    position: relative;
+    z-index: 1;
+  }
 }
 .banner {
   padding: 10px 25px 0;
