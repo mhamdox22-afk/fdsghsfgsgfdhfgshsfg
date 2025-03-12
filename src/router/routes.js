@@ -56,12 +56,12 @@ export default [
     name: 'TradeBB',
     component: () => import('@/views/trade/tradeBB.vue')
   },
-  // // 挖矿
-  // {
-  //   path: '/defi',
-  //   name: 'Defi',
-  //   component: () => import('@/views/defi/index.vue')
-  // },
+  // 挖矿
+  {
+    path: '/defi',
+    name: 'Defi',
+    component: () => import('@/views/defi/index.vue')
+  },
   {
     path: '/defiDetail',
     name: 'defiDetail',
@@ -90,5 +90,50 @@ export default [
   {
     path: '/:catchAll(.*)', // 不识别的path自动匹配404
     redirect: '/home'
-  }
+  },
+  {
+    path: '/simulated-trade',
+    name: 'SimulatedTrade',
+    component: () => import('@/views/simulated-trade/index.vue'),
+    meta: {
+      title: 'menu_simulated_trade',
+      requiresAuth: true
+    }
+  },
+  // 资金安全
+  {
+    path: '/fund-security',
+    name: 'FundSecurity',
+    component: () => import('@/views/fund-security/index.vue'),
+    meta: {
+      title: 'menu_fund_security'
+    }
+  },
+  // 储备金证明
+  {
+    path: '/reserve-proof',
+    name: 'ReserveProof',
+    component: () => import('@/views/reserve-proof/index.vue'),
+    meta: {
+      title: 'menu_reserve_proof'
+    }
+  },
+  // 新手学院
+  {
+    path: '/beginner-academy',
+    name: 'BeginnerAcademy',
+    component: () => import('@/views/beginner-academy/index.vue'),
+    meta: {
+      title: 'menu_beginner_academy'
+    }
+  },
+  // 活动大厅
+  {
+    path: '/activity-hall',
+    name: 'ActivityHall',
+    component: () => import('@/views/activity-hall/index.vue'),
+    meta: {
+      title: 'menu_activity_hall'
+    }
+  },
 ]
