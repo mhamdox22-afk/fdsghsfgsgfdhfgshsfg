@@ -95,12 +95,12 @@ const currencyAbout = computed(() => {
       ]
     } else {
       list = [
-        // {
-        //   icon: 'chongbi',
-        //   title: _t18('asset_recharge', ['latcoin']),
-        //   url: '/recharge',
-        //   isShow: true
-        // }, //充币
+        {
+          icon: 'chongbi',
+          title: _t18('asset_recharge', ['latcoin']),
+          url: '/recharge',
+          isShow: true
+        }, //充币
         {
           icon: 'tibi',
           title: _t18('asset_withdraw', ['latcoin']),
@@ -211,14 +211,14 @@ const toRecharge = (url) => {
 
 .currencyAbout {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
-  gap: 15px;
-  padding: 20px 15px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  padding: 10px 15px;
   
   & > div {
     background: rgba(255, 255, 255, 0.05);
-    border-radius: 12px;
-    padding: 15px 10px;
+    border-radius: 8px;
+    padding: 10px 5px;
     transition: all 0.3s ease;
     cursor: pointer;
     display: flex;
@@ -233,8 +233,8 @@ const toRecharge = (url) => {
     }
     
     .currencyIcon {
-      font-size: 32px;
-      margin-bottom: 10px;
+      font-size: 24px;
+      margin-bottom: 6px;
       transition: transform 0.3s ease;
     }
     
@@ -243,9 +243,9 @@ const toRecharge = (url) => {
     }
     
     p {
-      font-size: 13px;
+      font-size: 12px;
       color: rgba(255, 255, 255, 0.9);
-      margin-top: 8px;
+      margin-top: 4px;
       text-align: center;
     }
   }

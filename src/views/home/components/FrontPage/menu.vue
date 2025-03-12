@@ -268,7 +268,8 @@ const toRecharge = () => {
   justify-content: space-between;
   align-items: center;
   border-radius: 16px;
-  margin: 0 15px;
+  margin: 0 auto;
+  width: 76%;
   animation: fadeInUp 0.8s ease;
 
   .linkLeft {
