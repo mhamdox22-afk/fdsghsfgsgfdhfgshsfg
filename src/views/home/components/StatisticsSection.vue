@@ -1,359 +1,240 @@
 <template>
   <div class="statistics-section">
-    <div class="background-grid"></div>
-    <h2 class="title animate" ref="titleRef">{{ $t('home.statistics.title') }}</h2>
-    <div class="stats-container">
-      <div class="stats-wrapper">
-        <div class="stats-content">
-          <div class="stat-item animate" ref="stat1">
-            <div class="number-wrapper">
-              <div class="number">1800</div>
-              <div class="plus">{{ $t('home.statistics.plus') }}</div>
-            </div>
-            <div class="label">{{ $t('home.statistics.customers') }}</div>
-            <div class="stat-circle"></div>
-          </div>
-          <div class="stat-item animate" ref="stat2">
-            <div class="number-wrapper">
-              <div class="number">190</div>
-              <div class="plus">{{ $t('home.statistics.plus') }}</div>
-            </div>
-            <div class="label">{{ $t('home.statistics.countries') }}</div>
-            <div class="stat-circle"></div>
-          </div>
-          <div class="stat-item animate" ref="stat3">
-            <div class="number-wrapper">
-              <div class="number">$207B</div>
-              <div class="plus">{{ $t('home.statistics.plus') }}</div>
-            </div>
-            <div class="label">{{ $t('home.statistics.volume') }}</div>
-            <div class="stat-circle"></div>
-          </div>
+    <div class="who-we-are">
+      <div class="section-title">{{ $t('home_introduction.title') }}</div>
+      <p>{{ $t('home_introduction.description') }}</p>
+    </div>
+
+    <div class="charity-stats">
+      <div class="section-title">{{ $t('home_introduction.charity.title') }}</div>
+      <div class="amount-display">
+        <div class="usdt-amount">
+          <span>{{ formatNumber(5231.48) }}w USDT</span>
+          <span class="dollar-value">${{ formatNumber(52314791.00) }}</span>
         </div>
       </div>
+
+      <div class="stats-circle">
+        <div class="stat-item">
+          <div class="value">1,230</div>
+          <div class="label">{{ $t('home_introduction.stats.representatives') }}</div>
+        </div>
+        <div class="stat-item">
+          <div class="value">1,077</div>
+          <div class="label">{{ $t('home_introduction.stats.market') }}</div>
+        </div>
+        <div class="stat-item">
+          <div class="value">185000w</div>
+          <div class="label">{{ $t('home_introduction.stats.usdtVolume') }}</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="advantages">
+      <div class="section-title">{{ $t('home_introduction.advantages.title') }}</div>
+      <div class="advantage-items">
+        <div class="advantage-item" v-for="(item, index) in 3" :key="index">
+          <div class="icon" :class="`security-level-${index + 1}`"></div>
+          <div class="text">{{ $t('home_introduction.advantages.securityStable') }}</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="contribution">
+      <div class="section-title">{{ $t('home_introduction.contribution.title') }}</div>
+      <p>{{ $t('home_introduction.contribution.description') }}</p>
     </div>
   </div>
 </template>
 
-<script setup>
-import { useI18n } from 'vue-i18n'
-import { ref, onMounted } from 'vue'
-
-const { t } = useI18n()
-
-const titleRef = ref(null)
-const stat1 = ref(null)
-const stat2 = ref(null)
-const stat3 = ref(null)
-
-onMounted(() => {
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('animate-active')
-        
-        if (entry.target.classList.contains('stat-item')) {
-          const numberEl = entry.target.querySelector('.number')
-          const finalValue = numberEl.textContent.replace(/[^0-9]/g, '')
-          
-          if (!isNaN(parseInt(finalValue))) {
-            animateNumber(numberEl, 0, parseInt(finalValue), 2000)
-          }
-        }
-        
-        observer.unobserve(entry.target)
-      }
-    })
-  }, {
-    threshold: 0.2
-  })
-
-  ;[titleRef.value, stat1.value, stat2.value, stat3.value].forEach(el => {
-    observer.observe(el)
-  })
-})
-
-function animateNumber(element, start, end, duration) {
-  let current = start
-  const increment = (end - start) / (duration / 16)
-  const timer = setInterval(() => {
-    current += increment
-    if (current >= end) {
-      current = end
-      clearInterval(timer)
+<script>
+export default {
+  name: 'StatisticsSection',
+  methods: {
+    formatNumber(num) {
+      return num.toLocaleString()
     }
-    if (element.textContent.includes('B')) {
-      element.textContent = `$${Math.floor(current)}B`
-    } else {
-      element.textContent = Math.floor(current)
-    }
-  }, 16)
+  }
 }
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 .statistics-section {
-  padding: 100px 24px;
-  background: #0a0a0a;
-  color: #fff;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
+  padding: 12px;
+  min-height: 100vh;
 }
 
-.background-grid {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-image: 
-    linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
-  background-size: 30px 30px;
-  transform: perspective(500px) rotateX(30deg);
-  transform-origin: center top;
-  animation: grid-move 20s linear infinite;
-}
-
-@keyframes grid-move {
-  from { background-position: 0 0; }
-  to { background-position: 0 30px; }
-}
-
-.title {
-  font-size: 32px;
-  font-weight: 800;
-  max-width: 700px;
-  margin: 0 auto 80px;
-  background: linear-gradient(to right, #fff 0%, #7000FF 100%);
+.section-title {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  background: linear-gradient(90deg, #00ffff 0%, #9932cc 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  position: relative;
-  
-  &::after {
-    content: '';
-    position: absolute;
-    bottom: -20px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100px;
-    height: 3px;
-    background: linear-gradient(90deg, #00C4FF 0%, #7000FF 100%);
-    border-radius: 2px;
-  }
+  animation: fadeIn 0.5s ease-in;
 }
 
-.stats-wrapper {
-  position: relative;
-  padding: 3px;
-  border-radius: 30px;
-  background: linear-gradient(90deg, #00C4FF 0%, #0074FF 51.04%, #7000FF 100%);
-  box-shadow: 0 0 30px rgba(0, 196, 255, 0.2);
+.who-we-are, .charity-stats, .advantages, .contribution {
+  margin-bottom: 20px;
+  padding: 15px;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.36);
+  transform: translateY(0);
+  transition: all 0.3s ease;
 }
 
-.stats-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 60px;
+.who-we-are:hover, .charity-stats:hover, .advantages:hover, .contribution:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.45);
 }
 
-.stats-content {
-  background: rgba(10, 10, 10, 0.95);
-  border-radius: 28px;
-  padding: 60px 20px;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  backdrop-filter: blur(10px);
-  gap: 40px;
+.amount-display {
+  font-size: 24px;
+  margin: 15px 0;
+  text-align: center;
+}
+
+.stats-circle {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin: 15px 0;
 }
 
 .stat-item {
+  padding: 12px 8px;
+  border-radius: 12px;
   text-align: center;
-  padding: 20px;
-  position: relative;
-  flex: 0 1 280px;
-  
-  .number-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 15px;
-  }
-
-  .number {
-    font-size: 42px;
-    font-weight: 800;
-    background: linear-gradient(90deg, #00C4FF 0%, #7000FF 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-
-  .plus {
-    font-size: 20px;
-    margin-left: 5px;
-    background: linear-gradient(90deg, #00C4FF 0%, #7000FF 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-
-  .label {
-    font-size: 14px;
-    color: #fff;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-  }
-
-  .stat-circle {
-    position: absolute;
-    width: 150%;
-    height: 150%;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: radial-gradient(circle, rgba(0,196,255,0.1) 0%, rgba(112,0,255,0) 70%);
-    border-radius: 50%;
-    z-index: -1;
-    opacity: 0;
-    transition: opacity 0.5s ease;
-  }
-
-  &:hover .stat-circle {
-    opacity: 1;
-  }
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
 }
 
-// 动画相关样式改进
-.animate {
-  opacity: 0;
-  transform: translateY(50px);
-  transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
-  
-  &.animate-active {
+.stat-item:hover {
+  transform: scale(1.05);
+}
+
+.advantage-items {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.advantage-item {
+  padding: 12px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.advantage-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.security-level-1 {
+  background: linear-gradient(45deg, #ff4444, #ff6b6b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.security-level-2 {
+  background: linear-gradient(45deg, #00ffff, #44ffff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.security-level-3 {
+  background: linear-gradient(45deg, #9932cc, #ba55d3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.value {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 4px;
+  background: linear-gradient(90deg, #00ffff, #9932cc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.label {
+  font-size: 12px;
+  background: linear-gradient(90deg, #ffffff, #b0b0b0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.usdt-amount {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  animation: pulse 2s infinite;
+}
+
+.usdt-amount span {
+  background: linear-gradient(90deg, #00ffff 0%, #9932cc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.dollar-value {
+  font-size: 18px;
+  background: linear-gradient(90deg, #b0b0b0, #ffffff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+p {
+  background: linear-gradient(90deg, #ffffff, #b0b0b0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
     opacity: 1;
     transform: translateY(0);
   }
 }
 
-.stat-item {
-  &:nth-child(1) {
-    transition-delay: 0.3s;
+@keyframes pulse {
+  0% {
+    transform: scale(1);
   }
-  
-  &:nth-child(2) {
-    transition-delay: 0.6s;
+  50% {
+    transform: scale(1.05);
   }
-  
-  &:nth-child(3) {
-    transition-delay: 0.9s;
+  100% {
+    transform: scale(1);
   }
 }
 
-@media (max-width: 768px) {
-  .statistics-section {
-    padding: 40px 16px;
+/* 响应式调整 */
+@media (max-width: 480px) {
+  .advantage-items {
+    grid-template-columns: 1fr;
   }
-
-  .title {
-    font-size: 24px;
-    padding: 0 16px;
-    margin-bottom: 40px;
-    
-    &::after {
-      width: 60px;
-      bottom: -15px;
-    }
+  
+  .stats-circle {
+    grid-template-columns: 1fr;
   }
-
-  .stats-container {
-    padding: 0;
+  
+  .section-title {
+    font-size: 18px;
   }
-
-  .stats-wrapper {
-    margin: 0 16px;
-    padding: 2px;
-  }
-
-  .stats-content {
-    padding: 24px 16px;
-    flex-direction: column;
-    gap: 32px;
-  }
-
-  .stat-item {
-    padding: 16px;
-    flex: none;
-    width: 100%;
-    
-    .number-wrapper {
-      margin-bottom: 10px;
-    }
-    
-    .number {
-      font-size: 36px;
-    }
-    
-    .plus {
-      font-size: 16px;
-      margin-left: 4px;
-    }
-    
-    .label {
-      font-size: 12px;
-      letter-spacing: 0.5px;
-    }
-
-    .stat-circle {
-      width: 120%;
-      height: 120%;
-    }
-  }
-
-  .background-grid {
-    background-size: 20px 20px;
-  }
-
-  @keyframes grid-move {
-    from { background-position: 0 0; }
-    to { background-position: 0 20px; }
-  }
-}
-
-@media (max-width: 375px) {
-  .statistics-section {
-    padding: 32px 12px;
-  }
-
-  .title {
+  
+  .amount-display {
     font-size: 20px;
   }
-
-  .stat-item {
-    .number {
-      font-size: 32px;
-    }
-    
-    .plus {
-      font-size: 14px;
-    }
-    
-    .label {
-      font-size: 11px;
-    }
-  }
 }
-
-@media (prefers-reduced-motion: reduce) {
-  .animate {
-    transition: none;
-    opacity: 1;
-    transform: none;
-  }
-  
-  .background-grid {
-    animation: none;
-  }
-}
-</style> 
+</style>

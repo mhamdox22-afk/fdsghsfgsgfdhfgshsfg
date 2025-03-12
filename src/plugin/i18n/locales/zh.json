@@ -1420,32 +1420,45 @@
   "activity_title_1": "交易大赛 - 赢取 10,000 USDT",
   "activity_description_1": "参与我们的交易大赛，有机会赢取高达 10,000 USDT 的奖励！",
   "activity_rewards_1": "10,000 USDT",
-  
   "activity_title_2": "新用户注册奖励",
   "activity_description_2": "新用户注册并完成KYC验证，即可获得 50 USDT 的奖励！",
   "activity_rewards_2": "50 USDT",
-  
   "activity_title_3": "质押挖矿活动",
   "activity_description_3": "质押您的加密货币，每日获得高达 15% APY 的收益！",
   "activity_rewards_3": "最高 15% APY",
-  
   "activity_title_4": "社区AMA活动",
   "activity_description_4": "参与我们的社群活动，与行业专家交流并赢取奖励，奖励最高1000 USDT！",
   "activity_rewards_4": "最高 1000 USDT",
-  
   "activity_title_5": "推荐好友计划",
   "activity_description_5": "推荐好友注册并交易，双方均可获得奖励！",
   "activity_rewards_5": "交易手续费 30%",
-  
   "activity_title_6": "空投活动",
   "activity_description_6": "持有平台代币，参与我们的空投活动！",
   "activity_rewards_6": "5,000 平台代币",
-  
   "activity_title_7": "交易手续费减免，最高奖励交易的10%",
   "activity_description_7": "限时活动：所有交易手续费减半！",
   "activity_rewards_7": "50% 手续费减免",
-  
   "activity_title_8": "期权合约上线庆祝活动",
   "activity_description_8": "庆祝期权合约上线，参与交易即可瓜分奖池！",
-  "activity_rewards_8": "20,000 USDT 奖池"
+  "activity_rewards_8": "20,000 USDT 奖池",
+  "home_introduction": {
+    "title": "我们是谁?",
+    "description": "基于台的核心团队来自全球知名互联网和金融公司，其中包括新兴多基础位资产行业基军手的资金查询投资者。他们在数位资产领域拥有丰富的技术研发和全球管理经验，且主动跟进的核心交易系统，提供稳定完善的的用户体验。基于安全为本，为全球用户打造最安全、稳定、高效的数位资产交易平台。",
+    "charity": {
+      "title": "为了慈善事业"
+    },
+    "stats": {
+      "representatives": "代表数量",
+      "market": "市场",
+      "usdtVolume": "24小时USDT交易量"
+    },
+    "advantages": {
+      "title": "我们的优势",
+      "securityStable": "安全稳定\n自主研发的高速交易撮合引擎，能够承载1亿笔/秒的撮合交易。"
+    },
+    "contribution": {
+      "title": "区块链如何帮助世界变得更美好?",
+      "description": "这通过区块链让世界变得更美好!\n基于台目前拥有数位资产查询、完善、便用、性值表现以及区块链底层建立了完整的生态平台。"
+    }
+  }
 }

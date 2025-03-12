@@ -28,10 +28,11 @@ onMounted(() => {
   <!-- <适合所有人的加密货币 /> -->
     <StatisticsSection />
     <!-- 只需几分钟 -->
-    <PurchaseSteps />
+    <!-- PurchaseSteps -->
+
 
     <!-- 未做动画 -->
-    <SecurityFeatures />
-    <CryptoComposition />
+    <!-- <SecurityFeatures /> -->
+    <!-- <CryptoComposition /> -->
 
 </template>

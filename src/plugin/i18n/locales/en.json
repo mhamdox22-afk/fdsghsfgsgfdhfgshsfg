@@ -1420,32 +1420,45 @@
   "activity_title_1": "Trading Competition - Win 10,000 USDT",
   "activity_description_1": "Participate in our trading competition for a chance to win up to 10,000 USDT!",
   "activity_rewards_1": "10,000 USDT",
-  
   "activity_title_2": "New User Registration Reward",
   "activity_description_2": "New users who register and complete KYC verification will receive a reward of 50 USDT!",
   "activity_rewards_2": "50 USDT",
-  
   "activity_title_3": "Staking Mining Activity",
   "activity_description_3": "Stake your cryptocurrency to earn up to 15% APY daily!",
   "activity_rewards_3": "Up to 15% APY",
-  
   "activity_title_4": "Community AMA Activity",
   "activity_description_4": "Participate in our community activities, interact with industry experts, and win rewards, with rewards up to 1000 USDT!",
   "activity_rewards_4": "Up to 1000 USDT",
-  
   "activity_title_5": "Referral Program",
   "activity_description_5": "Refer friends to register and trade, and both parties can receive rewards!",
   "activity_rewards_5": "30% trading fee",
-  
   "activity_title_6": "Airdrop Activity",
   "activity_description_6": "Hold platform tokens to participate in our airdrop activity!",
   "activity_rewards_6": "5,000 platform tokens",
-  
   "activity_title_7": "Trading Fee Discount, Up to 10% Reward on Trades",
   "activity_description_7": "Limited-time event: All trading fees are halved!",
   "activity_rewards_7": "50% fee discount",
-  
   "activity_title_8": "Options Contract Launch Celebration Activity",
   "activity_description_8": "Celebrate the launch of options contracts, participate in trading to share the prize pool!",
-  "activity_rewards_8": "20,000 USDT prize pool"
+  "activity_rewards_8": "20,000 USDT prize pool",
+  "home_introduction": {
+    "title": "Who Are We?",
+    "description": "The core team at Based is composed of professionals from globally renowned internet and financial companies, including investors from the emerging multi-asset class industry. They possess extensive technical research and development experience as well as global management expertise in the digital asset field, actively monitoring core trading systems to provide a stable and comprehensive user experience. With a focus on security, we aim to create the safest, most stable, and efficient digital asset trading platform for users worldwide.",
+    "charity": {
+      "title": "For Charity"
+    },
+    "stats": {
+      "representatives": "Number of Representatives",
+      "market": "Market",
+      "usdtVolume": "24-hour USDT Trading Volume"
+    },
+    "advantages": {
+      "title": "Our Advantages",
+      "securityStable": "Safe and Stable\nSelf-developed high-speed trading matching engine capable of handling 100 million transactions per second."
+    },
+    "contribution": {
+      "title": "How Can Blockchain Help Make the World a Better Place?",
+      "description": "This is how blockchain makes the world a better place!\nBased currently has a complete ecological platform built on digital asset inquiry, perfection, usability, and performance, as well as the underlying blockchain."
+    }
+  }
 }
