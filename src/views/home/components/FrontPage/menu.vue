@@ -25,25 +25,22 @@
         <svg-load name="mengbanzu13" class="leftImg"></svg-load>
         <div class="right">
           <div class="top">{{ _t18(`home_recharge`, ['latcoin', 'aams', 'robinhood2']) }}</div>
-          <!-- <div>{{ _t18(`clickto_recharge`) }}</div> -->
         </div>
       </div>
       <!-- 快速提币 -->
-      <div class="item rightItem" @click="$router.push('/withdraw')">
+      <div class="item" @click="$router.push('/withdraw')">
         <svg-load name="zu29" class="leftImg"></svg-load>
         <div class="right">
           <div class="top">{{ _t18(`quick_withdrawal`, ['latcoin', 'aams', 'robinhood2']) }}</div>
-          <!-- <div>{{ _t18(`Click_withdraw_coins`) }}</div> -->
         </div>
       </div>
     </div>
     <!-- 在线客服 -->
     <div class="linkRight" @click="dispatchCustomEvent('event_serviceChange')">
       <svg-load name="zu447" class="itemImg"></svg-load>
-      <div style="scale: 0.8; text-align: center">{{ _t18(`home_service`) }}</div>
+      <span>{{ _t18(`home_service`) }}</span>
     </div>
     <InfoPopup :show="showInfoPopup" :data="infoData" @closeBtn="closeBtn"></InfoPopup>
-  
   </div>
     <!-- 直播弹窗 -->
     <van-popup v-model:show="showNotice" round closeable>
@@ -170,7 +167,7 @@ const toRecharge = () => {
 </script>
 <style lang="scss" scoped>
 .main {
-  padding: 200px 0px 0;
+  padding: 160px 0px 0;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -200,9 +197,6 @@ const toRecharge = () => {
       width: 24px;
       height: 24px;
       padding: 12px;
-      background: rgba(255, 255, 255, 0.07);
-      border-radius: 12px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
       transition: all 0.3s ease;
       animation: pulse 2s infinite;
       
@@ -266,93 +260,81 @@ const toRecharge = () => {
   padding: 0 15px;
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  border-radius: 16px;
+  align-items: stretch;
+  gap: 10px;
   margin: 0 auto;
-  width: 76%;
+  width: 90%;
   animation: fadeInUp 0.8s ease;
+  margin-bottom: 6px;
 
   .linkLeft {
-    min-height: 55px;
     flex: 1;
     display: flex;
-    flex-direction: column;
-    gap: 6px;
+    gap: 10px;
 
     .item {
-      width: 100%;
+      flex: 1;
       display: flex;
       align-items: center;
       justify-content: flex-start;
       border-radius: 12px;
-      padding: 8px;
+      padding: 8px 12px;
+      height: 40px;
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
       transition: all 0.3s ease;
 
       &:hover {
-        animation: pulse 1s;
         transform: translateY(-2px);
         background: #252525;
         box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
       }
 
       .leftImg {
-        width: 24px;
-        height: 24px;
-        margin-right: 12px;
-        filter: brightness(1.2);
+        width: 20px;
+        height: 20px;
+        margin-right: 8px;
       }
 
       .right {
-        flex-shrink: 0;
-        font-size: 12px;
-        color: rgba(255, 255, 255, 0.7);
-
         .top {
-          font-size: 14px;
+          font-size: 13px;
           color: rgba(255, 255, 255, 0.95);
           font-weight: 500;
           white-space: nowrap;
         }
       }
     }
-
-    .rightItem {
-      animation: fadeInRight 0.5s ease;
-
-      &:hover {
-        background: #2A2A2A;
-      }
-    }
   }
 
   .linkRight {
-    align-self: center;
-    max-width: 50px;
-    min-width: 50px;
+    width: 60px;
+    height: 40px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    font-size: 12px;
-    color: rgba(255, 255, 255, 0.95);
-    padding: 8px;
-    margin-left: 20px;
+    gap: 2px;
+    padding: 4px;
     border-radius: 12px;
     transition: all 0.3s ease;
-    animation: fadeInRight 0.5s ease;
-
+    
     &:hover {
-      animation: headShake 1s;
-      background: #252525;
       transform: translateY(-2px);
+      background: #252525;
       box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
     }
 
     .itemImg {
-      width: 24px;
-      height: 24px;
-      margin-bottom: 6px;
+      width: 18px;
+      height: 18px;
+    }
+
+    span {
+      font-size: 11px;
+      color: rgba(255, 255, 255, 0.95);
+      text-align: center;
+      white-space: nowrap;
+      transform: scale(0.9);
     }
   }
 }
