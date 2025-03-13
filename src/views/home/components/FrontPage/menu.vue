@@ -262,15 +262,15 @@ const toRecharge = () => {
   justify-content: space-between;
   align-items: stretch;
   gap: 10px;
-  margin: 0 auto;
-  width: 90%;
+  margin: 0 auto 6px;
+  width: calc(100% - 30px);
   animation: fadeInUp 0.8s ease;
-  margin-bottom: 6px;
 
   .linkLeft {
     flex: 1;
     display: flex;
     gap: 10px;
+    min-width: 0;
 
     .item {
       flex: 1;
@@ -278,10 +278,11 @@ const toRecharge = () => {
       align-items: center;
       justify-content: flex-start;
       border-radius: 12px;
-      padding: 8px 12px;
+      padding: 8px;
       height: 40px;
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
       transition: all 0.3s ease;
+      min-width: 0;
 
       &:hover {
         transform: translateY(-2px);
@@ -292,22 +293,32 @@ const toRecharge = () => {
       .leftImg {
         width: 20px;
         height: 20px;
-        margin-right: 8px;
+        margin-right: 6px;
+        flex-shrink: 0;
       }
 
       .right {
+        min-width: 0;
+        
         .top {
-          font-size: 13px;
+          font-size: 12px;
           color: rgba(255, 255, 255, 0.95);
           font-weight: 500;
-          white-space: nowrap;
+          white-space: normal;
+          word-wrap: break-word;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          display: -webkit-box;
+          -webkit-line-clamp: 2;
+          -webkit-box-orient: vertical;
         }
       }
     }
   }
 
   .linkRight {
-    width: 60px;
+    width: 50px;
+    min-width: 50px;
     height: 40px;
     display: flex;
     flex-direction: column;
@@ -317,6 +328,7 @@ const toRecharge = () => {
     padding: 4px;
     border-radius: 12px;
     transition: all 0.3s ease;
+    flex-shrink: 0;
     
     &:hover {
       transform: translateY(-2px);
@@ -333,7 +345,9 @@ const toRecharge = () => {
       font-size: 11px;
       color: rgba(255, 255, 255, 0.95);
       text-align: center;
-      white-space: nowrap;
+      white-space: normal;
+      word-wrap: break-word;
+      width: 100%;
       transform: scale(0.9);
     }
   }

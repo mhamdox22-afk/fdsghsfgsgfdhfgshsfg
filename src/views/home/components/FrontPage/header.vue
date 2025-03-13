@@ -7,7 +7,7 @@
     <div class="carousel">
       <van-swipe :autoplay="3000" lazy-render :loop="true" :show-indicators="false">
         <van-swipe-item v-for="(item, index) in carouselList" :key="index">
-          <image-load :filePath="item.imgUrl" alt="" class="carouselItem" @click="linkto(item)" />
+          <img :src="item.imgUrl" alt="" class="carouselItem" @click="linkto(item)" />
         </van-swipe-item>
       </van-swipe>
       <div class="top">
@@ -16,21 +16,11 @@
           <span class="gradient-text">ANTBITT</span>
         </div>
         <div style="display: flex;align-items: center;justify-content: center;">
-          <img 
-            src="https://pic.xfdown.com/uploads/2023-12/20231281046205388.png"
-            class="rightImg" 
-            alt="Profile"
-            style="border-radius: 50%;"
-            @click="dispatchCustomEvent('event_serviceChange')"
-          />
+          <img src="@/assets/icons/icon-1.png" class="rightImg" alt="Profile" style="border-radius: 50%;"
+            @click="dispatchCustomEvent('event_serviceChange')" />
           <MobileHeader></MobileHeader>
-          <img 
-            src="https://png.pngtree.com/png-vector/20240823/ourmid/pngtree-colorful-user-profile-icon-clipart-illustration-png-image_13598380.png"
-            class="rightImg" 
-            style="width: 30px;height: 30px;"
-            @click="openSideBar"
-            alt="User Profile"
-          />
+          <img src="@/assets/icons/icon-2.png" class="rightImg" style="width: 30px;height: 30px;" @click="openSideBar"
+            alt="User Profile" />
         </div>
       </div>
     </div>
@@ -71,6 +61,8 @@ import { computed } from 'vue'
 import SideBar from '@/views/home/sidebar/index.vue'
 import MobileHeader from './MobileHeader.vue'
 import { dispatchCustomEvent } from '@/utils'
+import mainImg1 from '@/assets/icons/main-img-1.jpg'
+import mainImg2 from '@/assets/icons/main-img-2.jpg'
 
 const show = ref(false)
 const openSideBar = () => {
@@ -129,57 +121,57 @@ onMounted(async () => {
     if (res.code === 200) {
       console.log("res.data", res.data);
       const defaultImg = [
-    {
-        "createBy": null,
-        "createTime": "2023-08-08 11:09:56",
-        "updateBy": null,
-        "updateTime": "2024-08-21 02:18:41",
-        "remark": null,
-        "noticeId": 58,
-        "noticeTitle": "test",
-        "noticeType": "活动公告",
-        "modelType": "首页轮播活动",
-        "noticeContent": "<p><br></p>",
-        "commentsNum": 0,
-        "cover": null,
-        "viewNum": 0,
-        "expireTime": null,
-        "imgUrl": "https://tg-mahalebi.oss-cn-hongkong.aliyuncs.com/mahalebi/9e680a3ea2dc4935ac5678eae069818e.jpg",
-        "chainedUrl": "1",
-        "detailUrl": "",
-        "languageId": "zh",
-        "status": "0",
-        "sort": null,
-        "source": null,
-        "key": null,
-        "modelKey": null
-    },
-    {
-        "createBy": null,
-        "createTime": "2024-08-26 03:14:31",
-        "updateBy": null,
-        "updateTime": null,
-        "remark": null,
-        "noticeId": 127,
-        "noticeTitle": "中简",
-        "noticeType": "活动公告",
-        "modelType": "首页轮播活动",
-        "noticeContent": null,
-        "commentsNum": 0,
-        "cover": null,
-        "viewNum": 0,
-        "expireTime": null,
-        "imgUrl": "https://tg-mahalebi.oss-cn-hongkong.aliyuncs.com/mahalebi/b20148da82e847149393dfde8ee05ebd.jpg",
-        "chainedUrl": null,
-        "detailUrl": null,
-        "languageId": "zh",
-        "status": "0",
-        "sort": null,
-        "source": null,
-        "key": null,
-        "modelKey": null
-    }
-]
+        {
+          "createBy": null,
+          "createTime": "2023-08-08 11:09:56",
+          "updateBy": null,
+          "updateTime": "2024-08-21 02:18:41",
+          "remark": null,
+          "noticeId": 58,
+          "noticeTitle": "test",
+          "noticeType": "活动公告",
+          "modelType": "首页轮播活动",
+          "noticeContent": "<p><br></p>",
+          "commentsNum": 0,
+          "cover": null,
+          "viewNum": 0,
+          "expireTime": null,
+          "imgUrl": mainImg1,
+          "chainedUrl": "1",
+          "detailUrl": "",
+          "languageId": "zh",
+          "status": "0",
+          "sort": null,
+          "source": null,
+          "key": null,
+          "modelKey": null
+        },
+        {
+          "createBy": null,
+          "createTime": "2024-08-26 03:14:31",
+          "updateBy": null,
+          "updateTime": null,
+          "remark": null,
+          "noticeId": 127,
+          "noticeTitle": "中简",
+          "noticeType": "活动公告",
+          "modelType": "首页轮播活动",
+          "noticeContent": null,
+          "commentsNum": 0,
+          "cover": null,
+          "viewNum": 0,
+          "expireTime": null,
+          "imgUrl": mainImg2,
+          "chainedUrl": null,
+          "detailUrl": null,
+          "languageId": "zh",
+          "status": "0",
+          "sort": null,
+          "source": null,
+          "key": null,
+          "modelKey": null
+        }
+      ]
 
       carouselList.value = defaultImg.filter((item) => {
         return item.status != '1'
