@@ -67,6 +67,16 @@ import { _t18, _toView } from '@/utils/public'
 import InfoPopup from '@/views/home/components/InfoPopup.vue'
 import { dispatchCustomEvent } from '@/utils'
 
+// Import images
+import img1 from '@/assets/icons/3fab02d630fb439ea67978312608d79d.png'
+import img2 from '@/assets/icons/0781c670efd044a3a7bba32daf14b674.png'
+import img3 from '@/assets/icons/df71446a79964bee8eb2873054aba775.jpg'
+import img4 from '@/assets/icons/d8df6263d88c44fe9347d54b0b229e27.jpg'
+import img5 from '@/assets/icons/c6c0e72d6425491d9d61e7033934542f.jpg'
+import img6 from '@/assets/icons/b3a27a6643da429782828d89019e18a9.jpg'
+import img7 from '@/assets/icons/5e03fe26952c4220b66ee9b7e6f88adb.jpg'
+import img8 from '@/assets/icons/aacb46ce3bb2462983e4bef9db25fb87.png'
+
 const mainStroe = useMainStore()
 const userStore = useUserStore()
 const tokenStatus = ref(userStore.isSign)
@@ -76,13 +86,12 @@ const menuList = computed(() => {
   let tempData = mainStroe.getJinGangList.filter((item) => {
     return item.isOpen == true
   })
-  console.log("tempData",tempData)
   
   return [
     {
         "name": "质押挖矿",
         "key": "defi_host_lockup",
-        "imgUrl": "/src/assets/icons/3fab02d630fb439ea67978312608d79d.png",
+        "imgUrl": img1,
         "linkUrl": "/pledge",
         "sort": 2,
         "isOpen": true
@@ -90,7 +99,7 @@ const menuList = computed(() => {
     {
         "name": "助理贷",
         "key": "fast_help_loan",
-        "imgUrl": "/src/assets/icons/0781c670efd044a3a7bba32daf14b674.png",
+        "imgUrl": img2,
         "linkUrl": "/loan",
         "sort": 3,
         "isOpen": true
@@ -98,7 +107,7 @@ const menuList = computed(() => {
     {
         "name": "下载中心",
         "key": "download_center",
-        "imgUrl": "/src/assets/icons/df71446a79964bee8eb2873054aba775.jpg",
+        "imgUrl": img3,
         "linkUrl": "https://www.antbit.cc/",
         "sort": 5,
         "isOpen": true
@@ -106,7 +115,7 @@ const menuList = computed(() => {
     {
         "name": "推广中心",
         "key": "promotion_center",
-        "imgUrl": "/src/assets/icons/d8df6263d88c44fe9347d54b0b229e27.jpg",
+        "imgUrl": img4,
         "linkUrl": "/plug",
         "sort": 6,
         "isOpen": true
@@ -114,7 +123,7 @@ const menuList = computed(() => {
     {
         "name": "期权",
         "key": "trade_tab6",
-        "imgUrl": "/src/assets/icons/c6c0e72d6425491d9d61e7033934542f.jpg",
+        "imgUrl": img5,
         "linkUrl": "/trade",
         "sort": 7,
         "isOpen": true
@@ -122,7 +131,7 @@ const menuList = computed(() => {
     {
         "name": "理财",
         "key": "financial",
-        "imgUrl": "/src/assets/icons/b3a27a6643da429782828d89019e18a9.jpg",
+        "imgUrl": img6,
         "linkUrl": "/financial",
         "sort": 8,
         "isOpen": true
@@ -130,7 +139,7 @@ const menuList = computed(() => {
     {
         "name": "U本位",
         "key": "trade_tab5",
-        "imgUrl": "/src/assets/icons/5e03fe26952c4220b66ee9b7e6f88adb.jpg",
+        "imgUrl": img7,
         "linkUrl": "/tradeU",
         "sort": 9,
         "isOpen": true
@@ -138,7 +147,7 @@ const menuList = computed(() => {
     {
         "name": "币币交易",
         "key": "trade_tab3",
-        "imgUrl": "/src/assets/icons/aacb46ce3bb2462983e4bef9db25fb87.png",
+        "imgUrl": img8,
         "linkUrl": "/trade?flag=BB&show=onlyB",
         "sort": 9,
         "isOpen": true
