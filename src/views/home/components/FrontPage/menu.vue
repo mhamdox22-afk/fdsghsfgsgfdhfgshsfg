@@ -6,7 +6,7 @@
       :key="item.img"
       @click="routeLink(item.linkUrl, item.flag)"
     >
-      <image-load :filePath="item.imgUrl" :name="item.img" class="itemImg" />
+      <img :src="item.imgUrl" :alt="item.name" class="itemImg" />
       <div class="itemName text-ellipsis2">
         {{ _t18(`${item.key}`, ['robinhood2']) }}
       </div>
@@ -37,7 +37,7 @@
     </div>
     <!-- 在线客服 -->
     <div class="linkRight" @click="dispatchCustomEvent('event_serviceChange')">
-      <svg-load name="zu447" class="itemImg"></svg-load>
+      <div class="itemImg">💬</div>
       <span>{{ _t18(`home_service`) }}</span>
     </div>
     <InfoPopup :show="showInfoPopup" :data="infoData" @closeBtn="closeBtn"></InfoPopup>
@@ -49,7 +49,7 @@
           {{ showNoticeContent?.noticeTitle || '' }}
         </p>
         <div class="showNoticeContent_content">
-          <image-load :filePath="showNoticeContent?.imgUrl" v-if="showNoticeContent?.imgUrl" />
+          <img :src="showNoticeContent?.imgUrl" v-if="showNoticeContent?.imgUrl" />
         </div>
       </div>
     </van-popup>
@@ -76,7 +76,74 @@ const menuList = computed(() => {
   let tempData = mainStroe.getJinGangList.filter((item) => {
     return item.isOpen == true
   })
-  return tempData
+  console.log("tempData",tempData)
+  
+  return [
+    {
+        "name": "质押挖矿",
+        "key": "defi_host_lockup",
+        "imgUrl": "/src/assets/icons/3fab02d630fb439ea67978312608d79d.png",
+        "linkUrl": "/pledge",
+        "sort": 2,
+        "isOpen": true
+    },
+    {
+        "name": "助理贷",
+        "key": "fast_help_loan",
+        "imgUrl": "/src/assets/icons/0781c670efd044a3a7bba32daf14b674.png",
+        "linkUrl": "/loan",
+        "sort": 3,
+        "isOpen": true
+    },
+    {
+        "name": "下载中心",
+        "key": "download_center",
+        "imgUrl": "/src/assets/icons/df71446a79964bee8eb2873054aba775.jpg",
+        "linkUrl": "https://www.antbit.cc/",
+        "sort": 5,
+        "isOpen": true
+    },
+    {
+        "name": "推广中心",
+        "key": "promotion_center",
+        "imgUrl": "/src/assets/icons/d8df6263d88c44fe9347d54b0b229e27.jpg",
+        "linkUrl": "/plug",
+        "sort": 6,
+        "isOpen": true
+    },
+    {
+        "name": "期权",
+        "key": "trade_tab6",
+        "imgUrl": "/src/assets/icons/c6c0e72d6425491d9d61e7033934542f.jpg",
+        "linkUrl": "/trade",
+        "sort": 7,
+        "isOpen": true
+    },
+    {
+        "name": "理财",
+        "key": "financial",
+        "imgUrl": "/src/assets/icons/b3a27a6643da429782828d89019e18a9.jpg",
+        "linkUrl": "/financial",
+        "sort": 8,
+        "isOpen": true
+    },
+    {
+        "name": "U本位",
+        "key": "trade_tab5",
+        "imgUrl": "/src/assets/icons/5e03fe26952c4220b66ee9b7e6f88adb.jpg",
+        "linkUrl": "/tradeU",
+        "sort": 9,
+        "isOpen": true
+    },
+    {
+        "name": "币币交易",
+        "key": "trade_tab3",
+        "imgUrl": "/src/assets/icons/aacb46ce3bb2462983e4bef9db25fb87.png",
+        "linkUrl": "/trade?flag=BB&show=onlyB",
+        "sort": 9,
+        "isOpen": true
+    }
+]
 })
 const currentNotice = ref('')
 const routeLink = (link) => {
@@ -339,6 +406,10 @@ const toRecharge = () => {
     .itemImg {
       width: 18px;
       height: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
     }
 
     span {

@@ -800,33 +800,39 @@ input::-ms-input-placeholder {
 }
 .titleLeft {
   font-size: 16px;
-  color: #E0E0E0;
+  // 使用渐变色文字
+  background: linear-gradient(135deg, #2ebd85 0%, #1c8f64 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   display: flex;
   align-items: center;
+  font-weight: 600;
   
   .titleName {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 5px;
-    background-color: var(--ex-div-bgColor1);
-    border-radius: 2px;
-    font-size: 12px;
+    padding: 5px 10px;
+    background: linear-gradient(135deg, #2ebd85 0%, #1c8f64 100%);
+    border-radius: 4px;
+    font-size: 13px;
     color: #FFFFFF;
-    margin-left: 10px;
+    margin-left: 12px;
+    font-weight: 500;
+    -webkit-text-fill-color: #FFFFFF; // 覆盖父元素的透明文字
   }
   
   .titleColor {
-    background: var(--ex-div-bgColor7);
+    background: linear-gradient(135deg, #f6465d 0%, #cf304a 100%);
   }
 }
 .popupContain {
   background: #121212;
   padding: 20px;
-  height: calc(66vh - 60px); // 减去标题栏高度
+  height: calc(66vh - 60px); // Subtract header height
   overflow-y: auto;
   
-  // 自定义滚动条样式
+  // Custom scrollbar styling
   &::-webkit-scrollbar {
     width: 4px;
   }
@@ -844,10 +850,13 @@ input::-ms-input-placeholder {
     margin-bottom: 24px;
 
     .firstHeader {
-      color: #E0E0E0;
-      font-size: 16px;
-      margin-bottom: 15px;
+      background: linear-gradient(135deg, #FFFFFF 0%, #E0E0E0 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-size: 17px;
+      margin-bottom: 16px;
       font-weight: 600;
+      letter-spacing: 0.3px;
     }
 
     .firstList {
@@ -873,13 +882,17 @@ input::-ms-input-placeholder {
         }
 
         .firstItemTop {
+          background: linear-gradient(135deg, #FFFFFF 0%, #E0E0E0 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
           font-size: 15px;
+          font-weight: 500;
           margin-bottom: 4px;
         }
 
         &.hightColor {
           background: linear-gradient(135deg, #2ebd85 0%, #1c8f64 100%);
-          box-shadow: 0 4px 15px rgba(46, 189, 133, 0.2);
+          -webkit-text-fill-color: #FFFFFF;
         }
       }
     }
@@ -936,6 +949,20 @@ input::-ms-input-placeholder {
     color: #666666;
     font-size: 14px;
     margin-bottom: 24px;
+
+    div:first-child {
+      background: linear-gradient(135deg, #FFFFFF 0%, #CCCCCC 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 500;
+    }
+    
+    .fw-num {
+      background: linear-gradient(135deg, #2ebd85 0%, #1c8f64 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 600;
+    }
   }
 
   .okButton {
@@ -1018,18 +1045,24 @@ input::-ms-input-placeholder {
         color: #E0E0E0;
         
         &.hightUp {
-          color: #2ebd85;
+          background: linear-gradient(135deg, #2ebd85 0%, #1c8f64 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          font-weight: 600;
         }
         
         &.hightDown {
-          color: #f6465d;
+          background: linear-gradient(135deg, #f6465d 0%, #cf304a 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          font-weight: 600;
         }
       }
     }
   }
 }
 
-// 更新根变量
+// Update root variables
 :root {
   --ex-default-background-color: #121212;
   --ex-default-font-color: #E0E0E0;
@@ -1040,15 +1073,233 @@ input::-ms-input-placeholder {
   --ex-div-bgColor17: #1E1E1E;
 }
 
-// 修改 PublicPopup 相关样式
+// Modify PublicPopup related styles
 :deep(.van-popup) {
   background: #121212 !important;
-  height: 66vh !important; // 设置为视窗高度的三分之二
+  height: 66vh !important; // Set to 2/3 of viewport height
   max-height: 66vh !important;
   border-radius: 16px 16px 0 0;
 }
 
 :deep(.van-overlay) {
   background-color: rgba(0, 0, 0, 0.7) !important;
+}
+
+// 添加字体优化
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+// 添加炫光动画
+@keyframes shine {
+  0% {
+    background-position: 200% center;
+  }
+  100% {
+    background-position: -200% center;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.firstList {
+  .firstItem {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(45deg, #1E1E1E 0%, #252525 50%, #1E1E1E 100%);
+    background-size: 200% auto;
+    animation: shine 8s linear infinite;
+    border: 1px solid rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+    
+    &::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 60%);
+      transform: rotate(45deg);
+      transition: 0.6s;
+      opacity: 0;
+    }
+    
+    &:hover::before {
+      opacity: 1;
+      transform: rotate(45deg) translate(50%, 50%);
+    }
+
+    &.hightColor {
+      background: linear-gradient(45deg, #2ebd85 0%, #1c8f64 50%, #2ebd85 100%);
+      background-size: 200% auto;
+      animation: shine 3s linear infinite;
+      box-shadow: 0 0 20px rgba(46, 189, 133, 0.3);
+      border: none;
+    }
+  }
+}
+
+.quantityList {
+  .item {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(45deg, #1E1E1E 0%, #252525 50%, #1E1E1E 100%);
+    background-size: 200% auto;
+    animation: shine 8s linear infinite;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      top: -110%;
+      left: -210%;
+      width: 200%;
+      height: 200%;
+      opacity: 0;
+      transform: rotate(30deg);
+      background: rgba(255, 255, 255, 0.13);
+      background: linear-gradient(
+        to right, 
+        rgba(255, 255, 255, 0.13) 0%,
+        rgba(255, 255, 255, 0.13) 77%,
+        rgba(255, 255, 255, 0.5) 92%,
+        rgba(255, 255, 255, 0.0) 100%
+      );
+    }
+
+    &:hover::after {
+      opacity: 1;
+      top: -30%;
+      left: -30%;
+      transition-property: left, top, opacity;
+      transition-duration: 0.7s, 0.7s, 0.15s;
+      transition-timing-function: ease;
+    }
+
+    &.hightColor {
+      background: linear-gradient(45deg, #2ebd85 0%, #1c8f64 50%, #2ebd85 100%);
+      background-size: 200% auto;
+      animation: shine 3s linear infinite;
+      box-shadow: 0 0 20px rgba(46, 189, 133, 0.3);
+    }
+  }
+}
+
+.okButton {
+  .button {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(45deg, #2ebd85 0%, #1c8f64 50%, #2ebd85 100%);
+    background-size: 200% auto;
+    animation: shine 3s linear infinite;
+    
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255, 255, 255, 0.3),
+        transparent
+      );
+      transition: 0.5s;
+    }
+    
+    &:hover::before {
+      left: 100%;
+    }
+    
+    &:active {
+      transform: scale(0.95);
+      box-shadow: 0 0 30px rgba(46, 189, 133, 0.5);
+    }
+  }
+}
+
+.countdown {
+  .circle {
+    animation: pulse 2s infinite ease-in-out;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 180px;
+      height: 180px;
+      background: radial-gradient(
+        circle,
+        rgba(46, 189, 133, 0.2) 0%,
+        rgba(46, 189, 133, 0.1) 40%,
+        transparent 70%
+      );
+      border-radius: 50%;
+      z-index: -1;
+      animation: pulse 2s infinite ease-in-out;
+    }
+  }
+}
+
+// 优化输入框
+.inputQuantity {
+  position: relative;
+  overflow: hidden;
+  
+  &:focus {
+    border-color: #2ebd85;
+    box-shadow: 0 0 20px rgba(46, 189, 133, 0.2);
+    animation: pulse 2s infinite ease-in-out;
+  }
+  
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, #2ebd85, #1c8f64);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+  }
+  
+  &:focus::after {
+    transform: scaleX(1);
+  }
+}
+
+// 添加全局动效
+.popupContain {
+  background: radial-gradient(circle at top right, #1a1a1a 0%, #121212 100%);
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+  }
 }
 </style>
