@@ -13,6 +13,8 @@ import { useMainStore } from '@/store'
 import { useTradeStore } from '@/store/trade'
 import { debounce, throttle } from 'lodash'
 import {useRouter} from "vue-router";
+import * as echarts from 'echarts'
+import { ref, onMounted, nextTick } from 'vue'
 
 const router = useRouter()
 
@@ -108,6 +110,10 @@ let widget = null
 const mainStore = useMainStore()
 const tradeStore = useTradeStore()
 
+// Replace the existing xAxisData and seriesData declarations with refs
+const xAxisData = ref([])
+const seriesData = ref([])
+
 /**
  * 交易对监听
  */
@@ -155,16 +161,14 @@ const getHeadIntervalList = (tempCoinInfo = currentCoinInfo) => {
   }
   return tempList
 }
-onMounted(async () => {
-  setTimeout(() => {
-    console.log("props.coinInfo",props.coinInfo)
-  }, 1000)
-
+onMounted(() => {
   Object.assign(currentCoinInfo, props.coinInfo)
   supportedResolutions = getSupportedResolutions()
   headIntervalList.splice(0, headIntervalList.length, ...getHeadIntervalList())
   Object.assign(currentInterval, headIntervalList[0])
   document.addEventListener('event_tradeSymbolChange', eventTradeSymbolChange)
+  
+  // 确保DOM已经渲染
   nextTick(() => {
     initWidget()
   })
@@ -331,134 +335,128 @@ dataFeedInstance.resolveSymbol = async () => {
  */
 const initWidget = () => {
   datafeeds = new Datafees(dataFeedInstance)
-  // 主题
-  let theme = 'dark' // 强制使用深色主题
-  widget = new TradingView.widget({
-    symbol: props.coinInfo.symbolUpperCase,
-    theme,
-    debug: false,
-    autosize: true,
-    interval: currentInterval.interval,
-    container_id: klineId.value,
-    datafeed: datafeeds,
-    library_path: '/charting_library/',
-    custom_css_url: `../tradingview_${theme}.css`,
-    locale: 'en',
-    timezone: mainStore.timezone,
-    
-    // Ultra-minimal chart styling
-    overrides: {
-      // Completely transparent chart area
-      "paneProperties.background": "#121826",
-      "paneProperties.vertGridProperties.color": "transparent",
-      "paneProperties.horzGridProperties.color": "transparent",
-      
-      // Hide absolutely all text and visual elements
-      "scalesProperties.showLeftScale": false,
-      "scalesProperties.showRightScale": false,
-      "scalesProperties.textColor": "transparent",
-      "scalesProperties.lineColor": "transparent",
-      "scalesProperties.backgroundColor": "#121826",
-      "symbolWatermarkProperties.transparency": 100,
-      "symbolWatermarkProperties.color": "transparent",
-      "mainSeriesProperties.showCountdown": false,
-      "mainSeriesProperties.visible": true,
-      "mainSeriesProperties.showPriceLine": false,
-      "mainSeriesProperties.priceLineWidth": 0,
-      "mainSeriesProperties.minTick": "0",
-      "paneProperties.topMargin": 5,
-      "paneProperties.bottomMargin": 5,
-      "paneProperties.crossHairProperties.color": "transparent",
-      "paneProperties.crossHairProperties.width": 0,
-      "paneProperties.legendProperties.showStudyValues": false,
-      "paneProperties.legendProperties.showStudyTitles": false,
-      "paneProperties.legendProperties.showStudyArguments": false,
-      "paneProperties.legendProperties.showSeriesTitle": false,
-      "paneProperties.legendProperties.showSeriesOHLC": false,
-      "paneProperties.legendProperties.showLegend": false,
-      "paneProperties.statusTextColor": "transparent",
-      
-      // Simple line chart (no candlesticks)
-      "mainSeriesProperties.style": 0,
-      "mainSeriesProperties.lineStyle.color": "#2962FF",
-      "mainSeriesProperties.lineStyle.linewidth": 2,
-      
-      // Remove volume display
-      "volumePaneSize": "none",
-    },
-    
-    // Disable absolutely everything interactive
-    disabled_features: [
-      "all_buttons",  // This is a special option to disable all buttons
-      "header_widget",
-      "header_symbol_search",
-      "header_settings",
-      "header_indicators",
-      "header_compare",
-      "header_undo_redo",
-      "header_screenshot",
-      "header_fullscreen_button",
-      "compare_symbol",
-      "symbol_search_hot_key",
-      "context_menus",
-      "left_toolbar",
-      "control_bar",
-      "timeframes_toolbar",
-      "go_to_date",
-      "logo_only_trademark",
-      "link_to_tradingview",
-      "adaptive_logo",
-      "source_selection_markers",
-      "scales_date_format",
-      "symbol_info",
-      "timezone_menu",
-      "legend_widget",
-      "main_series_scale_menu",
-      "scales_context_menu",
-      "remove_library_container_border",
-      "border_around_the_chart",
-      "charting_library_logo_only_trademark",
-      "charting_library_logo",
-      "display_market_status",
-      "remove_library_container_border",
-      "widget_logo",
-      "countdown",
-      "chart_crosshair_menu",
-      "chart_events",
-      "chart_property_page_scales",
-      "chart_property_page_style",
-      "chart_property_page_timezone",
-      "chart_property_page_trading",
-      "property_pages",
-      "show_chart_property_page",
-      "use_localstorage_for_settings",
-      "volume_force_overlay",
-      "save_chart_properties_to_local_storage",
-      "caption_buttons_text_if_possible"
-    ],
-    
-    enabled_features: [],
-    
-    loading_screen: {
-      backgroundColor: "#121826",
-      foregroundColor: "#121826" // Same as background to hide the loading indicator
-    },
-    
-    preset: "mobile"
-  })
   
-  // Remove indicator creation
-  // widget.onChartReady(() => {
-  //   createStudy()
-  // })
+  // 确保在获取数据后再初始化图表
+  dataFeedInstance.getBars({
+    symbolInfo: props.coinInfo,
+    resolution: currentInterval.interval,
+    from: '',
+    firstDataRequest: true
+  }).then(barList => {
+    // 清空之前的数据
+    xAxisData.value = []
+    seriesData.value = []
+    
+    // 处理数据
+    barList.forEach(item => {
+      xAxisData.value.push(_klineTimeFormat(item.time, 'HH:mm:ss'))
+      seriesData.value.push(item.close)
+    })
+
+    // 初始化图表
+    nextTick(() => {
+      const chartDom = document.getElementById(klineId.value)
+      if (!chartDom) {
+        console.error('Chart container not found')
+        return
+      }
+      
+      const myChart = echarts.init(chartDom)
+      
+      const option = {
+        backgroundColor: '#121212',
+        grid: {
+          top: '0',
+          left: '0',
+          right: '0',
+          bottom: '0',
+          containLabel: false
+        },
+        tooltip: {
+          trigger: 'axis',
+          backgroundColor: 'rgba(26, 34, 51, 0.9)',
+          borderColor: 'rgba(255, 255, 255, 0.1)',
+          textStyle: {
+            color: '#fff'
+          }
+        },
+        xAxis: {
+          type: 'category',
+          data: xAxisData.value,
+          show: false
+        },
+        yAxis: {
+          type: 'value',
+          show: false,
+          scale: true,
+          splitNumber: 2,
+          min: function(value) {
+            return value.min * 0.999;
+          },
+          max: function(value) {
+            return value.max * 1.001;
+          }
+        },
+        series: [
+          {
+            name: props.coinInfo.symbolUpperCase,
+            data: seriesData.value,
+            type: 'line',
+            smooth: true,
+            symbol: 'none',
+            lineStyle: {
+              color: '#3366cc',
+              width: 1.5
+            },
+            areaStyle: {
+              color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                {
+                  offset: 0,
+                  color: 'rgba(51, 102, 204, 0.3)'
+                },
+                {
+                  offset: 1,
+                  color: 'rgba(51, 102, 204, 0)'
+                }
+              ])
+            }
+          }
+        ]
+      }
+
+      // 设置图表配置
+      myChart.setOption(option)
+
+      // 保存图表实例以便后续更新
+      widget = myChart
+
+      // 处理窗口大小变化
+      window.addEventListener('resize', () => {
+        myChart && myChart.resize()
+      })
+
+      // 添加销毁逻辑
+      onBeforeUnmount(() => {
+        window.removeEventListener('resize', () => {
+          myChart && myChart.resize()
+        })
+        myChart.dispose()
+      })
+    })
+  }).catch(error => {
+    console.error('Failed to initialize chart:', error)
+  })
 }
 
 /**
  * 创建指标
  */
 const createStudy = () => {
-  // Comment out or remove indicator creation
+  // let id = widget.chart().createStudy('volume', false, false, [5], null)
   // studies.push(id)
+  console.log(studyList[0])
+  let id = setStudy(studyList[0].name)
+  studies.push(id)
 }
 /**
  * 订阅客户端列表
@@ -562,9 +560,29 @@ const subscribeTrades = async (params) => {
  * 更新数据
  */
 const updateDataKline = (newData) => {
-  if (newData?.close) {
-    // console.log('更新数据', newData)
-    datafeeds.updateData(newData)
+  if (newData?.close && widget) {
+    // 更新数据
+    xAxisData.value.push(_klineTimeFormat(newData.time, 'HH:mm:ss'))
+    seriesData.value.push(newData.close)
+
+    // 保持固定数量的数据点
+    const maxDataPoints = 100
+    if (xAxisData.value.length > maxDataPoints) {
+      xAxisData.value.shift()
+      seriesData.value.shift()
+    }
+
+    // 更新图表
+    widget.setOption({
+      xAxis: {
+        data: xAxisData.value
+      },
+      series: [{
+        data: seriesData.value
+      }]
+    })
+
+    // 发布更新事件
     PubSub.publish(socketDict.DETAIL, {
       data: {
         ...newData,
@@ -636,42 +654,19 @@ const setStudy = (name) => {
 }
 </script>
 <template>
-  <div :id="klineId" class="candlestick" ></div>
+  <!-- 修改容器样式 -->
+  <div :id="klineId" class="candlestick"></div>
 </template>
 
 <style lang="scss" scoped>
 .candlestick {
+  width: 100%;
   height: 100px;
-  background-color: #121826;
+  background-color: #121212;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   margin: 0 8px;
   transition: all 0.3s ease;
-  
-  // Hide any remaining TradingView elements
-  :deep(.tv-lightweight-charts) {
-    background: #121826 !important;
-  }
-  
-  :deep(.tv-lightweight-charts__logo) {
-    display: none !important;
-  }
-  
-  :deep([class*="logo"]) {
-    display: none !important;
-  }
-  
-  :deep([class*="watermark"]) {
-    display: none !important;
-  }
-  
-  :deep([class*="value-"]) {
-    display: none !important;
-  }
-  
-  :deep(.price-axis) {
-    display: none !important;
-  }
 }
 
 .third {

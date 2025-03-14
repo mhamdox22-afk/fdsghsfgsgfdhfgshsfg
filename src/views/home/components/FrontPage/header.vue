@@ -24,20 +24,14 @@
         </div>
       </div>
     </div>
+
+    <!-- 小k线图 -->
     <div class="currentList">
+      <!--  -->
       <div class="item centerItem" v-for="(item, index) in dataList.filter((it, idx) => {
-        return idx < 4
+        return idx < 1
       })" :key="index" @click="linkTo(item)">
         <div class="itemTop fw-num">{{ item.showSymbol }}</div>
-        <div :class="[
-          _isRFD(
-            tradeStore.allCoinPriceInfo[item.coin]?.openPrice,
-            tradeStore.allCoinPriceInfo[item.coin]?.close
-          ),
-          'rfd-sign itemMain fw-num'
-        ]">
-          {{ tradeStore.allCoinPriceInfo[item.coin]?.priceChangePercent }}%
-        </div>
         <div :class="[
           _isRFD(
             tradeStore.allCoinPriceInfo[item.coin]?.open,
@@ -47,11 +41,50 @@
         ]">
           {{ tradeStore.allCoinPriceInfo[item.coin]?.close }}
         </div>
+        <div :class="[
+          _isRFD(
+            tradeStore.allCoinPriceInfo[item.coin]?.openPrice,
+            tradeStore.allCoinPriceInfo[item.coin]?.close
+          ),
+          'rfd-sign itemMain fw-num'
+        ]">
+          {{ tradeStore.allCoinPriceInfo[item.coin]?.priceChangePercent }}%
+        </div>
+
+      </div>
+      <Candlestick :coinInfo="coinInfo" type="secondContract"></Candlestick>
+      <div class="item centerItem" v-for="(item, index) in dataList.filter((it, idx) => {
+        return idx == 1
+      })" :key="index" @click="linkTo(item)">
+        <div class="itemTop fw-num">{{ item.showSymbol }}</div>
+        <div :class="[
+          _isRFD(
+            tradeStore.allCoinPriceInfo[item.coin]?.open,
+            tradeStore.allCoinPriceInfo[item.coin]?.close
+          ),
+          'itemFooter fw-num'
+        ]">
+          {{ tradeStore.allCoinPriceInfo[item.coin]?.close }}
+        </div>
+        <div :class="[
+          _isRFD(
+            tradeStore.allCoinPriceInfo[item.coin]?.openPrice,
+            tradeStore.allCoinPriceInfo[item.coin]?.close
+          ),
+          'rfd-sign itemMain fw-num'
+        ]">
+          {{ tradeStore.allCoinPriceInfo[item.coin]?.priceChangePercent }}%
+        </div>
+
       </div>
     </div>
+
+
   </div>
 </template>
 <script setup>
+import Candlestick from '@/views/trade/components/common/simapleCandlestick.vue'
+
 import { useTradeStore } from '@/store/trade/index'
 import { useMainStore } from '@/store/index.js'
 import { useRouter } from 'vue-router'
@@ -65,6 +98,28 @@ import mainImg1 from '@/assets/icons/main-img-1.jpg'
 import mainImg2 from '@/assets/icons/main-img-2.jpg'
 
 const show = ref(false)
+
+const coinInfo = ref({
+  "id": 42,
+  "symbol": "btcusdt",
+  "status": 1,
+  "showFlag": 1,
+  "coin": "btc",
+  "baseCoin": "usdt",
+  "market": "binance",
+  "sort": 0,
+  "searchValue": null,
+  "logo": "https://tg-mahalebi.oss-cn-hongkong.aliyuncs.com/waihui/bitcoin.png",
+  "showSymbol": "BTC/USDT",
+  "type": 2,
+  "coinType": 2,
+  "amount": 83308.77,
+  "open": 82351.29,
+  "isCollect": 1,
+  "baseCoinUpperCase": "USDT",
+  "coinUpperCase": "BTC",
+  "symbolUpperCase": "BTCUSDT"
+})
 const openSideBar = () => {
   show.value = true
 }
@@ -249,8 +304,8 @@ onUnmounted(() => {
   width: calc(100% - 30px);
   box-sizing: border-box;
   top: 268px;
-  background: linear-gradient(145deg, #1c1c23, #2a2a35);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  // background: linear-gradient(145deg, #1c1c23, #2a2a35);
+  // box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
   border-radius: 15px;
   display: flex;
   padding: 25px 0;
