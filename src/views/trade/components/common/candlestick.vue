@@ -156,6 +156,10 @@ const getHeadIntervalList = (tempCoinInfo = currentCoinInfo) => {
   return tempList
 }
 onMounted(async () => {
+  setTimeout(() => {
+    console.log(props.coinInfo, 'coinInfo')
+  }, 1000);
+
   Object.assign(currentCoinInfo, props.coinInfo)
   supportedResolutions = getSupportedResolutions()
   headIntervalList.splice(0, headIntervalList.length, ...getHeadIntervalList())
@@ -344,7 +348,7 @@ const initWidget = () => {
     
     // 自定义样式配置
     overrides: {
-      "paneProperties.background": "#121826",
+      "paneProperties.background": "#131316",
       "paneProperties.vertGridProperties.color": "rgba(255, 255, 255, 0.05)",
       "paneProperties.horzGridProperties.color": "rgba(255, 255, 255, 0.05)",
       "scalesProperties.textColor": "#ffffff",
@@ -407,7 +411,7 @@ const initWidget = () => {
     client_id: 'tradingview.com',
     user_id: 'public_user',
     loading_screen: {
-      backgroundColor: "#121826",
+      backgroundColor: "#131316",
       foregroundColor: "#2962FF"
     },
 
@@ -606,59 +610,24 @@ const setStudy = (name) => {
 </script>
 <template>
   <div>
-    <div class="third">
-      <div class="list">
-        <div class="thirdLeft">
-          <div
-            :class="{
-              'hightItem item ff-num': item.interval === currentInterval.interval,
-              'item ff-num': true
-            }"
-            v-for="(item, index) in headIntervalList"
-            :key="index"
-            @click="checkedInterval(item)"
-          >
-            {{ item.value }}
-          </div>
-        </div>
-        <!-- 更多 -->
-        <!-- <div
-          class="thirdRight"
-          v-show="currentCoinInfo.market != 'mt5'"
-          @click="showMenu = !showMenu"
-        >
-
-          <div>{{ _t18(`exchange_more`) }}</div>
-          <svg-load v-if="!showMenu" name="jiantou-x" class="thirdRightImg"></svg-load>
-          <svg-load v-if="showMenu" name="jiantou-s" class="thirdRightImg"></svg-load>
-        </div> -->
-      </div>
-    </div>
-    <div
-      class="selectTimes"
-      v-if="showMenu"
-      @touchmove.prevent
-      @mousewheel.prevent
-      @click="showMenu = false"
-    >
-      <div class="times">
-        <div
-          v-for="(item, index) in menuIntervalList"
-          :key="index"
-          :class="{ hightItem: item.interval === currentInterval.interval, 'item ff-num': true }"
-          @click="checkedInterval(item, 'menu')"
-        >
-          {{ item.value }}
-        </div>
+    <div class="time-interval-selector">
+      <div 
+        v-for="(item, index) in headIntervalList" 
+        :key="index"
+        :class="{'active': item.interval === currentInterval.interval, 'interval-item': true}"
+        @click="checkedInterval(item)"
+      >
+        {{ item.value }}
       </div>
     </div>
   </div>
   <div :id="klineId" class="candlestick"></div>
-  <div class="studyList">
-    <div
-      :class="item.name === currentStudy ? 'hightItem studyItem' : 'studyItem'"
-      v-for="(item, index) in studyList"
+  <div class="indicator-options">
+    <div class="indicator-option">交易</div>
+    <div 
+      v-for="(item, index) in studyList" 
       :key="index"
+      :class="{'active': item.name === currentStudy, 'indicator-option': true}"
       @click="setStudy(item.name)"
     >
       {{ item.label }}
@@ -669,150 +638,66 @@ const setStudy = (name) => {
 <style lang="scss" scoped>
 .candlestick {
   height: 348px;
-  background-color: #121826;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  margin: 0 8px;
-  transition: all 0.3s ease;
-}
-
-.third {
-  margin-top: 10px;
-  padding: 0px 15px 10px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  
-  .list {
-    background-color: #121826;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-radius: 8px;
-    padding: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-
-    .thirdLeft {
-      flex: 1;
-      background-color: #1a2233;
-      display: flex;
-      font-size: 14px;
-      color: #ffffff;
-      border-radius: 6px;
-      padding: 4px;
-
-      .item {
-        flex: 1;
-        margin-right: 30px;
-        padding: 6px 12px;
-        border-radius: 4px;
-        transition: all 0.2s ease;
-        text-align: center;
-        
-        &:hover {
-          background: rgba(255, 255, 255, 0.1);
-        }
-
-        &.hightItem {
-          background: #2c3d63;
-          color: #fff;
-          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-        }
-
-        &:last-child {
-          margin-right: 0;
-        }
-      }
-    }
-  }
-}
-
-.selectTimes {
-  position: fixed;
-  height: 100vh;
+  background-color: #131316;
   width: 100%;
-  background: rgba(0, 0, 0, 0.75);
-  backdrop-filter: blur(4px);
-  z-index: 10;
-  animation: fadeIn 0.2s ease;
-
-  .times {
-    background-color: #121826;
-    position: absolute;
-    width: 100%;
-    padding: 16px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    border-radius: 0 0 16px 16px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-    animation: slideDown 0.3s ease;
-
-    .item {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 8px 16px;
-      background: #1a2233;
-      border-radius: 6px;
-      font-size: 13px;
-      color: #ffffff;
-      transition: all 0.2s ease;
-      
-      &:hover {
-        background: #2c3d63;
-        transform: translateY(-1px);
-      }
-
-      &.hightItem {
-        background: #3366cc;
-        box-shadow: 0 2px 8px rgba(51, 102, 204, 0.3);
-      }
-    }
-  }
 }
 
-.studyList {
+.time-interval-selector {
   display: flex;
-  padding: 12px 15px;
-  background: #121826;
-  border-radius: 8px;
-  margin: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-
-  .studyItem {
+  background-color: #131316;
+  padding: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  
+  .interval-item {
+    flex: 1;
+    text-align: center;
+    padding: 10px 0;
+    color: #8c8c8c;
     font-size: 14px;
-    color: #ffffff;
-    margin-right: 30px;
-    padding: 6px 12px;
-    border-radius: 4px;
-    transition: all 0.2s ease;
-
-    &:hover {
-      background: rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+    position: relative;
+    
+    &.active {
+     color: #0DBB7C;
+      border-bottom: 2px solid transparent; /* Create space for the bar without affecting layout */
+      
+      &:after {
+        content: '';
+        position: absolute;
+        bottom: -1px;
+        left: 25%; /* Center the indicator bar */
+        width: 50%; /* Make the indicator bar width 50% of the tab */
+        height: 2px;
+      }
     }
+  }
+}
 
-    &.hightItem {
-      background: #2c3d63;
+.indicator-options {
+  display: flex;
+  background-color: #131316;
+  padding: 10px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  align-items: center; /* Vertically center items */
+  justify-content: space-around; /* Distribute items evenly */
+  
+  .indicator-option {
+    display: flex;
+    align-items: center; /* Vertically center text */
+    justify-content: center; /* Horizontally center text */
+    padding: 8px 0;
+    color: #8c8c8c;
+    font-size: 14px;
+    cursor: pointer;
+    flex: 1; /* Each item takes equal width */
+    text-align: center;
+    white-space: nowrap; /* Prevent text wrapping */
+    
+    &.active {
+      background-color: rgba(0, 0, 0, 0.35); /* Darker background for active item */
       color: #fff;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      border-radius: 4px;
     }
-  }
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes slideDown {
-  from {
-    transform: translateY(-100%);
-  }
-  to {
-    transform: translateY(0);
   }
 }
 </style>

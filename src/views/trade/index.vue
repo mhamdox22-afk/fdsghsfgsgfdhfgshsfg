@@ -5,7 +5,7 @@
     <van-sticky>
       <div class="headerList">
         <div class="left">
-          <svg-load name="jiantou-z" class="leftImg pulse-animation" @click="_back()"></svg-load>
+          <svg-load name="jiantou-z" class="leftImg" @click="_back()"></svg-load>
         </div>
         <div class="headerChoose">
           <van-tabs
@@ -13,8 +13,8 @@
             shrink
             :swipe-threshold="2"
             v-model:active="currentIndex"
-            :line-width="0"
-            title-active-color="#00ff9d"
+            :line-width="30"
+            title-active-color="linear-gradient(187.2204122539037deg, #18C8FF 0%, #933FFE 100%);"
             title-inactive-color="#8b8b8b"
           >
             <van-tab v-for="(item, index) in headerList" :key="index" :title="item.title">
@@ -125,14 +125,11 @@ onMounted(()=>{
 }
 
 .headerList {
-  height: 70px;
+  height: 50px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   display: flex;
   align-items: center;
-  background: #1a1a1a;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(10px);
-  transition: all 0.3s ease;
+  background: #121212;
   padding-left: 15px;
 
   .left {
@@ -158,9 +155,10 @@ onMounted(()=>{
     display: flex;
     padding: 0 15px 0 0;
     background: transparent;
+    flex: 1;
 
     :deep(.van-tabs__wrap) {
-      height: 69px;
+      height: 49px;
     }
 
     :deep(.van-tabs__nav) {
@@ -170,37 +168,29 @@ onMounted(()=>{
     :deep(.van-tab) {
       flex: none;
       font-size: 16px;
-      margin-right: 30px;
+      margin-right: 20px;
       padding: 0;
-      color: #ffffff !important;
+      color: #8b8b8b;
       background: transparent;
       position: relative;
       transition: all 0.3s ease;
     }
 
-    :deep(.van-tab::after) {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      width: 0;
-      height: 2px;
-      background: #00ff9d;
-      transition: all 0.3s ease;
-      transform: translateX(-50%);
-      opacity: 0;
-    }
-
     :deep(.van-tab--active) {
-      transform: scale(1.05);
       font-weight: 500;
-      color: #00ff9d !important;
-      text-shadow: 0 0 10px rgba(0, 255, 157, 0.3);
     }
 
-    :deep(.van-tab--active::after) {
-      width: 100%;
-      opacity: 1;
+    :deep(.van-tab--active .van-tab__text) {
+      background: linear-gradient(180deg, #18c8ff 0%, #933ffe 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      color: transparent !important;
+    }
+
+    :deep(.van-tabs__line) {
+      background: linear-gradient(180deg, #18c8ff 0%, #933ffe 100%);
+      bottom: 12px;
     }
   }
 }

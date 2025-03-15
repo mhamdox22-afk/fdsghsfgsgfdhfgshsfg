@@ -26,56 +26,99 @@
     </div>
 
     <!-- 小k线图 -->
-    <div class="currentList">
-      <!--  -->
-      <div class="item centerItem" v-for="(item, index) in dataList.filter((it, idx) => {
-        return idx < 1
-      })" :key="index" @click="linkTo(item)">
-        <div class="itemTop fw-num">{{ item.showSymbol }}</div>
-        <div :class="[
-          _isRFD(
-            tradeStore.allCoinPriceInfo[item.coin]?.open,
-            tradeStore.allCoinPriceInfo[item.coin]?.close
-          ),
-          'itemFooter fw-num'
-        ]">
-          {{ tradeStore.allCoinPriceInfo[item.coin]?.close }}
+    <div class="currentList" style="display: flex;width: 100%;overflow-x: auto;padding: 0 10px;">
+      <!-- BTC Section -->
+      <div style="background: #1D1E27;
+border-radius: 15px;
+display: flex;
+flex-direction: row;
+width: 100%;
+margin-right: 10px;
+">
+        <div class="item centerItem" v-if="dataList[0]" @click="linkTo(dataList[0])">
+          <div class="itemTop fw-num">{{ dataList[0].showSymbol }}</div>
+          <div :class="[
+            _isRFD(
+              tradeStore.allCoinPriceInfo[dataList[0].coin]?.open,
+              tradeStore.allCoinPriceInfo[dataList[0].coin]?.close
+            ),
+            'itemFooter fw-num'
+          ]">
+            {{ tradeStore.allCoinPriceInfo[dataList[0].coin]?.close }}
+          </div>
+          <div :class="[
+            _isRFD(
+              tradeStore.allCoinPriceInfo[dataList[0].coin]?.openPrice,
+              tradeStore.allCoinPriceInfo[dataList[0].coin]?.close
+            ),
+            'rfd-sign itemMain fw-num'
+          ]">
+            {{ tradeStore.allCoinPriceInfo[dataList[0].coin]?.priceChangePercent }}%
+          </div>
         </div>
-        <div :class="[
-          _isRFD(
-            tradeStore.allCoinPriceInfo[item.coin]?.openPrice,
-            tradeStore.allCoinPriceInfo[item.coin]?.close
-          ),
-          'rfd-sign itemMain fw-num'
-        ]">
-          {{ tradeStore.allCoinPriceInfo[item.coin]?.priceChangePercent }}%
-        </div>
-
+        <Candlestick :coinInfo="coinInfo" type="secondContract"></Candlestick>
       </div>
-      <Candlestick :coinInfo="coinInfo" type="secondContract"></Candlestick>
-      <div class="item centerItem" v-for="(item, index) in dataList.filter((it, idx) => {
-        return idx == 1
-      })" :key="index" @click="linkTo(item)">
-        <div class="itemTop fw-num">{{ item.showSymbol }}</div>
-        <div :class="[
-          _isRFD(
-            tradeStore.allCoinPriceInfo[item.coin]?.open,
-            tradeStore.allCoinPriceInfo[item.coin]?.close
-          ),
-          'itemFooter fw-num'
-        ]">
-          {{ tradeStore.allCoinPriceInfo[item.coin]?.close }}
-        </div>
-        <div :class="[
-          _isRFD(
-            tradeStore.allCoinPriceInfo[item.coin]?.openPrice,
-            tradeStore.allCoinPriceInfo[item.coin]?.close
-          ),
-          'rfd-sign itemMain fw-num'
-        ]">
-          {{ tradeStore.allCoinPriceInfo[item.coin]?.priceChangePercent }}%
-        </div>
+      <!-- ETH Section -->
+      <div style="background: #1D1E27;
+border-radius: 15px;
+display: flex;
+flex-direction: row;
+width: 100%;
+margin-right: 10px;
 
+">
+        <div class="item centerItem" v-if="dataList[1]" @click="linkTo(dataList[1])">
+          <div class="itemTop fw-num">{{ dataList[1].showSymbol }}</div>
+          <div :class="[
+            _isRFD(
+              tradeStore.allCoinPriceInfo[dataList[1].coin]?.open,
+              tradeStore.allCoinPriceInfo[dataList[1].coin]?.close
+            ),
+            'itemFooter fw-num'
+          ]">
+            {{ tradeStore.allCoinPriceInfo[dataList[1].coin]?.close }}
+          </div>
+          <div :class="[
+            _isRFD(
+              tradeStore.allCoinPriceInfo[dataList[1].coin]?.openPrice,
+              tradeStore.allCoinPriceInfo[dataList[1].coin]?.close
+            ),
+            'rfd-sign itemMain fw-num'
+          ]">
+            {{ tradeStore.allCoinPriceInfo[dataList[1].coin]?.priceChangePercent }}%
+          </div>
+        </div>
+        <Candlestick :coinInfo="coinInfo2" type="secondContract2"></Candlestick>
+      </div>
+      <!-- XAU Section -->
+      <div style="background: #1D1E27;
+border-radius: 15px;
+display: flex;
+flex-direction: row;
+width: 100%;
+">
+        <div class="item centerItem" v-if="dataList[2]" @click="linkTo(dataList[2])">
+          <div class="itemTop fw-num">{{ dataList[2].showSymbol }}</div>
+          <div :class="[
+            _isRFD(
+              tradeStore.allCoinPriceInfo[dataList[2].coin]?.open,
+              tradeStore.allCoinPriceInfo[dataList[2].coin]?.close
+            ),
+            'itemFooter fw-num'
+          ]">
+            {{ tradeStore.allCoinPriceInfo[dataList[2].coin]?.close }}
+          </div>
+          <div :class="[
+            _isRFD(
+              tradeStore.allCoinPriceInfo[dataList[2].coin]?.openPrice,
+              tradeStore.allCoinPriceInfo[dataList[2].coin]?.close
+            ),
+            'rfd-sign itemMain fw-num'
+          ]">
+            {{ tradeStore.allCoinPriceInfo[dataList[2].coin]?.priceChangePercent }}%
+          </div>
+        </div>
+        <Candlestick :coinInfo="coinInfo3" type="secondContract3"></Candlestick>
       </div>
     </div>
 
@@ -120,6 +163,54 @@ const coinInfo = ref({
   "coinUpperCase": "BTC",
   "symbolUpperCase": "BTCUSDT"
 })
+
+const coinInfo2 = ref({
+  "id": 43,
+  "symbol": "ethusdt",
+  "status": 1,
+  "showFlag": 1,
+  "coin": "eth",
+  "baseCoin": "usdt",
+  "market": "binance",
+  "sort": 1,
+  "searchValue": null,
+  "logo": "https://tg-mahalebi.oss-cn-hongkong.aliyuncs.com/waihui/ethereum.png",
+  "showSymbol": "ETH/USDT",
+  "type": 2,
+  "coinType": 2,
+  "amount": 1926.7,
+  "open": 1880.54,
+  "isCollect": 1,
+  "baseCoinUpperCase": "USDT",
+  "coinUpperCase": "ETH",
+  "symbolUpperCase": "ETHUSDT"
+})
+
+
+const coinInfo3 = ref({
+  "id": 65,
+  "symbol": "XAU",
+  "status": 1,
+  "showFlag": 1,
+  "coin": "xau",
+  "baseCoin": "XAU",
+  "market": "metal",
+  "sort": 31,
+  "searchValue": null,
+  "logo": "https://tg-mahalebi.oss-cn-hongkong.aliyuncs.com/waihui/XAU.png",
+  "showSymbol": "XAU/USDT",
+  "type": 2,
+  "coinType": 3,
+  "amount": 2986,
+  "open": 2986,
+  "isCollect": 2,
+  "baseCoinUpperCase": "XAU",
+  "coinUpperCase": "XAU",
+  "symbolUpperCase": "XAU"
+})
+
+const coinInfoArray = [coinInfo, coinInfo2, coinInfo3]
+
 const openSideBar = () => {
   show.value = true
 }
@@ -364,15 +455,16 @@ onUnmounted(() => {
     align-items: center;
     position: relative;
 
-    &::after {
-      content: '';
-      position: absolute;
-      right: 0;
-      top: 15%;
-      height: 70%;
-      width: 1px;
-      background: rgba(255, 255, 255, 0.1);
-    }
+    // Remove or comment out the ::after pseudo-element that creates the vertical line
+    // &::after {
+    //   content: '';
+    //   position: absolute;
+    //   right: 0;
+    //   top: 15%;
+    //   height: 70%;
+    //   width: 1px;
+    //   background: rgba(255, 255, 255, 0.1);
+    // }
 
     &:last-child::after {
       display: none;

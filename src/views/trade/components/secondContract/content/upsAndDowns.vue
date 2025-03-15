@@ -48,7 +48,7 @@
             </div>
           </div>
         </div>
-        <div class="item">
+        <div class="item" style="margin-top: 20px;">
           <!-- 买入量 -->
           <div class="firstHeader fw-bold">{{ _t18(`buying_volume`, ['ebc']) }}</div>
           <!-- 最少 -->
@@ -65,7 +65,7 @@
             label-width="0"
             class="inputQuantity"
           />
-          <div class="quantityList">
+          <div class="quantityList" style="margin-top: 10px;">
             <div
               v-show="item.show"
               class="item fw-num"
@@ -739,23 +739,37 @@ input::-ms-input-placeholder {
 }
 
 .quantityList {
-  padding: 10px 0 5px;
+  padding: 15px 0 10px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: flex-start;
+  gap: 10px;
+  
   .item {
-    width: 25%;
+    flex: 0 0 auto;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 75px;
-    height: 36px;
-    background: var(--ex-div-bgColor17);
-    color: var(--ex-font-color6);
-    border-radius: 3px 3px 3px 3px;
-    font-size: 14px;
-    margin: 0 5px 15px;
+    min-width: 60px;
+    height: 40px;
+    padding: 0 5px;
+    background: var(--ex-div-bgColor17, #1e1e1e);
+    color: var(--ex-font-color6, #e0e0e0);
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+   
+    
+    &:active {
+      transform: scale(0.95);
+    }
+    
+    &.hightColor {
+      background: var(--ex-div-bgColor1, #2ebd85);
+      color: #FFFFFF;
+    }
   }
 }
 .upsAndDowns {
@@ -847,7 +861,6 @@ input::-ms-input-placeholder {
   }
   
   .item {
-    margin-bottom: 24px;
 
     .firstHeader {
       background: linear-gradient(135deg, #FFFFFF 0%, #E0E0E0 100%);

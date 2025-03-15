@@ -297,20 +297,13 @@ const submit = () => {
 }
 
 .hightItem {
-  color: var(--dark-primary) !important;
+  background: linear-gradient(180deg, #18C8FF 0%, #933FFE 100%);
   position: relative;
+  color: #FFFFFF;
+  -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   
-  &::after {
-    content: '';
-    position: absolute;
-    bottom: -2px;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background: var(--dark-primary);
-    transform: scaleX(1);
-    transition: transform 0.3s ease;
-  }
+
 }
 
 .line {
@@ -342,7 +335,6 @@ const submit = () => {
       transition: all 0.3s ease;
       
       &:hover {
-        background: rgba(255, 255, 255, 0.05);
         transform: translateY(-1px);
       }
       
