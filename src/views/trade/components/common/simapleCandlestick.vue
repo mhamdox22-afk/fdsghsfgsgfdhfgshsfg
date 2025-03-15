@@ -784,7 +784,7 @@ const setStudy = (name) => {
 
 <style lang="scss" scoped>
 .candlestick {
-  min-width: 100px;
+  min-width: 150px;
   height: 100px;
   margin: 0 8px;
   transition: all 0.3s ease;

@@ -335,26 +335,69 @@ const initWidget = () => {
   let theme = 'dark' // 强制使用深色主题
   widget = new TradingView.widget({
     symbol: props.coinInfo.symbolUpperCase,
-    theme,
+    theme: 'dark',
     debug: false,
     autosize: true,
     interval: currentInterval.interval,
     container_id: klineId.value,
     datafeed: datafeeds,
     library_path: '/charting_library/',
-    custom_css_url: `../tradingview_${theme}.css`,
     locale: 'en',
     timezone: mainStore.timezone,
     
-    // 自定义样式配置
+    // Display configuration
+    toolbar_bg: "#131316",
+    studies_access: { type: "black", tools: [] },
+    drawings_access: { type: "black", tools: [] },
+    
+    // Hide UI elements
+    disabled_features: [
+      "header_symbol_search",
+      "header_settings",
+      "header_compare",
+      "header_undo_redo",
+      "timeframes_toolbar",
+      "left_toolbar", 
+      "control_bar",
+      "popup_hints",
+      "go_to_date",
+      "volume_force_overlay",
+      "chart_property_page_trading",
+      "property_pages"
+    ],
+    
+    // Enable necessary features
+    enabled_features: [
+      "hide_left_toolbar_by_default",
+      "use_localstorage_for_settings",
+      "create_volume_indicator_by_default",
+      "show_price_scale_on_right",
+      "show_ohlc_values",
+      "legend_widget",
+      "uppercase_instrument_names",
+      "no_legend_on_touch_devices",
+      "simple_legend_context_menu"
+    ],
+    
+    // Chart appearance
     overrides: {
+      // Background & Grid
       "paneProperties.background": "#131316",
       "paneProperties.vertGridProperties.color": "rgba(255, 255, 255, 0.05)",
       "paneProperties.horzGridProperties.color": "rgba(255, 255, 255, 0.05)",
-      "scalesProperties.textColor": "#ffffff",
-      "scalesProperties.backgroundColor": "#1a2233",
       
-      // 蜡烛图颜色
+      // Price Scale
+      "scalesProperties.textColor": "#ffffff",
+      "scalesProperties.backgroundColor": "#131316",
+      "scalesProperties.lineColor": "rgba(255, 255, 255, 0.1)",
+      
+      // OHLC Display Format
+      "mainSeriesProperties.statusViewStyle.symbolTextSource": "ticker",
+      "mainSeriesProperties.statusViewStyle.showExchange": false,
+      "mainSeriesProperties.statusViewStyle.showSeriesTitle": false,
+      "mainSeriesProperties.statusViewStyle.priceSource": "close",
+      
+      // Candle Colors
       "mainSeriesProperties.candleStyle.upColor": "#26a69a",
       "mainSeriesProperties.candleStyle.downColor": "#ef5350",
       "mainSeriesProperties.candleStyle.drawWick": true,
@@ -364,35 +407,26 @@ const initWidget = () => {
       "mainSeriesProperties.candleStyle.wickUpColor": "#26a69a",
       "mainSeriesProperties.candleStyle.wickDownColor": "#ef5350",
       
-      // 图表样式
-      "mainSeriesProperties.style": 1,
-      "mainSeriesProperties.showCountdown": true,
-      
-      // 成交量颜色
+      // Volume display
       "volumePaneSize": "medium",
       "volume.volume.color.0": "rgba(239, 83, 80, 0.5)",
-      "volume.volume.color.1": "rgba(38, 166, 154, 0.5)", 
+      "volume.volume.color.1": "rgba(38, 166, 154, 0.5)",
+      
+      // Legend configuration to match screenshot
+      "paneProperties.legendProperties.showLegend": true,
+      "paneProperties.legendProperties.showSeriesOHLC": true,
+      "paneProperties.legendProperties.showStudyValues": true,
+      "paneProperties.legendProperties.showStudyTitles": true,
+      "paneProperties.legendProperties.showStudyArguments": true,
+      "paneProperties.legendProperties.showSeriesTitle": false,
+      "paneProperties.legendProperties.showBarChange": false,
+      
+      // Moving Average style
+      "MovingAverage.linewidth": 1,
+      "MovingAverage.plottype": 0, // Line
     },
     
-    // 禁用一些功能按钮
-    disabled_features: [
-      "header_symbol_search",
-      "header_settings",
-      "header_compare",
-      "header_undo_redo",
-      "timeframes_toolbar",
-      "volume_force_overlay"
-    ],
-    
-    // 启用的功能
-    enabled_features: [
-      "hide_left_toolbar_by_default",
-      "use_localstorage_for_settings",
-      "save_chart_properties_to_local_storage",
-      "create_volume_indicator_by_default"
-    ],
-
-    // 自定义日期格式化
+    // Formatting configuration
     customFormatters: {
       dateFormatter: {
         format(date) {
@@ -405,21 +439,18 @@ const initWidget = () => {
         }
       }
     },
-
-    // 图表样式
-    charts_storage_url: 'https://saveload.tradingview.com',
-    client_id: 'tradingview.com',
-    user_id: 'public_user',
+    
     loading_screen: {
       backgroundColor: "#131316",
       foregroundColor: "#2962FF"
     },
-
+    
     preset: "mobile"
   })
   
   widget.onChartReady(() => {
-    createStudy()
+    // createStudy() // Comment this out to avoid conflicting indicators
+    addMultipleMovingAverages() // This will handle all indicators
   })
 }
 
@@ -607,6 +638,55 @@ const setStudy = (name) => {
   })
   newStudy.list = tempList
 }
+
+/**
+ * 添加多个移动平均线 - 精确匹配截图显示
+ */
+const addMultipleMovingAverages = () => {
+  const activeChart = widget.activeChart()
+  
+  // 清除所有现有研究
+  activeChart.getAllStudies().forEach(study => {
+    activeChart.removeEntity(study.id);
+  });
+  
+  // 黄色MA
+  activeChart.createStudy('Moving Average', false, false, [9, "close", 0], {
+    'plot.color': '#F0CB35',
+    'plot.linewidth': 1,
+  });
+  
+  // 青色MA
+  activeChart.createStudy('Moving Average', false, false, [9, "close", 0], {
+    'plot.color': '#2DA1EC', 
+    'plot.linewidth': 1,
+  });
+  
+  // 紫色MA
+  activeChart.createStudy('Moving Average', false, false, [9, "close", 0], {
+    'plot.color': '#8E59F0',
+    'plot.linewidth': 1,
+  });
+  
+  // 配置图表展示格式
+  widget.applyOverrides({
+    "symbolWatermarkProperties.color": "rgba(0, 0, 0, 0)",
+    "paneProperties.legendProperties.showStudyArguments": true,
+    "paneProperties.legendProperties.showStudyValues": true,
+    "paneProperties.legendProperties.showStudyTitles": true
+  });
+  
+  // 设置特定的图例格式
+  widget.chart().getAllStudies().forEach(study => {
+    widget.chart().getStudyById(study.id).applyOverrides({
+      "styleName": "Moving Average",
+      "showInDataWindow": true,
+      "showLastValue": true,
+      "showStudyArguments": true,
+      "showStudyTitles": true
+    });
+  });
+}
 </script>
 <template>
   <div>
@@ -640,6 +720,7 @@ const setStudy = (name) => {
   height: 348px;
   background-color: #131316;
   width: 100%;
+  position: relative;
 }
 
 .time-interval-selector {
@@ -658,16 +739,16 @@ const setStudy = (name) => {
     position: relative;
     
     &.active {
-     color: #0DBB7C;
-      border-bottom: 2px solid transparent; /* Create space for the bar without affecting layout */
+      color: #0DBB7C;
       
       &:after {
         content: '';
         position: absolute;
         bottom: -1px;
-        left: 25%; /* Center the indicator bar */
-        width: 50%; /* Make the indicator bar width 50% of the tab */
+        left: 25%;
+        width: 50%;
         height: 2px;
+        background-color: #0DBB7C;
       }
     }
   }

@@ -26,7 +26,7 @@
     </div>
 
     <!-- 小k线图 -->
-    <div class="currentList" style="display: flex;width: 100%;overflow-x: auto;padding: 0 10px;">
+    <div class="currentList" style="display: flex;width: 100%;overflow-x: auto;padding: 0 10px;scrollbar-width: none;-ms-overflow-style: none;">
       <!-- BTC Section -->
       <div style="background: #1D1E27;
 border-radius: 15px;
@@ -401,6 +401,10 @@ onUnmounted(() => {
   display: flex;
   padding: 25px 0;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 
   &:hover {
     transform: translateX(-50%) translateY(-2px);

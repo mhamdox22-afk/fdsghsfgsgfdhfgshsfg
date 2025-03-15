@@ -243,7 +243,7 @@ const toRecharge = () => {
 </script>
 <style lang="scss" scoped>
 .main {
-  padding: 160px 0px 0;
+  padding: 120px 0px 0;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
