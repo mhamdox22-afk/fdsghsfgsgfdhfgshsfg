@@ -409,7 +409,8 @@ onUnmounted(() => {
       margin-bottom: 4px;
       padding: 0 5px;
       .itemName {
-        color: var(--ex-default-font-color);
+        // color: var(--ex-default-font-color);
+        color: #fff;
       }
       .hightItem {
         transition: 0.5s;
@@ -427,12 +428,30 @@ onUnmounted(() => {
     color: var(--ex-passive-font-color);
     padding: 12px 0;
     .centername {
-      color: var(--ex-default-font-color);
+      color: #17eead; /* Updated color for current price */
       font-size: 16px;
       margin-bottom: 3px;
     }
   }
 }
+/* Adding styling for fall/rise classes to match the image */
+.fall {
+  color: #ea3a5b !important; /* Red color for asks/sell orders */
+}
+
+.rise {
+  color: #17eead !important; /* Green color for bids/buy orders */
+}
+
+/* Background colors for depth visualization */
+.hightItem.fall.rfd-bg {
+  background-color: rgba(234, 58, 91, 0.2); /* Semi-transparent red for asks depth */
+}
+
+.hightItem.rise.rfd-bg {
+  background-color: rgba(23, 238, 173, 0.2); /* Semi-transparent green for bids depth */
+}
+
 .leftBottom {
   margin-top: 5px;
   display: flex;
@@ -444,11 +463,12 @@ onUnmounted(() => {
     align-items: center;
     width: 118px;
     height: 25px;
-    background: var(--ex-div-bgColor);
+    background: #131316;
     border-radius: 2px;
     font-size: 12px;
     font-weight: 500;
-    color: var(--ex-default-font-color);
+    border: 1px solid #29292c;
+    color: #fff;
     .img {
       width: 10px;
       height: 5px;
@@ -460,7 +480,7 @@ onUnmounted(() => {
     align-items: center;
     width: 27px;
     height: 25px;
-    background: var(--ex-div-bgColor);
+    background: #131316;
     border-radius: 2px;
     .img {
       width: 15px;

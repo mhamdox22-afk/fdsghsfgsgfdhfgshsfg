@@ -509,53 +509,72 @@ onUnmounted(() => {
 
 <style lang="scss" scoped>
 .hightColor {
-  color: var(--ex-font-color) !important;
-  background-color: var(--ex-div-bgColor1) !important;
+  color: #ffffff !important;
+  background-color: #28c285 !important; // 买入按钮绿色
 }
 .hightColorRed {
-  color: var(--ex-font-color) !important;
-  background-color: var(--ex-div-bgColor7) !important;
+  color: #ffffff !important;
+  background-color: #484852 !important; // 卖出按钮灰色
 }
 .rightScondList {
   width: 180px;
-  background-color: var(--ex-default-background-color);
+  background-color: #1a1a1a;
   padding: 5px 0;
   font-size: 12px;
-  color: var(--ex-passive-font-color);
+  color: #8c8c8c;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+  
   .rightScondListItem {
     padding: 10px 0;
     text-align: center;
-    // background: var(--ex-div-bgColor);
+    transition: all 0.3s ease;
+    
+    &:hover {
+      background: #2a2a2a;
+      color: #fff;
+    }
+    
+    &.hightBlue {
+      color: #28c285;
+    }
   }
 }
+
 .content {
   display: flex;
-  padding: 20px 15px;
+  padding: 15px;
   background: #1a1a1a; // 深色背景
   
-  & > div {
+  &_left {
+    flex: 1;
+    margin-right: 15px;
+  }
+  
+  &_right {
     flex: 1;
     transition: all 0.3s ease;
     
     .rightFirst {
-      height: 32px; // 稍微增加高度
+      height: 40px; // 增加高度匹配图片
       display: flex;
-      gap: 8px; // 添加间距
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
       
       .name {
         display: flex;
         align-items: center;
         justify-content: center;
         flex: 1;
-        font-size: 13px;
+        font-size: 14px;
+        font-weight: 500;
         color: #fff;
-        background: #2c2c2c;
-        border-radius: 6px;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        background: #484852; // 默认灰色背景
         transition: all 0.3s ease;
         
         &:active {
-          transform: scale(0.98);
+          opacity: 0.9;
         }
       }
     }
@@ -565,20 +584,21 @@ onUnmounted(() => {
       
       .entrustSelect {
         font-size: 13px;
-        width: 180px;
+        width: 100%;
         height: 38px;
-        background: #2c2c2c;
+        background: #2a2a2a;
         border-radius: 6px;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        box-shadow: 0 2px 6px rgba(0,0,0,0.2);
         display: flex;
         align-items: center;
         justify-content: center;
         position: relative;
         color: #fff;
         transition: all 0.3s ease;
+        padding: 0 6px;
 
         &:active {
-          transform: scale(0.98);
+          opacity: 0.9;
         }
 
         .img {
@@ -595,56 +615,65 @@ onUnmounted(() => {
 
     .rightThird {
       margin-top: 10px;
-      width: 180px;
-      height: 33px;
-      background: var(--ex-div-bgColor5);
-      border-radius: 2px 2px 2px 2px;
-      font-size: 12px;
-      color: var(--ex-passive-font-color);
+      width: 100%;
+      height: 38px;
+      background: #2a2a2a;
+      border-radius: 6px;
+      font-size: 13px;
+      color: #8c8c8c;
       display: flex;
       justify-content: center;
       align-items: center;
     }
 
     .rightFourth {
-      margin: 15px 0;
-      padding: 10px;
-      background: #2c2c2c;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-
+      margin: 20px 0;
+      
       .slider-t {
         display: flex;
         justify-content: space-between;
-        gap: 4px;
+        gap: 3px;
+        margin-bottom: 5px;
         
         .item {
-          height: 8px;
+          flex: 1;
+          height: 4px;
           background: #3a3a3a;
-          border-radius: 4px;
+          border-radius: 2px;
           overflow: hidden;
           
           .hightItem {
             height: 100%;
-            background: linear-gradient(90deg, #4a9eff, #2d7bd4);
-            border-radius: 4px;
+            background: #28c285; // 绿色滑块
+            border-radius: 2px;
             transition: width 0.3s ease;
+            
+            &.hightColorRed {
+              background: #484852; // 灰色滑块
+            }
           }
         }
       }
 
       .slider-name {
+        display: flex;
+        justify-content: space-between;
         margin: 8px 0;
         
         .item {
-          font-size: 12px;
-          color: #888;
+          font-size: 13px;
+          color: #8c8c8c;
           transition: color 0.3s ease;
+          cursor: pointer;
           
           &.itemHight {
             color: #fff;
           }
         }
+      }
+      
+      .van-slider {
+        margin: 15px 0;
       }
     }
 
@@ -652,19 +681,21 @@ onUnmounted(() => {
       margin-top: 12px;
       
       .amount {
-        width: 180px;
-        height: 38px;
-        background: #2c2c2c;
+        width: 100%;
+        height: 42px;
+        background: #2a2a2a;
         border-radius: 6px;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-        font-size: 13px;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+        font-size: 14px;
         color: #fff;
         text-align: center;
         transition: all 0.3s ease;
+        border: none;
+        outline: none;
+        padding: 0 15px;
 
         &:focus {
           box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-          transform: translateY(-1px);
         }
       }
 
@@ -676,14 +707,17 @@ onUnmounted(() => {
     .rightSix {
       flex: 1;
       width: 100%;
-      margin-top: 10px;
+      margin-top: 15px;
+      margin-bottom: 5px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-size: 12px;
-      color: var(--ex-passive-font-color);
+      font-size: 13px;
+      color: #8c8c8c;
+      
       .number {
-        color: var(--ex-default-font-color);
+        color: #fff;
+        font-weight: 500;
       }
     }
 
@@ -692,65 +726,47 @@ onUnmounted(() => {
     }
 
     .rightSeven {
-      margin-top: 15px;
       
       .maybutton {
-        height: 44px;
-        background: linear-gradient(90deg, #4a9eff, #2d7bd4);
+        height: 48px;
+        background: #28c285; // 绿色按钮
         border-radius: 8px;
-        font-size: 15px;
+        font-size: 16px;
         color: #fff;
         font-weight: 500;
         display: flex;
         justify-content: center;
         align-items: center;
-        box-shadow: 0 4px 12px rgba(74,158,255,0.3);
+        box-shadow: 0 4px 12px rgba(40,194,133,0.2);
         transition: all 0.3s ease;
 
         &:active {
           transform: scale(0.98);
-          box-shadow: 0 2px 8px rgba(74,158,255,0.2);
+          box-shadow: 0 2px 8px rgba(40,194,133,0.1);
         }
 
         &.hightColorRed {
-          background: linear-gradient(90deg, #ff4a4a, #d42d2d);
-          box-shadow: 0 4px 12px rgba(255,74,74,0.3);
+          background: #484852; // 灰色按钮
+          box-shadow: 0 4px 12px rgba(72,72,82,0.2);
+          
+          &:active {
+            box-shadow: 0 2px 8px rgba(72,72,82,0.1);
+          }
         }
       }
     }
   }
 }
 
-.rightScondList {
-  width: 180px;
-  background: #2c2c2c;
-  border-radius: 8px;
-  padding: 8px 0;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.3);
-
-  .rightScondListItem {
-    padding: 12px 0;
-    text-align: center;
-    color: #888;
-    transition: all 0.3s ease;
-    
-    &:hover {
-      background: #3a3a3a;
-      color: #fff;
-    }
-  }
-}
-
-// 添加深色主题变量覆盖
+// 默认全局变量覆盖
 :root {
   --ex-default-background-color: #1a1a1a;
-  --ex-div-bgColor: #2c2c2c;
-  --ex-div-bgColor1: #4a9eff;
-  --ex-div-bgColor7: #ff4a4a;
+  --ex-div-bgColor: #2a2a2a;
+  --ex-div-bgColor1: #28c285;
+  --ex-div-bgColor7: #484852;
   --ex-default-font-color: #fff;
-  --ex-passive-font-color: #888;
+  --ex-passive-font-color: #8c8c8c;
   --ex-font-color: #fff;
-  --ex-font-color5: #666;
 }
 
 // 添加滑入动画
@@ -761,7 +777,7 @@ onUnmounted(() => {
 @keyframes slideIn {
   from {
     opacity: 0;
-    transform: translateY(10px);
+    transform: translateY(5px);
   }
   to {
     opacity: 1;
@@ -770,13 +786,23 @@ onUnmounted(() => {
 }
 
 .line {
-  height: 5px;
-  background: var(--ex-div-bgColor10);
+  height: 8px;
+  background: #242424;
 }
+
 .rightLine {
-  height: 10px;
+  height: 8px;
 }
+
+// 自定义滑块样式
 .van-slider__bar {
-  background: var(--ex-div-bgColor1) !important;
+  background: #28c285 !important;
+}
+
+.van-slider__button {
+  width: 18px !important;
+  height: 18px !important;
+  background: #fff !important;
+  border: 2px solid #28c285 !important;
 }
 </style>

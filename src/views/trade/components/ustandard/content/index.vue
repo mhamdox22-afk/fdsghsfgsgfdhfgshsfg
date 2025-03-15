@@ -10,7 +10,7 @@
         <!-- 市价/限价委托  杠杆倍数 -->
         <div class="rightFirst">
           <div class="left firstItem">
-            <van-popover v-model:show="showPopover" :show-arrow="false">
+            <van-popover v-model:show="showPopover" :show-arrow="false" placement="bottom">
               <div class="rightScondList">
                 <!-- 市价委托 -->
                 <div
@@ -31,7 +31,6 @@
               </div>
               <template #reference>
                 <div class="entrustSelect left">
-                  <!-- transactionLabel ? '市价委托' : '限价委托'  -->
                   <div>
                     {{ transactionLabel ? _t18(`bb_market_order`) : _t18(`bb_Limit_order`) }}
                   </div>
@@ -44,7 +43,7 @@
             </van-popover>
           </div>
           <div class="right firstItem">
-            <van-popover v-model:show="showPopoverNum" :show-arrow="false">
+            <van-popover v-model:show="showPopoverNum" :show-arrow="false" placement="bottom">
               <div class="rightScondListNum" v-if="numList.length > 0">
                 <div
                   v-for="item in numList"
@@ -59,17 +58,19 @@
               <template #reference>
                 <div class="entrustSelect right">
                   <div class="fw-num">{{ transactionNum }}</div>
-                  <svg-load v-if="!showPopoverNum" name="jiantou10x5-x" class="img"></svg-load>
-                  <svg-load v-if="showPopoverNum" name="jiantou10x5-s" class="img"></svg-load>
+                  <svg-load
+                    :name="showPopoverNum ? 'jiantou10x5-s' : 'jiantou10x5-x'"
+                    class="img"
+                  ></svg-load>
                 </div>
               </template>
             </van-popover>
           </div>
         </div>
         <!-- 市价占位 -->
-        <div class="rightThird" v-if="transactionLabel">{{ _t18(`market_price`) }}</div>
+        <div class="marketPrice" v-if="transactionLabel">{{ _t18(`market_price`) }}</div>
         <!-- 市价委托：数量(手lots/张lots2) -->
-        <div class="rightFifth" v-if="transactionLabel">
+        <div class="inputField" v-if="transactionLabel">
           <input
             type="number"
             v-model.trim="delegateTotal"
@@ -78,7 +79,7 @@
           />
         </div>
         <!-- 限价委托：价格，数量 -->
-        <div class="rightFifth" v-if="!transactionLabel">
+        <div class="inputField" v-if="!transactionLabel">
           <!-- 价格 -->
           <input
             type="number"
@@ -87,7 +88,7 @@
             :placeholder="_t18(`price`)"
           />
         </div>
-        <div class="rightFifth" v-if="!transactionLabel">
+        <div class="inputField" v-if="!transactionLabel">
           <!-- 数量(手lots/张lots2) -->
           <input
             type="number"
@@ -97,129 +98,107 @@
           />
         </div>
         <!-- slider滑动条 -->
-        <div class="rightFourth">
-          <div class="lineBg">
-            <div
-              :class="
-                sliderValue === 0 ? 'node' : index * 25 > sliderValue ? 'node' : 'node active'
-              "
-              v-for="(item, index) in 5"
-              :key="index"
-            ></div>
-          </div>
-          <van-slider v-model="sliderValue" active-color="#515151" inactive-color="#d9d9d9">
+        <div class="sliderContainer">
+          <!-- 百分比显示 -->
+          <div class="percentage">{{ sliderValue }}%</div>
+          
+          <!-- 使用Vant滑块，但自定义按钮样式 -->
+          <van-slider 
+            v-model="sliderValue" 
+            active-color="#00cc7a" 
+            inactive-color="#333333"
+          >
             <template #button>
-              <div class="init">
-                <div
-                  :class="{
-                    marl: sliderValue <= 3,
-                    marr: sliderValue > 98
-                  }"
-                >
-                  <div class="initimg"></div>
-                  <div class="initNum ff-num">{{ sliderValue }}%</div>
-                </div>
-              </div>
+              <div class="sliderDiamond"></div>
             </template>
           </van-slider>
         </div>
         <!-- 可用 -->
-        <div class="rightSix">
+        <div class="balanceInfo">
           <div>{{ _t18(`account_available`) }}</div>
-          <div class="number fw-num">{{ availableBalance }} USDT</div>
+          <div class="number">{{ availableBalance }} USDT</div>
         </div>
         <!-- 买入(做多)按钮 -->
-        <div class="rightSeven">
-          <div class="maybutton" @click="buyOrSell(0)">
+        <div class="actionButtonWrapper">
+          <div class="buyButton" @click="buyOrSell(0)">
             {{ _t18(`purchase`) }} ({{ _t18(`going_long`) }})
           </div>
         </div>
-        <!-- 可开空 paxpay特殊-->
-        <div class="nineSix">
-          <p v-if="['paxpay'].includes(_getConfig('_APP_ENV'))">
-            {{ _t18(`openable_more`, ['paxpay']) }}
-          </p>
-          <p v-else>{{ _t18(`openable`, ['aams']) }}</p>
-          <div class="number fw-num">
-            {{ bearableValue ? _toFixed(bearableValue, 4) : 0 }}
-            {{
-              coinInfo.customizeFlag === 2
-                ? matchText(coinInfo.showSymbol, '/USDT')
-                : coinInfo.coin?.toUpperCase()
-            }}
-          </div>
-        </div>
-        <!-- 保证金 -->
-        <div class="nineSix">
-          <div>{{ _t18(`cash_deposit`) }}</div>
-          <div class="number fw-num">{{ _toFixed(marginValue, 4) }} USDT</div>
-        </div>
-        <!-- 合约面值 das特殊-->
-        <div class="nineSix">
-          <div>{{ _t18(`contract_face_value`, ['aams']) }}</div>
-          <div class="number fw-num">
-            {{ coinInfo.shareNumber }}
-            <span v-if="['das'].includes(_getConfig('_APP_ENV'))">
-              {{ coinInfo.customizeFlag === 2 ? matchText(coinInfo.showSymbol, '/USDT') : 'USDT' }}
-            </span>
-            <span v-else>
+        <!-- 交易信息区域 - 买入 -->
+        <div class="tradeInfoSection">
+          <!-- 可开空 -->
+          <div class="tradeInfoItem">
+            <div class="label">{{ _t18(`openable`, ['aams']) }}</div>
+            <div class="value">
+              {{ bearableValue ? _toFixed(bearableValue, 4) : 0 }}
               {{
                 coinInfo.customizeFlag === 2
                   ? matchText(coinInfo.showSymbol, '/USDT')
                   : coinInfo.coin?.toUpperCase()
               }}
-            </span>
-            /{{ _t18(`lots`) }}
+            </div>
+          </div>
+          <!-- 保证金 -->
+          <div class="tradeInfoItem">
+            <div class="label">{{ _t18(`cash_deposit`) }}</div>
+            <div class="value">{{ _toFixed(marginValue, 4) }} USDT</div>
+          </div>
+          <!-- 合约面值 -->
+          <div class="tradeInfoItem">
+            <div class="label">{{ _t18(`contract_face_value`, ['aams']) }}</div>
+            <div class="value">
+              {{ coinInfo.shareNumber }}
+              {{
+                coinInfo.customizeFlag === 2
+                  ? matchText(coinInfo.showSymbol, '/USDT')
+                  : coinInfo.coin?.toUpperCase()
+              }}
+              /{{ _t18(`lots`) }}
+            </div>
           </div>
         </div>
         <!-- 卖出(开空)按钮 -->
-        <div class="rightSeven">
-          <div class="maybutton hightColorRed" @click="buyOrSell(1)">
+        <div class="actionButtonWrapper">
+          <div class="sellButton" @click="buyOrSell(1)">
             {{ _t18(`bb_sell1`) }} ({{ _t18(`open_short`) }})
           </div>
         </div>
-        <!-- 可开空 paxpay特殊-->
-        <div class="nineSix">
-          <p v-if="['paxpay'].includes(_getConfig('_APP_ENV'))">
-            {{ _t18(`openable_less`, ['paxpay']) }}
-          </p>
-          <p v-else>{{ _t18(`openable`, ['aams']) }}</p>
-          <div class="number fw-num">
-            {{ bearableValue ? _toFixed(bearableValue, 4) : 0 }}
-            {{
-              coinInfo.customizeFlag === 2
-                ? matchText(coinInfo.showSymbol, '/USDT')
-                : coinInfo.coin?.toUpperCase()
-            }}
-          </div>
-        </div>
-        <!-- 保证金 -->
-        <div class="nineSix">
-          <div>{{ _t18(`cash_deposit`) }}</div>
-          <div class="number fw-num">{{ _toFixed(marginValue, 4) }} USDT</div>
-        </div>
-        <!-- 合约面值 das特殊 -->
-        <div class="nineSix">
-          <div>{{ _t18(`contract_face_value`, ['aams']) }}</div>
-          <div class="number fw-num">
-            {{ coinInfo.shareNumber }}
-            <span v-if="['das'].includes(_getConfig('_APP_ENV'))">
-              {{ coinInfo.customizeFlag === 2 ? matchText(coinInfo.showSymbol, '/USDT') : 'USDT' }}
-            </span>
-            <span v-else>
+        <!-- 交易信息区域 - 卖出 -->
+        <div class="tradeInfoSection">
+          <!-- 可开空 -->
+          <div class="tradeInfoItem">
+            <div class="label">{{ _t18(`openable`, ['aams']) }}</div>
+            <div class="value">
+              {{ bearableValue ? _toFixed(bearableValue, 4) : 0 }}
               {{
                 coinInfo.customizeFlag === 2
                   ? matchText(coinInfo.showSymbol, '/USDT')
                   : coinInfo.coin?.toUpperCase()
               }}
-            </span>
-            /{{ _t18(`lots`) }}
+            </div>
+          </div>
+          <!-- 保证金 -->
+          <div class="tradeInfoItem">
+            <div class="label">{{ _t18(`cash_deposit`) }}</div>
+            <div class="value">{{ _toFixed(marginValue, 4) }} USDT</div>
+          </div>
+          <!-- 合约面值 -->
+          <div class="tradeInfoItem">
+            <div class="label">{{ _t18(`contract_face_value`, ['aams']) }}</div>
+            <div class="value">
+              {{ coinInfo.shareNumber }}
+              {{
+                coinInfo.customizeFlag === 2
+                  ? matchText(coinInfo.showSymbol, '/USDT')
+                  : coinInfo.coin?.toUpperCase()
+              }}
+              /{{ _t18(`lots`) }}
+            </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="line"></div>
-    <!-- 订单 -->
+    <div class="divider"></div>
     <!-- 订单信息 -->
     <OrderListBox
       ref="orderListBoxRef"
@@ -640,316 +619,214 @@ onUnmounted(() => {
 
 <style lang="scss" scoped>
 .hightBlue {
-  color: var(--ex-font-color2) !important;
+  color: #00cc7a !important;
 }
-.hightColorRed {
-  color: var(--ex-font-color) !important;
-  background-color: var(--ex-div-bgColor7) !important;
-}
+
 .content {
   display: flex;
-  padding: 20px 15px;
-  background: #1a1a1a; // 深色背景
-  min-height: 100vh;
-  
-  // 添加渐变背景
-  background: linear-gradient(145deg, #1a1a1a, #2d2d2d);
+  padding: 15px;
+  background: #121212;
 }
+
 .content_right {
   flex: 1;
-  transition: all 0.3s ease;
+  background: #121212;
 
   .rightFirst {
-    height: 33px;
-    font-size: 12px;
     display: flex;
     justify-content: space-between;
     gap: 10px;
+    margin-bottom: 12px;
 
     .firstItem {
-      background: rgba(255, 255, 255, 0.05);
+      background: #1e1e1e;
       border-radius: 8px;
-      backdrop-filter: blur(10px);
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-      transition: all 0.3s ease;
-
-      &:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-      }
+      flex: 1;
     }
 
     .entrustSelect {
-      color: #fff;
-      padding: 0 15px;
-      height: 33px;
+      color: #ffffff;
+      padding: 0 12px;
+      height: 36px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      position: relative;
-      border-radius: 8px;
-      transition: all 0.3s ease;
-
-      &:hover {
-        background: rgba(255, 255, 255, 0.1);
-      }
-
+      
       .img {
         width: 10px;
         height: 5px;
-        transition: transform 0.3s ease;
+        margin-left: 5px;
       }
     }
   }
+}
 
-  .rightThird {
-    margin-top: 10px;
-    width: 180px;
-    height: 33px;
-    background: var(--ex-div-bgColor5);
-    border-radius: 2px 2px 2px 2px;
-    font-size: 12px;
-    color: var(--ex-font-color1);
+// 市场价格显示
+.marketPrice {
+  width: 100%;
+  height: 42px;
+  background: #1e1e1e;
+  border-radius: 4px;
+  font-size: 14px;
+  color: #7c7c7c;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+// 输入字段
+.inputField {
+  margin-bottom: 12px;
+  
+  .amount {
+    width: 100%;
+    height: 42px;
+    background: #1e1e1e;
+    border-radius: 4px;
+    border: none;
+    color: #ffffff;
+    text-align: center;
+    font-size: 14px;
+    
+    &:focus {
+      outline: none;
+    }
+    
+    &::placeholder {
+      color: #555555;
+    }
+  }
+}
+
+// 滑块容器
+.sliderContainer {
+  position: relative;
+  margin: 25px 0 15px;
+  height: 30px;
+  
+  // 百分比显示
+  .percentage {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    top: -20px;
+    font-size: 14px;
+    color: #00cc7a;
+    font-weight: 500;
+  }
+  
+  // 滑块样式覆盖
+  :deep(.van-slider) {
+    margin-top: 15px;
+    height: 2px;
+    background-color: #333333;
+    
+    .van-slider__button-wrapper {
+      height: 16px;
+      width: 16px;
+    }
+    
+    .van-slider__bar {
+      background: #00cc7a;
+      height: 2px;
+    }
+  }
+  
+  // 菱形滑块按钮
+  .sliderDiamond {
+    width: 16px;
+    height: 16px;
+    background: #00cc7a;
+    transform: rotate(45deg);
+  }
+}
+
+// 可用余额信息
+.balanceInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  color: #7c7c7c;
+  margin-bottom: 12px;
+  
+  .number {
+    color: #ffffff;
+    font-weight: 500;
+  }
+}
+
+// 按钮样式
+.actionButtonWrapper {
+  margin-bottom: 12px;
+  
+  .buyButton, .sellButton {
+    height: 36px;
+    border-radius: 23px;
+    font-size: 15px;
+    font-weight: 500;
+    color: #ffffff;
     display: flex;
     justify-content: center;
     align-items: center;
   }
-  .rightFourth {
-    margin-top: 25px;
-    width: 180px;
-    position: relative;
-    .lineBg {
-      position: absolute;
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      z-index: 0;
-      .node {
-        width: 11px;
-        height: 11px;
-        background: var(--ex-div-bgColor3);
-        margin-top: -5px;
-        transform: rotate(45deg);
-      }
-      .active {
-        background: var(--ex-div-bgColor4);
-      }
-    }
-    .init {
-      .marl {
-        margin-left: 11px;
-        .initNum {
-          margin-left: 22px;
-        }
-      }
-      .marr {
-        margin-right: 11px;
-        .initNum {
-          margin-right: 11px;
-        }
-      }
-      .initimg {
-        width: 12px;
-        height: 12px;
-        background: var(--ex-div-bgColor4);
-        transform: scaleY(0.5) rotate(45deg) !important;
-        position: relative;
-      }
-      .initNum {
-        transform: scaleY(0.5);
-        margin-top: 8px;
-        font-size: 12px;
-        color: var(--ex-font-color);
-        padding: 3px 6px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: var(--ex-div-bgColor19);
-        border-radius: 1px;
-        position: absolute;
-        top: -20px;
-        left: -20px;
-      }
-    }
+  
+  .buyButton {
+    background: #00cc7a;
   }
-  .rightFifth {
-    margin-top: 10px;
-    .amount {
-      width: 180px;
-      height: 40px; // 增加高度
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: 8px;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      color: #fff;
-      text-align: center;
-      transition: all 0.3s ease;
-      
-      &:focus {
-        border-color: #3498db;
-        box-shadow: 0 0 10px rgba(52, 152, 219, 0.3);
-      }
-    }
-    input::-webkit-input-placeholder {
-      color: var(--ex-font-color1);
-    }
-    input::-moz-input-placeholder {
-      color: var(--ex-font-color1);
-    }
-    input::-ms-input-placeholder {
-      color: var(--ex-font-color1);
-    }
+  
+  .sellButton {
+    background: #ff5757;
   }
-  .rightSix {
-    margin-top: 25px;
-    flex: 1;
-    width: 100%;
+}
+
+// 交易信息区域
+.tradeInfoSection {
+  margin-bottom: 15px;
+  
+  .tradeInfoItem {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 12px;
-    color: var(--ex-passive-font-color);
-    .number {
-      color: var(--ex-default-font-color);
+    margin-bottom: 8px;
+    
+    .label {
+      font-size: 13px;
+      color: #7c7c7c;
     }
-  }
-  .rightSeven {
-    margin-top: 16px;
-    .maybutton {
-      height: 45px; // 增加按钮高度
-      background: linear-gradient(45deg, #3498db, #2980b9);
-      border-radius: 8px;
-      font-size: 14px;
-      color: #fff;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
-
-      &:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
-      }
-
-      &.hightColorRed {
-        background: linear-gradient(45deg, #e74c3c, #c0392b);
-        box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
-
-        &:hover {
-          box-shadow: 0 6px 20px rgba(231, 76, 60, 0.4);
-        }
-      }
-    }
-  }
-  .nineSix {
-    padding: 12px;
-    margin-top: 15px;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 8px;
-    backdrop-filter: blur(10px);
-    transition: all 0.3s ease;
-
-    &:hover {
-      background: rgba(255, 255, 255, 0.08);
-    }
-
-    .number {
-      color: #fff;
+    
+    .value {
+      font-size: 13px;
+      color: #ffffff;
       font-weight: 500;
+      text-align: right;
     }
   }
 }
-// 市价/限价下拉框
-.rightScondList {
-  width: 104px;
-  // margin-top: 3px;
-  background-color: var(--ex-default-background-color);
-  padding: 5px 0;
-  font-size: 12px;
-  color: var(--ex-passive-font-color);
-  .rightScondListItem {
-    padding: 10px 0;
-    text-align: center;
-  }
-}
-.rightScondListNum {
-  width: 66px;
-  // margin-top: 3px;
-  background-color: var(--ex-default-background-color);
-  padding: 5px 0;
-  font-size: 12px;
-  color: var(--ex-passive-font-color);
-  .rightScondListItem {
-    padding: 10px 0;
-    text-align: center;
-  }
-}
-:deep(.van-slider) {
-  z-index: 2;
-  height: 1px;
-  top: -1px;
-  .van-slider__button {
-    width: 20px;
-    height: 20px;
-    background: #3498db;
-    box-shadow: 0 2px 10px rgba(52, 152, 219, 0.4);
-    transition: all 0.3s ease;
 
-    &:active {
-      transform: scale(1.1);
+// 下拉菜单
+.rightScondList, .rightScondListNum {
+  background-color: #1e1e1e;
+  padding: 6px 0;
+  font-size: 13px;
+  color: #7c7c7c;
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  
+  .rightScondListItem {
+    padding: 8px 12px;
+    text-align: center;
+    
+    &:hover {
+      background: rgba(255, 255, 255, 0.05);
     }
   }
-
-  .van-slider__bar {
-    background: linear-gradient(90deg, #3498db, #2980b9);
-  }
-}
-.line {
-  height: 5px;
-  background: var(--ex-div-bgColor10);
-}
-.entrust {
-  position: relative;
-}
-:deep(.van-tabs__nav) {
-  padding-right: 80px;
-}
-.entrustR {
-  position: absolute;
-  top: 0;
-  right: 0;
-  background-color: #fff;
-  padding: 15px 5px;
-  .entrustRImg {
-    padding: 0 8px;
-    font-size: 12px;
-  }
 }
 
-// 添加页面切换动画
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.3s ease;
-}
-
-.fade-enter-from,
-.fade-leave-to {
-  opacity: 0;
-}
-
-// 添加滚动条样式
-::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
-}
-
-::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 3px;
-}
-
-::-webkit-scrollbar-track {
-  background: rgba(0, 0, 0, 0.1);
+// 分割线
+.divider {
+  height: 8px;
+  background: #1e1e1e;
 }
 </style>
