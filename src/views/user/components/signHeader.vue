@@ -1,18 +1,22 @@
 <template>
   <div class="box">
     <div class="menu">
-      <image-load
-        filePath="https://tg-mahalebi.oss-cn-hongkong.aliyuncs.com/mahalebi/5cc16eb1f8b0439a8ff46ef720ed9147.png?2.0.1741576377112"
-        class="lang img"
-        @click="$router.push('/language-selection')"
-      />
+
+
+      <svg-load name="jiantou-z" class="guanbi" @click="$router.push('/')"></svg-load>
+
+      
       
       <div>
         <p  style="font-size: 16px !important;"  v-if="props.type == 0">{{ _t18('login_title') }} {{ _getConfig('_APP_META_TITLE') }}</p>
         <p style="font-size: 16px !important;"  v-if="props.type == 1">{{ _t18('register_title') }} {{ _getConfig('_APP_META_TITLE') }}</p>
       </div>
       
-      <svg-load name="guanbi" class="guanbi" @click="$router.push('/')"></svg-load>
+      <div
+        class="lang img"
+        style="font-size: 20px;"
+        @click="$router.push('/language-selection')"
+      >🌍</div>
 
     </div>
   </div>
@@ -72,9 +76,9 @@ const props = defineProps({
     margin-bottom: 10px;
     
     .guanbi {
-      font-size: 26px;
+      font-size: 20px;
+      filter: invert(1);
       color: #fff;
-      opacity: 0.8;
       transform: scale(1);
       transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
       
@@ -85,8 +89,6 @@ const props = defineProps({
     }
     
     .lang {
-      width: 26px;
-      height: 26px;
       border-radius: 50%;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
       transform: scale(1);

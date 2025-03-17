@@ -72,4 +72,7 @@ const finish = () => {
 import './../style.scss'
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+
+
+</style>

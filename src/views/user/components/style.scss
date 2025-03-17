@@ -67,3 +67,39 @@
   margin-top: 8px;
   color: var(--ex-font-color14);
 }
+
+
+.formData {
+  margin-bottom: 16px;
+  
+  p {
+    color: #999;
+    margin-bottom: 8px;
+  }
+  
+  div {
+    position: relative;
+    
+    input {
+      width: 100%;
+      height: 48px;
+      background: #18181b;
+      border: none;
+      border-radius: 8px;
+      padding: 0 15px;
+      color: #fff;
+      
+      &::placeholder {
+        color: #666;
+      }
+    }
+    
+    svg-load {
+      position: absolute;
+      right: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+    }
+  }
+}

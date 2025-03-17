@@ -2,18 +2,18 @@
   <!-- 登录 -->
   <div class="box" v-if="props.type == 0">
     <div class="btnBox" @click="toLogin">
-      <ButtonBar :btnValue="_t18('login')" />
+      <div class="custom-button">{{ _t18('login') }}</div>
     </div>
     <div class="account">
       {{ _t18('login_noAccount') }}？<span @click="$router.push('/sign-up')">{{
         _t18('login_toRegister')
-      }}</span>
+      }} ></span>
     </div>
   </div>
   <!-- 注册 -->
   <div class="box" v-if="props.type == 1">
     <div class="btnBox" @click="toResgister">
-      <ButtonBar :btnValue="_t18('register')" />
+      <div class="custom-button">{{ _t18('register') }}</div>
     </div>
     <div class="account">
       {{ _t18('register_haveAccount') }}？<span @click="$router.push('/sign-in')">{{
@@ -31,7 +31,7 @@
   <!-- 找回密码 -->
   <div class="box" v-if="props.type == 2">
     <div class="btnBox" @click="toForget">
-      <ButtonBar :btnValue="_t18('btnConfirm', ['bitmake'])" />
+      <div class="custom-button">{{ _t18('btnConfirm', ['bitmake']) }}</div>
     </div>
     <div class="info">
       {{ _t18('forget_findAccount') }}
@@ -360,6 +360,19 @@ const forgerPasswordSubmit = (params) => {
       color: var(--ex-font-color9);
       text-decoration: underline;
     }
+  }
+  
+  /* 新增自定义按钮样式 */
+  .custom-button {
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    font-size: 18px;
+    color: #fff;
+    border-radius: 25px;
+    background: linear-gradient(to right, #6a3db3, #36bbc7);
+    cursor: pointer;
   }
 }
 </style>

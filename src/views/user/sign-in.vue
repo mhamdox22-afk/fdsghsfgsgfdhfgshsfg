@@ -3,22 +3,28 @@
   <div class="sign-in-container">
     <Header :type="0"></Header>
     <div class="main-image">
-      <img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSIVtrWgC9ftS0jl2WrkfbQ5Wwou5JehBX78L1lZ25vCP08V_eM" alt="Login" />
+      <img src="@/assets/icons/login_graph.png" alt="Login" />
     </div>
     <div class="login-card">
       <div class="login-glow"></div>
       <div class="loginMethod">
-        <van-tabs
-          v-model:active="active"
-          shrink
-          color="transparent"
-          title-active-color="#17AC74"
-          title-inactive-color="#ffffff"
-        >
-          <van-tab v-for="(item, index) in tabList" :key="index" :title="item.title">
+        <!-- Custom tabs implementation -->
+        <div class="custom-tabs">
+          <div class="custom-tabs__nav">
+            <div 
+              v-for="(item, index) in tabList" 
+              :key="index" 
+              class="custom-tab" 
+              :class="{ 'custom-tab--active': active === index }"
+              @click="active = index"
+            >
+              <span class="custom-tab__text">{{ item.title }}</span>
+            </div>
+          </div>
+          <div class="custom-tabs__content">
             <component :is="currentComponent"></component>
-          </van-tab>
-        </van-tabs>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -84,7 +90,7 @@ const active = ref(0)
 .sign-in-container {
   min-height: 100vh;
   width: 100%;
-  background: linear-gradient(135deg, #121212, #1e1e1e, #121212);
+  background: #131316;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -157,62 +163,72 @@ const active = ref(0)
 .loginMethod {
   padding: 0;
 
-  :deep(.van-tab__text) {
-    font-size: 15px;
-    font-weight: 500;
-    margin-top: 4px;
-    transition: transform 0.2s ease, color 0.2s ease;
-  }
-  
-  :deep(.van-tabs__nav) {
-    background: transparent !important;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    margin-bottom: 25px;
-  }
-  
-  :deep(.van-tabs__line) {
-    display: none;
-  }
-  
-  :deep(.van-tab--active) {
-    font-weight: 600;
+  .custom-tabs {
+    width: 100%;
     
-    .van-tab__text {
-      transform: translateY(-2px);
+    &__nav {
+      display: flex;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      margin-bottom: 25px;
+      background: transparent !important;
+    }
+    
+    &__content {
+      margin-top: 10px;
     }
   }
   
-  :deep(.van-tab) {
-    color: rgba(255, 255, 255, 0.7) !important;
+  .custom-tab {
+    padding: 0 20px 15px 0;
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.7);
+    position: relative;
+    font-family: PingFangSC, PingFang SC;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 23px;
+    text-align: left;
+    font-style: normal;
     
     &:hover {
-      color: rgba(255, 255, 255, 0.9) !important;
+      color: rgba(255, 255, 255, 0.9);
     }
-  }
-  
-  :deep(.van-tab--active) {
-    color: #17AC74 !important;
-    position: relative;
     
-    &::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 3px;
-      background: linear-gradient(90deg, #17AC74, #25d997);
-      border-radius: 3px 3px 0 0;
-      animation: tabIndicator 0.3s ease-out;
+    &__text {
+      font-size: 15px;
+      font-weight: 500;
+      margin-top: 4px;
+      transition: transform 0.2s ease, color 0.2s ease;
+      white-space: nowrap;
     }
-  }
-  
-  :deep(.van-tabs__nav) {
-    padding: 0;
-  }
-  
-  :deep(.van-tab--shrink) {
-    padding: 0 20px 15px 0;
+    
+    &--active {
+      position: relative;
+      font-weight: 500;
+      
+      .custom-tab__text {
+        transform: translateY(-2px);
+        background: linear-gradient(180deg, #18C8FF 0%, #933FFE 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent !important;
+        font-family: PingFangSC, PingFang SC;
+        font-size: 16px;
+        line-height: 23px;
+      }
+      
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 30%;
+        transform: translateX(-50%);
+        width: 30%;
+        height: 3px;
+        background: linear-gradient(90deg, #18C8FF, #933FFE);
+        border-radius: 3px 3px 0 0;
+      }
+    }
   }
   
   :deep(.van-count-down) {
@@ -345,11 +361,11 @@ const active = ref(0)
 @keyframes tabIndicator {
   from {
     width: 0;
-    left: 50%;
+    opacity: 0;
   }
   to {
-    width: 100%;
-    left: 0;
+    width: 70%;
+    opacity: 1;
   }
 }
 
@@ -423,7 +439,7 @@ const active = ref(0)
     margin: 15px auto;
   }
   
-  :deep(.van-tab__text) {
+  .custom-tab__text {
     font-size: 16px;
   }
 }
