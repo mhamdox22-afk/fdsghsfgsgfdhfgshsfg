@@ -333,29 +333,29 @@ dataFeedInstance.getBars = async ({ symbolInfo: coinInfo, resolution, from, firs
  * 生成备用数据，确保图表始终有内容显示
  */
 const generateFallbackData = (coinInfo) => {
-  const now = new Date().getTime()
-  const basePrice = coinInfo.amount || 2986 // Use default price or current amount
-  const fallbackData = []
+  const now = new Date().getTime();
+  const basePrice = coinInfo.amount || 2986; // Use default price or current amount
+  const fallbackData = [];
   
-  // Generate 30 data points with moderate variations (increased from previous)
+  // Generate 30 data points with higher variations
   for (let i = 0; i < 30; i++) {
-    // Increase variance to show more movement (but still less than original)
-    const variance = basePrice * 0.0005 * Math.sin(i / 4)
-    const microVariance = basePrice * 0.0003 * (Math.random() - 0.5)
-    const price = basePrice + variance + microVariance
+    // Increase variance to show more movement
+    const variance = basePrice * 0.002 * Math.sin(i / 3);
+    const microVariance = basePrice * 0.001 * (Math.random() - 0.5);
+    const price = basePrice + variance + microVariance;
     
     fallbackData.push({
-      open: price - basePrice * 0.0002,
-      high: price + basePrice * 0.0003,
-      low: price - basePrice * 0.0003,
+      open: price - basePrice * 0.0005,
+      high: price + basePrice * 0.0008,
+      low: price - basePrice * 0.0008,
       close: price,
       amount: price,
-      volume: basePrice * 0.1 * Math.random(),
+      volume: basePrice * 0.2 * Math.random(),
       time: now - (30 - i) * 60000 // One minute intervals
-    })
+    });
   }
   
-  return fallbackData
+  return fallbackData;
 }
 
 /**
@@ -455,9 +455,9 @@ const initWidget = () => {
         // Calculate a midpoint to center the chart
         const midpoint = (minValue + maxValue) / 2;
         
-        // Calculate a range that's wider than the actual data range but shows more movement
+        // Calculate a range that's wider than the actual data range to show more movement
         const range = (maxValue - minValue) || (avg * 0.01); // Ensure non-zero range
-        const padAmount = range * 2; // Reduced padding to show more price variation
+        const padAmount = range * 1.2; // Reduced padding from 2 to 1.2 to show more price variation
         
         const option = {
           backgroundColor: '#1D1E27',
@@ -489,13 +489,11 @@ const initWidget = () => {
             type: 'value',
             show: false,
             scale: true,
-            // 控制波动幅度显示 - 使用固定范围而不是动态计算
+            // 控制波动幅度显示 - 使用相对紧凑的范围
             min: function(value) {
-              // Use a wide fixed range centered around the data midpoint
               return midpoint - padAmount;
             },
             max: function(value) {
-              // Use a wide fixed range centered around the data midpoint
               return midpoint + padAmount;
             }
           },
@@ -508,18 +506,23 @@ const initWidget = () => {
               smoothMonotone: 'x',
               symbol: 'none',
               lineStyle: {
-                color: '#1ee0ac',
-                width: 1.5 // Slightly thinner line
+                // Default starting color - will be updated dynamically
+                color: seriesData.value.length >= 2 && seriesData.value[seriesData.value.length-1] < seriesData.value[seriesData.value.length-2] 
+                  ? '#ff5e5e' : '#1ee0ac',
+                width: 1.5
               },
               areaStyle: {
                 color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
                   {
                     offset: 0,
-                    color: 'rgba(30, 224, 172, 0.15)' // Reduced opacity
+                    // Initial gradient determined by starting trend
+                    color: seriesData.value.length >= 2 && seriesData.value[seriesData.value.length-1] < seriesData.value[seriesData.value.length-2]
+                      ? 'rgba(255, 94, 94, 0.15)' 
+                      : 'rgba(30, 224, 172, 0.15)'
                   },
                   {
                     offset: 1,
-                    color: 'rgba(30, 224, 172, 0)'
+                    color: 'rgba(30, 30, 30, 0)'
                   }
                 ])
               }
@@ -672,22 +675,30 @@ const updateDataKline = (newData) => {
       ? seriesData.value[seriesData.value.length - 1] 
       : newData.close;
       
-    // Allow for more volatility by increasing the maximum change limit
-    const maxChange = lastValue * 0.0005; // Increased from 0.0002 (0.05% vs 0.02%)
+    // Increase volatility by using a higher maximum change limit
+    const maxChange = lastValue * 0.002; // Increased from 0.0005 (0.2% vs 0.05%)
     let newClose = newData.close;
     
-    // If the change exceeds our limit, cap it
+    // If the change exceeds our limit, cap it - but ensure some visible movement
     if (Math.abs(newClose - lastValue) > maxChange) {
       if (newClose > lastValue) {
         newClose = lastValue + maxChange;
       } else {
         newClose = lastValue - maxChange;
       }
+    } else if (Math.abs(newClose - lastValue) < (maxChange * 0.1)) {
+      // Add some minimum movement if the change is too small
+      newClose = lastValue + (Math.random() > 0.5 ? 1 : -1) * maxChange * 0.1;
     }
     
     // 更新数据
     xAxisData.value.push(_klineTimeFormat(newData.time, 'HH:mm:ss'))
     seriesData.value.push(newClose)
+
+    // Determine trend direction for color
+    const isUptrend = newClose >= lastValue;
+    const lineColor = isUptrend ? '#1ee0ac' : '#ff5e5e';
+    const areaGradientStart = isUptrend ? 'rgba(30, 224, 172, 0.15)' : 'rgba(255, 94, 94, 0.15)';
 
     // 保持固定数量的数据点
     const maxDataPoints = 30
@@ -696,13 +707,29 @@ const updateDataKline = (newData) => {
       seriesData.value.shift()
     }
 
-    // 更新图表
+    // 更新图表 - with dynamic color
     widget.setOption({
       xAxis: {
         data: xAxisData.value
       },
       series: [{
-        data: seriesData.value
+        data: seriesData.value,
+        lineStyle: {
+          color: lineColor,
+          width: 1.5
+        },
+        areaStyle: {
+          color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+            {
+              offset: 0,
+              color: areaGradientStart
+            },
+            {
+              offset: 1,
+              color: 'rgba(30, 30, 30, 0)'
+            }
+          ])
+        }
       }]
     })
 
@@ -784,7 +811,7 @@ const setStudy = (name) => {
 
 <style lang="scss" scoped>
 .candlestick {
-  min-width: 150px;
+  min-width: 120px;
   height: 100px;
   margin: 0 8px;
   transition: all 0.3s ease;
