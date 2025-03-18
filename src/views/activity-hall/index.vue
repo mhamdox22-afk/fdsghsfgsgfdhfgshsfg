@@ -35,7 +35,9 @@
         </div>
         <div class="activity-footer">
           <div class="activity-rewards">{{ t('rewards') }}: {{ activity.rewards }}</div>
-          <button class="activity-button" :class="{ disabled: activity.status === 'ended' }">
+          <button class="activity-button" 
+                  :class="{ disabled: activity.status === 'ended' }" 
+                  v-if="activity.status !== 'ended'">
             {{ t(activity.status === 'ongoing' ? 'join_now' : activity.status === 'upcoming' ? 'remind_me' : 'view_details') }}
           </button>
         </div>
@@ -73,16 +75,18 @@ const itemsPerPage = 6
 const filters = ['all_activities', 'ongoing', 'upcoming', 'ended']
 
 const activities = [
-  {
-    id: 1,
-    title: t('activity_title_1'),
-    description: t('activity_description_1'),
-    startDate: '2023-08-01',
-    endDate: '2023-08-31',
-    status: 'ongoing',
-    rewards: t('activity_rewards_1'),
-    image: 'https://exeedcollege.com/wp-content/uploads/2023/07/web3-scaled.jpg'
-  },
+ 
+  // {
+  //   id: 1,
+  //   title: t('activity_title_1'),
+  //   description: t('activity_description_1'),
+  //   startDate: '2023-08-01',
+  //   endDate: '2023-08-31',
+  //   status: 'ongoing',
+  //   rewards: t('activity_rewards_1'),
+  //   image: 'https://exeedcollege.com/wp-content/uploads/2023/07/web3-scaled.jpg',
+  //   link: '/sign-in'
+  // },
   {
     id: 2,
     title: t('activity_title_2'),
@@ -94,12 +98,23 @@ const activities = [
     image: 'https://www.xrtoday.com/wp-content/uploads/2022/10/What_Web3_Going_2023.jpg'
   },
   {
+    id: 5,
+    title: t('activity_title_5'),
+    description: t('activity_description_5'),
+    startDate: '2023-01-01',
+    endDate: '2023-12-31',
+    status: 'ongoing',
+    rewards: t('activity_rewards_5'),
+    image: 'https://www.zinomall.com/wp-content/uploads/2021/08/ZM_MallBanner_2108-01-1-1024x536.jpg',
+    link: '/plug'
+  },
+  {
     id: 3,
     title: t('activity_title_3'),
     description: t('activity_description_3'),
     startDate: '2023-09-01',
     endDate: '2023-12-31',
-    status: 'upcoming',
+    status: 'ended',
     rewards: t('activity_rewards_3'),
     image: 'https://www.blockglobe24.com/wp-content/uploads/2020/09/Bitcoin-Mining-1000x521-1-640x333-1.jpg'
   },
@@ -112,17 +127,6 @@ const activities = [
     status: 'ended',
     rewards: t('activity_rewards_4'),
     image: 'https://community.iotex.io/uploads/default/original/2X/7/78bbfdf2c9a6d6ffd0fb8e7ff07646a40b81c4a5.png'
-  },
-  {
-    id: 5,
-    title: t('activity_title_5'),
-    description: t('activity_description_5'),
-    startDate: '2023-01-01',
-    endDate: '2023-12-31',
-    status: 'ongoing',
-    rewards: t('activity_rewards_5'),
-    image: 'https://www.zinomall.com/wp-content/uploads/2021/08/ZM_MallBanner_2108-01-1-1024x536.jpg',
-    link: '/plug'
   },
   {
     id: 6,
