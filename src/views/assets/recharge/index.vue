@@ -46,7 +46,6 @@ const coinList = computed(() => {
 
 .recharge-container {
   min-height: 100vh;
-  background: linear-gradient(145deg, #1a1a1a, #2d2d2d);
   color: var(--text-primary);
   padding: 16px;
 
@@ -80,11 +79,11 @@ const coinList = computed(() => {
 }
 
 .list-wrapper {
+  position: relative;
+  top: -20px;
   // 列表容器样式
-  background: rgba(45, 45, 45, 0.5);
   border-radius: 16px;
-  padding: 16px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  padding:0 16px;
   backdrop-filter: blur(8px);
 
   // 添加hover效果

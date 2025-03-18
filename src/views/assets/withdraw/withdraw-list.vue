@@ -90,7 +90,6 @@ const needPrimary = (item) => {
   }
 }
 </script>
-
 <style lang="scss" scoped>
 * {
   font-size: 14px;
@@ -98,65 +97,50 @@ const needPrimary = (item) => {
 }
 
 .content {
-  padding: 30px 15px 0;
   min-height: 100vh;
-  background: linear-gradient(145deg, #1a1a1a, #2d2d2d);
+  padding: 30px 15px 0;
 
   .title {
-    font-size: 24px;
-    margin-bottom: 30px;
+    font-size: 20px;
+    margin-bottom: 20px;
     text-align: left;
     font-weight: 600;
-    background: linear-gradient(90deg, #fff, #a0a0a0);
+    background: linear-gradient(to right, #fff, #a0a0a0);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: fadeIn 0.8s ease-in-out;
+    animation: fadeIn 0.8s ease-out;
   }
 
   .list {
     .listCoin {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 16px;
+      padding: 20px;
       margin-bottom: 20px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: rgba(255, 255, 255, 0.05);
-      padding: 20px;
-      border-radius: 16px;
-      backdrop-filter: blur(10px);
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      backdrop-filter: blur(5px);
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.1);
       transition: all 0.3s ease;
-      animation: slideUp 0.5s ease-out;
-      animation-fill-mode: both;
-
-      @for $i from 1 through 10 {
-        &:nth-child(#{$i}) {
-          animation-delay: $i * 0.1s;
-        }
-      }
+      animation: slideUp 0.5s ease-out forwards;
+      animation-delay: calc(0.1s * var(--i));
 
       &:hover {
         transform: translateY(-5px);
+        box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.3);
         background: rgba(255, 255, 255, 0.08);
-        box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3);
       }
 
       .left {
         display: flex;
         align-items: center;
         
-        .icon-wrapper {
-          background: rgba(255, 255, 255, 0.1);
-          padding: 12px;
-          border-radius: 12px;
-          margin-right: 15px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          
-          .coin {
-            font-size: 24px;
-            color: #fff;
-          }
+        .coin {
+          font-size: 28px;
+          margin-right: 20px;
+          filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.3));
         }
 
         span {
@@ -173,8 +157,11 @@ const needPrimary = (item) => {
           opacity: 0.7;
           transition: transform 0.3s ease;
         }
+      }
 
-        &:hover .jiantou {
+      &:active {
+        transform: scale(0.98);
+        .right .jiantou {
           transform: translateX(5px);
         }
       }
@@ -204,5 +191,3 @@ const needPrimary = (item) => {
   }
 }
 </style>
-
-    transform: translateY(0);

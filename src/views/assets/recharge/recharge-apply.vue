@@ -18,60 +18,17 @@
         </Copy>
       </div>
     </div>
-    <template
-        v-if="
-        !['coinsexpto', 'rxce', 'gmtoin', 'aams', 'bitbyex', 'gmmoin'].includes(
-          _getConfig('_APP_ENV')
-        )
-      "
-    >
-      <div class="num">
-        <!-- 充值数量 -->
-        <p class="top">{{ _t18('recharge_number', ['bitmake']) }}</p>
-        <div class="bottom">
-          <input type="number" :placeholder="_t18('recharge_input')" class="ff-num" v-model="num" />
-        </div>
-      </div>
-      <div class="uploadImg">
-        <!-- 上传支付详情截图 -->
-        <p class="top">{{ _t18('recharge_imgUpload', ['bitmake']) }}</p>
-        <van-uploader :after-read="afterRead" max-count="1" v-model="fileList">
-          <div class="bottom">
-            <image-load filePath="defi/delete.png" name="delete" class="img"></image-load>
-          </div>
-        </van-uploader>
-      </div>
-    </template>
   </div>
-  <template v-if="['coinsexpto', 'rxce', 'bitbyex', 'gmmoin'].includes(_getConfig('_APP_ENV'))">
-    <!-- 复制按钮 -->
-    <div class="btn" @click="_copy(address)">
-      <p>{{ _t18('copy') }}</p>
+  <!-- 确认充值按钮 -->
+  <div class="btn" @click="submit">
+    <p>{{ _t18('recharge_require', ['bitmake']) }}</p>
+  </div>
+  <!-- 充值说明列表 -->
+  <div class="tip-list">
+    <div class="tip" v-for="(item, index) in tipList" :key="index">
+      {{ index + 1 }}.{{ item.content }}
     </div>
-    <!-- 充值说明列表 -->
-    <div class="tip-list" v-if="['bitbyex'].includes(_getConfig('_APP_ENV'))">
-      <div class="tip" v-for="(item, index) in tipList2" :key="index">
-        {{ item.content }}
-      </div>
-    </div>
-    <div class="tip-list" v-else>
-      <div class="tip" v-for="(item, index) in tipList" :key="index">
-        {{ index + 1 }}.{{ item.content }}
-      </div>
-    </div>
-  </template>
-  <template v-else-if="['gmtoin'].includes(_getConfig('_APP_ENV'))">
-    <div class="tip-list">
-      <div class="tip">{{ _t18('account_balance_info') }}</div>
-    </div>
-  </template>
-  <template v-else-if="['aams', 'gmmoin'].includes(_getConfig('_APP_ENV'))"> </template>
-  <template v-else>
-    <!-- 确认充值 -->
-    <div class="btn" @click="submit">
-      <p>{{ _t18('recharge_require', ['bitmake']) }}</p>
-    </div>
-  </template>
+  </div>
 </template>
 
 <script setup>
@@ -127,47 +84,16 @@ const afterRead = (file) => {
   })
 }
 const submit = debounce(() => {
-  if (!['coinsexpto'].includes(__config._APP_ENV) && num.value == '') {
-    _toast('recharge_num') // 请填写充值数量
-    return
-  }
-  let filePath = ''
-  if (['coinsexpto'].includes(__config._APP_ENV)) {
-    // 特殊平台不用上传图片
-  } else {
-    if (fileList.value.length == 0) {
-      _toast('recharge_img') // 请上传截图
-      return
-    }
-    const file = fileList.value[0] || {}
-    filePath = file.res
-    if (file.status != 'success') {
-      _toast('recharge_img_load') // 图片上传中,稍后重试
-      return
-    }
-  }
-  let params = {}
-  if (!['coinsexpto'].includes(__config._APP_ENV)) {
-    params = {
-      amount: priceFormat(num.value),
-      type: route.query.type,
-      coin: route.query.coin,
-      filePath: filePath || '',
-      address: address.value
-    }
-  } else {
-    params = {
-      amount: 0,
-      type: route.query.type,
-      coin: route.query.coin,
-      address: address.value
-    }
+  const params = {
+    amount: 0,
+    type: route.query.type,
+    coin: route.query.coin,
+    address: address.value
   }
 
   rechargeSubmit(params).then((res) => {
     if (res.code == '200') {
       _toast('recharge_success') // 充值成功
-      num.value = ''
       setTimeout(() => {
         _toView('/recharge-order')
       }, 500)
@@ -260,53 +186,6 @@ onMounted(()=>{
       background: rgba(0, 0, 0, 0.2);
       padding: 12px;
       border-radius: 8px;
-    }
-  }
-
-  .num {
-    .bottom {
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      padding: 15px 10px;
-      border-radius: 8px;
-      background: rgba(0, 0, 0, 0.2);
-      
-      input {
-        width: 100%;
-        background: transparent;
-        color: #ffffff;
-        border: none;
-        
-        &::placeholder {
-          color: rgba(255, 255, 255, 0.4);
-        }
-      }
-    }
-  }
-
-  .uploadImg {
-    .van-uploader {
-      width: 100%;
-      :deep(.van-uploader__input-wrapper) {
-        width: 100%;
-      }
-    }
-    
-    .bottom {
-      border: 2px dashed rgba(255, 255, 255, 0.2);
-      padding: 35px 0;
-      text-align: center;
-      border-radius: 12px;
-      background: rgba(0, 0, 0, 0.2);
-      transition: all 0.3s ease;
-      
-      &:hover {
-        border-color: rgba(255, 255, 255, 0.4);
-      }
-      
-      .img {
-        font-size: 36px;
-        opacity: 0.7;
-      }
     }
   }
 }

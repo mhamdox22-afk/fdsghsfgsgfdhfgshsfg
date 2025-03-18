@@ -60,11 +60,12 @@ const coinList = computed(() => {
 <style lang="scss" scoped>
 .withdraw-container {
   min-height: 100vh;
-  background: linear-gradient(145deg, #1a1a1a, #2d2d2d);
+  position: relative;
+  top: -20px;
   padding: 16px;
+
   
   .withdraw-list {
-    margin-top: 20px;
     :deep(.list-item) {
       background: rgba(255, 255, 255, 0.05);
       border-radius: 16px;

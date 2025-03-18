@@ -46,12 +46,11 @@ const toClick = (item) => {
 
 .content {
   min-height: 100vh;
-  background: linear-gradient(145deg, #1a1a1a, #2d2d2d);
   padding: 30px 15px 0;
 
   .title {
-    font-size: 24px;
-    margin-bottom: 30px;
+    font-size: 20px;
+    margin-bottom: 20px;
     text-align: left;
     font-weight: 600;
     background: linear-gradient(to right, #fff, #a0a0a0);
