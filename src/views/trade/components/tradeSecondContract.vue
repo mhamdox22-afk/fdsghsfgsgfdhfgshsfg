@@ -12,7 +12,6 @@
       <SecondContractContent :coinInfo="coinInfo" ref="childComp" class="contract-content"></SecondContractContent>
     </KeepAlive>
     <!-- 看涨看跌 -->
-    <UpsAndDowns :coinInfo="coinInfo" @eventBusBrother="eventBusBrother" class="ups-and-downs"></UpsAndDowns>
     <!-- 左侧切换币种 -->
     <Suspense>
       <PublicPopup
@@ -31,6 +30,9 @@
       </PublicPopup>
     </Suspense>
   </div>
+
+  <UpsAndDowns :coinInfo="coinInfo" @eventBusBrother="eventBusBrother" class="ups-and-downs"></UpsAndDowns>
+
 </template>
 
 <script setup>

@@ -315,6 +315,31 @@ const blur = () => {
   padding-top: 20px;
   background: #121212;
   min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  
+  // Add background image
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('@/assets/icons/bg_5_mobile.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    opacity: 0.4;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  // Make sure all content stays above the background
+  .top, .loan-detail, .bottom {
+    position: relative;
+    z-index: 1;
+  }
 
   .top {
     padding: 0 15px;

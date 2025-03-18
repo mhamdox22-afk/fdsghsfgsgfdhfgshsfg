@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="56px" height="56px" viewBox="0 0 56 56" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>goods_ic_Normal</title>
+    <defs>
+        <linearGradient x1="80.8823%" y1="48.6995636%" x2="9.9264%" y2="51.0452132%" id="linearGradient-1">
+            <stop stop-color="#18C8FF" offset="0%"></stop>
+            <stop stop-color="#933FFE" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="理财_pc" transform="translate(-966.000000, -389.000000)">
+            <g id="ic" transform="translate(369.000000, 388.000000)">
+                <g id="goods_ic_Normal" transform="translate(597.000000, 1.000000)">
+                    <g id="home_card_ic_extend" fill="#1D1E27">
+                        <rect id="Frame-27备份" x="0" y="0" width="56" height="56" rx="27.5"></rect>
+                    </g>
+                    <g id="编组-8" transform="translate(16.946592, 16.068325)" stroke-width="2">
+                        <path d="M5.01334513,1.11145956 L1.23299184,4.73275849 C0.445374089,5.48723806 -2.35401573e-15,6.53061971 0,7.62129893 L0,17.9405359 C-1.69156808e-15,20.1496749 1.790861,21.9405359 4,21.9405359 L18.1306132,21.9405359 C20.3397522,21.9405359 22.1306132,20.1496749 22.1306132,17.9405359 L22.1306132,7.59849698 C22.1306132,6.52123486 21.6960968,5.4895113 20.9254055,4.73683033 L17.240803,1.13833335 C16.4935581,0.408550854 15.4904997,-3.74458321e-15 14.4460107,0 L7.78035328,0 C6.74923694,1.07759142e-15 5.75795044,0.398182728 5.01334513,1.11145956 Z" id="路径-6" stroke="#FFFFFF"></path>
+                        <line x1="0.275550455" y1="5.91387351" x2="22.1306132" y2="5.91387351" id="路径-7" stroke="#FFFFFF"></line>
+                        <line x1="6.05340755" y1="12.9316747" x2="16.0534075" y2="12.9316747" id="路径-7" stroke="url(#linearGradient-1)" stroke-linecap="round" stroke-linejoin="round"></line>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

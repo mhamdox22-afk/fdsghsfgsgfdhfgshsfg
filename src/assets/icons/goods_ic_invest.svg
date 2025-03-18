@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="110px" height="110px" viewBox="0 0 110 110" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>goods_ic_invest</title>
+    <defs>
+        <linearGradient x1="80.8823%" y1="10.6618%" x2="9.9264%" y2="81.6177%" id="linearGradient-1">
+            <stop stop-color="#18C8FF" offset="0%"></stop>
+            <stop stop-color="#933FFE" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="理财_h5" transform="translate(-415.000000, -678.000000)">
+            <g id="goods_ic_invest" transform="translate(415.000000, 678.000000)">
+                <g id="home_card_ic_pact" fill="#1D1E27">
+                    <rect id="Frame-27备份-2" x="0" y="0" width="110" height="110" rx="55"></rect>
+                </g>
+                <g id="编组" transform="translate(28.000000, 28.000000)" stroke="#FFFFFF" stroke-width="4">
+                    <path d="M27.5,55 C12.3125,55 0,42.6875 0,27.5 C0,12.3125 12.3125,0 27.5,0 C42.6875,0 55,12.3125 55,27.5 C55,42.6875 42.6875,55 27.5,55 Z" id="形状"></path>
+                </g>
+                <path d="M52.1715729,47.8284271 L46.8284271,53.1715729 C45.26633,54.73367 45.26633,57.26633 46.8284271,58.8284271 L52.1715729,64.1715729 C53.73367,65.73367 56.26633,65.73367 57.8284271,64.1715729 L63.1715729,58.8284271 C64.73367,57.26633 64.73367,54.73367 63.1715729,53.1715729 L57.8284271,47.8284271 C56.26633,46.26633 53.73367,46.26633 52.1715729,47.8284271 Z" id="路径" stroke="url(#linearGradient-1)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path>
+            </g>
+        </g>
+    </g>
+</svg>

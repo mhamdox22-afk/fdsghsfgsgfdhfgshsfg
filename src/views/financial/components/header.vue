@@ -8,7 +8,9 @@
         :key="item.icon"
         @click="$router.push(item.clickName)"
       >
-        <svg-load :name="item.icon" class="itemImg"></svg-load>
+        <div class="icon-wrapper">
+          <img :src="item.icon" class="itemImg" />
+        </div>
         <div class="itemName">{{ item.name }}</div>
       </div>
     </div>
@@ -19,26 +21,31 @@ import { ref, computed, onMounted } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { _t18 } from '@/utils/public'
 import { publiceNotice } from '@/api/common/index'
+// 导入图标
+import appreciationIcon from '@/assets/icons/goods_ic_appreciation.svg'
+import vipIcon from '@/assets/icons/goods_ic_vip.svg'
+import normalIcon from '@/assets/icons/goods_ic_Normal.svg'
+import investIcon from '@/assets/icons/goods_ic_invest.svg'
 // 增值收益 会员专区 普通产品 我的投资
 const listNav = computed(() => {
   return [
     {
-      icon: 'zhenzhi',
+      icon: appreciationIcon,
       name: _t18(`value_added _income`),
       clickName: '/addIncome'
     },
     {
-      icon: 'huiyuan',
+      icon: vipIcon,
       name: _t18(`members_only`),
       clickName: '/membersOnly'
     },
     {
-      icon: 'putong',
+      icon: normalIcon,
       name: _t18(`normal_product`),
       clickName: '/generalMerchandise'
     },
     {
-      icon: 'touzhi',
+      icon: investIcon,
       name: _t18(`my_invest`),
       clickName: '/myInvestment'
     }
@@ -56,80 +63,37 @@ onMounted(async () => {
 </script>
 <style lang="scss" scoped>
 .header {
-  background: #1a1a1a;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 20px 0;
-
-  .bgImg {
-    margin: 0 15px;
-    height: 173px;
-    border-radius: 16px;
-    overflow: hidden;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-    transition: all 0.3s ease;
-
-    &:hover {
-      transform: translateY(-5px);
-    }
-
-    .img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.5s ease;
-
-      &:hover {
-        transform: scale(1.05);
-      }
-    }
-  }
+  background: #000;
+  padding: 20px 16px;
 
   .navigationList {
-    padding: 19px 15px 0;
-    display: flex;
-    justify-content: space-between;
-    gap: 10px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
 
     .item {
-      flex: 1;
-      text-align: center;
+      display: flex;
       align-items: center;
-      font-size: 12px;
-      justify-content: center;
-      padding: 12px 5px;
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: 12px;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      gap: 12px;
+      
+      .icon-wrapper {
+        width: 48px;
+        height: 48px;
+        background: #1A1A1A;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
 
-      &:hover {
-        transform: translateY(-3px);
-        background: rgba(255, 255, 255, 0.08);
-        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-      }
-
-      .itemImg {
-        width: 40px;
-        height: 40px;
-        margin-bottom: 10px;
-        transition: transform 0.3s ease;
-
-        &:hover {
-          transform: scale(1.1);
+        .itemImg {
+          width: 50px;
+          height: 50px;
         }
       }
 
       .itemName {
-        text-align: center;
-        word-wrap: break-word;
-        color: rgba(255, 255, 255, 0.9);
-        font-weight: 500;
-        transition: color 0.3s ease;
-
-        &:hover {
-          color: #fff;
-        }
+        color: #fff;
+        font-size: 14px;
       }
     }
   }

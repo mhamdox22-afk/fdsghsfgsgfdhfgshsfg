@@ -62,6 +62,23 @@ export default {
 .statistics-section {
   padding: 12px;
   min-height: 100vh;
+  position: relative;
+}
+
+.statistics-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('@/assets/icons/bg_4_mobile.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  opacity: 0.2;
+  z-index: -1;
 }
 
 .section-title {
