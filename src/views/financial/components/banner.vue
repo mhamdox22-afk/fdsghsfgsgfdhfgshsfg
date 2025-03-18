@@ -2,11 +2,11 @@
   <div class="financial-banner">
     <div class="banner-content">
       <div class="title">
-        <div>{{ _t18('financial.quality_financial') }}  {{ _t18('financial.high_returns') }}</div>
+        <div>{{ _t18('financial_page.quality_financial') }}  {{ _t18('financial_page.high_returns') }}</div>
         <div></div>
       </div>
       <div class="subtitle">
-        {{ _t18('financial.safe_investment') }}
+        {{ _t18('financial_page.safe_investment') }}
       </div>
     </div>
   </div>

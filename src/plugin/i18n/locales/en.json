@@ -271,11 +271,7 @@
   "quote": "Quote",
   "trade": "Trade",
   "defi": "Mining",
-  "financial": {
-    "quality_financial": "Quality Financial",
-    "high_returns": "High Returns",
-    "safe_investment": "Safe investment control, worry-free financial management"
-  },
+  "financial": "Financial",
   "futures": "Futures",
   "assets": "Assets",
   "minute": "Minute",
@@ -1464,5 +1460,10 @@
       "title": "How Can Blockchain Help Make the World a Better Place?",
       "description": "This is how blockchain makes the world a better place!\nBased currently has a complete ecological platform built on digital asset inquiry, perfection, usability, and performance, as well as the underlying blockchain."
     }
+  },
+  "financial_page": {
+    "quality_financial": "Quality Financial",
+    "high_returns": "High Returns",
+    "safe_investment": "Safe investment control, worry-free financial management"
   }
 }

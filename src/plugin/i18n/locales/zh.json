@@ -296,7 +296,7 @@
   "sidebar_helper": "帮助中心",
   "sidebar_language": "选择语言",
   "host_non-collateralized_mining": "DeFi挖矿",
-  "defi_host_lockup": "质押挖矿",
+  "defi_host_lockup": "AI质押",
   "fast_help_loan": "助力贷",
   "flash": "闪兑",
   "download_center": "下载中心",
@@ -1119,7 +1119,7 @@
   "robinhood2_exchange_bullish": "看涨",
   "robinhood2_exchange_bearish": "看跌",
   "robinhood2_host_non-collateralized_mining": "DeFi挖矿",
-  "robinhood2_defi_host_lockup": "质押挖矿",
+  "robinhood2_defi_host_lockup": "AI质押",
   "robinhood2_fast_help_loan": "助力贷",
   "robinhood2_flash": "闪兑",
   "robinhood2_download_center": "下载中心",
@@ -1226,7 +1226,7 @@
         "spot": "现货交易",
         "futures": "永续合约",
         "otc": "法币交易",
-        "staking": "质押挖矿"
+        "staking": "AI质押"
       },
       "support": {
         "title": "服务支持",
@@ -1423,7 +1423,7 @@
   "activity_title_2": "新用户注册奖励",
   "activity_description_2": "新用户注册并完成KYC验证，即可获得 50 USDT 的奖励！",
   "activity_rewards_2": "50 USDT",
-  "activity_title_3": "质押挖矿活动",
+  "activity_title_3": "AI质押活动",
   "activity_description_3": "质押您的加密货币，每日获得高达 15% APY 的收益！",
   "activity_rewards_3": "最高 15% APY",
   "activity_title_4": "社区AMA活动",
@@ -1461,7 +1461,7 @@
       "description": "这通过区块链让世界变得更美好!\n基于台目前拥有数位资产查询、完善、便用、性值表现以及区块链底层建立了完整的生态平台。"
     }
   },
-  "financial": {
+  "financial_page": {
     "quality_financial": "优质理财",
     "high_returns": "高额回报",
     "safe_investment": "安全层层把控 投资理财无忧"
