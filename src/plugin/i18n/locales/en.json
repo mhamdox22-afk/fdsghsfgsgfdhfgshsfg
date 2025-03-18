@@ -271,7 +271,11 @@
   "quote": "Quote",
   "trade": "Trade",
   "defi": "Mining",
-  "financial": "Financial",
+  "financial": {
+    "quality_financial": "Quality Financial",
+    "high_returns": "High Returns",
+    "safe_investment": "Safe investment control, worry-free financial management"
+  },
   "futures": "Futures",
   "assets": "Assets",
   "minute": "Minute",

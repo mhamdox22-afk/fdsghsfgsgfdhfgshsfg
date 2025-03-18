@@ -43,7 +43,7 @@ onMounted(() => {
 </script>
 <style lang="scss" scoped>
 .fund-list-container {
-  background: #1a1a1a;
+  background: #131316;
   min-height: 100vh;
 }
 
