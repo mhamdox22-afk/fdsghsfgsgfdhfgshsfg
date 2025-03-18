@@ -24,10 +24,18 @@
       </div>
     </van-sticky>
     <!-- tab -->
-    <component
-      :is="currentComponent"
-      :headerList="headerList"
-    ></component>
+    <Suspense>
+      <component
+        :is="currentComponent"
+        :headerList="headerList"
+        :key="currentIndex"
+      ></component>
+      <template #fallback>
+        <div class="loading-container">
+          <van-loading type="spinner" color="#18c8ff" />
+        </div>
+      </template>
+    </Suspense>
   </div>
 </template>
 
@@ -39,82 +47,58 @@ import { useTradeStore } from '@/store/trade'
 const tradeStore = useTradeStore()
 import { useRoute } from 'vue-router'
 const $route = useRoute()
-import { computed, onMounted } from 'vue'
-import SecondContract from './components/tradeSecondContract.vue'
-import BBTrading from './components/tradeBBTrading.vue'
-import Ustandard from './components/tradeUstandard.vue'
+import { computed, onMounted, ref, watch, defineAsyncComponent } from 'vue'
+
+// Lazy load components
+const SecondContract = defineAsyncComponent(() => 
+  import('./components/tradeSecondContract.vue')
+)
+const BBTrading = defineAsyncComponent(() => 
+  import('./components/tradeBBTrading.vue')
+)
+const Ustandard = defineAsyncComponent(() => 
+  import('./components/tradeUstandard.vue')
+)
+
 // tabs
 const headerList = computed(() => {
-  let tempList = mainStore.getTradeHeaderList.filter((item, index) => {
-    return item.componentName != 'Optional'
-  })
-  return tempList
+  return mainStore.getTradeHeaderList.filter(item => item.componentName != 'Optional')
 })
+
 const currentIndex = ref(
   mainStore.tradeFlag - mainStore.isOption < 0 ? 0 : mainStore.tradeFlag - mainStore.isOption
 )
-// 切换组件
+
+// Optimize component switching with memoization
 const currentComponent = computed(() => {
-  let temp = ''
-  if (headerList.value[currentIndex.value].componentName == 'SecondContract') {
-    temp = SecondContract
-  }else if (headerList.value[currentIndex.value].componentName == 'BBTrading') {
-    temp = BBTrading
-  }else if (headerList.value[currentIndex.value].componentName == 'Ustandard') {
-    temp = Ustandard
-  }
-  return temp
+  const componentName = headerList.value[currentIndex.value]?.componentName
+  if (componentName === 'SecondContract') return SecondContract
+  if (componentName === 'BBTrading') return BBTrading
+  if (componentName === 'Ustandard') return Ustandard
+  return null
 })
-watch(
-  currentIndex,
-  (n) => {
-    mainStore.setTradeFlag(n)
+
+// Debounced tab change handler
+let debounceTimer = null
+const handleTabChange = (newIndex) => {
+  if (debounceTimer) clearTimeout(debounceTimer)
+  
+  debounceTimer = setTimeout(() => {
+    mainStore.setTradeFlag(newIndex)
+    // Only call API if needed
+    if (!tradeStore.hasLoadedCoinList) {
+      tradeStore.getCoinList()
+    }
+  }, 100)
+}
+
+watch(currentIndex, handleTabChange, { immediate: true })
+
+onMounted(() => {
+  // Prefetch common data
+  if (!tradeStore.hasLoadedCoinList) {
     tradeStore.getCoinList()
-    /* if (headerList.value[n].componentName == 'SecondContract') {
-      let temp={}
-      if ($route.query.symbol) {
-        temp = tradeStore.secondContractCoinList.filter((item, index) => {
-          return item.coin === $route.query.symbol
-        })[0]
-        if (!temp) {
-          temp = tradeStore.secondContractCoinList[0]
-        }
-      } else {
-        temp = tradeStore.secondContractCoinList[0]
-      }
-      coinInfo2.value=temp
-    } else if (headerList.value[currentIndex.value].componentName == 'BBTrading') {
-      let temp={}
-      if ($route.query.symbol) {
-        temp = tradeStore.spotCoinList.filter((item, index) => {
-          return item.coin === $route.query.symbol
-        })[0]
-        if (!temp) {
-          temp = tradeStore.spotCoinList[0]
-        }
-      } else {
-        temp = tradeStore.spotCoinList[0]
-      }
-      coinInfo2.value=temp
-    } else if (headerList.value[currentIndex.value].componentName == 'Ustandard') {
-      let temp={}
-      if ($route.query.symbol) {
-        temp = tradeStore.contractCoinList.filter((item, index) => {
-          return item.coin === $route.query.symbol
-        })[0]
-        if (!temp) {
-          temp = tradeStore.contractCoinList[0]
-        }
-      } else {
-        temp = tradeStore.contractCoinList[0]
-      }
-      coinInfo2.value=temp
-    } */
-  },
-  { immediate: true }
-)
-onMounted(()=>{
-  tradeStore.getCoinList()
+  }
 })
 </script>
 
@@ -122,6 +106,13 @@ onMounted(()=>{
 .trade-container {
   background: #121212;
   min-height: 100vh;
+}
+
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
 }
 
 .headerList {

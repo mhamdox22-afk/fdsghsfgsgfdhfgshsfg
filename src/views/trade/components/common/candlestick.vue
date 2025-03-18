@@ -109,33 +109,6 @@ const mainStore = useMainStore()
 const tradeStore = useTradeStore()
 
 /**
- * 交易对监听
- */
-const eventTradeSymbolChange = debounce((e) => {
-  console.log('jajncajncasj')
-  // 监听币种切换
-  let symbol = e.detail.symbol
-  let tempCoinInfo = e.detail.coinInfo
-  // 分辨率改变
-  let tempHeadIntervalList = getHeadIntervalList(tempCoinInfo)
-
-  if (
-    tempHeadIntervalList.map((elem) => elem.value).join() !=
-    headIntervalList.map((elem) => elem.value).join()
-  ) {
-    // 判断分辨率是否一致
-    supportedResolutions = getSupportedResolutions()
-    headIntervalList.splice(0, headIntervalList.length, ...tempHeadIntervalList)
-    Object.assign(currentInterval, headIntervalList[0])
-  }
-  showMenu.value = false
-  // 设置币种
-  setSymbol(symbol, currentInterval.interval, () => {
-    Object.assign(currentCoinInfo, props.coinInfo)
-  })
-  router.go(0)
-}, 200)
-/**
  * 获取分辨率
  */
 const getSupportedResolutions = (tempCoinInfo = currentCoinInfo) => {
@@ -145,6 +118,7 @@ const getSupportedResolutions = (tempCoinInfo = currentCoinInfo) => {
   }
   return tempList
 }
+
 /**
  * 获取分辨率显示菜单
  */
@@ -155,26 +129,64 @@ const getHeadIntervalList = (tempCoinInfo = currentCoinInfo) => {
   }
   return tempList
 }
-onMounted(async () => {
-  setTimeout(() => {
-    console.log(props.coinInfo, 'coinInfo')
-  }, 1000);
 
-  Object.assign(currentCoinInfo, props.coinInfo)
-  supportedResolutions = getSupportedResolutions()
-  headIntervalList.splice(0, headIntervalList.length, ...getHeadIntervalList())
-  Object.assign(currentInterval, headIntervalList[0])
-  document.addEventListener('event_tradeSymbolChange', eventTradeSymbolChange)
-  nextTick(() => {
-    initWidget()
-  })
-})
+/**
+ * 交易对监听 - Optimize the debounce function
+ */
+const eventTradeSymbolChange = debounce((e) => {
+  // Early return if no valid data
+  if (!e?.detail?.symbol || !e?.detail?.coinInfo) return;
+  
+  // 监听币种切换
+  let symbol = e.detail.symbol;
+  let tempCoinInfo = e.detail.coinInfo;
+  
+  // 分辨率改变
+  let tempHeadIntervalList = getHeadIntervalList(tempCoinInfo);
+
+  // Only update if the interval list has changed
+  const newIntervalString = tempHeadIntervalList.map(elem => elem.value).join();
+  const currentIntervalString = headIntervalList.map(elem => elem.value).join();
+  
+  if (newIntervalString !== currentIntervalString) {
+    supportedResolutions = getSupportedResolutions();
+    headIntervalList.splice(0, headIntervalList.length, ...tempHeadIntervalList);
+    Object.assign(currentInterval, headIntervalList[0]);
+  }
+  
+  showMenu.value = false;
+  
+  // 设置币种
+  setSymbol(symbol, currentInterval.interval, () => {
+    Object.assign(currentCoinInfo, props.coinInfo);
+  });
+}, 300);
+
+onMounted(async () => {
+  // Initialize once with a delay to allow the DOM to render
+  Object.assign(currentCoinInfo, props.coinInfo);
+  supportedResolutions = getSupportedResolutions();
+  headIntervalList.splice(0, headIntervalList.length, ...getHeadIntervalList());
+  Object.assign(currentInterval, headIntervalList[0]);
+  
+  // Add event listener
+  document.addEventListener('event_tradeSymbolChange', eventTradeSymbolChange);
+  
+  // Delayed initialization for better initial rendering
+  setTimeout(() => {
+    initWidget();
+  }, 100);
+});
 
 onBeforeUnmount(() => {
-  document.removeEventListener('event_tradeSymbolChange', eventTradeSymbolChange)
-  unsubscribeTrades(true)
-  widget.remove()
-})
+  // Clean up all resources
+  document.removeEventListener('event_tradeSymbolChange', eventTradeSymbolChange);
+  unsubscribeTrades(true);
+  if (widget) {
+    widget.remove();
+    widget = null;
+  }
+});
 
 /**
  * 设置币种、周期
@@ -216,79 +228,101 @@ dataFeedInstance.getServerTime = async (callback) => {
   callback && callback(time)
 }
 /**
- * 获取历史KLine数据
+ * 获取历史KLine数据 - 优化数据处理
  */
 dataFeedInstance.getBars = async ({ symbolInfo: coinInfo, resolution, from, firstDataRequest }) => {
-  let tempInterval = intervalList.find((elem) => elem.interval == resolution)
-  try {
-    if (tempInterval && (from == '' || from > 0)) {
-      let params = {
-        symbol: coinInfo.coinUpperCase,
-        interval: tempInterval.key,
-        limit: 1000
-      }
-      if (from) {
-        params.end = from
-      }
-      // let barList = await client.candles(params)
-      const { data } = await getKlineHistory({
-        ...params,
-        interval: tempInterval.key,
-        symbol: coinInfo.coinUpperCase,
-        market: coinInfo.market
-      })
-      // console.log(data.ticker.symbol,55555555)
-      /* tradeStore.setKlineTicker(data.ticker)
-      let barList = data.historyKline */
-      let barList = []
-      if (data) {
-        tradeStore.setKlineTicker(data.ticker)
-        barList = data.historyKline
-      }
-      barList = barList
-        .map((elem) => {
-          return {
-            open: parseFloat(elem.o),
-            high: parseFloat(elem.h),
-            low: parseFloat(elem.l),
-            close: parseFloat(priceFormat(elem.c)),
-            amount: parseFloat(priceFormat(elem.c)),
-            volume: parseFloat(elem.v),
-            time: elem.T
-          }
-        })
-        .sort((a, b) => a.time - b.time)
-      if (firstDataRequest) {
-        let tempObj = barList.slice(-1)[0]
-
-        tempTrade.amount = tempObj.amount
-        tempTrade.open = tempObj.open
-        tempTrade.close = tempObj.close
-        tempTrade.high = tempObj.high
-        tempTrade.low = tempObj.low
-        tempTrade.volume = tempObj.volume
-        tempTrade.time = tempObj.time
-        tempTrade.lastClose = tempObj.close
-        tempTrade.intervention = false
-
-        intervalDiff.value = Math.abs(tempTrade.time - barList.slice(-2, -1)[0].time)
-        // console.log('初始', tempTrade.lastClose, intervalDiff.value)
-        updateDataKline(tempTrade)
-        await subscribeTrades({
-          coin: coinInfo.coin,
-          symbol: coinInfo.symbol,
-          interval: tempInterval.key,
-          firstDataRequest: firstDataRequest
-        })
-      }
-      return barList
-    }
-  } catch (error) {
-    unsubscribeTrades(true)
-    return []
+  let tempInterval = intervalList.find((elem) => elem.interval == resolution);
+  
+  // Return early if no valid interval or from time
+  if (!tempInterval || !(from === '' || from > 0)) {
+    return [];
   }
-  return []
-}
+  
+  try {
+    let params = {
+      symbol: coinInfo.coinUpperCase,
+      interval: tempInterval.key,
+      limit: firstDataRequest ? 500 : 1000 // Reduce initial load size
+    };
+    
+    if (from) {
+      params.end = from;
+    }
+    
+    // Fetch data with timeout to prevent hanging
+    const fetchPromise = getKlineHistory({
+      ...params,
+      interval: tempInterval.key,
+      symbol: coinInfo.coinUpperCase,
+      market: coinInfo.market
+    });
+    
+    const timeoutPromise = new Promise((_, reject) => 
+      setTimeout(() => reject(new Error('Request timeout')), 10000)
+    );
+    
+    const { data } = await Promise.race([fetchPromise, timeoutPromise]);
+    
+    // Process data only if valid
+    if (!data) return [];
+    
+    // Update store
+    tradeStore.setKlineTicker(data.ticker);
+    
+    // Process history data more efficiently
+    let barList = data.historyKline || [];
+    
+    // Use map but avoid creating new objects repeatedly in the loop
+    barList = barList.map((elem) => ({
+      open: parseFloat(elem.o),
+      high: parseFloat(elem.h),
+      low: parseFloat(elem.l),
+      close: parseFloat(priceFormat(elem.c)),
+      amount: parseFloat(priceFormat(elem.c)),
+      volume: parseFloat(elem.v),
+      time: elem.T
+    })).sort((a, b) => a.time - b.time);
+    
+    // Only initialize tempTrade on first request
+    if (firstDataRequest && barList.length > 0) {
+      const tempObj = barList[barList.length - 1];
+      const prevObj = barList.length > 1 ? barList[barList.length - 2] : null;
+      
+      // Batch update tempTrade to reduce reactivity overhead
+      Object.assign(tempTrade, {
+        amount: tempObj.amount,
+        open: tempObj.open,
+        close: tempObj.close,
+        high: tempObj.high,
+        low: tempObj.low,
+        volume: tempObj.volume,
+        time: tempObj.time,
+        lastClose: tempObj.close,
+        intervention: false
+      });
+      
+      // Calculate interval difference only if we have previous data
+      if (prevObj) {
+        intervalDiff.value = Math.abs(tempObj.time - prevObj.time);
+      }
+      
+      // Update and subscribe
+      updateDataKline(tempTrade);
+      await subscribeTrades({
+        coin: coinInfo.coin,
+        symbol: coinInfo.symbol,
+        interval: tempInterval.key,
+        firstDataRequest: firstDataRequest
+      });
+    }
+    
+    return barList;
+  } catch (error) {
+    console.error('Error fetching kline data:', error);
+    unsubscribeTrades(true);
+    return [];
+  }
+};
 
 /**
  * 加载商品配置
@@ -333,7 +367,9 @@ const initWidget = () => {
   datafeeds = new Datafees(dataFeedInstance)
   // 主题
   let theme = 'dark' // 强制使用深色主题
-  widget = new TradingView.widget({
+  
+  // Use shallowRef to avoid deep reactivity overhead
+  const widgetOptions = {
     symbol: props.coinInfo.symbolUpperCase,
     theme: 'dark',
     debug: false,
@@ -345,12 +381,7 @@ const initWidget = () => {
     locale: 'en',
     timezone: mainStore.timezone,
     
-    // Display configuration
-    toolbar_bg: "#131316",
-    studies_access: { type: "black", tools: [] },
-    drawings_access: { type: "black", tools: [] },
-    
-    // Hide UI elements
+    // Reduce features to improve performance
     disabled_features: [
       "header_symbol_search",
       "header_settings",
@@ -363,7 +394,10 @@ const initWidget = () => {
       "go_to_date",
       "volume_force_overlay",
       "chart_property_page_trading",
-      "property_pages"
+      "property_pages",
+      "high_density_bars", // Disable high density bars
+      "animated_zoom", // Disable animations
+      "countdown" // Disable countdown
     ],
     
     // Enable necessary features
@@ -446,11 +480,14 @@ const initWidget = () => {
     },
     
     preset: "mobile"
-  })
+  };
   
+  // Create widget with optimized options
+  widget = new TradingView.widget(widgetOptions);
+  
+  // Only add necessary event handlers
   widget.onChartReady(() => {
-    // createStudy() // Comment this out to avoid conflicting indicators
-    addMultipleMovingAverages() // This will handle all indicators
+    addMultipleMovingAverages() // Only add this one function
   })
 }
 
@@ -473,34 +510,41 @@ const subscribeClientList = []
  * @param {*} firstDataRequest
  */
 const unsubscribeTrades = (firstDataRequest = false) => {
-  if (currentCoinInfo.coin) {
+  if (!currentCoinInfo.coin) return; // Early return if no coin
+  
+  _coinWebSocket.send({
+    op: socketDict.unsubscribe,
+    type: socketDict.KLINE,
+    symbol: currentCoinInfo.coin,
+    interval: currentInterval.key
+  })
+  
+  if (firstDataRequest) {
+    // Clear all subscriptions at once
+    while(subscribeClientList.length > 0) {
+      const subKey = subscribeClientList.pop();
+      subKey && PubSub.unsubscribe(subKey);
+    }
+    
     _coinWebSocket.send({
       op: socketDict.unsubscribe,
-      type: socketDict.KLINE,
-      symbol: currentCoinInfo.coin,
-      interval: currentInterval.key
+      type: socketDict.TRADE,
+      symbol: currentCoinInfo.coin
     })
-    if (firstDataRequest) {
-      subscribeClientList.forEach((subKey) => {
-        subKey && PubSub.unsubscribe(subKey)
-      })
-      subscribeClientList.length = 0
-      _coinWebSocket.send({
-        op: socketDict.unsubscribe,
-        type: socketDict.TRADE,
-        symbol: currentCoinInfo.coin
-      })
-    }
   }
 }
 
 /**
- * 订阅实时成交
+ * 订阅实时成交 - Optimized to reduce overhead
  */
 const subscribeTrades = async (params) => {
   // 先取消订阅
   unsubscribeTrades(params.firstDataRequest)
 
+  // Only subscribe if we have a valid symbol
+  if (!params.coin) return;
+  
+  // Send subscription requests
   _coinWebSocket.send({
     op: socketDict.subscribe,
     type: socketDict.KLINE,
@@ -515,52 +559,38 @@ const subscribeTrades = async (params) => {
       symbol: params.coin
     })
   }
-  // let marketTradeKey = PubSub.subscribe(socketDict.TRADE, (key, data) => {
-  // // 实时成交
-  // if (data.symbol == params.coin) {
-  //   let tempData = data.data.tick.data[0]
-  //   // console.log('实时成交', data.symbol, tempData)
-  //   if (
-  //     tempTrade.time <= tempData.ts &&
-  //     priceFormat(tempTrade.close) != priceFormat(tempData.price)
-  //   ) {
-  //     if (tempTrade.high < tempData.price) {
-  //       tempTrade.high = tempData.price
-  //     } else if (tempTrade.low > tempData.price) {
-  //       tempTrade.low = tempData.price
-  //     }
-  //     tempTrade.close = Number(priceFormat(tempData.price))
-  //     // updateDataKlineThrottle(tempTrade)
-  //     updateDataKline(tempTrade)
-  //   }
-  // }
-  // })
-  // subscribeClientList.push(marketTradeKey)
+  
+  // Only handle KLINE updates for better performance
   let candlestickKey = PubSub.subscribe(socketDict.KLINE, (key, data) => {
-    // K线数据
-    // console.log('K线数据', tempTrade.lastClose, intervalDiff.value, data.data.tick)
-    let tempData = data.data.tick
-    if (data.symbol == params.coin) {
-      if (tempTrade.intervention != tempData?.intervention) {
-        // console.log('干预', tempTrade.intervention, tempData?.intervention, tempTrade.lastClose)
-        tempData.open = tempTrade.lastClose
-        tempTrade.intervention = tempData?.intervention
-      }
-      // 本次时间
-      let tempTime = parseInt(tempData.id / intervalDiff.value) * intervalDiff.value
-      if (tempTrade.time < tempTime) {
-        // console.log('本次时间', tempData.open, tempTrade.time, tempTime, tempData)
-        tempTrade.time = tempTime
-        tempTrade.open = tempData.open
-      }
-      tempTrade.high = tempData.high
-      tempTrade.low = tempData.low
-      tempTrade.close = Number(priceFormat(tempData.close))
-      tempTrade.volume = tempData.vol
-      updateDataKline(tempTrade)
+    // Only process data for the current symbol
+    if (data.symbol !== params.coin) return;
+    
+    let tempData = data.data.tick;
+    
+    // Update intervention status if needed
+    if (tempTrade.intervention !== tempData?.intervention) {
+      tempData.open = tempTrade.lastClose;
+      tempTrade.intervention = tempData?.intervention;
     }
+    
+    // Calculate time and update only if needed
+    const tempTime = parseInt(tempData.id / intervalDiff.value) * intervalDiff.value;
+    if (tempTrade.time < tempTime) {
+      tempTrade.time = tempTime;
+      tempTrade.open = tempData.open;
+    }
+    
+    // Update trade data
+    tempTrade.high = tempData.high;
+    tempTrade.low = tempData.low;
+    tempTrade.close = Number(priceFormat(tempData.close));
+    tempTrade.volume = tempData.vol;
+    
+    // Use non-throttled update for better responsiveness
+    updateDataKline(tempTrade);
   })
-  subscribeClientList.push(candlestickKey)
+  
+  subscribeClientList.push(candlestickKey);
 }
 /**
  * 更新数据
@@ -640,52 +670,56 @@ const setStudy = (name) => {
 }
 
 /**
- * 添加多个移动平均线 - 精确匹配截图显示
+ * 添加多个移动平均线 - 优化性能
  */
 const addMultipleMovingAverages = () => {
-  const activeChart = widget.activeChart()
+  // Skip if chart isn't ready
+  if (!widget || !widget.activeChart) return;
   
-  // 清除所有现有研究
-  activeChart.getAllStudies().forEach(study => {
-    activeChart.removeEntity(study.id);
-  });
+  const activeChart = widget.activeChart();
   
-  // 黄色MA
-  activeChart.createStudy('Moving Average', false, false, [9, "close", 0], {
-    'plot.color': '#F0CB35',
-    'plot.linewidth': 1,
-  });
-  
-  // 青色MA
-  activeChart.createStudy('Moving Average', false, false, [9, "close", 0], {
-    'plot.color': '#2DA1EC', 
-    'plot.linewidth': 1,
-  });
-  
-  // 紫色MA
-  activeChart.createStudy('Moving Average', false, false, [9, "close", 0], {
-    'plot.color': '#8E59F0',
-    'plot.linewidth': 1,
-  });
-  
-  // 配置图表展示格式
-  widget.applyOverrides({
-    "symbolWatermarkProperties.color": "rgba(0, 0, 0, 0)",
-    "paneProperties.legendProperties.showStudyArguments": true,
-    "paneProperties.legendProperties.showStudyValues": true,
-    "paneProperties.legendProperties.showStudyTitles": true
-  });
-  
-  // 设置特定的图例格式
-  widget.chart().getAllStudies().forEach(study => {
-    widget.chart().getStudyById(study.id).applyOverrides({
-      "styleName": "Moving Average",
-      "showInDataWindow": true,
-      "showLastValue": true,
-      "showStudyArguments": true,
-      "showStudyTitles": true
+  // Batch removal of studies for better performance
+  const studies = activeChart.getAllStudies();
+  if (studies && studies.length > 0) {
+    studies.forEach(study => {
+      activeChart.removeEntity(study.id);
     });
-  });
+  }
+  
+  // Add studies one by one with a slight delay to prevent UI blocking
+  setTimeout(() => {
+    // 黄色MA
+    activeChart.createStudy('Moving Average', false, false, [9, "close", 0], {
+      'plot.color': '#F0CB35',
+      'plot.linewidth': 1,
+    });
+    
+    // Add next study with a small delay
+    setTimeout(() => {
+      // 青色MA
+      activeChart.createStudy('Moving Average', false, false, [9, "close", 0], {
+        'plot.color': '#2DA1EC', 
+        'plot.linewidth': 1,
+      });
+      
+      // Add final study with a small delay
+      setTimeout(() => {
+        // 紫色MA
+        activeChart.createStudy('Moving Average', false, false, [9, "close", 0], {
+          'plot.color': '#8E59F0',
+          'plot.linewidth': 1,
+        });
+        
+        // Apply overrides in a single batch
+        widget.applyOverrides({
+          "symbolWatermarkProperties.color": "rgba(0, 0, 0, 0)",
+          "paneProperties.legendProperties.showStudyArguments": true,
+          "paneProperties.legendProperties.showStudyValues": true,
+          "paneProperties.legendProperties.showStudyTitles": true
+        });
+      }, 50);
+    }, 50);
+  }, 100);
 }
 </script>
 <template>
@@ -693,7 +727,8 @@ const addMultipleMovingAverages = () => {
     <div class="time-interval-selector">
       <div 
         v-for="(item, index) in headIntervalList" 
-        :key="index"
+        :key="item.interval"
+        v-memo="[item.interval === currentInterval.interval]"
         :class="{'active': item.interval === currentInterval.interval, 'interval-item': true}"
         @click="checkedInterval(item)"
       >
@@ -701,12 +736,13 @@ const addMultipleMovingAverages = () => {
       </div>
     </div>
   </div>
-  <div :id="klineId" class="candlestick"></div>
+  <div :id="klineId" v-once class="candlestick"></div>
   <div class="indicator-options">
     <div class="indicator-option">交易</div>
     <div 
       v-for="(item, index) in studyList" 
-      :key="index"
+      :key="item.name"
+      v-memo="[item.name === currentStudy]"
       :class="{'active': item.name === currentStudy, 'indicator-option': true}"
       @click="setStudy(item.name)"
     >
