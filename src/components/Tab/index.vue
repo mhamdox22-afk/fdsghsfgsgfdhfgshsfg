@@ -1,27 +1,28 @@
 <!-- Tab切换组件 -->
 <template>
-  <van-tabs
-    :active="props.active"
-    @clickTab="change"
-    title-inactive-color="#333"
-    title-active-color="#17AC74"
-    color="#17AC74"
-    :line-width="lineWidth"
-    :class="flexBetween ? 'betweenClass' : ''"
-  >
-    <van-tab v-for="(item, index) in props.tabList" :key="index" :title="item">
-      <div class="tabContent">
-        <slot name="tabContent"></slot>
+  <div class="custom-tabs" :class="flexBetween ? 'betweenClass' : ''">
+    <div class="tabs-nav">
+      <div 
+        v-for="(item, index) in props.tabList" 
+        :key="index"
+        class="tab-item"
+        :class="{ 'active': props.active === index }"
+        @click="change(index)"
+      >
+        {{ item }}
       </div>
-    </van-tab>
-  </van-tabs>
+    </div>
+    <div class="tab-content">
+      <slot name="tabContent"></slot>
+    </div>
+  </div>
 </template>
 
 <script setup>
 const props = defineProps({
   tabList: {
     type: Array,
-    default: []
+    default: () => []
   },
   active: {
     type: Number
@@ -37,49 +38,65 @@ const props = defineProps({
   }
 })
 
-const active2 = ref(0)
 const emit = defineEmits(['change'])
-const change = (e) => {
-  active2.value = e.name
+const change = (index) => {
+  emit('change', index)
 }
-watch(active2, (newValue) => {
-  emit('change', active2.value)
-})
 </script>
 
 <style lang="scss" scoped>
-// :deep(.van-tabs__wrap) {
-//   margin: 10px 0 15px;
-// }
-// :deep(.van-tabs__nav--line) {
-//   padding-bottom: 8px;
-// }
-:deep(.van-tab--active) {
-  font-weight: normal;
-  color: var(--ex-home-list-ftcolor3) !important;
-}
-.tabContent {
-  border-top: 1px solid var(--ex-border-color);
-  p {
-    color: var(--ex-passive-font-color);
-    padding: 30px 0;
+.custom-tabs {
+  background-color: #000;
+  .tabs-nav {
+    display: flex;
+    background-color: #000;
+    padding: 10px 0;
+  }
+
+  .tab-item {
+    padding: 8px 16px;
+    color: #fff;
+    cursor: pointer;
+    position: relative;
     text-align: center;
+
+    &.active {
+      color: #17AC74;
+      
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: v-bind('props.lineWidth + "px"');
+        height: 2px;
+        background-color: #17AC74;
+      }
+    }
+  }
+
+  .tab-content {
+    border-top: 1px solid var(--ex-border-color);
+    
+    p {
+      color: var(--ex-passive-font-color);
+      padding: 30px 0;
+      text-align: center;
+    }
   }
 }
-.van-loading {
-  text-align: center;
-  padding: 30px;
-}
+
 .betweenClass {
-  :deep(.van-tabs__nav) {
-    background: var(--ex-home-list-bgcolor) !important ;
-    .van-tab:first-child {
-      justify-content: flex-start !important;
-      margin-left: 15px;
+  .tabs-nav {
+    .tab-item:first-child {
+      text-align: left;
+      padding-left: 15px;
     }
-    .van-tab:nth-last-child(2) {
-      justify-content: flex-end !important;
-      margin-right: 15px;
+    
+    .tab-item:last-child {
+      text-align: right;
+      padding-right: 15px;
     }
   }
 }

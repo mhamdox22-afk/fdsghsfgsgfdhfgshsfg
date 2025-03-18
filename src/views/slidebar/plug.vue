@@ -285,7 +285,7 @@ const changeIndex = (v) => {
 
 <style lang="scss" scoped>
 * {
-  color: var(--ex-default-font-color);
+  color: #ffffff;
   font-size: 14px;
 }
 
@@ -363,13 +363,15 @@ const changeIndex = (v) => {
 
       .shareContent_title {
         font-size: 20px;
-        color: var(--ex-font-color8);
+        color: #ffffff;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
       }
 
       .shareContent_info {
         font-size: 14px;
-        color: var(--ex-font-color8);
+        color: #ffffff;
         padding: 10px 0 30px;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
       }
 
       .sharkCode,
@@ -378,9 +380,8 @@ const changeIndex = (v) => {
           line-height: 1.2;
           font-size: 12px;
           word-break: break-all;
-          color: var(--ex-font-color8);
-          // word-wrap:break-word;
-          // word-break:normal;
+          color: #ffffff;
+          text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
         }
       }
     }
@@ -396,13 +397,16 @@ const changeIndex = (v) => {
 
       .shareContent_title {
         font-size: 20px;
-        color: var(--ex-font-color6);
+        color: #ffffff;
+        font-weight: bold;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
       }
 
       .shareContent_info {
         font-size: 14px;
-
+        color: #ffffff;
         padding: 10px 0 30px;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
       }
 
       .sharkCode,
@@ -411,8 +415,8 @@ const changeIndex = (v) => {
           line-height: 1.2;
           font-size: 12px;
           word-break: break-all;
-          // word-wrap:break-word;
-          // word-break:normal;
+          color: #ffffff;
+          text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
         }
       }
     }
@@ -435,14 +439,15 @@ const changeIndex = (v) => {
       // flex: 1;
       p {
         height: 30px;
-        color: var(--ex-passive-font-color);
+        color: #ffffff;
         margin-bottom: 15px;
         word-wrap: break-word;
       }
 
       span {
         font-size: 16px;
-        font-weight: 500;
+        font-weight: 600;
+        color: #ffffff;
       }
     }
   }
@@ -451,7 +456,7 @@ const changeIndex = (v) => {
 .promotion_my {
   .title {
     padding: 25px 15px 20px;
-    color: var(--ex-font-color6);
+    color: #ffffff;
     font-weight: bold;
     font-size: 16px;
   }
@@ -471,7 +476,7 @@ const changeIndex = (v) => {
     p {
       font-size: 12px;
       flex: 1;
-      color: var(--ex-passive-font-color);
+      color: #ffffff;
       text-align: center;
     }
   }
@@ -498,21 +503,62 @@ const changeIndex = (v) => {
       font-size: 12px;
       flex: 1;
       text-align: center;
-      font-weight: 400;
+      font-weight: 500;
+      color: #ffffff;
     }
   }
+
+  // 添加 Tab 组件背景样式
+  :deep(.van-tabs__wrap) {
+    background-color: #1a1a1a; // 深色背景
+  }
+
+  :deep(.van-tabs__nav) {
+    background-color: #1a1a1a; // 深色背景
+  }
+
+  :deep(.van-tab) {
+    color: #ffffff !important;
+    background-color: #1a1a1a; // 深色背景
+  }
+
+  :deep(.van-tab--active) {
+    color: #ffffff !important;
+    font-weight: bold;
+    background-color: #333333; // 活动标签使用稍微不同的深色
+  }
+
+  :deep(.van-tabs__line) {
+    background-color: #ffffff; // 底部线条改为白色
+  }
+}
+
+// 如果上面的样式不能覆盖全局样式，可以使用这些全局样式覆盖
+:deep(.van-tabs__wrap) {
+  background-color: #1a1a1a;
+}
+
+:deep(.van-tabs__nav) {
+  background-color: #1a1a1a;
+}
+
+:deep(.van-tab) {
+  color: #ffffff !important;
+  background-color: #1a1a1a;
+}
+
+:deep(.van-tab--active) {
+  color: #ffffff !important;
+  font-weight: bold;
+  background-color: #333333;
+}
+
+:deep(.van-tabs__line) {
+  background-color: #ffffff;
 }
 
 .van-loading {
   text-align: center;
   padding: 30px;
-}
-
-:deep(.van-tab) {
-  color: var(--ex-home-list-ftcolor) !important;
-}
-
-:deep(.van-tab--active) {
-  color: var(--ex-home-list-ftcolor3) !important;
 }
 </style>
