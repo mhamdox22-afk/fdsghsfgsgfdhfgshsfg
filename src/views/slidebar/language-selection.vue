@@ -23,8 +23,7 @@
           class="language-item"
         >
           <div class="language-icon">
-            <image-load :filePath="item.imgUrl" alt="" width="20" class="nation" v-if="item.imgUrl" />
-            <svg-load v-else :name="item.dictValue" class="nation"></svg-load>
+            <span class="nation">{{ item.dictValue.toUpperCase() }}</span>
           </div>
           <span class="language-name">{{ item.remark }}</span>
           <template #icon="props">
@@ -112,8 +111,14 @@ const cuttentRight = { iconRight: [{ iconName: 'kefu', clickTo: 'event_serviceCh
       margin-right: 15px;
 
       .nation {
-        font-size: 28px;
-        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+        font-size: 16px;
+        font-weight: 600;
+        color: #17AC74;
+        background: rgba(23, 172, 116, 0.1);
+        padding: 4px 8px;
+        border-radius: 6px;
+        letter-spacing: 0.5px;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
       }
     }
 

@@ -20,7 +20,7 @@
     </div>
   </div>
   <!-- 确认充值按钮 -->
-  <div class="btn" @click="submit">
+  <div class="btn" @click="submit" style="display: none;">
     <p>{{ _t18('recharge_require', ['bitmake']) }}</p>
   </div>
   <!-- 充值说明列表 -->
