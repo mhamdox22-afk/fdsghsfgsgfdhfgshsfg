@@ -1134,7 +1134,7 @@
   "math_exchange_bearish": "看跌",
   "home": {
     "hero": {
-      "title": "超过1800万用户加入Antbitt",
+      "title": "超过1800万用户加入MOKA",
       "subtitle": "欢迎探索 全新体验",
       "startTrading": "开始交易"
     },
@@ -1148,7 +1148,7 @@
     "purchaseSteps": {
       "title": "只需几分钟就能购买加密货币",
       "steps": {
-        "createAccount": "创建您的免费 antbitt 帐户",
+        "createAccount": "创建您的免费 MOKA 帐户",
         "connect": "连接您的融资方式",
         "trade": "买卖200多种加密货币",
         "security": "充分的安全保证"
@@ -1243,12 +1243,12 @@
         "aml": "反洗钱政策"
       },
       "contact": {
-        "support": "客服邮箱：support@antbitt.com",
-        "business": "商务合作：business@antbitt.com",
+        "support": "客服邮箱：support@MOKA.com",
+        "business": "商务合作：business@MOKA.com",
         "email": "官方邮箱："
       },
       "copyright": {
-        "text": "© 2024 antbitt. All rights reserved.",
+        "text": "© 2024 MOKA. All rights reserved.",
         "description": "一家专注虚拟货币的服务公司"
       },
       "productIntro": "产品介绍",
@@ -1355,14 +1355,14 @@
   "view_details": "查看详情",
   "fundSecurity": {
     "title": "守护您的资产",
-    "description1": "ANTBITT利用安全的冷/热钱包系统、多重签名和多重备份，全天候保障您的资产安全。",
-    "description2": "即使遇到突发情况，还有ANTBITT万全基金继续为您护航。",
+    "description1": "MOKA利用安全的冷/热钱包系统、多重签名和多重备份，全天候保障您的资产安全。",
+    "description2": "即使遇到突发情况，还有MOKA万全基金继续为您护航。",
     "altText": "守护您的资产",
     "coldWallet": "冷钱包",
     "hotWallet": "热钱包",
-    "antbittFund": "ANTBITT万全基金",
+    "antbittFund": "MOKA万全基金",
     "coldWalletTitle": "安全的冷钱包设计",
-    "coldWalletSubtitle": "ANTBITT保障冷钱包的安全运行，不止于承诺，更是行动。",
+    "coldWalletSubtitle": "MOKA保障冷钱包的安全运行，不止于承诺，更是行动。",
     "coldWalletDescription": "平台在长期的实践中形成了系统的解决方案，如今正推进该方案的公开与共享，欢迎社区建设者与安全专家提出宝贵的建议。",
     "coldWalletKeyPoints": "方案要点",
     "coldWalletFeature1": "所有私钥在完全离线的设备上存储。",
@@ -1373,18 +1373,18 @@
     "coldWalletResult2": "私钥有异地备份，即使出现自然灾害，也不会发生丢币。",
     "coldWalletResult3": "从保险库取得密钥需要本人进入，从而避免了授权员工可能受到威胁的情况。",
     "hotWalletTitle": "可靠的热钱包技术",
-    "hotWalletDescription": "相比冷钱包，如何安全稳定地运行热钱包具有更大的技术挑战。ANTBITT独创热钱包半离线多重签名技术，在保障资金安全的同时，还能提供快捷、安全的数字资产的充提服务。",
+    "hotWalletDescription": "相比冷钱包，如何安全稳定地运行热钱包具有更大的技术挑战。MOKA独创热钱包半离线多重签名技术，在保障资金安全的同时，还能提供快捷、安全的数字资产的充提服务。",
     "hotWalletKeyPoints": "方案要点",
     "hotWalletFeature1": "多场景的备份私钥启用预案",
-    "hotWalletFeature2": "多重风控检测方案，前置性地预防可疑代币通过ANTBITT流入或转出",
+    "hotWalletFeature2": "多重风控检测方案，前置性地预防可疑代币通过MOKA流入或转出",
     "hotWalletResults": "实现结果",
     "hotWalletResult1": "能同时防止网络和物理攻击，私钥安全性极高",
     "hotWalletResult2": "拥有多签、多备份的机制以及完善的备用私钥启用预案，最大限度降低因私钥管理对平台正常运营产生的影响",
     "hotWalletResult3": "完善的风控管理系统，预防异常充值和提现的行为",
-    "antbittFundTitle": "什么是ANTBITT万全基金？",
-    "antbittFundDescription": "ANTBITT万全基金，是ANTBITT为了保障用户资产而成立的资产风险储备基金，持续从平台收益中拨出一定的比例，在出现数字货币安全风险时保障用户资产。",
+    "antbittFundTitle": "什么是MOKA万全基金？",
+    "antbittFundDescription": "MOKA万全基金，是MOKA为了保障用户资产而成立的资产风险储备基金，持续从平台收益中拨出一定的比例，在出现数字货币安全风险时保障用户资产。",
     "fundNeedTitle": "我们为什么需要该项基金？",
-    "fundNeedDescription": "随着数字货币日益普及，ANTBITT致力于为所有用户打造一个安全、可靠和负责任的数字货币交易环境。ANTBITT将运用本基金和业界领先的资产安全风险控制系统，为所有新老用户提供强有力的保护，保障资产安全。"
+    "fundNeedDescription": "随着数字货币日益普及，MOKA致力于为所有用户打造一个安全、可靠和负责任的数字货币交易环境。MOKA将运用本基金和业界领先的资产安全风险控制系统，为所有新老用户提供强有力的保护，保障资产安全。"
   },
   "reserveProof": {
     "title": "储备金证明",

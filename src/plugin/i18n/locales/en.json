@@ -1134,7 +1134,7 @@
   "math_exchange_bearish": "buy down",
   "home": {
     "hero": {
-      "title": "Join over 18 million users on Antbitt",
+      "title": "Join over 18 million users on MOKA",
       "subtitle": "Welcome to explore a brand new experience",
       "startTrading": "Start Trading"
     },
@@ -1148,7 +1148,7 @@
     "purchaseSteps": {
       "title": "Buy cryptocurrency in just a few minutes",
       "steps": {
-        "createAccount": "Create your free Antbitt account",
+        "createAccount": "Create your free MOKA account",
         "connect": "Connect your funding method",
         "trade": "Buy and sell over 200 cryptocurrencies",
         "security": "Comprehensive security guarantees"
@@ -1243,12 +1243,12 @@
         "aml": "Anti-Money Laundering Policy"
       },
       "contact": {
-        "support": "Customer Service Email: support@antbitt.com",
-        "business": "Business Cooperation: business@antbitt.com",
+        "support": "Customer Service Email: support@MOKA.com",
+        "business": "Business Cooperation: business@MOKA.com",
         "email": "Official Email:"
       },
       "copyright": {
-        "text": "© 2024 Antbitt. All rights reserved.",
+        "text": "© 2024 MOKA. All rights reserved.",
         "description": "A company focused on virtual currency services."
       },
       "productIntro": "Product Introduction",
@@ -1355,14 +1355,14 @@
   "view_details": "View Details",
   "fundSecurity": {
     "title": "Protect Your Assets",
-    "description1": "ANTBITT utilizes secure cold/hot wallet systems, multi-signature, and multiple backups to ensure your assets are protected 24/7.",
-    "description2": "Even in emergencies, ANTBITT's comprehensive fund continues to safeguard you.",
+    "description1": "MOKA utilizes secure cold/hot wallet systems, multi-signature, and multiple backups to ensure your assets are protected 24/7.",
+    "description2": "Even in emergencies, MOKA's comprehensive fund continues to safeguard you.",
     "altText": "Protect Your Assets",
     "coldWallet": "Cold Wallet",
     "hotWallet": "Hot Wallet",
-    "antbittFund": "ANTBITT Comprehensive Fund",
+    "antbittFund": "MOKA Comprehensive Fund",
     "coldWalletTitle": "Secure Cold Wallet Design",
-    "coldWalletSubtitle": "ANTBITT ensures the safe operation of cold wallets, not just in promise but in action.",
+    "coldWalletSubtitle": "MOKA ensures the safe operation of cold wallets, not just in promise but in action.",
     "coldWalletDescription": "The platform has developed a systematic solution through long-term practice, and is now promoting the public sharing of this solution, welcoming valuable suggestions from community builders and security experts.",
     "coldWalletKeyPoints": "Key Points of the Solution",
     "coldWalletFeature1": "All private keys are stored on completely offline devices.",
@@ -1373,18 +1373,18 @@
     "coldWalletResult2": "Private keys have off-site backups, ensuring no loss of coins even in natural disasters.",
     "coldWalletResult3": "Accessing keys from the vault requires personal entry, thus avoiding situations where authorized staff may be threatened.",
     "hotWalletTitle": "Reliable Hot Wallet Technology",
-    "hotWalletDescription": "Compared to cold wallets, running hot wallets securely and stably presents greater technical challenges. ANTBITT has developed a semi-offline multi-signature technology for hot wallets, providing fast and secure digital asset deposit and withdrawal services while ensuring fund security.",
+    "hotWalletDescription": "Compared to cold wallets, running hot wallets securely and stably presents greater technical challenges. MOKA has developed a semi-offline multi-signature technology for hot wallets, providing fast and secure digital asset deposit and withdrawal services while ensuring fund security.",
     "hotWalletKeyPoints": "Key Points of the Solution",
     "hotWalletFeature1": "Backup plans for private keys in multiple scenarios",
-    "hotWalletFeature2": "Multiple risk control detection plans to proactively prevent suspicious tokens from flowing in or out of ANTBITT",
+    "hotWalletFeature2": "Multiple risk control detection plans to proactively prevent suspicious tokens from flowing in or out of MOKA",
     "hotWalletResults": "Results Achieved",
     "hotWalletResult1": "Can simultaneously prevent both network and physical attacks, ensuring high security of private keys",
     "hotWalletResult2": "Has multi-signature, multiple backups, and a complete backup plan for private key activation, minimizing the impact of private key management on the normal operation of the platform",
     "hotWalletResult3": "A comprehensive risk management system to prevent abnormal deposits and withdrawals",
-    "antbittFundTitle": "What is the ANTBITT Comprehensive Fund?",
-    "antbittFundDescription": "The ANTBITT Comprehensive Fund is an asset risk reserve fund established by ANTBITT to protect user assets, continuously allocating a certain percentage from platform profits to safeguard user assets in the event of digital currency security risks.",
+    "antbittFundTitle": "What is the MOKA Comprehensive Fund?",
+    "antbittFundDescription": "The MOKA Comprehensive Fund is an asset risk reserve fund established by MOKA to protect user assets, continuously allocating a certain percentage from platform profits to safeguard user assets in the event of digital currency security risks.",
     "fundNeedTitle": "Why do we need this fund?",
-    "fundNeedDescription": "As digital currencies become increasingly popular, ANTBITT is committed to creating a safe, reliable, and responsible digital currency trading environment for all users. ANTBITT will use this fund and industry-leading asset security risk control systems to provide strong protection for all new and existing users, ensuring asset safety."
+    "fundNeedDescription": "As digital currencies become increasingly popular, MOKA is committed to creating a safe, reliable, and responsible digital currency trading environment for all users. MOKA will use this fund and industry-leading asset security risk control systems to provide strong protection for all new and existing users, ensuring asset safety."
   },
   "reserveProof": {
     "title": "Reserve Proof",
