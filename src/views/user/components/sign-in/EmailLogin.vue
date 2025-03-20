@@ -9,10 +9,12 @@
     </div>
     <div class="formData">
       <p>{{ _t18('login_code') }}</p>
-      <div>
+      <div class="input-wrapper">
         <input type="text" :placeholder="_t18('login_please')" v-model="formData2.code" />
-        <p v-if="!flag" @click="send()">{{ _t18('login_send') }}</p>
-        <p v-else><van-count-down :time="time" format="ss" @finish="finish" /></p>
+        <div class="send-button-wrapper">
+          <p v-if="!flag" class="send-button" @click="send()">{{ _t18('login_send') }}</p>
+          <p v-else class="countdown"><van-count-down :time="time" format="ss" @finish="finish" /></p>
+        </div>
       </div>
     </div>
     <p class="forgotPwd" @click="$router.push('/forgot-password')">{{ _t18('forget_pwd', ['bitmake']) }}</p>
@@ -73,6 +75,33 @@ import './../style.scss'
 </script>
 
 <style lang="scss" scoped>
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
 
+  input {
+    width: 100%;
+    padding-right: 80px;
+  }
 
+  .send-button-wrapper {
+    position: absolute;
+    right: 10px;
+    
+    .send-button {
+      background: linear-gradient(to right, #4481eb, #04befe);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .countdown {
+      color: #666;
+      font-size: 14px;
+    }
+  }
+}
 </style>

@@ -3,21 +3,22 @@
     <!-- 手机号 验证码 发送 -->
     <div class="formData">
       <p>{{ _t18('login_mobileCode') }}</p>
-      <div>
-        <input type="text" :placeholder="_t18('login_mobileCode')" v-model="formData3.mobile" />
-        <div class="right">
-          <i>+</i>
-          <p>{{ formData3.areaCode }}</p>
+      <div class="input-container">
+        <div class="area-code-selector">
+          <p>+{{ formData3.areaCode }}</p>
           <svg-load name="jiantou10x5-x" class="jiantou" @click="showAreaCode"></svg-load>
         </div>
+        <input type="text" :placeholder="_t18('login_mobileCode')" v-model="formData3.mobile" />
       </div>
     </div>
     <div class="formData">
       <p>{{ _t18('login_code') }}</p>
-      <div>
+      <div class="input-wrapper">
         <input type="text" :placeholder="_t18('login_please')" v-model="formData3.code" />
-        <p v-if="!flag" @click="send()">{{ _t18('login_send') }}</p>
-        <p v-else><van-count-down :time="time" format="ss" @finish="finish" /></p>
+        <div class="send-button-wrapper">
+          <p v-if="!flag" class="send-button" @click="send()">{{ _t18('login_send') }}</p>
+          <p v-else class="countdown"><van-count-down :time="time" format="ss" @finish="finish" /></p>
+        </div>
       </div>
     </div>
     <p class="forgotPwd" @click="$router.push('/forgot-password')">
@@ -91,4 +92,72 @@ const refreshCode = () => {}
 import './../style.scss'
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.input-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  input {
+    flex: 1;
+    height: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    background: transparent;
+    color: #fff;
+    padding: 0 12px;
+  }
+}
+
+.area-code-selector {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  height: 40px;
+  padding: 0 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  cursor: pointer;
+  
+  p {
+    color: #fff;
+    margin: 0;
+  }
+
+  .jiantou {
+    width: 10px;
+    height: 5px;
+    fill: #fff;
+  }
+}
+
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  input {
+    width: 100%;
+    padding-right: 80px;
+  }
+
+  .send-button-wrapper {
+    position: absolute;
+    right: 10px;
+    
+    .send-button {
+      background: linear-gradient(to right, #4481eb, #04befe);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .countdown {
+      color: #666;
+      font-size: 14px;
+    }
+  }
+}
+</style>

@@ -346,10 +346,10 @@ const forgerPasswordSubmit = (params) => {
     padding: 30px 0 30px;
     font-size: 16px;
     text-align: center;
-    color: #fff;
+    color: #d7d5d5;
     span {
       font-size: 16px;
-      color: var(--ex-font-color9);
+      color: #fff;
       text-decoration: underline;
     }
   }
