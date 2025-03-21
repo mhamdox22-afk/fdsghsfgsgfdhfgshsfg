@@ -4,9 +4,9 @@
     <div class="formData">
       <p>{{ _t18('login_mobileCode') }}</p>
       <div class="input-container">
-        <div class="area-code-selector">
+        <div class="area-code-selector" @click="showAreaCode">
           <p>+{{ formData3.areaCode }}</p>
-          <svg-load name="jiantou10x5-x" class="jiantou" @click="showAreaCode"></svg-load>
+          <svg-load name="jiantou10x5-x" class="jiantou" ></svg-load>
         </div>
         <input type="text" :placeholder="_t18('login_mobileCode')" v-model="formData3.mobile" />
       </div>

@@ -8,7 +8,7 @@ import { socketDict } from '@/config/dict'
 import PubSub from 'pubsub-js'
 import { _add, _div, _mul, priceFormat } from '@/utils/decimal'
 import _ from 'lodash'
-import { computed } from 'vue'
+import { computed, watch } from 'vue'
 import { useMainStore } from '@/store'
 import { useTradeStore } from '@/store/trade'
 import { debounce, throttle } from 'lodash'
@@ -192,17 +192,21 @@ onBeforeUnmount(() => {
  * 设置币种、周期
  */
 const setSymbol = async (symbol, interval, callBack) => {
-  if (currentCoinInfo.symbol != symbol || interval != currentInterval.interval) {
-    widget?.setSymbol(symbol, interval, () => {
-      // console.log('------setSymbol---------', props.coinInfo.symbol, interval)
-      Object.assign(
-        currentInterval,
-        intervalList.find((elem) => elem.interval == interval)
-      )
-      callBack && callBack()
-    })
+  if (!widget) return;
+  
+  if (currentCoinInfo.symbol !== symbol || interval !== currentInterval.interval) {
+    return new Promise((resolve) => {
+      widget.setSymbol(symbol, interval, () => {
+        Object.assign(
+          currentInterval,
+          intervalList.find((elem) => elem.interval === interval)
+        );
+        callBack?.();
+        resolve();
+      });
+    });
   }
-}
+};
 
 // 数据实例
 const dataFeedInstance = {}
@@ -364,7 +368,13 @@ dataFeedInstance.resolveSymbol = async () => {
  * 初始化图表
  */
 const initWidget = () => {
-  datafeeds = new Datafees(dataFeedInstance)
+  if (widget) {
+    widget.remove();
+    widget = null;
+  }
+
+  datafeeds = new Datafees(dataFeedInstance);
+  
   // 主题
   let theme = 'dark' // 强制使用深色主题
   
@@ -482,13 +492,14 @@ const initWidget = () => {
     preset: "mobile"
   };
   
-  // Create widget with optimized options
-  widget = new TradingView.widget(widgetOptions);
-  
-  // Only add necessary event handlers
-  widget.onChartReady(() => {
-    addMultipleMovingAverages() // Only add this one function
-  })
+  return new Promise((resolve) => {
+    widget = new TradingView.widget(widgetOptions);
+    
+    widget.onChartReady(() => {
+      addMultipleMovingAverages();
+      resolve();
+    });
+  });
 }
 
 /**
@@ -721,6 +732,72 @@ const addMultipleMovingAverages = () => {
     }, 50);
   }, 100);
 }
+
+// 修改 watch 部分
+watch(
+  () => props.coinInfo,
+  async (newCoinInfo, oldCoinInfo) => {
+    // 确保新的 coinInfo 有效
+    if (!newCoinInfo?.symbol) return;
+    
+    // 如果是相同的交易对，不需要刷新
+    if (oldCoinInfo?.symbol === newCoinInfo.symbol) return;
+
+    try {
+      // 1. 先取消所有订阅
+      unsubscribeTrades(true);
+
+      // 2. 重置交易数据
+      Object.assign(tempTrade, {
+        time: '',
+        amount: '',
+        open: '',
+        high: '',
+        low: '',
+        close: '',
+        volume: '',
+        lastClose: '',
+        intervention: false
+      });
+
+      // 3. 更新当前币种信息
+      Object.assign(currentCoinInfo, newCoinInfo);
+
+      // 4. 更新分辨率相关配置
+      supportedResolutions = getSupportedResolutions(newCoinInfo);
+      const tempHeadIntervalList = getHeadIntervalList(newCoinInfo);
+      headIntervalList.splice(0, headIntervalList.length, ...tempHeadIntervalList);
+      Object.assign(currentInterval, headIntervalList[0]);
+
+      // 5. 隐藏菜单
+      showMenu.value = false;
+
+      // 6. 等待图表准备就绪
+      if (!widget) {
+        // 如果 widget 不存在，重新初始化
+        await initWidget();
+      } else {
+        // 7. 重新设置商品和周期
+        await new Promise((resolve) => {
+          widget.setSymbol(newCoinInfo.symbol, currentInterval.interval, () => {
+            // 8. 重新添加移动平均线
+            widget.onChartReady(() => {
+              addMultipleMovingAverages();
+              resolve();
+            });
+          });
+        });
+      }
+
+    } catch (error) {
+      console.error('Error refreshing chart:', error);
+    }
+  },
+  { 
+    deep: true,
+    immediate: true // 改为 true，确保初始化时也执行
+  }
+);
 </script>
 <template>
   <div>

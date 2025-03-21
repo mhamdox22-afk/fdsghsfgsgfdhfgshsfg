@@ -19,13 +19,14 @@
         @handelClose="sidePopup = false"
         :direction="`left`"
         :height="`100%`"
-        :width="`80%`"
+        :width="`85%`"
         :showHeader="false"
         :empty="false"
         class="side-popup"
       >
         <template #emptyContentCustomize>
-          <LeftSide v-if="sidePopup" @close="sidePopup = false" :headerList="headerList" class="left-side"></LeftSide>
+          <Footer @closePopup="sidePopup = false" />
+          <!-- <LeftSide v-if="sidePopup" @close="sidePopup = false" :headerList="headerList" class="left-side"></LeftSide> -->
         </template>
       </PublicPopup>
     </Suspense>
@@ -43,6 +44,7 @@ import { _t18 } from '@/utils/public'
 import { setCollect, removeCollect } from '@/api/trade'
 import { useTradeStore } from '@/store/trade'
 import { useUserStore } from '@/store/user'
+import Footer from '../../home/components/FrontPage/footer-trade.vue'
 
 // 懒加载组件
 const SecondContractHeader = defineAsyncComponent(() => 
@@ -182,8 +184,8 @@ const eventBusBrother = () => {
 }
 
 .side-popup {
+  overflow-x: hidden;
   .left-side {
-    background: #242424;
     height: 100%;
     /* 优化动画 */
     will-change: transform;

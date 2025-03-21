@@ -9,8 +9,10 @@ declare module 'vue' {
   export interface GlobalComponents {
     ActivityPopup: typeof import('./src/components/Defi/ActivityPopup.vue')['default']
     ButtonBar: typeof import('./src/components/common/ButtonBar/index.vue')['default']
+    copy: typeof import('./src/components/CurrencyList/currencyItem copy.vue')['default']
     Copy: typeof import('./src/components/common/Copy/index.vue')['default']
     CurrencyItem: typeof import('./src/components/CurrencyList/currencyItem.vue')['default']
+    CurrencyItemTrade: typeof import('./src/components/CurrencyList/currencyItem-trade.vue')['default']
     CurrencyList: typeof import('./src/components/CurrencyList/index.vue')['default']
     Dialog: typeof import('./src/components/Dialog/index.vue')['default']
     DropdownMenu: typeof import('./src/components/DropdownMenu/index.vue')['default']
