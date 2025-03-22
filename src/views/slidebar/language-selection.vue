@@ -23,7 +23,7 @@
           class="language-item"
         >
           <div class="language-icon">
-            <span class="nation">{{ item.dictValue.toUpperCase() }}</span>
+            <img :src="getLanguageIcon(item.remark)" :alt="item.remark" class="nation-icon">
           </div>
           <span class="language-name">{{ item.remark }}</span>
           <template #icon="props">
@@ -68,6 +68,29 @@ const checked = computed(() => {
 // ])
 const languageList = mainStore.languageList
 const cuttentRight = { iconRight: [{ iconName: 'kefu', clickTo: 'event_serviceChange' }] }
+
+// 修改为图片路径映射
+const languageIconMap = {
+  'English': '/src/assets/language-img/en.png',
+  '日本語': '/src/assets/language-img/jp.png',
+  '한국인': '/src/assets/language-img/kr.png',
+  '中文（简体）': '/src/assets/language-img/cn.png',
+  'Português': '/src/assets/language-img/pu.jpg',
+  'Tiếng Việt': '/src/assets/language-img/tv.png',
+  'ไทย': '/src/assets/language-img/dubi.png',
+  'español': '/src/assets/language-img/es.jpg',
+  'Français': '/src/assets/language-img/fr.png',
+  'Русский язык': '/src/assets/language-img/ru.jpeg',
+  'Deutsch': '/src/assets/language-img/de.jpg',
+  'Italian': '/src/assets/language-img/it.png',
+  '中文（繁體）': '/src/assets/language-img/hk.png'
+}
+
+// 获取语言对应的图标
+const getLanguageIcon = (languageName) => {
+  console.log(languageName)
+  return languageIconMap[languageName] || '/src/assets/language-img/default.png'
+}
 </script>
 <style lang="scss" scoped>
 .bind-card {
@@ -110,15 +133,12 @@ const cuttentRight = { iconRight: [{ iconName: 'kefu', clickTo: 'event_serviceCh
       align-items: center;
       margin-right: 15px;
 
-      .nation {
-        font-size: 16px;
-        font-weight: 600;
-        color: #17AC74;
-        background: rgba(23, 172, 116, 0.1);
-        padding: 4px 8px;
-        border-radius: 6px;
-        letter-spacing: 0.5px;
-        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+      .nation-icon {
+        width: 24px;
+        height: 24px;
+        object-fit: contain;
+        border-radius: 50%; // 如果想要圆形图标
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
       }
     }
 
