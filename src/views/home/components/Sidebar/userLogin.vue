@@ -9,8 +9,7 @@
     <div class="messRight">
       <Copy :data="userId">
         <template #copyMsg>
-<!--          <div class="rightTop fw-bold">UID：{{ userId }}</div>-->
-          <div class="rightTop fw-bold">UID：{{ loginName }}</div>
+          <div class="rightTop fw-bold">UID：{{ _hideLoginName(loginName) }}</div>
         </template>
       </Copy>
       <!-- 信用分 -->
@@ -29,12 +28,11 @@
   </div>
 </template>
 <script setup>
-import { _t18 } from '@/utils/public'
+import { _t18, _hideAddress, _hideLoginName } from '@/utils/public'
 import Copy from '@/components/common/Copy/index.vue'
 import { useUserStore } from '@/store/user/index'
 import { useMainStore } from '@/store/index'
 import { computed } from 'vue'
-import { _hideAddress } from '@/utils/public'
 // const vipClass = ref(0) //vip等级
 const userStore = useUserStore()
 const mainStore = useMainStore()

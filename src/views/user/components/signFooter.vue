@@ -21,9 +21,11 @@
       }}</span>
     </div>
     <div class="info">
-      {{ _t18('register_agree') }} {{ _getConfig('_APP_META_TITLE') }}
-      <span @click="$router.push('/termsOfuse')">{{ _t18('register_howToUse') }}</span
-      >&nbsp;{{ _t18('register_and') }}&nbsp;<span @click="$router.push('/privacyPolicy')">{{
+      <div style="color: #fff;">
+        {{ _t18('register_agree') }} {{ _getConfig('_APP_META_TITLE') }}
+      </div>
+      <span class="clickable-text" @click="$router.push('/termsOfuse')">{{ _t18('register_howToUse') }}</span
+      >&nbsp;{{ _t18('register_and') }}&nbsp;<span class="clickable-text" @click="$router.push('/privacyPolicy')">{{
         _t18('register_private')
       }}</span>
     </div>
@@ -337,42 +339,79 @@ const forgerPasswordSubmit = (params) => {
   font-size: 14px;
   color: var(--ex-default-font-color);
 }
+
+.clickable-text {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
 .box {
   padding: 0 15px 50px;
+  
   .btnBox {
     margin-top: 30px;
   }
+  
   .account {
-    padding: 30px 0 30px;
-    font-size: 16px;
+    padding: 25px 0;
+    font-size: 15px;
     text-align: center;
-    color: #d7d5d5;
+    color: rgba(255, 255, 255, 0.7);
+    
     span {
-      font-size: 16px;
+      font-size: 15px;
       color: #fff;
-      text-decoration: underline;
-    }
-  }
-  .info {
-    margin-top: 50px;
-    text-align: center;
-    span {
-      color: var(--ex-font-color9);
-      text-decoration: underline;
+      text-decoration: none;
+      font-weight: 500;
+      margin-left: 4px;
+      
+      &:hover {
+        text-decoration: underline;
+      }
     }
   }
   
-  /* 新增自定义按钮样式 */
+  .info {
+    text-align: center;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.6);
+    
+    div {
+      margin-bottom: 8px;
+    }
+    
+    span {
+      color: #fff;
+      text-decoration: underline;
+      font-weight: 500;
+      cursor: pointer;
+      
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  }
+  
   .custom-button {
     width: 100%;
-    height: 50px;
-    line-height: 50px;
+    height: 48px;
+    line-height: 48px;
     text-align: center;
-    font-size: 18px;
+    font-size: 16px;
+    font-weight: 500;
     color: #fff;
-    border-radius: 25px;
+    border-radius: 24px;
     background: linear-gradient(to right, #6a3db3, #36bbc7);
     cursor: pointer;
+    transition: opacity 0.2s;
+    
+    &:hover {
+      opacity: 0.9;
+    }
+    
+    &:active {
+      opacity: 0.8;
+    }
   }
 }
 </style>

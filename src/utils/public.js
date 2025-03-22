@@ -295,3 +295,14 @@ export const throttleRef = (value, duratinon = 300) => {
         }
       })
 }
+
+/**
+ * 登录名脱敏处理，只显示前3位和后3位
+ * @param {string} name 登录名
+ * @returns {string} 脱敏后的登录名
+ */
+export const _hideLoginName = (name) => {
+  if (!name) return ''
+  if (name.length <= 6) return name
+  return name.slice(0, 4) + '***' + name.slice(-4)
+}
