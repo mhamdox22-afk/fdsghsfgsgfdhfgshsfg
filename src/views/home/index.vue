@@ -21,7 +21,7 @@ onMounted(() => {
 
 <template>
   <HeaderDiff v-if="DIFF_HOME_BANNER.includes(_getConfig('_APP_ENV'))"></HeaderDiff>
-  <Header v-else></Header>
+  <Header v-else class="header-placeholder"></Header>
   <Menu></Menu>
   <Footer></Footer>
 
@@ -36,3 +36,10 @@ onMounted(() => {
     <!-- <CryptoComposition /> -->
 
 </template>
+
+<style scoped>
+.header-placeholder {
+  min-height: 258px; /* 您可以根据实际需要调整这个高度值 */
+  width: 100%;
+}
+</style>

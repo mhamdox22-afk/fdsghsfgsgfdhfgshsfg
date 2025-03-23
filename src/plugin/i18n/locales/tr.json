@@ -491,7 +491,7 @@
   "login_email": "E-posta Girişi",
   "login_mobile": "Telefonla giriş yapın",
   "account": "hesap",
-  "login_name": "Kullanıcı adı/cüzdan adresi/e-posta",
+  "login_name": "Kullanıcı adı/e-posta",
   "login_pwd": "şifre",
   "login_please": "girin lütfen",
   "login_code": "Doğrulama kodu",

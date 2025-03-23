@@ -491,7 +491,7 @@
   "login_email": "Email login",
   "login_mobile": "Mobile login",
   "account": "Account",
-  "login_name": "User name/wallet address/email",
+  "login_name": "User name/email",
   "login_pwd": "Password",
   "login_please": "Please enter",
   "login_code": "Verification code",

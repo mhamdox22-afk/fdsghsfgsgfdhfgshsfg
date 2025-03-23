@@ -491,7 +491,7 @@
   "login_email": "이메일 로그인",
   "login_mobile": "핸드폰 로그인",
   "account": "계좌번호",
-  "login_name": "아이디/지갑주소/이메일",
+  "login_name": "아이디/이메일",
   "login_pwd": "암호",
   "login_please": "입력해 주세요",
   "login_code": "인증 번호",

@@ -491,7 +491,7 @@
   "login_email": "Connexion par e-mail",
   "login_mobile": "Connectez-vous avec le téléphone",
   "account": "compte",
-  "login_name": "Nom d'utilisateur/adresse de portefeuille/e-mail",
+  "login_name": "Nom d'utilisateur/e-mail",
   "login_pwd": "mot de passe",
   "login_please": "Entrez s'il vous plait",
   "login_code": "le code de vérification",

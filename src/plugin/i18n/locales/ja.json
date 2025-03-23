@@ -491,7 +491,7 @@
   "login_email": "メールログイン",
   "login_mobile": "携帯電話ログイン",
   "account": "アカウントログイン",
-  "login_name": "ユーザー名/ウォレットアドレス/メールアドレス",
+  "login_name": "ユーザー名/メールアドレス",
   "login_pwd": "パスワード",
   "login_please": "入力してください",
   "login_code": "認証コードを入力してください",

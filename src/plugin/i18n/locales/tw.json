@@ -491,7 +491,7 @@
   "login_email": "郵箱登錄",
   "login_mobile": "手機登錄",
   "account": "賬號",
-  "login_name": "用戶名/錢包地址/郵箱",
+  "login_name": "用戶名/郵箱",
   "login_pwd": "密碼",
   "login_please": "請輸入",
   "login_code": "驗證碼",

@@ -491,7 +491,7 @@
   "login_email": "Iniciar sesión por correo electrónico",
   "login_mobile": "Iniciar sesión con el teléfono",
   "account": "cuenta",
-  "login_name": "Nombre de usuario/dirección de billetera/correo electrónico",
+  "login_name": "Nombre de usuario/correo electrónico",
   "login_pwd": "contraseña",
   "login_please": "por favor escribe",
   "login_code": "código de verificación",

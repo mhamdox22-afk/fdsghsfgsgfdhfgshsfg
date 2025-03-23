@@ -491,7 +491,7 @@
   "login_email": "E-mail login",
   "login_mobile": "Log ind med telefonen",
   "account": "konto",
-  "login_name": "Brugernavn/pungadresse/e-mail",
+  "login_name": "Brugernavn/e-mail",
   "login_pwd": "adgangskode",
   "login_please": "kom ind",
   "login_code": "Verifikationskode",
