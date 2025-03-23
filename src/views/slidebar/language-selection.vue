@@ -38,6 +38,20 @@
 import { storageDict } from '@/config/dict'
 import { useMainStore } from '@/store/index.js'
 import { computed } from 'vue'
+import enImg from '@/assets/language-img/en.png'
+import jpImg from '@/assets/language-img/jp.png'
+import krImg from '@/assets/language-img/kr.png'
+import cnImg from '@/assets/language-img/cn.png'
+import puImg from '@/assets/language-img/pu.jpg'
+import tvImg from '@/assets/language-img/tv.png'
+import dubiImg from '@/assets/language-img/dubi.png'
+import esImg from '@/assets/language-img/es.jpg'
+import frImg from '@/assets/language-img/fr.png'
+import ruImg from '@/assets/language-img/ru.jpeg'
+import deImg from '@/assets/language-img/de.jpg'
+import itImg from '@/assets/language-img/it.png'
+import hkImg from '@/assets/language-img/hk.png'
+
 const mainStore = useMainStore()
 const current = ref(localStorage.getItem(storageDict.LANGUAGE))
 /**
@@ -69,27 +83,25 @@ const checked = computed(() => {
 const languageList = mainStore.languageList
 const cuttentRight = { iconRight: [{ iconName: 'kefu', clickTo: 'event_serviceChange' }] }
 
-// 修改为图片路径映射
 const languageIconMap = {
-  'English': '/src/assets/language-img/en.png',
-  '日本語': '/src/assets/language-img/jp.png',
-  '한국인': '/src/assets/language-img/kr.png',
-  '中文（简体）': '/src/assets/language-img/cn.png',
-  'Português': '/src/assets/language-img/pu.jpg',
-  'Tiếng Việt': '/src/assets/language-img/tv.png',
-  'ไทย': '/src/assets/language-img/dubi.png',
-  'español': '/src/assets/language-img/es.jpg',
-  'Français': '/src/assets/language-img/fr.png',
-  'Русский язык': '/src/assets/language-img/ru.jpeg',
-  'Deutsch': '/src/assets/language-img/de.jpg',
-  'Italian': '/src/assets/language-img/it.png',
-  '中文（繁體）': '/src/assets/language-img/hk.png'
+  'English': enImg,
+  '日本語': jpImg,
+  '한국인': krImg,
+  '中文（简体）': cnImg,
+  'Português': puImg,
+  'Tiếng Việt': tvImg,
+  'ไทย': dubiImg,
+  'español': esImg,
+  'Français': frImg,
+  'Русский язык': ruImg,
+  'Deutsch': deImg,
+  'Italian': itImg,
+  '中文（繁體）': hkImg
 }
 
 // 获取语言对应的图标
 const getLanguageIcon = (languageName) => {
-  console.log(languageName)
-  return languageIconMap[languageName] || '/src/assets/language-img/default.png'
+  return languageIconMap[languageName] 
 }
 </script>
 <style lang="scss" scoped>

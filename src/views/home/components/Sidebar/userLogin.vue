@@ -9,7 +9,7 @@
     <div class="messRight">
       <Copy :data="userId">
         <template #copyMsg>
-          <div class="rightTop fw-bold">UID：{{ _hideLoginName(loginName) }}</div>
+          <div class="rightTop fw-bold">UID：{{userId}}</div>
         </template>
       </Copy>
       <!-- 信用分 -->
