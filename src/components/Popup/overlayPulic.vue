@@ -21,7 +21,7 @@ const handelClose = () => {
 .countdown {
   max-width: var(--ex-max-width);
   border-radius: 10px 10px 10px 10px;
-  background-color:var(--ex-default-background-color);
+  // background-color:var(--ex-default-background-color);
   position: absolute;
   top: 50%;
   width: 92%;

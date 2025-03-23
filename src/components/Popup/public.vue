@@ -76,7 +76,7 @@ const handelClose = () => {
 }
 
 .popupContent {
-  padding: 20px 15px;
+  padding: 0px 15px;
   box-sizing: border-box;
 }
 :deep(.van-popup--bottom) {

@@ -104,9 +104,9 @@
   <OverlayPulic :show="showCountdown" :z-index="999">
     <template #contentCustomize>
       <div class="countdown">
-        <div class="fw-bold closeBtn">
+        <div class="fw-bold closeBtn" style="display: flex;justify-content: space-between;">
           <div>{{ matchText(coinInfo.showSymbol, '/USDT') }}</div>
-          <svg-load class="closeSvg" name="guanbi" @click="turnOffCountdown"></svg-load>
+          <svg-load class="closeSvg" style="font-size: 16px;" name="guanbi" @click="turnOffCountdown"></svg-load>
         </div>
         <div class="circle">
           <van-circle
@@ -184,11 +184,11 @@
     <div class="countdown"></div>
     <template #contentCustomize>
       <div class="countdown">
-        <div class="fw-bold closeBtn">
+        <div class="fw-bold closeBtn"  style="display: flex;justify-content: space-between;">
           <div>{{ matchText(coinInfo.showSymbol, '/USDT') }}</div>
-          <svg-load class="closeSvg" name="guanbi" @click="countdownClose"></svg-load>
+          <svg-load class="closeSvg" style="font-size: 16px;" name="guanbi" @click="countdownClose"></svg-load>
         </div>
-        <div class="countdownHeader">
+        <div class="countdownHeader" style="margin-top: 10px;">
           <div
             :class="profitAndlossColor(orderObj.betAmount, orderObj.rewardAmount)"
             class="ff-num"
@@ -292,18 +292,18 @@ const cycleList = ref([]) // 周期列表
 // 全部
 const all = ref(_t18(`all`, ['ebc']))
 const quantityList = ref([
-  {
-    name: '10',
-    show: true
-  },
-  {
-    name: '20',
-    show: true
-  },
-  {
-    name: '50',
-    show: true
-  },
+  // {
+  //   name: '10',
+  //   show: true
+  // },
+  // {
+  //   name: '20',
+  //   show: true
+  // },
+  // {
+  //   name: '50',
+  //   show: true
+  // },
   {
     name: '100',
     show: true
@@ -842,8 +842,8 @@ input::-ms-input-placeholder {
 }
 .popupContain {
   background: #121212;
-  padding: 20px;
-  height: calc(66vh - 60px); // Subtract header height
+  padding: 15px;
+  height: calc(60vh - 50px);
   overflow-y: auto;
   
   // Custom scrollbar styling
@@ -867,21 +867,21 @@ input::-ms-input-placeholder {
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       font-size: 17px;
-      margin-bottom: 16px;
+      margin-bottom: 12px;
       font-weight: 600;
       letter-spacing: 0.3px;
     }
 
     .firstList {
       display: flex;
-      gap: 12px;
+      gap: 8px;
       overflow-x: auto;
       padding: 4px;
       margin: 0 -4px;
       
       .firstItem {
-        min-width: 80px;
-        padding: 12px 16px;
+        min-width: 70px;
+        padding: 8px 12px;
         background: #1E1E1E;
         border-radius: 12px;
         color: #E0E0E0;
@@ -929,13 +929,13 @@ input::-ms-input-placeholder {
 
   .quantityList {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(75px, 1fr));
-    gap: 12px;
-    padding: 4px;
-    margin: 0 -4px 16px;
+    grid-template-columns: repeat(auto-fill, minmax(65px, 1fr));
+    gap: 8px;
+    padding: 2px;
+    margin: 0 -2px 12px;
 
     .item {
-      height: 40px;
+      height: 36px;
       background: #1E1E1E;
       color: #E0E0E0;
       border-radius: 8px;
@@ -961,7 +961,7 @@ input::-ms-input-placeholder {
     gap: 8px;
     color: #666666;
     font-size: 14px;
-    margin-bottom: 24px;
+    margin-bottom: 16px;
 
     div:first-child {
       background: linear-gradient(135deg, #FFFFFF 0%, #CCCCCC 100%);
@@ -980,7 +980,7 @@ input::-ms-input-placeholder {
 
   .okButton {
     .button {
-      height: 48px;
+      height: 44px;
       background: linear-gradient(135deg, #2ebd85 0%, #1c8f64 100%);
       border-radius: 12px;
       color: #ffffff;
@@ -1089,9 +1089,8 @@ input::-ms-input-placeholder {
 // Modify PublicPopup related styles
 :deep(.van-popup) {
   background: #121212 !important;
-  height: 66vh !important; // Set to 2/3 of viewport height
-  max-height: 66vh !important;
-  border-radius: 16px 16px 0 0;
+  height: 70vh !important;
+  border-radius: 12px 12px 0 0;
 }
 
 :deep(.van-overlay) {
