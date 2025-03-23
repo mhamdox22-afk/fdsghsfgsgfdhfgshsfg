@@ -1,6 +1,6 @@
 <!-- 高级认证 -->
 <script setup>
-import { reactive, ref } from 'vue'
+import { reactive, ref, onMounted } from 'vue'
 import { computed } from 'vue'
 import { REALNAME } from '@/config'
 import { nation } from './components/nation.js'
@@ -25,6 +25,27 @@ const nationList = computed(() => {
     return elem
   })
 })
+
+/**
+ * 国家搜索功能
+ */
+const nationSearch = ref('')
+const filteredNationList = computed(() => {
+  if (!nationSearch.value) {
+    return nationList.value
+  }
+  return nationList.value.filter((item) => {
+    // 将翻译后的国家名转为小写进行比较
+    const translatedName = _t18(item.title).toLowerCase()
+    const searchTerm = nationSearch.value.toLowerCase()
+    return translatedName.includes(searchTerm)
+  })
+})
+
+const handleNationSearch = () => {
+  // 实时搜索，不需要额外操作
+}
+
 // 用户信息
 const { userInfo } = storeToRefs(userStore)
 
@@ -255,16 +276,48 @@ onMounted(() => {
       :title="_t18(nationName)"
       @click="showNation = true"
     />
-    <van-action-sheet
-      v-model:show="showNation"
-      :actions="nationList"
-      @select="onSelectNation"
-      style="max-width: var(--ex-max-width); left: 50%; translate: -50%"
-    >
-      <template #action="{ action, index }">
-        <div :key="index">{{ _t18(action.title) }}</div>
-      </template>
-    </van-action-sheet>
+
+    <!-- 自定义国家选择器 -->
+    <div class="custom-nation-selector" v-show="showNation">
+      <div class="selector-overlay" @click="showNation = false"></div>
+      <div class="selector-content">
+        <!-- 搜索框 -->
+        <div class="selector-header">
+          <div class="search-container">
+            <i class="search-icon">
+              <van-icon name="search" />
+            </i>
+            <input 
+              type="text" 
+              v-model="nationSearch" 
+              :placeholder="_t18('enter_search_keywords')" 
+              class="search-input"
+            />
+            <i class="clear-icon" v-if="nationSearch" @click="nationSearch = ''">
+              <van-icon name="close" />
+            </i>
+          </div>
+          <div class="close-button" @click="showNation = false">
+            <van-icon name="cross" />
+          </div>
+        </div>
+        
+        <!-- 国家列表 -->
+        <div class="nations-list">
+          <div 
+            v-for="(item, index) in filteredNationList" 
+            :key="index"
+            class="nation-item"
+            @click="onSelectNation(item)"
+          >
+            {{ _t18(item.title) }}
+          </div>
+          <div class="no-results" v-if="filteredNationList.length === 0">
+            {{ _t18('no_results_found') || '没有找到匹配结果' }}
+          </div>
+        </div>
+      </div>
+    </div>
 
     <div class="upload">
       <div class="photo">
@@ -670,6 +723,223 @@ onMounted(() => {
 :deep(.van-uploader) {
   .img[name="delete"] {
     filter: brightness(1.2) !important;
+  }
+}
+
+// 添加国家搜索样式
+.action-sheet-header {
+  position: relative;
+  padding: 12px 12px 12px 12px;
+  background-color: #000000;
+  display: flex;
+  align-items: center;
+  
+  :deep(.van-search) {
+    flex: 1;
+    padding: 0;
+    margin-right: 8px;
+    
+    .van-search__content {
+      background-color: #1a1a1a;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      height: 36px;
+    }
+    
+    .van-field__control {
+      color: #ffffff;
+      
+      &::placeholder {
+        color: rgba(255, 255, 255, 0.4);
+      }
+    }
+    
+    .van-field__left-icon {
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    .van-field__clear {
+      color: rgba(255, 255, 255, 0.4);
+    }
+  }
+  
+  .close-icon {
+    color: #ffffff;
+    font-size: 20px;
+    padding: 4px;
+  }
+}
+
+// 移除原来的header样式
+:deep(.van-action-sheet__header) {
+  display: none;
+}
+
+// 自定义国家列表滚动高度
+:deep(.van-action-sheet__content) {
+  max-height: 60vh;
+  overflow-y: auto;
+}
+
+// 自定义国家选择器样式
+.custom-nation-selector {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2000;
+  display: flex;
+  align-items: flex-end;
+  
+  .selector-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(3px);
+  }
+  
+  .selector-content {
+    position: relative;
+    width: 100%;
+    max-width: var(--ex-max-width);
+    max-height: 75vh;
+    margin: 0 auto;
+    background-color: #000000;
+    border-radius: 16px 16px 0 0;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.6);
+    display: flex;
+    flex-direction: column;
+    z-index: 2001;
+    animation: slide-up 0.3s ease;
+  }
+  
+  .selector-header {
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    
+    .search-container {
+      flex: 1;
+      position: relative;
+      height: 40px;
+      background-color: #1a1a1a;
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      align-items: center;
+      padding: 0 12px;
+      
+      .search-icon {
+        color: rgba(255, 255, 255, 0.6);
+        margin-right: 8px;
+      }
+      
+      .search-input {
+        flex: 1;
+        height: 100%;
+        background-color: transparent;
+        border: none;
+        outline: none;
+        color: #ffffff;
+        font-size: 14px;
+        
+        &::placeholder {
+          color: rgba(255, 255, 255, 0.4);
+        }
+      }
+      
+      .clear-icon {
+        color: rgba(255, 255, 255, 0.4);
+        padding: 4px;
+        cursor: pointer;
+      }
+    }
+    
+    .close-button {
+      margin-left: 12px;
+      color: #ffffff;
+      font-size: 20px;
+      padding: 4px;
+      cursor: pointer;
+    }
+  }
+  
+  .nations-list {
+    flex: 1;
+    overflow-y: auto;
+    padding: 8px 0;
+    
+    .nation-item {
+      height: 56px;
+      padding: 0 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      font-size: 16px;
+      background-color: #2e2d2d;
+      position: relative;
+      
+      &::after {
+        content: '';
+        position: absolute;
+        left: 15px;
+        right: 15px;
+        bottom: 0;
+        height: 1px;
+        background: rgba(255, 255, 255, 0.1);
+      }
+      
+      &:last-child::after {
+        display: none;
+      }
+      
+      &:active {
+        background-color: #1a1a1a;
+      }
+    }
+    
+    .no-results {
+      padding: 20px;
+      text-align: center;
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 14px;
+    }
+  }
+}
+
+// 添加动画效果
+@keyframes slide-up {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+// 添加滚动条样式
+.nations-list {
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+  
+  &::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 2px;
+  }
+  
+  &::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.3);
   }
 }
 </style>
