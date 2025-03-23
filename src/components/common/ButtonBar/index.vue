@@ -1,6 +1,6 @@
 <!-- 表单提交按钮 -->
 <template>
-  <div :class="btnReverse ? 'btn1' : 'btn2'" :style="{ backgroundColor: btnColor }">
+  <div  style="    background: linear-gradient(225deg, rgb(24, 200, 255) 0%, rgb(147, 63, 254) 100%);">
     {{ btnValue }}
   </div>
 </template>

@@ -294,8 +294,8 @@ onMounted(() => {
         </van-uploader>
       </div>
     </div>
-    <div class="btnBox" @click="submit">
-      <ButtonBar :btnValue="_t18('advanced_submit')" />
+    <div class="btnBox" @click="submit" >
+      <ButtonBar :btnValue="_t18('advanced_submit')"  />
     </div>
   </div>
 
@@ -320,179 +320,357 @@ onMounted(() => {
   </div>
 </template>
 <style lang="scss" scoped>
-.van-cell {
-  background: var(--ex-select-background-color) !important;
-  height: 46px;
-  border-radius: 3px;
-  border: 1px solid var(--ex-select-boder-color) !important;
-  padding: 0 10px;
-  font-size: 14px;
-  color: var(--ex-select-font-color) !important;
-  display: flex;
-  align-items: center;
-}
-
-.van-cell:after {
-  border-bottom: 1px solid var(--ex-select-border-btmcolor) !important;
-}
-
-:deep(.van-action-sheet__item) {
-  border-bottom: 1px solid var(--ex-select-border-btmcolor) !important;
-}
-
+// 删除所有CSS变量，直接使用具体颜色值
 .content {
-  padding: 30px 15px 0 15px;
+  background-color: #000000;
+  padding: 20px 16px;
+  min-height: 100vh;
 
-  .tip {
-    font-size: 12px;
-    color: var(--ex-tip-font-color);
-    margin-bottom: 30px;
-  }
-  .tip_info {
-    font-size: 12px;
-  }
-  .advanced_txt {
-    margin-bottom: 20px;
+  // 标签样式
+  .姓名, .证件, .证件号, .国家, .证件照 {
+    color: #ffffff;
+    font-size: 16px;
+    margin: 20px 0 10px 0;
     text-align: left;
   }
 
-  .form {
-    padding-top: 5px;
+  // 提示文本
+  .tip {
+    font-size: 14px;
+    color: #ffffff;
+    margin-bottom: 25px;
+  }
+  
+  .tip_info {
+    font-size: 14px;
+    color: #ffffff;
+  }
 
+  .advanced_txt {
+    margin-bottom: 20px;
+  }
+
+  // 表单样式
+  .form {
     .formInput {
-      padding: 0 10px;
+      background: #1a1a1a;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
       display: flex;
-      justify-content: flex-start;
-      background: var(--ex-input-background-color2);
-      border-radius: 3px;
-      border: 1px solid var(--ex-input-border-color);
       align-items: center;
-      margin: 20px 0;
+      margin-bottom: 30px;
+      padding: 0 15px;
 
       .label {
         min-width: 80px;
-        font-size: 14px;
-        color: var(--ex-input-label-color);
+        font-size: 15px;
+        color: #ffffff;
         text-align: left;
       }
 
       input {
         width: 100%;
-        height: 46px;
-        font-size: 14px;
-        background-color: var(--ex-input-background-color2);
+        height: 54px;
+        font-size: 15px;
+        background-color: transparent;
+        color: #ffffff;
+        border: none;
+        outline: none;
 
         &::placeholder {
-          color: var(--ex-input-font-color2);
-          font-size: 14px;
+          color: rgba(255, 255, 255, 0.4);
         }
       }
     }
   }
 
+  // 选择器样式
+  .van-cell {
+    background: #1a1a1a !important;
+    border-radius: 12px !important;
+    height: 54px;
+    margin-bottom: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    padding: 0 15px;
+    font-size: 15px;
+    color: #ffffff !important;
+    display: flex;
+    align-items: center;
+    
+    .van-cell__right-icon {
+      color: #ffffff !important;
+    }
+  }
+
+  // 上传区域
   .upload {
-    margin: 30px 0 10px 0;
+    margin-bottom: 15px;
 
     .photo {
-      font-size: 14px;
-      color: var(--ex-default-font-color);
+      font-size: 15px;
+      color: #ffffff;
+      margin-bottom: 10px;
     }
 
     span {
-      font-size: 14px;
-      color: var(--ex-passive-font-color);
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.6);
     }
   }
 
   .upload-box {
     .item {
-      height: 194px;
-      background: var(--ex-default-background-color);
-      border-radius: 3px;
-      border: 1px solid var(--ex-border-color1);
-      margin-bottom: 10px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+      background: #1a1a1a;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      height: 180px;
+      margin-bottom: 15px;
       overflow: hidden;
 
       .van-uploader {
         width: 100%;
+        height: 100%;
 
-        :deep(.van-uploader__wrapper) {
-          width: 100%;
-          height: 100%;
+        .img {
+          width: 40px;
+          height: 40px;
+          margin: 0 auto 10px;
           display: block;
+        }
 
-          .van-uploader__input-wrapper {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-          }
-
-          .van-uploader__preview {
-            width: 100%;
-            height: 100%;
-            margin: auto;
-
-            .van-uploader__preview-image {
-              width: 100%;
-              height: 194px;
-            }
-          }
-
-          .van-uploader__preview-delete {
-            width: 20px;
-            height: 20px;
-
-            .van-uploader__preview-delete-icon {
-              font-size: 22px;
-            }
-          }
+        .tit {
+          font-size: 14px;
+          color: #ffffff;
+          text-align: center;
         }
       }
 
-      .img {
-        // width: 100%;
-        // height: 100%;
-        width: 50px;
-        height: 50px;
-        min-width: none;
-        min-height: none;
-        object-fit: contain;
-        margin: 50px 0 20px 0;
+      :deep(.van-uploader__wrapper) {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
       }
 
-      .tit {
-        box-sizing: border-box;
+      :deep(.van-uploader__upload) {
+        margin: 0 auto;
+        height: 100%;
         width: 100%;
-        text-align: center;
+        background: transparent;
         display: flex;
-        align-items: center;
+        flex-direction: column;
         justify-content: center;
-        font-size: 14px;
-        font-weight: 400;
-        color: var(--ex-passive-font-color);
+        align-items: center;
+      }
+
+      :deep(.van-uploader__preview) {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+
+        .van-uploader__preview-image {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+
+        .van-uploader__preview-delete {
+          top: 10px;
+          right: 10px;
+          padding: 4px;
+          background: rgba(0, 0, 0, 0.5);
+          border-radius: 50%;
+        }
       }
     }
   }
 
+  // 按钮样式
   .btnBox {
     width: 100%;
-    margin: 50px 0;
+    margin: 40px 0 20px;
+    
+    :deep(.button-bar) {
+      background: linear-gradient(90deg, #4a66f7 0%, #1c90f7 100%);
+      border-radius: 12px;
+      height: 50px;
+      font-size: 16px;
+      font-weight: 500;
+      color: #ffffff;
+    }
   }
 }
 
-.success {
-  margin: 100px 0;
+// 弹出层样式 - 全面改进 van-action-sheet
+:deep(.van-action-sheet) {
+  background-color: #000000 !important;
+  border-radius: 16px 16px 0 0 !important;
+  overflow: hidden;
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.6) !important;
+  
+  .van-action-sheet__content {
+    padding: 8px 0;
+  }
+  
+  .van-action-sheet__item {
+    color: #ffffff !important;
+    font-size: 16px;
+    height: 56px;
+    background-color: #2e2d2d !important;
+    margin: 0;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      left: 15px;
+      right: 15px;
+      bottom: 0;
+      height: 1px;
+      background: rgba(255, 255, 255, 0.1);
+    }
+    
+    &:last-child::after {
+      display: none;
+    }
+    
+    &:active {
+      background-color: #1a1a1a !important;
+    }
+  }
+  
+  .van-action-sheet__cancel {
+    color: #ffffff !important;
+    background-color: #000000 !important;
+    margin-top: 8px;
+    position: relative;
+    height: 56px;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      height: 8px;
+      background: #1a1a1a;
+    }
+    
+    &:active {
+      background-color: #1a1a1a !important;
+    }
+  }
+  
+  .van-action-sheet__header {
+    color: #ffffff !important;
+    background-color: #000000 !important;
+    height: 56px;
+    font-weight: 500;
+    
+    .van-action-sheet__close {
+      color: #ffffff !important;
+      opacity: 0.8;
+      
+      &:active {
+        opacity: 1;
+      }
+    }
+  }
+  
+  .van-hairline--top::after,
+  .van-hairline--bottom::after,
+  .van-hairline--left::after,
+  .van-hairline--right::after,
+  .van-hairline::after,
+  .van-hairline--top-bottom::after {
+    border-color: rgba(255, 255, 255, 0.1) !important;
+  }
+  
+  // 为选项添加轻微动效
+  .van-action-sheet__item {
+    transition: background-color 0.2s;
+    
+    &:active {
+      transition: background-color 0.1s;
+    }
+  }
+  
+  // 自定义模板中的内容
+  .van-action-sheet__gap {
+    background-color: #1a1a1a !important;
+    height: 8px;
+  }
+  
+  // 国家选择框样式
+  div[key] {
+    color: #ffffff !important;
+    font-size: 16px;
+  }
 }
 
-:deep(.van-action-sheet__content) {
-  button {
-    background: var(--ex-select-dialog-background-color);
-    color: var(--ex-select-dialog-font-color);
-    height: 45px;
-    // border: 1px solid var(--ex-select-dialog-boder-color);
+// 蒙层样式优化
+:deep(.van-overlay) {
+  background-color: rgba(0, 0, 0, 0.7) !important;
+  backdrop-filter: blur(3px);
+}
+
+// 修改头部文字颜色
+:deep(.header-bar) {
+  .center {
+    color: #ffffff !important;
+  }
+  
+  .icon-kefu {
+    color: #ffffff !important;
+  }
+}
+
+// 成功状态页面
+.success {
+  margin: 100px 0;
+  
+  :deep(.success-component) {
+    img {
+      width: 80px;
+      height: 80px;
+      margin-bottom: 20px;
+    }
+    
+    .text {
+      color: #ffffff !important;
+      font-size: 16px;
+      margin-bottom: 30px;
+    }
+  }
+
+  :deep(.button-bar) {
+    background: linear-gradient(90deg, #4a66f7 0%, #1c90f7 100%);
+    border-radius: 12px;
+    height: 50px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #ffffff;
+  }
+}
+
+// 确保模板中的标签文字也为白色
+:deep(.text-ellipsis2) {
+  color: #ffffff;
+}
+
+// 修复相机图标
+:deep(.van-uploader) {
+  .img[name="delete"] {
+    filter: brightness(1.2) !important;
   }
 }
 </style>
+
