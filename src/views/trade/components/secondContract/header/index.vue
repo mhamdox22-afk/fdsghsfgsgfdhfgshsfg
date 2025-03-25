@@ -66,7 +66,7 @@
           <div class="secondItem">
             <div class="itemL">{{ _t18(`k_quantity`) }}</div>
             <div class="itemR fw-num" v-if="coinPriceInfo?.volume24">
-              {{ countFormat(coinPriceInfo.volume24) }}
+              {{ countFormat(coinPriceInfo.volume24*1000 ) }}
             </div>
             <div class="itemR fw-num" v-else>
               {{ countFormat(tradeStore.klineTicker.volume || 0) }}

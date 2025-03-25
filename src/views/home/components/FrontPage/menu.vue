@@ -377,7 +377,7 @@ const toRecharge = () => {
         min-width: 0;
         
         .top {
-          font-size: 12px;
+          font-size: 14px;
           color: rgba(255, 255, 255, 0.95);
           font-weight: 500;
           white-space: normal;

@@ -19,7 +19,7 @@
       >
         <van-tab v-for="(item, index) in headerList" :key="index">
           <template #title>
-            <div v-if="item.show">{{ item.name }}</div>
+            <div v-if="item.show" style="font-size: 14px;font-weight: bolder;">{{ item.name }}</div>
           </template>
         </van-tab>
       </van-tabs>

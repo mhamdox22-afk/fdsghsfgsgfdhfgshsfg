@@ -106,15 +106,15 @@
       <div class="countdown">
         <div class="fw-bold closeBtn" style="display: flex;justify-content: space-between;">
           <div>{{ matchText(coinInfo.showSymbol, '/USDT') }}</div>
-          <svg-load class="closeSvg" style="font-size: 16px;" name="guanbi" @click="turnOffCountdown"></svg-load>
+          <svg-load class="closeSvg" style="font-size: 20px;" name="guanbi" @click="turnOffCountdown"></svg-load>
         </div>
-        <div class="circle">
+        <div class="circle" style="margin-top: 10px;">
           <van-circle
             v-model:current-rate="currentRate"
             :rate="(1 - countDown / Number(cycleObj.period)) * 100"
             :speed="100"
             :stroke-width="`100`"
-            :size="`150px`"
+            :size="`130px`"
             :layer-color="`#D9D9D9`"
             :color="`#138A5D`"
             :text="countdownNum(countDown)"
@@ -186,19 +186,24 @@
       <div class="countdown">
         <div class="fw-bold closeBtn"  style="display: flex;justify-content: space-between;">
           <div>{{ matchText(coinInfo.showSymbol, '/USDT') }}</div>
-          <svg-load class="closeSvg" style="font-size: 16px;" name="guanbi" @click="countdownClose"></svg-load>
+          <svg-load class="closeSvg" style="font-size: 20px;" name="guanbi" @click="countdownClose"></svg-load>
         </div>
-        <div class="countdownHeader" style="margin-top: 10px;">
+
+        <div style="display: flex;flex-direction: column">
+        <div class="countdownHeader" style="margin-top: 10px;display: flex;align-items: center;margin: 0 auto;">
           <div
             :class="profitAndlossColor(orderObj.betAmount, orderObj.rewardAmount)"
             class="ff-num"
+            style="font-size: 28px;margin-right: 4px;"
           >
             {{ profitAndloss(orderObj.betAmount, orderObj.rewardAmount) }}
           </div>
-          <div class="countdownHeaderName">USDT</div>
+          <div class="countdownHeaderName" style="position: relative;top: 2px;">USDT</div>
         </div>
         <!-- 到期结算完成 -->
-        <div class="countdownOver">{{ _t18(`quick_label_1`) }}</div>
+        <div class="countdownOver" style="font-size: 10px; text-align: center; margin-bottom: 10px;">{{ _t18(`quick_label_1`) }}</div>
+      </div>
+
         <div class="countList">
           <!-- 现价 -->
           <div class="item">
@@ -234,7 +239,7 @@
           </div>
         </div>
         <!-- 最终价格以系统结算为准 -->
-        <div class="countFooter">{{ _t18(`option_profit_loss_3`) }}</div>
+        <div class="countFooter" style="font-size: 12px;color: #bdbaba;margin-top: 10px; ">{{ _t18(`option_profit_loss_3`) }}</div>
       </div>
     </template>
   </OverlayPulic>
@@ -666,6 +671,8 @@ const countdownClose = () => {
 }
 /**看涨 0涨 1跌 */
 const showBtn = (e) => {
+  console.log("asset.value",asset.value)
+
   availableBalance.value =
     asset.value.filter((item) => {
       return item.symbol === 'usdt'
@@ -1042,6 +1049,11 @@ input::-ms-input-placeholder {
       border-radius: 50%;
       z-index: -1;
     }
+    
+    :deep(.van-circle__text) {
+      color: #FFFFFF;
+      font-size: 20px;
+    }
   }
 
   .countList {
@@ -1049,13 +1061,16 @@ input::-ms-input-placeholder {
       border-bottom: 1px solid #1E1E1E;
       padding: 15px 0;
       transition: all 0.3s ease;
+      display: flex;
+      justify-content: space-between;
 
       &:hover {
         background: rgba(255, 255, 255, 0.03);
       }
 
       .itemRight {
-        color: #E0E0E0;
+        color: #d4d1d1;
+        font-size: 16px !important;
         
         &.hightUp {
           background: linear-gradient(135deg, #2ebd85 0%, #1c8f64 100%);
@@ -1313,5 +1328,10 @@ input::-ms-input-placeholder {
     height: 1px;
     background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
   }
+}
+
+:deep(.van-circle__text) {
+  color: #FFFFFF;
+  font-size: 14px;
 }
 </style>
