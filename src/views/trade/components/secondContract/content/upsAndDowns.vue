@@ -194,11 +194,11 @@
           <div
             :class="profitAndlossColor(orderObj.betAmount, orderObj.rewardAmount)"
             class="ff-num"
-            style="font-size: 28px;margin-right: 4px;"
+            style="font-size: 40px;margin-right: 4px;font-weight: bolder;"
           >
             {{ profitAndloss(orderObj.betAmount, orderObj.rewardAmount) }}
           </div>
-          <div class="countdownHeaderName" style="position: relative;top: 2px;">USDT</div>
+          <div class="countdownHeaderName" style="position: relative;top: 12px;font-size: 14px;">USDT</div>
         </div>
         <!-- 到期结算完成 -->
         <div class="countdownOver" style="font-size: 10px; text-align: center; margin-bottom: 10px;">{{ _t18(`quick_label_1`) }}</div>

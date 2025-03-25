@@ -13,7 +13,7 @@
       <div class="top">
         <div style="display: flex;align-items: center;justify-content: center;">
           <Logo></Logo>
-          <span class="gradient-text">MOKA</span>
+          <!-- <span class="gradient-text">MOKA</span> -->
         </div>
         <div style="display: flex;align-items: center;justify-content: center;">
           <img src="@/assets/icons/icon-1.png" class="rightImg" alt="Profile" style="border-radius: 50%;"
