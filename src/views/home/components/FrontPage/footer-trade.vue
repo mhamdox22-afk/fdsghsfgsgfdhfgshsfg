@@ -35,7 +35,7 @@
             <svg-load v-if="arrowList.firstIcon === 2" name="di" class="itemImg"></svg-load>
           </div>
         </div>
-        <div class="item" @click="toUpSort" style="position: relative;left: -30px;">
+        <div class="item" @click="toUpSort" style="position: relative;left: -10px;">
           <div>{{ _t18(`home_newPrice`, ['latcoin']) }}</div>
           <div class="arrows" v-if="['latcoin'].includes(_getConfig('_APP_ENV'))">
             <svg-load v-if="arrowList.secondIcon === 0" name="moren" class="itemImg"></svg-load>
@@ -43,7 +43,7 @@
             <svg-load v-if="arrowList.secondIcon === 2" name="di" class="itemImg"></svg-load>
           </div>
         </div>
-        <div class="item" @click="toRafSort" style="position: relative;left: -50px;">
+        <div class="item" @click="toRafSort" style="position: relative;left: -30px;">
           <div>{{ _t18(`home_upDown`, ['latcoin', 'aams']) }}</div>
           <div class="arrows" v-if="['latcoin'].includes(_getConfig('_APP_ENV'))">
             <svg-load v-if="arrowList.thirdIcon === 0" name="moren" class="itemImg"></svg-load>
@@ -312,9 +312,9 @@ const handleItemClick = (item) => {
 </script>
 <style lang="scss" scoped>
 .footer {
-  overflow-x: hidden;
+  overflow-x: hidden !important;
   background: #1a1a1a;
-  width: fit-content;
+  width: 300px;
   height: inherit;
   
   .main {

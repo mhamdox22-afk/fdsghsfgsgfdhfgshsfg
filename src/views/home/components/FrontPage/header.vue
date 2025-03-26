@@ -265,61 +265,7 @@ onMounted(async () => {
   try {
     const res = await publiceNotice('ACTIVITY_NOTICE', 'HOME_ACTIVITY ')
     if (res.code === 200) {
-      console.log("res.data", res.data);
-      const defaultImg = [
-        {
-          "createBy": null,
-          "createTime": "2023-08-08 11:09:56",
-          "updateBy": null,
-          "updateTime": "2024-08-21 02:18:41",
-          "remark": null,
-          "noticeId": 58,
-          "noticeTitle": "test",
-          "noticeType": "活动公告",
-          "modelType": "首页轮播活动",
-          "noticeContent": "<p><br></p>",
-          "commentsNum": 0,
-          "cover": null,
-          "viewNum": 0,
-          "expireTime": null,
-          "imgUrl": mainImg1,
-          "chainedUrl": "1",
-          "detailUrl": "",
-          "languageId": "zh",
-          "status": "0",
-          "sort": null,
-          "source": null,
-          "key": null,
-          "modelKey": null
-        },
-        {
-          "createBy": null,
-          "createTime": "2024-08-26 03:14:31",
-          "updateBy": null,
-          "updateTime": null,
-          "remark": null,
-          "noticeId": 127,
-          "noticeTitle": "中简",
-          "noticeType": "活动公告",
-          "modelType": "首页轮播活动",
-          "noticeContent": null,
-          "commentsNum": 0,
-          "cover": null,
-          "viewNum": 0,
-          "expireTime": null,
-          "imgUrl": mainImg2,
-          "chainedUrl": null,
-          "detailUrl": null,
-          "languageId": "zh",
-          "status": "0",
-          "sort": null,
-          "source": null,
-          "key": null,
-          "modelKey": null
-        }
-      ]
-
-      carouselList.value = defaultImg.filter((item) => {
+      carouselList.value = res.data.filter((item) => {
         return item.status != '1'
       })
     }

@@ -189,14 +189,19 @@ watch(tabContentList, (newValue) => {
 
   .custom-tab {
     margin-top: 10px;
-    
+
+    :deep(.tabs-nav) {
+      min-width: 100%;
+      overflow-x: auto;
+      margin-bottom: 10px;
+    }
     :deep(.tab-item) {
       background: #2a2a2a;
       border-radius: 8px;
       margin: 0 5px;
       padding: 8px 15px;
       transition: all 0.3s ease;
-      
+      white-space: nowrap;
       &.active {
         background: #3a3a3a;
         transform: scale(1.05);

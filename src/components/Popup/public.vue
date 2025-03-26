@@ -6,6 +6,9 @@
       :position="props.direction"
       @click-overlay="handelClose"
       :style="{ height: props.height, width: props.width }"
+      teleport="body"
+      :lock-scroll="true"
+      :overlay-class="props.fullscreen ? 'fullscreen-popup' : ''"
     >
       <div class="popupHeader" v-if="props.showHeader">
         <slot name="titleCustomize"></slot>
@@ -54,6 +57,11 @@ let props = defineProps({
   empty: {
     type: Boolean,
     default: true
+  },
+  // 新增全屏选项
+  fullscreen: {
+    type: Boolean,
+    default: false
   }
 })
 let emit = defineEmits(['handelClose'])
@@ -91,5 +99,10 @@ const handelClose = () => {
 }
 :deep(.van-popup--left) {
   left: auto;
+}
+
+:deep(.fullscreen-popup) {
+  width: 100% !important;
+  height: 100% !important;
 }
 </style>

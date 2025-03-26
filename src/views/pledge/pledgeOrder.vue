@@ -152,7 +152,8 @@ watch(
   padding: 30px;
 }
 .card-cell {
-  margin: 12px 16px;
+  // margin: 12px 16px;
+  margin-top: 10px;
   border-radius: 12px;
   overflow: hidden;
   transform: translateY(0);

@@ -5,7 +5,8 @@
       <div>
         <div class="topText ff-num">
           <div class="textTop fw-num">
-            {{ currencyItem.showSymbol }}
+            <div class="base-currency">{{ currencyItem.showSymbol.split('/')[0] }}</div>
+            <div class="quote-currency">{{ currencyItem.showSymbol.split('/')[1] }}</div>
           </div>
         </div>
       </div>
@@ -92,6 +93,19 @@ const props = defineProps({
         font-size: 15px;
         font-weight: 500;
         letter-spacing: 0.5px;
+        
+        .base-currency {
+          color: rgba(255, 255, 255, 1);
+        }
+        
+        .currency-separator {
+          opacity: 0.7;
+          margin: 0 1px;
+        }
+        
+        .quote-currency {
+          color: rgba(255, 255, 255, 0.8);
+        }
       }
 
       .tip {
@@ -114,7 +128,7 @@ const props = defineProps({
     flex: 1;
     justify-content: flex-end;
     position: relative;
-    left: -40px;
+    left: -60px;
 
     .rightLeft {
       color: rgba(255, 255, 255, 0.9);

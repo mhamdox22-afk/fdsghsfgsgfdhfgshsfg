@@ -229,8 +229,12 @@ const blur = () => {
 
       <van-action-sheet
         v-model:show="showNation"
-        style="max-width: var(--ex-max-width); left: 50%; translate: -50%"
-        ><template #default>
+        style="max-width: var(--ex-max-width); position: fixed; bottom: 0; left: 0; right: 0; margin: 0 auto; z-index: 9999;background-color: #000;"
+        teleport="body"
+        :overlay="true"
+        :close-on-click-overlay="true"
+        >
+        <template #default>
           <ul class="action">
             <li v-for="item in repaymentCycle" :key="item.id" @click="selectorAction(item)">
               <div class="selector">

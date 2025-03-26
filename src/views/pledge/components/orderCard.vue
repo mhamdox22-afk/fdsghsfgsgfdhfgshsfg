@@ -104,7 +104,8 @@ const submit = () => {
 <style lang="scss" scoped>
 * {
   font-size: 14px;
-  color: var(--ex-default-font-color);
+  // color: var(--ex-default-font-color);
+  color: #fff;
 }
 div {
   .title {

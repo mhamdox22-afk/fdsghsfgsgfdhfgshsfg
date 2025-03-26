@@ -92,7 +92,8 @@ onMounted(() => {
     }
     .right {
       font-size: 14px;
-      color: var(--ex-default-font-color);
+      // color: var(--ex-default-font-color);
+      color: #fff;
     }
   }
 }

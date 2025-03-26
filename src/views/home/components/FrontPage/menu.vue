@@ -86,73 +86,7 @@ const menuList = computed(() => {
   let tempData = mainStroe.getJinGangList.filter((item) => {
     return item.isOpen == true
   })
-  
-  return [
-    {
-        "name": "质押挖矿",
-        "key": "defi_host_lockup",
-        "imgUrl": img1,
-        "linkUrl": "/pledge",
-        "sort": 2,
-        "isOpen": true
-    },
-    {
-        "name": "助理贷",
-        "key": "fast_help_loan",
-        "imgUrl": img2,
-        "linkUrl": "/loan",
-        "sort": 3,
-        "isOpen": true
-    },
-    {
-        "name": "下载中心",
-        "key": "download_center",
-        "imgUrl": img3,
-        "linkUrl": "https://www.antbit.cc/",
-        "sort": 5,
-        "isOpen": true
-    },
-    {
-        "name": "推广中心",
-        "key": "promotion_center",
-        "imgUrl": img4,
-        "linkUrl": "/plug",
-        "sort": 6,
-        "isOpen": true
-    },
-    {
-        "name": "期权",
-        "key": "trade_tab6",
-        "imgUrl": img5,
-        "linkUrl": "/trade",
-        "sort": 7,
-        "isOpen": true
-    },
-    {
-        "name": "理财",
-        "key": "financial",
-        "imgUrl": img6,
-        "linkUrl": "/financial",
-        "sort": 8,
-        "isOpen": true
-    },
-    {
-        "name": "U本位",
-        "key": "trade_tab5",
-        "imgUrl": img7,
-        "linkUrl": "/tradeU",
-        "sort": 9,
-        "isOpen": true
-    },
-    {
-        "name": "币币交易",
-        "key": "trade_tab3",
-        "imgUrl": img8,
-        "linkUrl": "/trade?flag=BB&show=onlyB",
-        "sort": 9,
-        "isOpen": true
-    }
-]
+  return tempData
 })
 const currentNotice = ref('')
 const routeLink = (link) => {

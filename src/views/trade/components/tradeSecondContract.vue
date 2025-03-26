@@ -19,7 +19,7 @@
         @handelClose="sidePopup = false"
         :direction="`left`"
         :height="`100%`"
-        :width="`85%`"
+        :width="`300px`"
         :showHeader="false"
         :empty="false"
         class="side-popup"

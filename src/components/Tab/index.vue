@@ -77,7 +77,7 @@ const change = (index) => {
   }
 
   .tab-content {
-    border-top: 1px solid var(--ex-border-color);
+    // border-top: 1px solid var(--ex-border-color);
     
     p {
       color: var(--ex-passive-font-color);
