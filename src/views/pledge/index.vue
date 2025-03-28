@@ -6,7 +6,7 @@ import { priceFormat } from '@/utils/decimal.js'
 import { useRouter } from 'vue-router'
 import Popup from '@/components/Popup/index.vue'
 import Card from './components/card.vue'
-import { onMounted } from 'vue'
+import { onMounted, watch, onUnmounted } from 'vue'
 import { rulesList } from '@/api/common/index'
 const router = useRouter()
 
@@ -155,18 +155,46 @@ const manual = computed(() => {
   ]
   return list
 })
+
+// 监听弹窗状态，控制body滚动
+watch(() => showRule.value, (newVal) => {
+  if (newVal) {
+    // 当弹窗显示时，禁止背景滚动
+    document.body.style.overflow = 'hidden'
+    document.body.style.position = 'fixed'
+    document.body.style.width = '100%'
+  } else {
+    // 当弹窗关闭时，恢复滚动
+    document.body.style.overflow = ''
+    document.body.style.position = ''
+    document.body.style.width = ''
+  }
+})
+
+// 组件卸载时确保恢复滚动状态
+onUnmounted(() => {
+  document.body.style.overflow = ''
+  document.body.style.position = ''
+  document.body.style.width = ''
+})
 </script>
 <template>
   <div class="pledge-container">
-    <!-- 质押挖矿规则弹窗 -->
-    <Popup
-      :show="showRule"
-      :direction="direction"
-      @handelClose="closePopup"
-      :title="txt"
-      :content="popupContent"
-    >
-    </Popup>
+    <!-- 质押挖矿规则弹窗 - 使用 teleport 传送到 body -->
+    <teleport to="body">
+      <!-- 添加遮罩层 -->
+      <div v-if="showRule" class="modal-backdrop" @click="closePopup"></div>
+      
+      <Popup
+        :show="showRule"
+        :direction="direction"
+        @handelClose="closePopup"
+        :title="txt"
+        :content="popupContent"
+        :z-index="9999"
+      >
+      </Popup>
+    </teleport>
     <HeaderBar
       :currentName="_t18('defi_host_lockup')"
       :cuttentRight="cuttentRight"
@@ -376,5 +404,29 @@ const manual = computed(() => {
     transform: scale(1.1);
     color: #00ff9d;
   }
+}
+</style>
+
+<style lang="scss">
+/* 为弹窗组件添加最高层级和遮罩层 */
+.van-popup, .popup-container {
+  z-index: 9999 !important; /* 使用足够高的值确保在最上层 */
+}
+
+/* 添加全局遮罩层样式 */
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 9990 !important; /* 遮罩层z-index略低于弹窗 */
+  backdrop-filter: blur(3px); /* 添加模糊效果 */
+}
+
+/* 确保弹窗内容不受backdrop-filter影响 */
+.popup-content {
+  backdrop-filter: none !important;
 }
 </style>

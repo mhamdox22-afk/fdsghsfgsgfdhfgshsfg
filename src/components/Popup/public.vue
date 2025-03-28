@@ -95,7 +95,7 @@ const handelClose = () => {
 }
 :deep(.van-popup) {
   max-width: var(--ex-max-width);
-  background: var(--ex-default-background-color);
+  background: #171717 !important;
 }
 :deep(.van-popup--left) {
   left: auto;
@@ -104,5 +104,13 @@ const handelClose = () => {
 :deep(.fullscreen-popup) {
   width: 100% !important;
   height: 100% !important;
+}
+
+.van-popup {
+  background: #171717 !important;
+}
+
+.popup-container {
+  background: #171717;
 }
 </style>

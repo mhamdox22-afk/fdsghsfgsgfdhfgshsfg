@@ -56,11 +56,13 @@
   <div class="placeholder"></div>
 
   <!-- 分享收益-->
-  <van-overlay :show="shareShow" class="share-revenue-box" @click="shareShow = false">
-    <div class="share-revenue" @click.stop="">
-      <ShareCommissionDetail :historical-data="revenueDetails" />
-    </div>
-  </van-overlay>
+  <teleport to="body">
+    <van-overlay :show="shareShow" class="share-revenue-box" @click="shareShow = false">
+      <div class="share-revenue" @click.stop="">
+        <ShareCommissionDetail :historical-data="revenueDetails" />
+      </div>
+    </van-overlay>
+  </teleport>
 </template>
 
 <script setup>

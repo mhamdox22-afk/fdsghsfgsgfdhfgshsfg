@@ -230,13 +230,19 @@ const sharedImg = (model) => {
       align-items: center;
       justify-content: space-between;
       font-size: 12px;
-      color: var(--ex-passive-font-color);
+      // color: var(--ex-passive-font-color);
+      color: #fff;
       padding-bottom: 20px;
 
       .numItem {
-        color: var(--ex-default-font-color);
+        // color: var(--ex-default-font-color);
+        color: #fff;
       }
     }
   }
+}
+
+.fw-num {
+  color: #fff;
 }
 </style>

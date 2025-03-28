@@ -104,10 +104,12 @@ const handelClose = () => {
 
   .popupContent {
     padding: 15px 20px;
-    background: #2a2a2a; // 稍微浅一点的背景色
+    // background: #2a2a2a; // 稍微浅一点的背景色
     margin: 10px;
     border-radius: 12px;
     transition: all 0.3s ease;
+    overflow-y: auto;
+    height: 500px;
     
     &:hover {
       transform: translateY(-2px);
