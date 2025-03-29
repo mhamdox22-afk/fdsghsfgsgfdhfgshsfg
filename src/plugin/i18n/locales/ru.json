@@ -1130,7 +1130,7 @@
   "math_exchange_bullish": "бычий",
   "password_num": "Пожалуйста, установите цифровой пароль",
   "math_exchange_bearish": "медвежий",
-  "home": {
+  "homeObj": {
     "hero": {
       "title": "Более 18 миллионов пользователей присоединились к Antbitt",
       "subtitle": "Добро пожаловать в новый опыт",

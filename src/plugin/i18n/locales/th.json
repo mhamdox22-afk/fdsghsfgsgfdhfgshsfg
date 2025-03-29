@@ -1132,7 +1132,7 @@
   "math_exchange_bullish": "ชื้อ",
   "password_num": "กรุณาตั้งรหัสผ่านดิจิตอล",
   "math_exchange_bearish": "ขาย",
-  "home": {
+  "homeObj": {
     "hero": {
       "title": "ผู้ใช้มากกว่า 18 ล้านคนเข้าร่วม Antbitt",
       "subtitle": "ยินดีต้อนรับสู่ประสบการณ์ใหม่",

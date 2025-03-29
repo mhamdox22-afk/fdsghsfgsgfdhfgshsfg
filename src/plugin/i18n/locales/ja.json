@@ -1132,7 +1132,7 @@
   "math_exchange_bullish": "上昇",
   "password_num": "数値パスワードを設定してください",
   "math_exchange_bearish": "下落",
-  "home": {
+  "homeObj": {
     "hero": {
       "title": "1800万人以上のユーザーがAntbittに参加",
       "subtitle": "新しい体験を探求することを歓迎します",

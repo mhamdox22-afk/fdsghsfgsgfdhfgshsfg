@@ -1132,7 +1132,7 @@
   "math_exchange_bullish": "buy up",
   "password_num": "Please set a numeric password",
   "math_exchange_bearish": "buy down",
-  "home": {
+  "homeObj": {
     "hero": {
       "title": "Join over 18 million users on MOKA",
       "subtitle": "Welcome to explore a brand new experience",

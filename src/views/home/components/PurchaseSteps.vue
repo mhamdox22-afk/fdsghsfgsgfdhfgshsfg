@@ -7,7 +7,7 @@
     </div>
     
     <h2 class="title animate-title" ref="titleRef">
-      {{ $t('home.purchaseSteps.title') }}
+      {{ $t('homeObj.purchaseSteps.title') }}
       <div class="title-underline"></div>
     </h2>
 
@@ -25,7 +25,7 @@
             <div class="circle"></div>
           </div>
         </div>
-        <div class="step-text">{{ $t('home.purchaseSteps.steps.createAccount') }}</div>
+        <div class="step-text">{{ $t('homeObj.purchaseSteps.steps.createAccount') }}</div>
       </div>
 
       <div class="connector">
@@ -47,7 +47,7 @@
             <div class="circle"></div>
           </div>
         </div>
-        <div class="step-text">{{ $t('home.purchaseSteps.steps.connect') }}</div>
+        <div class="step-text">{{ $t('homeObj.purchaseSteps.steps.connect') }}</div>
       </div>
 
       <div class="connector">
@@ -71,7 +71,7 @@
             <div class="circle"></div>
           </div>
         </div>
-        <div class="step-text">{{ $t('home.purchaseSteps.steps.trade') }}</div>
+        <div class="step-text">{{ $t('homeObj.purchaseSteps.steps.trade') }}</div>
       </div>
 
       <div class="connector">
@@ -93,7 +93,7 @@
             <div class="circle"></div>
           </div>
         </div>
-        <div class="step-text">{{ $t('home.purchaseSteps.steps.security') }}</div>
+        <div class="step-text">{{ $t('homeObj.purchaseSteps.steps.security') }}</div>
       </div>
     </div>
   </div>

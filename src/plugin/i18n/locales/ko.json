@@ -1132,7 +1132,7 @@
   "math_exchange_bullish": "상승세",
   "password_num": "숫자 암호를 설정하십시오.",
   "math_exchange_bearish": "하락세",
-  "home": {
+  "homeObj": {
     "hero": {
       "title": "1800만 이상의 사용자가 Antbitt에 가입했습니다",
       "subtitle": "새로운 경험을 탐험하세요",

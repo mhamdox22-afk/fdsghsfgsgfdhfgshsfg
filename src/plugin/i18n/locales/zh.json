@@ -1132,7 +1132,7 @@
   "robinhood2_recharge_fast": "快捷充币",
   "math_exchange_bullish": "看涨",
   "math_exchange_bearish": "看跌",
-  "home": {
+  "homeObj": {
     "hero": {
       "title": "超过1800万用户加入MOKA",
       "subtitle": "欢迎探索 全新体验",

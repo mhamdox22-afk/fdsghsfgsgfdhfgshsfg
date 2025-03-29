@@ -3,7 +3,7 @@
     <div class="background-glow"></div>
     
     <h2 class="title animate__animated opacity-0" ref="titleRef">
-      {{ $t('home.cryptoComposition.title') }}
+      {{ $t('homeObj.cryptoComposition.title') }}
     </h2>
     
     <div class="composition-container">
@@ -49,7 +49,7 @@
         <button class="cta-button animate__animated opacity-0" 
                 ref="ctaButtonRef"
                 @click="goToTrading">
-          <span class="button-text">{{ $t('home.cryptoComposition.cta') }}</span>
+          <span class="button-text">{{ $t('homeObj.cryptoComposition.cta') }}</span>
           <div class="button-glow"></div>
         </button>
       </div>

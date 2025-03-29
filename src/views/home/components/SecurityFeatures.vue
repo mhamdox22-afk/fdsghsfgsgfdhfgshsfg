@@ -10,8 +10,8 @@
             </div>
           </div>
         </div>
-        <h3 class="feature-title">{{ $t('home.securityFeatures.mainFeatures.reserve.title') }}</h3>
-        <p class="feature-desc">{{ $t('home.securityFeatures.mainFeatures.reserve.desc') }}</p>
+        <h3 class="feature-title">{{ $t('homeObj.securityFeatures.mainFeatures.reserve.title') }}</h3>
+        <p class="feature-desc">{{ $t('homeObj.securityFeatures.mainFeatures.reserve.desc') }}</p>
       </div>
 
       <!-- 安全的冷储存 -->
@@ -23,8 +23,8 @@
             </div>
           </div>
         </div>
-        <h3 class="feature-title">{{ $t('home.securityFeatures.mainFeatures.storage.title') }}</h3>
-        <p class="feature-desc">{{ $t('home.securityFeatures.mainFeatures.storage.desc') }}</p>
+        <h3 class="feature-title">{{ $t('homeObj.securityFeatures.mainFeatures.storage.title') }}</h3>
+        <p class="feature-desc">{{ $t('homeObj.securityFeatures.mainFeatures.storage.desc') }}</p>
       </div>
 
       <!-- 用户保护基金 -->
@@ -36,8 +36,8 @@
             </div>
           </div>
         </div>
-        <h3 class="feature-title">{{ $t('home.securityFeatures.mainFeatures.protection.title') }}</h3>
-        <p class="feature-desc">{{ $t('home.securityFeatures.mainFeatures.protection.desc') }}</p>
+        <h3 class="feature-title">{{ $t('homeObj.securityFeatures.mainFeatures.protection.title') }}</h3>
+        <p class="feature-desc">{{ $t('homeObj.securityFeatures.mainFeatures.protection.desc') }}</p>
       </div>
     </div>
 
@@ -47,8 +47,8 @@
           <img src="@/assets/icons/fingerprint.png" alt="安全技术">
         </div>
         <div class="feature-content">
-          <h4>{{ $t('home.securityFeatures.additionalFeatures.technology.title') }}</h4>
-          <p>{{ $t('home.securityFeatures.additionalFeatures.technology.desc') }}</p>
+          <h4>{{ $t('homeObj.securityFeatures.additionalFeatures.technology.title') }}</h4>
+          <p>{{ $t('homeObj.securityFeatures.additionalFeatures.technology.desc') }}</p>
         </div>
       </div>
 
@@ -57,8 +57,8 @@
           <img src="@/assets/icons/customer-support.png" alt="用户理念">
         </div>
         <div class="feature-content">
-          <h4>{{ $t('home.securityFeatures.additionalFeatures.philosophy.title') }}</h4>
-          <p>{{ $t('home.securityFeatures.additionalFeatures.philosophy.desc') }}</p>
+          <h4>{{ $t('homeObj.securityFeatures.additionalFeatures.philosophy.title') }}</h4>
+          <p>{{ $t('homeObj.securityFeatures.additionalFeatures.philosophy.desc') }}</p>
         </div>
       </div>
 
@@ -67,8 +67,8 @@
           <img src="@/assets/icons/folder.jpg" alt="全球运营">
         </div>
         <div class="feature-content">
-          <h4>{{ $t('home.securityFeatures.additionalFeatures.operation.title') }}</h4>
-          <p>{{ $t('home.securityFeatures.additionalFeatures.operation.desc') }}</p>
+          <h4>{{ $t('homeObj.securityFeatures.additionalFeatures.operation.title') }}</h4>
+          <p>{{ $t('homeObj.securityFeatures.additionalFeatures.operation.desc') }}</p>
         </div>
       </div>
 
@@ -77,8 +77,8 @@
           <img src="@/assets/icons/gift.png" alt="奖励活动">
         </div>
         <div class="feature-content">
-          <h4>{{ $t('home.securityFeatures.additionalFeatures.rewards.title') }}</h4>
-          <p>{{ $t('home.securityFeatures.additionalFeatures.rewards.desc') }}</p>
+          <h4>{{ $t('homeObj.securityFeatures.additionalFeatures.rewards.title') }}</h4>
+          <p>{{ $t('homeObj.securityFeatures.additionalFeatures.rewards.desc') }}</p>
         </div>
       </div>
     </div>

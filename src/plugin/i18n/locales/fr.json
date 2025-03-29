@@ -1132,7 +1132,7 @@
   "math_exchange_bullish": "haussier",
   "password_num": "Veuillez définir un mot de passe numérique",
   "math_exchange_bearish": "baissier",
-  "home": {
+  "homeObj": {
     "hero": {
       "title": "Plus de 18 millions d'utilisateurs ont rejoint Antbitt",
       "subtitle": "Bienvenue dans une toute nouvelle expérience",

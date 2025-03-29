@@ -1,4 +1,4 @@
- "home": {
+ "homeObj": {
     "hero": {
       "title": "超過1800萬用戶加入Antbitt",
       "subtitle": "歡迎探索 全新體驗",
