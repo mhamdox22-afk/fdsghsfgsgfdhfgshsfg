@@ -24,8 +24,8 @@
       >
         <div class="drawer-content">
           <div class="drawer-header animate__animated animate__fadeInDown animate__faster">
-            <img src="https://tg-mahalebi.oss-cn-hongkong.aliyuncs.com/mahalebi/efa1d0500cbc45878caec29476da6cd3.png" class="logo animate__animated animate__pulse animate__slow animate__infinite" alt="logo" />
-            <div class="close-button" @click="closeDrawer">
+            <!-- <img src="https://tg-mahalebi.oss-cn-hongkong.aliyuncs.com/mahalebi/efa1d0500cbc45878caec29476da6cd3.png" style="display: none;"  class="logo animate__animated animate__pulse animate__slow animate__infinite" alt="logo" /> -->
+            <div style=" height: 32px;"  class="close-button" @click="closeDrawer">
               <div class="close-icon"></div>
             </div>
           </div>
@@ -446,7 +446,7 @@ const handleLanguageClick = () => {
     
     .close-button {
       position: absolute;
-      top: 20px;
+      top: 1px;
       right: 20px;
       width: 32px;
       height: 32px;

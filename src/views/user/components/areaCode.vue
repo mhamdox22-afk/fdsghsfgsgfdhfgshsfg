@@ -85,10 +85,10 @@ const onUpdate = (val) => {
     .filter((item) => {
       item.list = item.data.filter((item1) => {
         return (
-          item1.englishName.toLowerCase().indexOf(val.toLowerCase()) > -1 ||
-          item1.chineseName.toLowerCase().indexOf(val.toLowerCase()) > -1 ||
-          item1.phoneCode.toLowerCase().indexOf(val.toLowerCase()) > -1 ||
-          item1.countryCode.toLowerCase().indexOf(val.toLowerCase()) > -1
+          item1.englishName.toLowerCase().indexOf(keywords.value.toLowerCase()) > -1 ||
+          item1.chineseName.toLowerCase().indexOf(keywords.value.toLowerCase()) > -1 ||
+          item1.phoneCode.toLowerCase().indexOf(keywords.value.toLowerCase()) > -1 ||
+          item1.countryCode.toLowerCase().indexOf(keywords.value.toLowerCase()) > -1
         )
       })
       return item

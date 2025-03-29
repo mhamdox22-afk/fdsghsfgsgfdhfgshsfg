@@ -209,9 +209,10 @@ onUnmounted(() => {
       </transition>
     </router-view>
   </div>
-  <!-- 
+ 
+  
   <Tabbar v-if="tabbarPathNameList.includes(currentRoute.name)"></Tabbar>
-    -->
+
 
   <!-- 幸运活动 -->
   <ActivityPopup v-model:value="showDefiActivityPopup" :data="activityInfo"></ActivityPopup>
