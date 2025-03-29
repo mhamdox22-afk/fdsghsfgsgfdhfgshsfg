@@ -31,6 +31,7 @@
   </div>
 </template>
 
+
 <script setup>
 import { uploadImg } from '@/api/common/index.js'
 import { rechargeSubmit, getUserRechageNewApi } from '@/api/account.js'
@@ -54,7 +55,7 @@ const router = useRouter()
 const currentName = `${_t18('recharge', ['latcoin'])} ${route.query.type}`
 const cuttentRight = { iconRight: [{ iconName: 'jilu', clickTo: '/recharge-order' }] }
 
-// const address = ref('')
+const address = ref('')
 /**
  * 充值说明
  */
@@ -84,16 +85,47 @@ const afterRead = (file) => {
   })
 }
 const submit = debounce(() => {
-  const params = {
-    amount: 0,
-    type: route.query.type,
-    coin: route.query.coin,
-    address: address.value
+  if (!['coinsexpto'].includes(__config._APP_ENV) && num.value == '') {
+    _toast('recharge_num') // 请填写充值数量
+    return
+  }
+  let filePath = ''
+  if (['coinsexpto'].includes(__config._APP_ENV)) {
+    // 特殊平台不用上传图片
+  } else {
+    if (fileList.value.length == 0) {
+      _toast('recharge_img') // 请上传截图
+      return
+    }
+    const file = fileList.value[0] || {}
+    filePath = file.res
+    if (file.status != 'success') {
+      _toast('recharge_img_load') // 图片上传中,稍后重试
+      return
+    }
+  }
+  let params = {}
+  if (!['coinsexpto'].includes(__config._APP_ENV)) {
+    params = {
+      amount: priceFormat(num.value),
+      type: route.query.type,
+      coin: route.query.coin,
+      filePath: filePath || '',
+      address: address.value
+    }
+  } else {
+    params = {
+      amount: 0,
+      type: route.query.type,
+      coin: route.query.coin,
+      address: address.value
+    }
   }
 
   rechargeSubmit(params).then((res) => {
     if (res.code == '200') {
       _toast('recharge_success') // 充值成功
+      num.value = ''
       setTimeout(() => {
         _toView('/recharge-order')
       }, 500)
@@ -107,11 +139,11 @@ const mainStore = useMainStore()
 /**
  * 充值地址
  */
-const address = computed(() => {
-
-  let rechargeObj = mainStore.getRechargeList.find((elem) => elem.coinName == route.query.type)
-  return rechargeObj.coinAddress
-})
+// const address = computed(() => {
+//
+//   let rechargeObj = mainStore.getRechargeList.find((elem) => elem.coinName == route.query.type)
+//   return rechargeObj.coinAddress
+// })
 
 async function getRechageList(){
   const {data} = await getUserRechageNewApi(route.query.coin,route.query.type)
@@ -122,6 +154,7 @@ onMounted(()=>{
   getRechageList()
 })
 </script>
+
 
 <style lang="scss" scoped>
 * {
