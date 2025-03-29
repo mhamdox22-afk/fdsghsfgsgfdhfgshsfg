@@ -135,16 +135,16 @@ const eventTradeSymbolChange = debounce((e) => {
     Object.assign(currentInterval, headIntervalList[0])
   }
   showMenu.value = false
-  
+
   // Clear existing data
   xAxisData.value = []
   seriesData.value = []
-  
+
   // 设置币种
   setSymbol(symbol, currentInterval.interval, () => {
     Object.assign(currentCoinInfo, tempCoinInfo) // Use tempCoinInfo instead of props.coinInfo
   })
-  
+
   // Reinitialize the chart instead of refreshing the page
   if (widget) {
     widget.dispose()
@@ -179,7 +179,7 @@ onMounted(() => {
   headIntervalList.splice(0, headIntervalList.length, ...getHeadIntervalList())
   Object.assign(currentInterval, headIntervalList[0])
   document.addEventListener('event_tradeSymbolChange', eventTradeSymbolChange)
-  
+
   // 确保DOM已经渲染
   nextTick(() => {
     initWidget()
@@ -189,7 +189,10 @@ onMounted(() => {
 onBeforeUnmount(() => {
   document.removeEventListener('event_tradeSymbolChange', eventTradeSymbolChange)
   unsubscribeTrades(true)
-  widget.remove()
+  if (widget){
+    widget.dispose()
+    // widget?.remove()
+  }
 })
 
 /**
@@ -246,14 +249,14 @@ dataFeedInstance.getBars = async ({ symbolInfo: coinInfo, resolution, from, firs
       if (from) {
         params.end = from
       }
-      
+
       console.log('API Request Params:', {
         ...params,
         interval: tempInterval.key,
         symbol: coinInfo.coinUpperCase,
         market: coinInfo.market
       })
-      
+
       // Add fallback data generation for XAU or when API fails
       let barList = []
       try {
@@ -263,11 +266,11 @@ dataFeedInstance.getBars = async ({ symbolInfo: coinInfo, resolution, from, firs
           symbol: coinInfo.coinUpperCase,
           market: coinInfo.market
         })
-        
+
         if (data) {
           tradeStore.setKlineTicker(data.ticker)
           barList = data.historyKline || []
-          
+
           console.log('Received kline data for:', coinInfo.symbol, 'Data length:', barList.length)
         }
       } catch (error) {
@@ -278,7 +281,7 @@ dataFeedInstance.getBars = async ({ symbolInfo: coinInfo, resolution, from, firs
           console.log('Using fallback data for:', coinInfo.symbol)
         }
       }
-      
+
       // Process the data normally if we have it
       if (barList.length > 0) {
         barList = barList
@@ -294,7 +297,7 @@ dataFeedInstance.getBars = async ({ symbolInfo: coinInfo, resolution, from, firs
             }
           })
           .sort((a, b) => a.time - b.time)
-        
+
         if (firstDataRequest) {
           let tempObj = barList.slice(-1)[0]
 
@@ -324,7 +327,7 @@ dataFeedInstance.getBars = async ({ symbolInfo: coinInfo, resolution, from, firs
     console.error('Error in getBars:', error)
     unsubscribeTrades(true)
   }
-  
+
   // If we get here, return fallback data
   return generateFallbackData(coinInfo)
 }
@@ -336,14 +339,14 @@ const generateFallbackData = (coinInfo) => {
   const now = new Date().getTime();
   const basePrice = coinInfo.amount || 2986; // Use default price or current amount
   const fallbackData = [];
-  
+
   // Generate 30 data points with higher variations
   for (let i = 0; i < 30; i++) {
     // Increase variance to show more movement
     const variance = basePrice * 0.002 * Math.sin(i / 3);
     const microVariance = basePrice * 0.001 * (Math.random() - 0.5);
     const price = basePrice + variance + microVariance;
-    
+
     fallbackData.push({
       open: price - basePrice * 0.0005,
       high: price + basePrice * 0.0008,
@@ -354,7 +357,7 @@ const generateFallbackData = (coinInfo) => {
       time: now - (30 - i) * 60000 // One minute intervals
     });
   }
-  
+
   return fallbackData;
 }
 
@@ -399,12 +402,12 @@ dataFeedInstance.resolveSymbol = async () => {
  */
 const initWidget = () => {
   datafeeds = new Datafees(dataFeedInstance)
-  
+
   console.log("Initializing chart with coin info:", props.coinInfo)
-  
+
   // Ensure currentCoinInfo is updated
   Object.assign(currentCoinInfo, props.coinInfo)
-  
+
   // 确保在获取数据后再初始化图表
   dataFeedInstance.getBars({
     symbolInfo: currentCoinInfo,
@@ -417,15 +420,15 @@ const initWidget = () => {
     // 清空之前的数据
     xAxisData.value = []
     seriesData.value = []
-    
+
     // 确保我们至少有一些数据点
     if (!barList || barList.length === 0) {
       barList = generateFallbackData(currentCoinInfo)
     }
-    
+
     // 仅使用最近的30个数据点
     const limitedData = barList.slice(-30);
-    
+
     // 处理数据
     limitedData.forEach(item => {
       xAxisData.value.push(_klineTimeFormat(item.time, 'HH:mm:ss'))
@@ -439,26 +442,26 @@ const initWidget = () => {
         console.error('Chart container not found')
         return
       }
-      
+
       // 在创建图表前确保DOM已准备好
       try {
         const myChart = echarts.init(chartDom)
-        
+
         // 计算平均值和标准差以控制y轴范围
         const avg = seriesData.value.reduce((sum, val) => sum + val, 0) / seriesData.value.length;
         const stdDev = Math.sqrt(seriesData.value.reduce((sum, val) => sum + Math.pow(val - avg, 2), 0) / seriesData.value.length);
-        
+
         // Calculate min and max values
         const minValue = Math.min(...seriesData.value);
         const maxValue = Math.max(...seriesData.value);
-        
+
         // Calculate a midpoint to center the chart
         const midpoint = (minValue + maxValue) / 2;
-        
+
         // Calculate a range that's wider than the actual data range to show more movement
         const range = (maxValue - minValue) || (avg * 0.01); // Ensure non-zero range
         const padAmount = range * 1.2; // Reduced padding from 2 to 1.2 to show more price variation
-        
+
         const option = {
           backgroundColor: '#1D1E27',
           grid: {
@@ -507,7 +510,7 @@ const initWidget = () => {
               symbol: 'none',
               lineStyle: {
                 // Default starting color - will be updated dynamically
-                color: seriesData.value.length >= 2 && seriesData.value[seriesData.value.length-1] < seriesData.value[seriesData.value.length-2] 
+                color: seriesData.value.length >= 2 && seriesData.value[seriesData.value.length-1] < seriesData.value[seriesData.value.length-2]
                   ? '#ff5e5e' : '#1ee0ac',
                 width: 1.5
               },
@@ -517,7 +520,7 @@ const initWidget = () => {
                     offset: 0,
                     // Initial gradient determined by starting trend
                     color: seriesData.value.length >= 2 && seriesData.value[seriesData.value.length-1] < seriesData.value[seriesData.value.length-2]
-                      ? 'rgba(255, 94, 94, 0.15)' 
+                      ? 'rgba(255, 94, 94, 0.15)'
                       : 'rgba(30, 224, 172, 0.15)'
                   },
                   {
@@ -671,14 +674,14 @@ const subscribeTrades = async (params) => {
 const updateDataKline = (newData) => {
   if (newData?.close && widget) {
     // Get last value for comparison
-    const lastValue = seriesData.value.length > 0 
-      ? seriesData.value[seriesData.value.length - 1] 
+    const lastValue = seriesData.value.length > 0
+      ? seriesData.value[seriesData.value.length - 1]
       : newData.close;
-      
+
     // Increase volatility by using a higher maximum change limit
     const maxChange = lastValue * 0.002; // Increased from 0.0005 (0.2% vs 0.05%)
     let newClose = newData.close;
-    
+
     // If the change exceeds our limit, cap it - but ensure some visible movement
     if (Math.abs(newClose - lastValue) > maxChange) {
       if (newClose > lastValue) {
@@ -690,7 +693,7 @@ const updateDataKline = (newData) => {
       // Add some minimum movement if the change is too small
       newClose = lastValue + (Math.random() > 0.5 ? 1 : -1) * maxChange * 0.1;
     }
-    
+
     // 更新数据
     xAxisData.value.push(_klineTimeFormat(newData.time, 'HH:mm:ss'))
     seriesData.value.push(newClose)
@@ -822,7 +825,7 @@ const setStudy = (name) => {
   margin-top: 10px;
   padding: 0px 15px 10px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  
+
   .list {
     background-color: #121826;
     display: flex;
@@ -847,7 +850,7 @@ const setStudy = (name) => {
         padding: 6px 12px;
         border-radius: 4px;
         transition: all 0.2s ease;
-        
+
         &:hover {
           background: rgba(255, 255, 255, 0.1);
         }
@@ -897,7 +900,7 @@ const setStudy = (name) => {
       font-size: 13px;
       color: #ffffff;
       transition: all 0.2s ease;
-      
+
       &:hover {
         background: #2c3d63;
         transform: translateY(-1px);

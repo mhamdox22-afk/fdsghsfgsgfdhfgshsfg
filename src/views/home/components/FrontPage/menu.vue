@@ -204,9 +204,7 @@ const toRecharge = () => {
     }
 
     .itemImg {
-      width: 24px;
-      height: 24px;
-      padding: 12px;
+      height: 28px;
       transition: all 0.3s ease;
       animation: pulse 2s infinite;
       
