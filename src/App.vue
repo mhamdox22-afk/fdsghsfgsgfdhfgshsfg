@@ -178,8 +178,35 @@ const event_serviceChange = () => {
     }
   }
 }
+
+/**
+ * Simple debounce function implementation
+ */
+function debounce(func, wait) {
+  let timeout
+  return function() {
+    const context = this
+    const args = arguments
+    clearTimeout(timeout)
+    timeout = setTimeout(() => func.apply(context, args), wait)
+  }
+}
+
+// Create a debounced version of getSettingConfig
+const debouncedGetSettingConfig = debounce(() => {
+  mainStroe.getSettingConfig()
+}, 300) // 300ms debounce time, adjust as needed
+
+// Handle window resize with debounced function
+const handleResize = () => {
+  debouncedGetSettingConfig()
+}
+
 onMounted(() => {
   userStore.token && userStore.getUserInfo()
+
+  // Add resize event listener
+  window.addEventListener('resize', handleResize)
 
   document.addEventListener('event_toastChange', event_toastChange)
   document.addEventListener('event_serviceChange', event_serviceChange)
@@ -187,6 +214,9 @@ onMounted(() => {
   document.addEventListener('event_freezePopup', event_freezePopup)
 })
 onUnmounted(() => {
+  // Remove resize event listener
+  window.removeEventListener('resize', handleResize)
+
   document.removeEventListener('event_toastChange', event_toastChange)
   document.removeEventListener('event_serviceChange', event_serviceChange)
   document.removeEventListener('event_freezePopup', event_freezePopup)
