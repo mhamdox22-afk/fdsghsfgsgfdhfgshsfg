@@ -67,11 +67,11 @@ const vipClass = computed(() => {
 </script>
 <style lang="scss" scoped>
 .userMess {
-  padding: 20px 15px;
+  padding: 0 15px;
   display: flex;
   align-items: center;
   border-radius: 15px;
-  margin: 10px 15px;
+  margin: 0 15px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
   transition: all 0.3s ease;
   

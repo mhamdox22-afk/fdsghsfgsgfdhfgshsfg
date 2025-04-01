@@ -20,7 +20,7 @@
       <div class="left">{{ _t18('recharge_time') }}</div>
       <div class="right ff-num">{{ _timeFormat(props.data.params?.createTime) }}</div>
     </div>
-    <div class="content4">
+    <div class="content4" style="display: none;">
       <!-- 充值地址  提现地址 -->
       <div class="top" v-if="$route.path.includes('recharge')">
         {{ _t18('recharge_address', ['bitmake']) }}
@@ -34,7 +34,7 @@
         </Copy>
       </div>
     </div>
-    <div class="content5">
+    <div class="content5" style="display: none;">
       <!-- 订单号 -->
       <div class="top">{{ _t18('orderCode') }}</div>
       <div class="bottom">
@@ -79,6 +79,7 @@ const props = defineProps({
       margin-bottom: 10px;
     }
     .right {
+      color: #fff;
       .status0 {
         color: var(--ex-font-color23);
       }

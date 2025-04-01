@@ -161,7 +161,7 @@ const toView = (item) => {
 .list {
   padding: 15px;
   background: #1a1a1a;
-  min-height: 100vh;
+  height: fit-content;
 
   .item {
     margin-bottom: 10px;

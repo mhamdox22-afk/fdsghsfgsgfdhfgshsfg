@@ -100,7 +100,7 @@ const toDetail = (data) => {
   color: var(--ex-default-font-color);
 }
 div {
-  background: var(--ex-default-background-color) !important;
+  background: #000000 !important;
   .title {
     display: flex;
     align-items: center;
@@ -131,7 +131,7 @@ div {
       justify-content: space-between;
       align-items: center;
       .left {
-        color: var(--ex-passive-font-color);
+        color: #fff;
       }
       .fontBold {
         font-weight: bold;
@@ -148,5 +148,10 @@ div {
       }
     }
   }
+}
+
+
+.txt{
+  color: #fff;
 }
 </style>

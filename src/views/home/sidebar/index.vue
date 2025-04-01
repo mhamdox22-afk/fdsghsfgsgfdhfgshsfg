@@ -29,12 +29,12 @@
       v-model:value="showDialog"
       :title="``"
       :content="_t18('layout_require')"
-      confirm-button-color="#17ac74"
       @cancelBtn="cancelBtn"
       @confirmBtn="confirmBtn"
       :confirmButtonText="_t18('btnConfirm', ['bitmake'])"
       :cancelButtonText="_t18('cancel')"
       z-index="200"
+      class="dark-dialog"
     ></Dialog>
   </div>
 </template>
@@ -90,7 +90,7 @@ const closeSideBar = () => {
 <style lang="scss" scoped>
 .slidebar {
   height: 100vh;
-  padding-bottom: 100px;
+  overflow-y: hidden;
   overflow: auto;
   background: #1a1a1a; // 深色背景
   color: #ffffff;
@@ -150,7 +150,7 @@ const closeSideBar = () => {
 // 登录
 .logged {
   border-top: 1px solid rgba(255, 255, 255, 0.1);
-  margin-top: 50px;
+  // margin-top: 50px;
   padding: 30px 15px;
   font-size: 14px;
   color: #ffffff;
@@ -212,6 +212,51 @@ const closeSideBar = () => {
   &:hover {
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  }
+}
+
+:deep(.dark-dialog) {
+  .dialog-content {
+    background-color: #1a1a1a !important;
+    color: #ffffff !important;
+  }
+  
+  .dialog-buttons {
+    background-color: #1a1a1a !important;
+  }
+  
+  .dialog-title, .dialog-text {
+    color: #ffffff !important;
+  }
+  
+  // Target the footer section specifically
+  .dialog-footer, 
+  .dialog-action,
+  footer,
+  .van-dialog__footer,
+  .dialog-bottom {
+    background-color: #1a1a1a !important;
+  }
+  
+  // Ensure any button container is also styled
+  .van-hairline--top {
+    border-top-color: #333 !important;
+  }
+  
+  // Target the buttons wrapper
+  .van-button, 
+  button {
+    color: #ffffff !important;
+    background: #1a1a1a !important;
+    border-color: #333 !important;
+  }
+  
+  // Custom style for confirm button that should remain green
+  .van-button--confirm, 
+  [type="submit"],
+  [class*="confirm"] {
+    background-color: #333 !important;
+    color: #ffffff !important;
   }
 }
 </style>

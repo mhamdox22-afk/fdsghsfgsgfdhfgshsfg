@@ -148,9 +148,17 @@ watch(
 }
 .van-list {
   min-height: calc(100vh - 60px - 44px);
+  background: #000000 !important;
+  padding: 0 15px;
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 :deep(.van-cell) {
-  background: #242424 !important;
+  background: #000000 !important;
+
   margin: 10px 15px;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
