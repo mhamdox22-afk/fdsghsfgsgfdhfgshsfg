@@ -85,14 +85,14 @@ const submit = () => {
     padding: 0 15px;
     width: 100%;
     height: 50px;
-    background: var(--ex-default-background-color);
     border-radius: 3px;
-    border: 1px solid var(--ex-border-color1);
+    border: 1px solid #000;
+    background-color: #000000;
+
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
-
     input {
       width: 100%;
       height: 100%;
@@ -100,7 +100,8 @@ const submit = () => {
       align-items: center;
       padding: 0 10px;
       font-size: 14px;
-      color: var(--ex-default-font-color);
+      background-color: #000000;
+      color: #ffffff;
     }
   }
 

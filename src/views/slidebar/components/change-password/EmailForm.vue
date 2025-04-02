@@ -95,7 +95,7 @@ const submit = () => {
 <template>
   <div class="content">
     <div class="tip">{{ _t18('login_emailCode') }}</div>
-    <div class="input disabled">
+    <div class="input disabled" style="background-color: #000000;">
       <svg-load name="youxiang-x" class="icon"></svg-load>
       <input type="text" disabled v-model="form.email" />
     </div>
@@ -107,7 +107,7 @@ const submit = () => {
         <div class="wait-code" v-if="flag">
           <van-count-down :time="time" format="ss" @finish="finish" />
         </div>
-        <div class="send-code" v-else @click="send">{{ _t18('login_send') }}</div>
+        <div class="send-code" style="white-space: nowrap;" v-else @click="send">{{ _t18('login_send') }}</div>
       </div>
     </div>
     <div class="tip">{{ _t18('forgot_newPwd') }}</div>
@@ -150,9 +150,10 @@ const submit = () => {
     padding: 0 15px;
     width: 100%;
     height: 50px;
-    background: var(--ex-default-background-color);
     border-radius: 3px;
-    border: 1px solid var(--ex-border-color1);
+    border: 1px solid #000;
+    background-color: #000000;
+
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -164,21 +165,8 @@ const submit = () => {
       align-items: center;
       padding: 0 10px;
       font-size: 14px;
-      color: var(--ex-default-font-color);
-    }
-
-    .code-box {
-      min-width: 44px;
-      height: 30px;
-      background: var(--ex-div-bgColor1);
-      border-radius: 2px 2px 2px 2px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: var(--ex-font-color);
-    }
-    .send-code{
-      font-size: 14px;
+      background-color: #000000;
+      color: #ffffff;
     }
   }
   .disabled{
