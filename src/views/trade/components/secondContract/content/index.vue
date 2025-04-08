@@ -1,6 +1,6 @@
 <template>
   <!-- K线 -->
-  <Candlestick :coinInfo="coinInfo" type="secondContract"></Candlestick>
+  <Candlestick :coinInfo="coinInfo" :key="coinInfo?.id" type="secondContract"></Candlestick>
   <div class="line"></div>
   <!-- 订单信息 -->
   <div class="entrust">
@@ -304,7 +304,7 @@ const submit = () => {
   color: #FFFFFF;
   -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-  
+
 
 }
 
@@ -335,11 +335,11 @@ const submit = () => {
       border-radius: 6px;
       cursor: pointer;
       transition: all 0.3s ease;
-      
+
       &:hover {
         transform: translateY(-1px);
       }
-      
+
       &:active {
         transform: translateY(1px);
       }
@@ -355,7 +355,7 @@ const submit = () => {
       height: 12px;
       cursor: pointer;
       transition: transform 0.3s ease;
-      
+
       &:hover {
         transform: scale(1.1);
       }
@@ -367,7 +367,7 @@ const submit = () => {
       height: 12px;
       cursor: pointer;
       transition: all 0.3s ease;
-      
+
       &:hover {
         transform: rotate(180deg);
       }
@@ -393,7 +393,7 @@ const submit = () => {
       border-radius: 30px;
       box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
       animation: slideIn 0.3s ease;
-      
+
       @keyframes slideIn {
         from {
           opacity: 0;
@@ -415,7 +415,7 @@ const submit = () => {
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   transition: all 0.3s ease;
-  
+
   &:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
@@ -428,7 +428,7 @@ const submit = () => {
   padding: 40px 0;
   text-align: center;
   animation: fadeIn 0.5s ease;
-  
+
   @keyframes fadeIn {
     from {
       opacity: 0;

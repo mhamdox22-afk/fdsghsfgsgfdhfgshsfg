@@ -815,7 +815,7 @@ watch(
   </div>
   <div :id="klineId" v-once class="candlestick"></div>
   <div class="indicator-options">
-    <div class="indicator-option">交易</div>
+    <!-- <div class="indicator-option">交易</div> -->
     <div 
       v-for="(item, index) in studyList" 
       :key="item.name"
