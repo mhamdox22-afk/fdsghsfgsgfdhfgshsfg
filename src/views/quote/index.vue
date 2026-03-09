@@ -6,7 +6,7 @@
     :border_bottom="true"
   ></HeaderBar>
     <!-- 搜索 -->
-    <div class="search">
+<!--  <div class="search">
       <div class="searchBtn">
         <svg-load name="lujing3047" class="searchLeft"></svg-load>
         <input
@@ -16,10 +16,10 @@
           class="searchInput"
         />
       </div>
-    </div>
+    </div> -->
     <!-- tabs -->
 
-    <div class="headerChoose">
+  <div class="headerChoose">
       <van-tabs
         swipeable
         shrink

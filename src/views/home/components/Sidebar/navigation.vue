@@ -19,7 +19,7 @@
             <span v-if="item.key == 'advanced' && userInfo.detail?.auditStatusAdvanced === '1'" class="verified-badge">{{
               _t18('verified_ok')
             }}</span>
-            <!-- <svg-load name="jiantou-y" class="rightImg"></svg-load> -->
+        <!--    <svg-load name="jiantou-y" class="rightImg"></svg-load> -->
           </div>
         </div>
       </div>

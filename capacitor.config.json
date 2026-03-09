@@ -1,0 +1,9 @@
+{
+  "appId": "com.echoh5.app",
+  "appName": "echo-h5",
+  "webDir": "dist",
+  "server": {
+    "androidScheme": "https"
+  },
+  "bundledWebRuntime": false
+}

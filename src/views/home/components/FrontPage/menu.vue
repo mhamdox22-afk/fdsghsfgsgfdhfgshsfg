@@ -1,12 +1,12 @@
 <template>
-  <div :class="DIFF_HOME_BANNER.includes(_getConfig('_APP_ENV')) ? 'main mainEbc' : 'main'">
+<div :class="DIFF_HOME_BANNER.includes(_getConfig('_APP_ENV')) ? 'main mainEbc' : 'main'">
     <div
       class="item"
       v-for="item in menuList"
       :key="item.img"
       @click="routeLink(item.linkUrl, item.flag)"
     >
-      <img :src="item.imgUrl" :alt="item.name" class="itemImg" />
+      <image-load :filePath="item.imgUrl" :name="item.img" class="itemImg" />
       <div class="itemName text-ellipsis2">
         {{ _t18(`${item.key}`, ['robinhood2']) }}
       </div>
@@ -21,14 +21,14 @@
   <div class="linkList">
     <div class="linkLeft">
       <!-- 快捷充币 -->
-      <div class="item" @click="toRecharge">
+      <div class="item rightItem" @click="toRecharge">
         <svg-load name="mengbanzu13" class="leftImg"></svg-load>
-        <div class="right">
+       <div class="right">
           <div class="top">{{ _t18(`home_recharge`, ['latcoin', 'aams', 'robinhood2']) }}</div>
         </div>
       </div>
       <!-- 快速提币 -->
-      <div class="item" @click="$router.push('/withdraw')">
+      <div class="item rightItem" @click="$router.push('/withdraw')">
         <svg-load name="zu29" class="leftImg"></svg-load>
         <div class="right">
           <div class="top">{{ _t18(`quick_withdrawal`, ['latcoin', 'aams', 'robinhood2']) }}</div>
@@ -37,11 +37,10 @@
     </div>
     <!-- 在线客服 -->
     <div class="linkRight" @click="dispatchCustomEvent('event_serviceChange')">
-      <div class="itemImg">💬</div>
-      <span>{{ _t18(`home_service`) }}</span>
+      <svg-load name="zu447" class="itemImg"></svg-load>
+      <div style="scale: 0.8; text-align: center">{{ _t18(`home_service`) }}</div>
     </div>
     <InfoPopup :show="showInfoPopup" :data="infoData" @closeBtn="closeBtn"></InfoPopup>
-  </div>
     <!-- 直播弹窗 -->
     <van-popup v-model:show="showNotice" round closeable>
       <div class="showNoticeContent">
@@ -49,10 +48,11 @@
           {{ showNoticeContent?.noticeTitle || '' }}
         </p>
         <div class="showNoticeContent_content">
-          <img :src="showNoticeContent?.imgUrl" v-if="showNoticeContent?.imgUrl" />
+          <image-load :filePath="showNoticeContent?.imgUrl" v-if="showNoticeContent?.imgUrl" />
         </div>
       </div>
     </van-popup>
+  </div>
 </template>
 <script setup>
 import { DIFF_RECHARGE_COSTORM, DIFF_HOME_BANNER } from '@/config/index'
@@ -66,16 +66,6 @@ import { noticeList } from '@/api/common/index'
 import { _t18, _toView } from '@/utils/public'
 import InfoPopup from '@/views/home/components/InfoPopup.vue'
 import { dispatchCustomEvent } from '@/utils'
-
-// Import images
-import img1 from '@/assets/icons/3fab02d630fb439ea67978312608d79d.png'
-import img2 from '@/assets/icons/0781c670efd044a3a7bba32daf14b674.png'
-import img3 from '@/assets/icons/df71446a79964bee8eb2873054aba775.jpg'
-import img4 from '@/assets/icons/d8df6263d88c44fe9347d54b0b229e27.jpg'
-import img5 from '@/assets/icons/c6c0e72d6425491d9d61e7033934542f.jpg'
-import img6 from '@/assets/icons/b3a27a6643da429782828d89019e18a9.jpg'
-import img7 from '@/assets/icons/5e03fe26952c4220b66ee9b7e6f88adb.jpg'
-import img8 from '@/assets/icons/aacb46ce3bb2462983e4bef9db25fb87.png'
 
 const mainStroe = useMainStore()
 const userStore = useUserStore()
@@ -177,11 +167,10 @@ const toRecharge = () => {
 </script>
 <style lang="scss" scoped>
 .main {
-  padding: 120px 0px 0;
+  padding: 90px 0px 0;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  background: linear-gradient(180deg, #121212 0%, #1a1a1a 100%);
 
   .item {
     width: 25%;
@@ -189,36 +178,16 @@ const toRecharge = () => {
     flex-direction: column;
     align-items: center;
     margin-bottom: 20px;
-    transition: all 0.3s ease;
-    animation: fadeInUp 0.5s ease;
-    animation-fill-mode: both;
-
-    @for $i from 1 through 8 {
-      &:nth-child(#{$i}) {
-        animation-delay: #{$i * 0.1}s;
-      }
-    }
-    
-    &:active {
-      transform: scale(0.95);
-    }
 
     .itemImg {
-      height: 28px;
-      transition: all 0.3s ease;
-      animation: pulse 2s infinite;
-      
-      &:hover {
-        animation: bounce 1s;
-        transform: translateY(-2px);
-        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-      }
+      width: 37px;
+      height: 37px;
     }
 
     .itemName {
       margin-top: 8px;
       font-size: 12px;
-      color: rgba(255, 255, 255, 0.95);
+      color: var(--ex-default-font-color);
       text-align: center;
       width: 60px;
       word-break: break-word;
@@ -232,21 +201,13 @@ const toRecharge = () => {
 
 .notice {
   padding: 0 15px;
-  margin: 15px 0;
 
   .itemNo {
     display: flex;
-    height: 40px;
+    height: 35px;
     align-items: center;
-    border-radius: 20px;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-
-    &:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-    }
+    background: var(--ex-home-notice-bgcolor);
+    border-radius: 20px 20px 20px 20px;
 
     .noticeImg {
       margin-left: 15px;
@@ -254,223 +215,98 @@ const toRecharge = () => {
       height: 20px;
     }
 
+    :deep(.van-notice-bar) {
+      height: 35px;
+      padding: 0 15px 0 10px;
+    }
+
     .currentNotice {
       flex: 1;
-      border-radius: 20px;
+      border-radius: 20px 20px 20px 20px;
       font-size: 14px;
-      color: rgba(255, 255, 255, 0.9);
-      background: transparent;
+      color: var(--ex-home-notice-color);
+      background: var(--ex-home-notice-bgcolor);
     }
   }
 }
 
 .linkList {
-  padding: 0 15px;
+  padding: 20px 15px;
   display: flex;
   justify-content: space-between;
-  align-items: stretch;
-  gap: 10px;
-  margin: 0 auto 6px;
-  width: calc(100% - 30px);
-  animation: fadeInUp 0.8s ease;
+  align-items: center;
 
   .linkLeft {
+    min-height: 55px;
     flex: 1;
     display: flex;
-    gap: 10px;
-    min-width: 0;
 
     .item {
       flex: 1;
       display: flex;
       align-items: center;
-      justify-content: flex-start;
-      border-radius: 12px;
-      padding: 8px;
-      height: 40px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-      transition: all 0.3s ease;
-      min-width: 0;
-
-      &:hover {
-        transform: translateY(-2px);
-        background: #252525;
-        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
-      }
+      border-radius: 5px 5px 5px 5px;
+      padding: 10px 12px;
+      background: var(--ex-home-box-background-color2);
 
       .leftImg {
-        width: 20px;
-        height: 20px;
-        margin-right: 6px;
-        flex-shrink: 0;
+        width: 24px;
+        height: 24px;
+        margin-right: 10px;
       }
 
       .right {
-        min-width: 0;
-        
+        font-size: 12px;
+        color: #888888;
+
         .top {
+          // margin-bottom: 5px;
           font-size: 14px;
-          color: rgba(255, 255, 255, 0.95);
-          font-weight: 500;
-          white-space: normal;
-          word-wrap: break-word;
-          overflow: hidden;
-          text-overflow: ellipsis;
-          display: -webkit-box;
-          -webkit-line-clamp: 2;
-          -webkit-box-orient: vertical;
+          color: var(--ex-home-font-color);
+        }
+      }
+    }
+
+    .rightItem {
+      margin-left: 14px;
+      background-color: #1b1b1b;
+      border: 1px solid #a1a1a1;
+
+      .right {
+        .top {
+          color: var(--ex-default-font-color);
         }
       }
     }
   }
 
   .linkRight {
-    width: 50px;
-    min-width: 50px;
-    height: 40px;
+    max-width: 50px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    gap: 2px;
-    padding: 4px;
-    border-radius: 12px;
-    transition: all 0.3s ease;
-    flex-shrink: 0;
-    
-    &:hover {
-      transform: translateY(-2px);
-      background: #252525;
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
-    }
+    font-size: 12px;
+    color: var(--ex-default-font-color);
+    margin-left: 10px;
 
     .itemImg {
-      width: 18px;
-      height: 18px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 16px;
-    }
-
-    span {
-      font-size: 11px;
-      color: rgba(255, 255, 255, 0.95);
-      text-align: center;
-      white-space: normal;
-      word-wrap: break-word;
-      width: 100%;
-      transform: scale(0.9);
+      width: 22px;
+      height: 22px;
+      margin-bottom: 5px;
     }
   }
 }
-
 .showNoticeContent {
   min-width: 300px;
   text-align: center;
-  background: #1a1a1a;
-  border-radius: 16px;
-  
   .showNoticeContent_title {
     font-size: 18px;
-    padding: 20px 0;
-    color: rgba(255, 255, 255, 0.9);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 15px 0;
+    border-bottom: 1px solid #e1e1e1;
   }
-  
   .showNoticeContent_content {
     padding: 20px 15px 30px;
     max-height: 400px;
-  }
-}
-
-// 添加深色主题相关变量覆盖
-:root {
-  --ex-default-font-color: rgba(255, 255, 255, 0.95);
-  --ex-home-notice-bgcolor: rgba(255, 255, 255, 0.07);
-  --ex-home-notice-color: rgba(255, 255, 255, 0.95);
-  --ex-home-box-background-color: rgba(255, 255, 255, 0.09);
-  --ex-home-box-background-color2: rgba(255, 255, 255, 0.07);
-  --ex-home-box-border-color: rgba(255, 255, 255, 0.12);
-  --ex-home-font-color: rgba(255, 255, 255, 0.95);
-}
-
-// 添加动画关键帧
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translate3d(0, 20px, 0);
-  }
-  to {
-    opacity: 1;
-    transform: translate3d(0, 0, 0);
-  }
-}
-
-@keyframes fadeInLeft {
-  from {
-    opacity: 0;
-    transform: translate3d(-20px, 0, 0);
-  }
-  to {
-    opacity: 1;
-    transform: translate3d(0, 0, 0);
-  }
-}
-
-@keyframes fadeInRight {
-  from {
-    opacity: 0;
-    transform: translate3d(20px, 0, 0);
-  }
-  to {
-    opacity: 1;
-    transform: translate3d(0, 0, 0);
-  }
-}
-
-@keyframes pulse {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.05);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-
-@keyframes bounce {
-  0%, 20%, 50%, 80%, 100% {
-    transform: translateY(0);
-  }
-  40% {
-    transform: translateY(-10px);
-  }
-  60% {
-    transform: translateY(-5px);
-  }
-}
-
-@keyframes headShake {
-  0% {
-    transform: translateX(0);
-  }
-  6.5% {
-    transform: translateX(-6px) rotateY(-9deg);
-  }
-  18.5% {
-    transform: translateX(5px) rotateY(7deg);
-  }
-  31.5% {
-    transform: translateX(-3px) rotateY(-5deg);
-  }
-  43.5% {
-    transform: translateX(2px) rotateY(3deg);
-  }
-  50% {
-    transform: translateX(0);
   }
 }
 </style>

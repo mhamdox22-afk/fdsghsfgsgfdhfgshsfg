@@ -11,7 +11,7 @@ export const useTradeStore = defineStore('trade', {
       /**
        * 币种价格列表（所有）
        */
-      allCoinPriceInfo: reactive({}),
+      allCoinPriceInfo: {},
       /**
        * 秒合约 币种列表
        */
@@ -79,18 +79,18 @@ export const useTradeStore = defineStore('trade', {
             this[keyMap[key]].push(elem)
             let change = '0.00'
             try {
-              if (elem.amount > 0 && elem.open > 0) {
+              if (Number(elem.open) > 0) {
                 change = _toFixed(
-                  Math.abs(_mul(_div(_sub(elem.amount, elem.open), elem.open), 100)),
+                  Math.abs(_mul(_div(_sub(elem.amount || (Math.random() * (Number(elem.open) - 0.8) + Number(elem.open)).toFixed(5), elem.open), elem.open), 100)),
                   2
                 )
               }
             } catch (error) {}
             tempAllCoinPriceInfo[elem.coin] = {
-              close: priceFormat(elem.amount || elem.open),
+              close: priceFormat(elem.amount || (Math.random() * (Number(elem.open) - 0.8) + Number(elem.open)).toFixed(5)  || elem.open ),
               openPrice: priceFormat(elem.open),
               change: change,
-              priceChangePercent: change
+              priceChangePercent: this.allCoinPriceInfo[elem.coin]?.priceChangePercent || change
               // volume24: '0.00',
               // high24: '0.00',
               // low24: '0.00'
@@ -126,6 +126,7 @@ export const useTradeStore = defineStore('trade', {
           if (data.symbol === 'XAG') {
             data.symbol = 'xag'
           }
+          if (data.symbol === 'xau'){}
           // detail 数据
           let tempObj = {
             open: priceFormat(tempData.open),
@@ -139,7 +140,6 @@ export const useTradeStore = defineStore('trade', {
           //   console.log('detail', tempData, data)
           //   return
           // }
-
           if (this.allCoinPriceInfo[data.symbol]?.volume2) {
             tempObj.volume = this.allCoinPriceInfo[data.symbol]?.volume2
             tempObj.volume24 = this.allCoinPriceInfo[data.symbol]?.volume2
@@ -158,7 +158,7 @@ export const useTradeStore = defineStore('trade', {
             tempObj.low24 = tempData.low
           }
 
-          if (tempObj.close > 0 && tempObj.open > 0) {
+          if (Number(tempObj.close) > 0 && Number(tempObj.open) > 0) {
             if (tempObj.openPrice) {
               // 24小时change
               let priceChangePercent = _toFixed(
@@ -178,8 +178,9 @@ export const useTradeStore = defineStore('trade', {
             )
             tempObj.change = Math.abs(tempChange) < 0.01 ? '0.01' : tempChange
             if (this.allCoinPriceInfo[data.symbol]) {
-              for (const key in tempObj) {
-                this.allCoinPriceInfo[data.symbol][key] = tempObj[key]
+              this.allCoinPriceInfo[data.symbol] = {
+                ...this.allCoinPriceInfo[data.symbol],
+                ...tempObj
               }
             }
           }

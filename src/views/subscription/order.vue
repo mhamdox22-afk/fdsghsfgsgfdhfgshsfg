@@ -27,9 +27,9 @@
         </div>
         <!-- 币种 -->
         <div class="everyItem">
-          <div>{{ _t18('recharge_coin') }}</div>
-          <div class="itemRight fw-num">
-            {{ item.ownCoin }}
+         <div>{{ _t18('recharge_coin') }}</div>
+         <div class="itemRight fw-num">
+          {{ item.ownCoin }}
           </div>
         </div>
         <!-- 数量 -->

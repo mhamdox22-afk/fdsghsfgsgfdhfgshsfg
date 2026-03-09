@@ -2,18 +2,18 @@
   <!-- 登录 -->
   <div class="box" v-if="props.type == 0">
     <div class="btnBox" @click="toLogin">
-      <div class="custom-button">{{ _t18('login') }}</div>
+      <ButtonBar :btnValue="_t18('login')" />
     </div>
     <div class="account">
       {{ _t18('login_noAccount') }}？<span @click="$router.push('/sign-up')">{{
         _t18('login_toRegister')
-      }} ></span>
+      }}</span>
     </div>
   </div>
   <!-- 注册 -->
   <div class="box" v-if="props.type == 1">
     <div class="btnBox" @click="toResgister">
-      <div class="custom-button">{{ _t18('register') }}</div>
+      <ButtonBar :btnValue="_t18('register')" />
     </div>
     <div class="account">
       {{ _t18('register_haveAccount') }}？<span @click="$router.push('/sign-in')">{{
@@ -21,19 +21,14 @@
       }}</span>
     </div>
     <div class="info">
-      <div style="color: #fff;">
-        {{ _t18('register_agree') }} {{ _getConfig('_APP_META_TITLE') }}
-      </div>
-      <span class="clickable-text" @click="$router.push('/termsOfuse')">{{ _t18('register_howToUse') }}</span
-      >&nbsp;{{ _t18('register_and') }}&nbsp;<span class="clickable-text" @click="$router.push('/privacyPolicy')">{{
-        _t18('register_private')
-      }}</span>
+      {{ _t18('register_agree') }} {{ _getConfig('_APP_META_TITLE') }}
+      <span @click="$router.push('/termsOfuse')">{{ _t18('register_howToUse') }}</span>
     </div>
   </div>
   <!-- 找回密码 -->
   <div class="box" v-if="props.type == 2">
     <div class="btnBox" @click="toForget">
-      <div class="custom-button">{{ _t18('btnConfirm', ['bitmake']) }}</div>
+      <ButtonBar :btnValue="_t18('btnConfirm', ['bitmake'])" />
     </div>
     <div class="info">
       {{ _t18('forget_findAccount') }}
@@ -339,78 +334,27 @@ const forgerPasswordSubmit = (params) => {
   font-size: 14px;
   color: var(--ex-default-font-color);
 }
-
-.clickable-text {
-  text-decoration: underline;
-  cursor: pointer;
-}
-
 .box {
   padding: 0 15px 50px;
-  
   .btnBox {
-    margin-top: 30px;
+    margin-top: 50px;
   }
-  
   .account {
-    padding: 25px 0;
-    font-size: 15px;
-    text-align: center;
-    color: rgba(255, 255, 255, 0.7);
-    
-    span {
-      font-size: 15px;
-      color: #fff;
-      text-decoration: none;
-      font-weight: 500;
-      margin-left: 4px;
-      
-      &:hover {
-        text-decoration: underline;
-      }
-    }
-  }
-  
-  .info {
-    text-align: center;
-    font-size: 13px;
-    color: rgba(255, 255, 255, 0.6);
-    
-    div {
-      margin-bottom: 8px;
-    }
-    
-    span {
-      color: #fff;
-      text-decoration: underline;
-      font-weight: 500;
-      cursor: pointer;
-      
-      &:hover {
-        opacity: 0.8;
-      }
-    }
-  }
-  
-  .custom-button {
-    width: 100%;
-    height: 48px;
-    line-height: 48px;
-    text-align: center;
+    padding: 50px 0 50px;
     font-size: 16px;
-    font-weight: 500;
-    color: #fff;
-    border-radius: 24px;
-    background: linear-gradient(to right, #6a3db3, #36bbc7);
-    cursor: pointer;
-    transition: opacity 0.2s;
-    
-    &:hover {
-      opacity: 0.9;
+    text-align: center;
+    span {
+      font-size: 16px;
+      color: var(--ex-font-color9);
+      text-decoration: underline;
     }
-    
-    &:active {
-      opacity: 0.8;
+  }
+  .info {
+    margin-top: 50px;
+    text-align: center;
+    span {
+      color: var(--ex-font-color9);
+      text-decoration: underline;
     }
   }
 }

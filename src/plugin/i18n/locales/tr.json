@@ -650,7 +650,7 @@
   "withdraw_bindCard": "Banka kartını bağla",
   "withdraw_pwd": "Şifreyi geri çek",
   "withdraw_tip": "Suçluların parası yıkamak ve kullanıcıların fonlarının güvenliğini sağlamak için, günlük alışveriş dengesinin satın alanının satın alanının iki katını alması gerekiyor.",
-  "withdraw_commission": "Teşekkürler hatırlatma, yüzde 3 yönetme ücreti çekilmesi için yüklenmeli. Çıkarmalar 24 saat içinde alınmalıdır. Eğer sorununuz varsa, lütfen bize bağlantı edin.",
+  "withdraw_commission": "İşlem ücreti",
   "withdraw_require": "Para çekme işlemini onaylayın",
   "withdraw_please_num": "Lütfen doğru para çekme tutarını girin",
   "withdraw_please_address": "Lütfen para çekme adresini girin",

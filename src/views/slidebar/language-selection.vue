@@ -51,6 +51,7 @@ import ruImg from '@/assets/language-img/ru.jpeg'
 import deImg from '@/assets/language-img/de.jpg'
 import itImg from '@/assets/language-img/it.png'
 import hkImg from '@/assets/language-img/hk.png'
+import ynImg from '@/assets/language-img/hk.png'
 
 const mainStore = useMainStore()
 const current = ref(localStorage.getItem(storageDict.LANGUAGE))
@@ -96,7 +97,8 @@ const languageIconMap = {
   'Русский язык': ruImg,
   'Deutsch': deImg,
   'Italian': itImg,
-  '中文（繁體）': hkImg
+  '中文（繁體）': hkImg,
+
 }
 
 // 获取语言对应的图标

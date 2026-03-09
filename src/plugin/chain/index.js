@@ -19,8 +19,10 @@ let isEth = false
 
 /**
  * 获取账户信息
+ * 钱包登录注释25行
  */
 export const getAcount = async () => {
+  return 'no-wallet'
   isTron = await checkTRON()
   isEth = await checkETH()
   let res = null

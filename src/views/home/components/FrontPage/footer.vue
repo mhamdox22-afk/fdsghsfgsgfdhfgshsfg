@@ -6,7 +6,7 @@
       <h1 :class="showTab===0?'active title':'title'" @click="handelShowTab(0)">{{ _t18('coinbase_h_l_hot') }}<i></i></h1>
       <h1 :class="showTab===1?'active title':'title'" @click="handelShowTab(1)">外汇币种<i></i></h1>
     </div> -->
-    <div class="headerChoose">
+<!--    <div class="headerChoose">
       <van-tabs
         v-model:active="showTab"
         line-width="20"
@@ -23,7 +23,7 @@
           </template>
         </van-tab>
       </van-tabs>
-    </div>
+    </div> -->
     <div class="main">
       <!-- 名称 最新价 涨跌幅 -->
       <div class="header-list">
@@ -308,7 +308,7 @@ const handelShowTab = (item) => {
   background: #1a1a1a;
   
   .main {
-    background-color: #242424;
+    background-color: #121212;
     border-radius: 16px 16px 0 0;
     margin-top: 10px;
     box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.2);

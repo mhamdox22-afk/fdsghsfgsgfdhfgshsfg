@@ -52,9 +52,9 @@ const props = defineProps({
   padding: 12px 10px;
   display: flex;
   justify-content: space-between;
-  background: linear-gradient(145deg, #1a1a1a, #2a2a2a);
-  margin: 8px 12px;
-  border-radius: 12px;
+  background: linear-gradient(145deg, #100f0f, #252a2e);
+  margin: 8px 10px;
+  border-radius: 8px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   transition: all 0.3s ease;
   

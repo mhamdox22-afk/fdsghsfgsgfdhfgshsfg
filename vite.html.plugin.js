@@ -33,24 +33,24 @@ const generateHtml = (html, envObj) => {
       <meta name="keywords" content="${keywords}" /> 
       <meta name="description" content="${description}" />
       <title>${title}</title>
-      <meta content="/platform/${platform}/logo.png?${version}" itemprop="image">
+      <meta content="/resource/images/logo6.png" itemprop="image">
       `
     )
     .replace(
       '</head>',
       `
 
-      <meta property="og:image" content="/platform/${platform}/logo_144.png?${version}">
+      <meta property="og:image" content="/resource/images/logo6.png">
       <meta property="og:title" content="${title}">
       <meta property="og:description" content="${description}">
 
-      <link rel="icon" href="./platform/${platform}/favicon.ico?${version}" type="image/x-icon"/>
-      <link rel="bookmark" href="./platform/${platform}/favicon.ico?${version}" type="image/x-icon">
+      <link rel="icon" href="/resource/images/logo6.png" type="image/png"/>
+      <link rel="bookmark" href="/resource/images/logo6.png" type="image/png">
 
-      <link rel="apple-touch-icon-precomposed" href="/platform/${platform}/logo_57.png?${version}"/>
-      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/platform/${platform}/logo_72.png?${version}"/>
-      <link rel="apple-touch-icon-precomposed" sizes="120x120" href="/platform/${platform}/logo_120.png?${version}"/>
-      <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/platform/${platform}/logo_144.png?${version}"/>
+      <link rel="apple-touch-icon-precomposed" href="/resource/images/logo6.png"/>
+      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/resource/images/logo6.png"/>
+      <link rel="apple-touch-icon-precomposed" sizes="120x120" href="/resource/images/logo6.png"/>
+      <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/resource/images/logo6.png"/>
       
       </head>
 

@@ -1,10 +1,18 @@
 <!-- 快捷充币 -->
 <template>
-  <div class="recharge-container">
-    <HeaderBar :currentName="_t18('recharge_fast', ['aams', 'robinhood2'])" class="header-animate"></HeaderBar>
-    <div class="list-wrapper">
-      <List :data="coinList"></List>
+  <HeaderBar :currentName="_t18('recharge_fast', ['aams', 'robinhood2'])"></HeaderBar>
+  <List :data="coinList"></List>
+  <div
+    class="custorm"
+    @click="dispatchCustomEvent('event_serviceChange')"
+    v-if="['das','dev'].includes(_getConfig('_APP_ENV'))"
+  >
+    <!-- 人工匹配商家 -->
+<!--    <div class="left">
+      <image-load filePath="defi/custorm.png" class="service-img"></image-load>
+      <span class="text">{{ _t18('findCustorm') }}</span>
     </div>
+    <div class="right"><svg-load name="jiantou" class="jiantou"></svg-load></div> -->
   </div>
 </template>
 
@@ -35,127 +43,27 @@ const coinList = computed(() => {
 </script>
 
 <style lang="scss" scoped>
-// 添加深色主题变量
-:root {
-  --bg-primary: #1a1a1a;
-  --bg-secondary: #2d2d2d;
-  --text-primary: #ffffff;
-  --text-secondary: #b3b3b3;
-  --accent-color: #3d5afe;
-}
-
-.recharge-container {
-  min-height: 100vh;
-  color: var(--text-primary);
-  padding: 16px;
-
-  // 添加页面进入动画
-  animation: fadeIn 0.3s ease-in-out;
-  
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-}
-
-.header-animate {
-  margin-bottom: 20px;
-  background: rgba(45, 45, 45, 0.8);
-  backdrop-filter: blur(10px);
-  border-radius: 12px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
-
-  &:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 40px rgba(61, 90, 254, 0.2);
-  }
-}
-
-.list-wrapper {
-  position: relative;
-  top: -20px;
-  // 列表容器样式
-  border-radius: 16px;
-  padding:0 16px;
-  backdrop-filter: blur(8px);
-
-  // 添加hover效果
-  &:hover {
-    transform: scale(1.01);
-    transition: transform 0.3s ease;
-  }
-
-  // 添加列表项动画
-  :deep(.list-item) {
-    background: rgba(26, 26, 26, 0.8);
-    border-radius: 12px;
-    margin-bottom: 12px;
-    padding: 16px;
-    transition: all 0.3s ease;
-    
-    &:hover {
-      transform: translateX(5px);
-      box-shadow: 0 4px 20px rgba(61, 90, 254, 0.15);
-    }
-
-    // 列表项文字样式
-    .title {
-      color: var(--text-primary);
-      font-weight: 500;
-    }
-
-    .address {
-      color: var(--text-secondary);
-      font-size: 0.9em;
-    }
-  }
-}
-
-// 原来的 .custorm 样式（如果需要的话）可以保留并修改为深色主题
 .custorm {
-  background: rgba(45, 45, 45, 0.5);
-  border-radius: 12px;
-  padding: 15px;
   margin-bottom: 30px;
-  backdrop-filter: blur(8px);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  padding: 0 15px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  transition: all 0.3s ease;
-
-  &:hover {
-    transform: translateX(5px);
-    box-shadow: 0 8px 32px rgba(61, 90, 254, 0.2);
-  }
-
   .left,
   .right {
     display: flex;
     align-items: center;
-    
     .service-img {
       font-size: 20px;
       width: 20px;
       height: 20px;
       margin-right: 15px;
     }
-    
     .text {
       font-size: 14px;
-      color: var(--text-primary);
     }
-    
     .jiantou {
       font-size: 10px;
-      color: var(--text-secondary);
     }
   }
 }

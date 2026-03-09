@@ -13,7 +13,7 @@
         <div>{{ item.title }}</div>
       </div>
       <div v-if="item.infoList.length > 0" class="items-container">
-        <div
+       <div
           class="item"
           v-for="(items, indexs) in item.infoList"
           :key="indexs"

@@ -9,12 +9,8 @@ const mainStroe = useMainStore()
  * Logo
  */
 const path = computed(() => {
-  let tempPath = mainStroe.getLogoList?.logo || mainStroe.getLogoList?.logoD
-  if (!tempPath) {
-    // tempPath = `/platform/${__config._APP_ENV}/logo.png?${_APP_VERSION}`
-    tempPath = `/platform/dev/logo.png?${_APP_VERSION}`
-  }
-  return tempPath
+  // 使用本地路径
+  return `/resource/images/logo6.png`
 })
 </script>
 <template>
@@ -22,8 +18,8 @@ const path = computed(() => {
 </template>
 <style lang="scss" scoped>
 .logo {
-  height: 50px;
+  height: 33px;
   position: relative;
-  left: -10px;
+  left: -1px;
 }
 </style>

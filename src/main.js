@@ -61,7 +61,7 @@ Promise.all([
 ]).then(async () => {
   const currentLanguage = mainStore.languageList.filter((item) => item.isDefault === 'Y')
   // 判断语言列表中是否存在缓存语言 若不存在 使用默认语言
-  let defaultLanguage = mainStore.language || ''
+  let defaultLanguage = mainStore.language || 'en'
   if (!defaultLanguage && currentLanguage.length) {
     defaultLanguage = currentLanguage[0].dictValue
   }

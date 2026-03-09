@@ -1,6 +1,6 @@
 <template>
   <div class="mobile-header">
-    <div class="menu-icon" @click="toggleDrawer">
+   <div class="menu-icon" @click="toggleDrawer">
       <div class="menu-icon-wrapper" :class="{ active: drawerVisible }">
         <span class="line"></span>
         <span class="line"></span>

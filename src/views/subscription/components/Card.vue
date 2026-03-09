@@ -14,10 +14,14 @@
     <div class="cardInfo">
       <div class="top">
         <div class="left">
-          {{ _t18('Lock-up_period') }}：<span class="ff-num"
+        <!--  {{ _t18('Lock-up_period') }}：<span class="ff-num"
             >{{ _timeFormat(data.params.beginTime) || '' }} ~
             {{ _timeFormat(data.params.endTime) || '' }}</span
-          >
+          > -->
+		  {{ _t18('Lock-up_period') }}：<span class="ff-num"
+		    >{{ _dateFormats('YYYY-mm-dd HH:MM:SS',data.beginTime) }} ~
+		    {{ _dateFormats('YYYY-mm-dd HH:MM:SS',data.endTime) }}</span
+		  >
         </div>
       </div>
       <div class="center">
@@ -54,7 +58,7 @@
 <script setup>
 import { _t18, _toView } from '@/utils/public'
 import { _div, _sub, _add, _mul, _toFixed } from '@/utils/decimal.js'
-import { _timeFormat } from '@/utils/public'
+import { _timeFormat,_dateFormats } from '@/utils/public'
 import { useRouter } from 'vue-router'
 import { subscribeCoins } from '@/api/subscription/index.js'
 import { useUserStore } from '@/store/user'
@@ -99,7 +103,9 @@ const toBuy = () => {
   if (props.data.params?.sub_status == '2' || props.data.params?.sub_status == '3') {
     _toView(`/subscription/info?id=${props.data.id}`)
   } else {
+	  
     // 未订阅不可申购
+	console.log(props.data.params?.sub_status)
     _toast('cannot_subscribe')
   }
 }

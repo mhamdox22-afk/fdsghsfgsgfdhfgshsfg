@@ -16,23 +16,10 @@ const {userInfo} = storeToRefs(userStore)
 // userStore.getUserInfo()
 // ??
 const notPwd = ref(false)
-//修改登录密码的方式(true普通，false邮箱)
-const updateLoginPwdMethod = ref(true)
 //是否已有登录密码
 const loginPassword = ref(userInfo.value.user?.loginPassword || '')
 //导航数据
 const cuttentRight = {iconRight: [{iconName: 'kefu', clickTo: 'event_serviceChange'}]}
-
-const changeMethod = () => {
-
-  // 是否绑定邮箱
-  if (!userInfo.value.user?.email) {
-    return _toast('please_bind_email')
-  }
-
-  updateLoginPwdMethod.value = !updateLoginPwdMethod.value
-
-}
 </script>
 
 <template>
@@ -48,27 +35,15 @@ const changeMethod = () => {
     <div class="form-container">
       <!-- 添加登录密码 -->
       <transition name="fade">
-        <SetForm v-if="!loginPassword && updateLoginPwdMethod" class="form-card"></SetForm>
+        <SetForm v-if="!loginPassword" class="form-card"></SetForm>
       </transition>
       <!-- 修改登录密码 -->
       <transition name="fade">
-        <AccountForm v-if="loginPassword && updateLoginPwdMethod" class="form-card"></AccountForm>
-      </transition>
-      <transition name="fade">
-        <EmailForm v-if="loginPassword &&  !updateLoginPwdMethod" class="form-card"></EmailForm>
+        <AccountForm v-if="loginPassword" class="form-card"></AccountForm>
       </transition>
     </div>
 
-    <transition name="slide-up">
-      <div class="box" v-if="loginPassword">
-        <div class="set-button" @click="changeMethod" v-if="!updateLoginPwdMethod">
-          {{ _t18('password_update_pwd') }}
-        </div>
-        <div class="set-button" @click="changeMethod" v-else>
-          {{ _t18('password_update_email') }}
-        </div>
-      </div>
-    </transition>
+
   </div>
 </template>
 

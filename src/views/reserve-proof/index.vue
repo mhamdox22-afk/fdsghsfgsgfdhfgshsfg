@@ -70,7 +70,7 @@
             </p>
         </section>
 
-        <section class="info-section">
+       <section class="info-section">
             <h2 class="sub-title">{{ $t('reserveProof.faqTitle') }}</h2>
             <p class="banner-content">
                 <strong>{{ $t('reserveProof.faq1.question') }}</strong><br>

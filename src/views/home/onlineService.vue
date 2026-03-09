@@ -3,7 +3,7 @@
   <div class="onlineService" v-if="list.length > 0">
     <div class="item" v-for="(item, index) in list" :key="index" @click="linkTo(item.url)">
       <image-load :filePath="item.imgUrl" alt="" class="itemImg" />
-      <div class="right"><svg-load name="jiantou" class="jiantou"></svg-load></div>
+     <div class="right"><svg-load name="jiantou" class="jiantou"></svg-load></div>
     </div>
   </div>
   <Nodata v-if="list.length === 0 && isShow"></Nodata>

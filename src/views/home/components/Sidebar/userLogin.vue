@@ -7,15 +7,18 @@
     </div>
     <svg-load name="userImg" class="userMessImg" v-else></svg-load>
     <div class="messRight">
+		<div class="rightBot">
+		 <div class="rightTop fw-bold">{{ loginName }}</div>
+		</div>
       <Copy :data="userId">
         <template #copyMsg>
-          <div class="rightTop fw-bold">UID：{{userId}}</div>
+          <div class="rightTop fw-bold">UID：{{ userId }}</div>
         </template>
       </Copy>
-      <!-- 信用分 -->
-      <div class="rightBot">
-        {{ _t18('credit_score') }}：{{ userStore.userInfo.detail?.credits }}
-      </div>
+	  <!-- 信用分 -->
+	  <div class="rightBot">
+	   {{ _t18('credit_score') }}：{{ userStore.userInfo.detail?.credits }}
+	  </div>
     </div>
   </div>
   <!-- 钱包地址 -->

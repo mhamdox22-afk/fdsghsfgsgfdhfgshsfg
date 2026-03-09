@@ -181,38 +181,23 @@ onMounted(() => {
 <style lang="scss" scoped>
 * {
   font-size: 14px;
-  color: #ffffff;
+  color: var(--ex-default-font-color);
 }
 
 .content_box {
   padding: 0 15px;
-  min-height: 100vh;
-  background: linear-gradient(145deg, #1a1a1a, #2d2d2d);
 
   .title {
     font-size: 30px;
     margin: 30px 0;
-    background: linear-gradient(45deg, #17ac74, #138A5D);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: fadeIn 0.8s ease-in;
   }
 
   .cardOne,
   .cardTwo {
-    padding: 20px;
-    background: rgba(255, 255, 255, 0.05);
+    padding: 0 20px;
+    background-color: var(--ex-div-bgColor26);
     margin-top: 20px;
-    border-radius: 15px;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    transition: all 0.3s ease;
-
-    &:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 40px 0 rgba(31, 38, 135, 0.47);
-    }
+    border-radius: 5px;
   }
 
   .cardOne {
@@ -225,19 +210,22 @@ onMounted(() => {
       flex: 1;
 
       & > div {
+        // padding: 15px 0;
         display: flex;
-        color: #ffffff;
-        padding: 10px 0;
+        color: var(--ex-font-color13);
+
+        p {
+          margin-left: 20px;
+        }
 
         span {
           display: inline-block;
           width: 40px;
-          opacity: 0.8;
         }
       }
 
       .left_top {
-        border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+        border-bottom: 1px dashed var(--ex-border-color9);
         display: flex;
         align-items: center;
       }
@@ -250,68 +238,53 @@ onMounted(() => {
 
     .huazhuanbtn {
       font-size: 30px;
-      cursor: pointer;
-      transition: transform 0.3s ease;
-      
-      &:hover {
-        transform: rotate(180deg);
-      }
     }
   }
 
   .cardTwo {
+    padding: 15px 15px;
+
     .top {
       margin-bottom: 15px;
-      color: rgba(255, 255, 255, 0.8);
+      color: var(--ex-font-color13);
     }
 
     .bottom {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-      padding-bottom: 10px;
+      border-bottom: 1px solid var(--ex-border-color8);
 
       i {
         padding: 0 10px;
-        color: rgba(255, 255, 255, 0.3);
       }
 
       span {
-        color: #17ac74;
-        cursor: pointer;
-        transition: color 0.3s ease;
-        
-        &:hover {
-          color: #138A5D;
-        }
+        color: var(--ex-font-color2);
       }
 
       input {
         flex: 1;
         margin-right: 20px;
-        padding: 8px 0;
-        background-color: transparent;
-        color: #ffffff;
-        border: none;
+        padding-bottom: 12px;
 
-        &::placeholder {
-          color: rgba(255, 255, 255, 0.3);
-        }
+        background-color: transparent;
+      }
+
+      input::placeholder {
+        color: var(--ex-font-color5);
       }
     }
   }
 
   .keyong {
     margin-top: 15px;
-    color: rgba(255, 255, 255, 0.6);
+    color: var(--ex-font-color13);
     font-size: 12px;
-    animation: slideIn 0.5s ease-out;
   }
 
   .btnBox {
     margin-top: 50px;
-    animation: fadeInUp 0.8s ease-out;
   }
 }
 
@@ -327,54 +300,23 @@ onMounted(() => {
 }
 
 :deep(.van-cell) {
-  background: #2d2d2d !important;
-  color: #ffffff;
+  background: var(--ex-default-background-color) !important;
+  color: var(--ex-default-font-color);
 }
 
 :deep(.van-dropdown-menu__bar) {
   background-color: transparent;
   box-shadow: none;
+  // height: auto;
 }
 
 :deep(.van-dropdown-menu__title) {
-  color: #ffffff;
+  color: var(--ex-default-font-color);
   font-size: 14px;
   padding-left: 20px;
 }
 
 :deep(.van-dropdown-menu__title:after) {
-  border-color: transparent transparent rgba(255, 255, 255, 0.3) rgba(255, 255, 255, 0.3);
-}
-
-// Animations
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes slideIn {
-  from {
-    transform: translateX(-20px);
-    opacity: 0;
-  }
-  to {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-
-@keyframes fadeInUp {
-  from {
-    transform: translateY(20px);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
+  border-color: transparent transparent var(--ex-border-color9) var(--ex-border-color9);
 }
 </style>

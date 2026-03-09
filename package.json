@@ -11,6 +11,10 @@
     "lang": "node ./bin/i18n/langScript.js && npm run lintlang"
   },
   "dependencies": {
+    "@capacitor/android": "^4.8.1",
+    "@capacitor/cli": "^4.8.1",
+    "@capacitor/core": "^4.8.1",
+    "@capacitor/ios": "^4.8.1",
     "animate.css": "^4.1.1",
     "axios": "^1.4.0",
     "colors": "^1.4.0",

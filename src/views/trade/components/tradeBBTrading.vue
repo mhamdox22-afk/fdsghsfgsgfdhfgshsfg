@@ -11,13 +11,13 @@
       @handelClose="sidePopup = false"
       :direction="`left`"
       :height="`100%`"
-      :width="`80%`"
+      :width="`100%`"
       :showHeader="false"
       :empty="false"
     >
-      <template #emptyContentCustomize>
-        <LeftSide @close="sidePopup = false" :headerList="headerList"></LeftSide>
-      </template>
+     <template #emptyContentCustomize>
+       <LeftSide @close="sidePopup = false" :headerList="headerList"></LeftSide>
+     </template>
     </PublicPopup>
   </div>
 </template>

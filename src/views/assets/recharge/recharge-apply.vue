@@ -18,19 +18,61 @@
         </Copy>
       </div>
     </div>
+    <template
+      v-if="
+        !['coinsexpto', 'rxce', 'gmtoin', 'aams', 'bitbyex', 'gmmoin'].includes(
+          _getConfig('_APP_ENV')
+        )
+      "
+    >
+      <div class="num">
+        <!-- 充值数量 -->
+        <p class="top">{{ _t18('recharge_number', ['bitmake']) }}</p>
+  <div class="bottom ">
+    <input type="number " :placeholder="_t18('recharge_input')" class="ff-num" v-model="num" />
   </div>
-  <!-- 确认充值按钮 -->
-  <div class="btn" @click="submit" style="display: none;">
-    <p>{{ _t18('recharge_require', ['bitmake']) }}</p>
+      </div>
+      <div class="uploadImg">
+        <!-- 上传支付详情截图 -->
+        <p class="top">{{ _t18('recharge_imgUpload', ['bitmake']) }}</p>
+        <van-uploader :after-read="afterRead" max-count="1" v-model="fileList">
+          <div class="bottom">
+            <image-load filePath="defi/delete.png" name="delete" class="img"></image-load>
+          </div>
+        </van-uploader>
+      </div>
+    </template>
   </div>
-  <!-- 充值说明列表 -->
-  <div class="tip-list">
-    <div class="tip" v-for="(item, index) in tipList" :key="index">
-      {{ index + 1 }}.{{ item.content }}
+  <template v-if="['coinsexpto', 'rxce', 'bitbyex', 'gmmoin'].includes(_getConfig('_APP_ENV'))">
+    <!-- 复制按钮 -->
+    <div class="btn" @click="_copy(address)">
+      <p>{{ _t18('copy') }}</p>
     </div>
-  </div>
+    <!-- 充值说明列表 -->
+    <div class="tip-list" v-if="['bitbyex'].includes(_getConfig('_APP_ENV'))">
+      <div class="tip" v-for="(item, index) in tipList2" :key="index">
+        {{ item.content }}
+      </div>
+    </div>
+    <div class="tip-list" v-else>
+      <div class="tip" v-for="(item, index) in tipList" :key="index">
+        {{ index + 1 }}.{{ item.content }}
+      </div>
+    </div>
+  </template>
+  <template v-else-if="['gmtoin'].includes(_getConfig('_APP_ENV'))">
+    <div class="tip-list">
+      <div class="tip">{{ _t18('account_balance_info') }}</div>
+    </div>
+  </template>
+  <template v-else-if="['aams', 'gmmoin'].includes(_getConfig('_APP_ENV'))"> </template>
+  <template v-else>
+    <!-- 确认充值 -->
+    <div class="btn" @click="submit">
+      <p>{{ _t18('recharge_require', ['bitmake']) }}</p>
+    </div>
+  </template>
 </template>
-
 
 <script setup>
 import { uploadImg } from '@/api/common/index.js'
@@ -54,8 +96,6 @@ const router = useRouter()
 // 充值
 const currentName = `${_t18('recharge', ['latcoin'])} ${route.query.type}`
 const cuttentRight = { iconRight: [{ iconName: 'jilu', clickTo: '/recharge-order' }] }
-
-const address = ref('')
 /**
  * 充值说明
  */
@@ -139,148 +179,85 @@ const mainStore = useMainStore()
 /**
  * 充值地址
  */
-// const address = computed(() => {
-//
-//   let rechargeObj = mainStore.getRechargeList.find((elem) => elem.coinName == route.query.type)
-//   return rechargeObj.coinAddress
-// })
+const address = computed(() => {
 
-async function getRechageList(){
-  const {data} = await getUserRechageNewApi(route.query.coin,route.query.type)
-  address.value = data[route.query.type][route.query.type]
-}
-
-onMounted(()=>{
-  getRechageList()
+  let rechargeObj = mainStore.getRechargeList.find((elem) => elem.coinName == route.query.type)
+  return rechargeObj.coinAddress
 })
 </script>
-
 
 <style lang="scss" scoped>
 * {
   font-size: 14px;
-  color: #ffffff;
+  color: var(--ex-default-font-color);
 }
-
-// 整体背景色
-:deep(.page-container) {
-  background: linear-gradient(145deg, #1a1a1a, #2d2d2d);
-  min-height: 100vh;
-}
-
 .erweima {
   padding: 50px 0;
-  // 添加缓动动画
-  animation: fadeInDown 0.8s ease-out;
-  
-  :deep(.qr-wrapper) {
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 16px;
-    padding: 20px;
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.36);
-    backdrop-filter: blur(4px);
-    margin: 0 20px;
-    transition: transform 0.3s ease;
-    
-    &:hover {
-      transform: translateY(-5px);
-    }
-  }
 }
-
 .applyMes {
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid var(--ex-border-color);
   padding: 30px 15px;
-  animation: fadeInUp 0.8s ease-out;
-  
   & > div {
-    margin-bottom: 25px;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 16px;
-    padding: 20px;
-    box-shadow: 0 8px 22px 0 rgba(0, 0, 0, 0.3);
-    transition: all 0.3s ease;
-    
-    &:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 12px 28px 0 rgba(0, 0, 0, 0.4);
-    }
+    margin-bottom: 20px;
 
     p {
-      color: rgba(255, 255, 255, 0.7);
-      margin-bottom: 12px;
-      font-weight: 500;
+      color: var(--ex-passive-font-color);
+      margin-bottom: 10px;
     }
   }
-
   .address {
     .bottom {
       word-break: break-all;
-      background: rgba(0, 0, 0, 0.2);
-      padding: 12px;
-      border-radius: 8px;
+
+    }
+  }
+  .num {
+    .bottom {
+      border: 1px solid var(--ex-border-color1);
+      padding: 15px 10px;
+      border-radius: 3px;
+      input {
+        width: 100%;
+      }
+      input::placeholder {
+        color: var(--ex-font-color5);
+        font-size: 14px;
+      }
+    }
+  }
+  .uploadImg {
+    .van-uploader {
+      width: 100%;
+      :deep(.van-uploader__input-wrapper) {
+        width: 100%;
+      }
+    }
+    .bottom {
+      border: 1px solid var(--ex-border-color1);
+      padding: 35px 0;
+      text-align: center;
+      border-radius: 3px;
+      .img {
+        font-size: 36px;
+      }
     }
   }
 }
-
 .btn {
   padding: 0 15px 55px;
-  animation: fadeInUp 1s ease-out;
-  
   p {
     text-align: center;
-    padding: 16px 0;
-    color: #ffffff;
+    padding: 14px 0;
+    color: var(--ex-font-color);
     font-size: 16px;
-    background: linear-gradient(135deg, #4a4a4a 0%, #2d2d2d 100%);
-    border-radius: 12px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s ease;
-    
-    &:active {
-      transform: scale(0.98);
-    }
+    background-color: var(--ex-div-bgColor1);
+    border-radius: 3px;
   }
 }
-
 .tip-list {
-  padding: 0 20px;
-  animation: fadeInUp 1.2s ease-out;
-  
+  padding: 0 15px;
   .tip {
     margin-bottom: 15px;
-    padding: 15px;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    transition: all 0.3s ease;
-    
-    &:hover {
-      transform: translateX(5px);
-    }
-  }
-}
-
-// 动画关键帧
-@keyframes fadeInDown {
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
   }
 }
 </style>

@@ -109,7 +109,7 @@ const submit = () => {
   padding: 30px 15px 0 15px;
   .tip {
     font-size: 14px;
-    color: var(--ex-font-color16);
+    color: #ffffff;
     margin-bottom: 10px;
     text-align: left;
   }

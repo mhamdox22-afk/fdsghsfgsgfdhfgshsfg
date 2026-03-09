@@ -10,15 +10,17 @@
     <UTradingContent :coinInfo="coinInfo"></UTradingContent>
 
     <!-- 左侧切换币种 -->
-    <PublicPopup
+   <PublicPopup
       :show="sidePopup"
       @handelClose="sidePopup = false"
       :direction="`left`"
       :height="`100%`"
-      :width="`80%`"
+      :width="`100%`"
       :showHeader="false"
       :empty="false"
+	  class="side-popup"
     >
+
       <template #emptyContentCustomize>
         <LeftSide @close="sidePopup = false" :headerList="headerList"></LeftSide>
       </template>
@@ -87,3 +89,4 @@ const showSidePopup = () => {
 </script>
 
 <style lang="scss" scoped></style>
+

@@ -101,8 +101,6 @@
       </div>
       <div v-else>
 <!--        <span class="ff-num">{{ $route.query.ratio }}%</span>-->
-        {{ _t18('withdraw_commission') }}：
-        <span class="customer">{{ _t18('custorm_service') }}</span>
       </div>
     </div>
   </div>
