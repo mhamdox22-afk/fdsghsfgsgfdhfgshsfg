@@ -104,3 +104,6 @@ workflows:
       email:
         recipients:
           - mhamdox22@gmail.com
+        notify:
+          success: true
+          failure: true
