@@ -53,14 +53,18 @@ workflows:
           security import "${CERTIFICATE_PATH}" -k build.keychain -P "${CERTIFICATE_PASSWORD}" -T /usr/bin/codesign
           security set-key-partition-list -S apple-tool:,apple:,codesign: -s -k "temp" build.keychain
           
-          # Install provisioning profile
-          PROFILE_UUID=$(security cms -D -i "${PROVISIONING_PROFILE_PATH}" | grep -A 1 UUID | grep -o "[A-F0-9-]\{36\}")
-          echo "Provisioning profile UUID: ${PROFILE_UUID}"
+          # Install provisioning profile with explicit UUID
+          PROFILE_UUID="0431aa23-e782-4273-ab04-109cc091608f"
+          echo "Using provisioning profile UUID: ${PROFILE_UUID}"
           mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
           cp "${PROVISIONING_PROFILE_PATH}" ~/Library/MobileDevice/Provisioning\ Profiles/${PROFILE_UUID}.mobileprovision
           
           # List installed provisioning profiles
           ls -la ~/Library/MobileDevice/Provisioning\ Profiles/
+          
+          # Verify the provisioning profile
+          security cms -D -i "${PROVISIONING_PROFILE_PATH}" | grep -A 5 "TeamIdentifier" || true
+          security cms -D -i "${PROVISIONING_PROFILE_PATH}" | grep -A 5 "UUID" || true
       - name: Create exportOptions.plist
         script: |
           cd ios
