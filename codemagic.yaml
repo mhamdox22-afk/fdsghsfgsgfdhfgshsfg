@@ -9,6 +9,7 @@ workflows:
         XCODE_WORKSPACE: "App.xcworkspace"
         XCODE_PROJECT: "App.xcodeproj"
         BUNDLE_ID: "com.echoh5.app"
+        SCHEME: "App"
     scripts:
       - name: Install dependencies
         script: |
@@ -25,8 +26,36 @@ workflows:
       - name: Set up code signing
         script: |
           # Code signing setup will be handled in Codemagic UI
+      - name: Create exportOptions.plist
+        script: |
+          cd ios
+          mkdir -p build
+          cat > build/exportOptions.plist << EOF
+          <?xml version="1.0" encoding="UTF-8"?>
+          <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+          <plist version="1.0">
+          <dict>
+            <key>method</key>
+            <string>enterprise</string>
+            <key>teamID</key>
+            <string>(TEAM_ID)</string>
+            <key>uploadBitcode</key>
+            <false/>
+            <key>uploadSymbols</key>
+            <false/>
+          </dict>
+          </plist>
+          EOF
+      - name: Build iOS app
+        script: |
+          cd ios/App
+          xcodebuild -workspace "App.xcworkspace" -scheme "App" -configuration Release -sdk iphoneos -archivePath "../build/App.xcarchive" archive
+      - name: Export IPA
+        script: |
+          cd ios
+          xcodebuild -exportArchive -archivePath "build/App.xcarchive" -exportPath "build/ipa" -exportOptionsPlist "build/exportOptions.plist"
     artifacts:
-      - build/ios/ipa/*.ipa
+      - ios/build/ipa/*.ipa
     publishing:
       email:
         recipients:
