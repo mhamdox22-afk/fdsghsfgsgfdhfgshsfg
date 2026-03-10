@@ -31,6 +31,3 @@ workflows:
       email:
         recipients:
           - mhamdox22@gmail.com
-        notify_on_build_start: true
-        notify_on_build_success: true
-        notify_on_build_failure: true
