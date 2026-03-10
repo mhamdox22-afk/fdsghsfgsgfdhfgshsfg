@@ -10,6 +10,9 @@ workflows:
         XCODE_PROJECT: "App.xcodeproj"
         BUNDLE_ID: "com.echoh5.app"
         SCHEME: "App"
+        CERTIFICATE_PATH: "ios/certificates/证书文件.p12"
+        CERTIFICATE_PASSWORD: "kabao"
+        PROVISIONING_PROFILE_PATH: "ios/provisioning/描述文件.mobileprovision"
     scripts:
       - name: Install dependencies
         script: |
@@ -25,7 +28,24 @@ workflows:
           cd ios/App && pod install
       - name: Set up code signing
         script: |
-          # Code signing setup will be handled in Codemagic UI
+          # Create directories for certificates and provisioning profiles
+          mkdir -p ios/certificates ios/provisioning
+          
+          # Copy certificate and provisioning profile
+          cp "${HOME}/certificate.p12" "ios/certificates/证书文件.p12"
+          cp "${HOME}/provisioning.mobileprovision" "ios/provisioning/描述文件.mobileprovision"
+          
+          # Install certificate
+          security create-keychain -p "temp" build.keychain
+          security default-keychain -s build.keychain
+          security unlock-keychain -p "temp" build.keychain
+          security import "${CERTIFICATE_PATH}" -k build.keychain -P "${CERTIFICATE_PASSWORD}" -T /usr/bin/codesign
+          security set-key-partition-list -S apple-tool:,apple:,codesign: -s -k "temp" build.keychain
+          
+          # Install provisioning profile
+          PROFILE_UUID=$(security cms -D -i "${PROVISIONING_PROFILE_PATH}" | grep -A 1 UUID | grep -o "[A-F0-9-]\{36\}")
+          mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
+          cp "${PROVISIONING_PROFILE_PATH}" ~/Library/MobileDevice/Provisioning\ Profiles/${PROFILE_UUID}.mobileprovision
       - name: Create exportOptions.plist
         script: |
           cd ios
@@ -60,3 +80,5 @@ workflows:
       email:
         recipients:
           - mhamdox22@gmail.com
+        notify_on_build_failure: true
+        notify_on_build_success: true
