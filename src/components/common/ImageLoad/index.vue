@@ -49,9 +49,17 @@ const path = computed(() => {
   }
   return tempPath
 })
+
+/**
+ * 处理图片加载错误
+ */
+const handleError = (event) => {
+  // 当图片加载失败时，设置一个默认图标
+  event.target.src = `/resource/svg/${__theme}/home.svg?${_APP_VERSION}`
+}
 </script>
 <template>
-  <img :src="path" class="img" />
+  <img :src="path" class="img" @error="handleError" />
 </template>
 <style lang="scss" scoped>
 .img {
