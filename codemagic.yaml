@@ -80,5 +80,3 @@ workflows:
       email:
         recipients:
           - mhamdox22@gmail.com
-        notify_on_build_failure: true
-        notify_on_build_success: true
