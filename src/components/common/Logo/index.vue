@@ -3,14 +3,15 @@
 import { computed } from 'vue'
 import { _toView } from '@/utils/public.js'
 import { useMainStore } from '@/store/index.js'
+import logoImage from '@/../public/resource/images/logo6.png'
 const mainStroe = useMainStore()
 
 /**
  * Logo
  */
 const path = computed(() => {
-  // 使用本地路径
-  return `/resource/images/logo6.png`
+  // 使用导入的图片
+  return logoImage
 })
 </script>
 <template>

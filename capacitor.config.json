@@ -1,9 +1,10 @@
 {
   "appId": "xyz.appinstall.nov.carbon.lam",
-  "appName": "echo-h5",
+  "appName": "COINBASE",
   "webDir": "dist",
   "server": {
-    "androidScheme": "https"
+    "androidScheme": "https",
+    "cleartext": true
   },
   "bundledWebRuntime": false
 }
