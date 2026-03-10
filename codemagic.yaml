@@ -31,19 +31,19 @@ workflows:
           # Create directories for certificates and provisioning profiles
           mkdir -p ios/certificates ios/provisioning
           
-          # Check if files exist in home directory
-          if [ -f "${HOME}/certificate.p12" ]; then
-            echo "Found certificate.p12 in home directory"
-            cp "${HOME}/certificate.p12" "ios/certificates/证书文件.p12"
+          # Check if files exist in project directory
+          if [ -f "ios/certificates/证书文件.p12" ]; then
+            echo "Found certificate file in project directory"
           else
-            echo "Using existing certificate file"
+            echo "Certificate file not found, please make sure it's uploaded to Codemagic"
+            exit 1
           fi
           
-          if [ -f "${HOME}/provisioning.mobileprovision" ]; then
-            echo "Found provisioning.mobileprovision in home directory"
-            cp "${HOME}/provisioning.mobileprovision" "ios/provisioning/描述文件.mobileprovision"
+          if [ -f "ios/provisioning/描述文件.mobileprovision" ]; then
+            echo "Found provisioning profile in project directory"
           else
-            echo "Using existing provisioning profile file"
+            echo "Provisioning profile not found, please make sure it's uploaded to Codemagic"
+            exit 1
           fi
           
           # Install certificate
