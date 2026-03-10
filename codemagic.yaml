@@ -78,6 +78,11 @@ workflows:
             <string>enterprise</string>
             <key>teamID</key>
             <string>ZDV8SQG3XZ</string>
+            <key>provisioningProfiles</key>
+            <dict>
+              <key>xyz.appinstall.nov.carbon.lam</key>
+              <string>0431aa23-e782-4273-ab04-109cc091608f</string>
+            </dict>
             <key>uploadBitcode</key>
             <false/>
             <key>uploadSymbols</key>
