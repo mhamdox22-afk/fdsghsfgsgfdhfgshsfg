@@ -55,8 +55,8 @@ import { useUserStore } from '@/store/user/index'
 import { storeToRefs } from 'pinia'
 import { computed, ref } from 'vue'
 import { useToast } from '@/hook/useToast'
-import ERCIMG from '/resource/images/defi/ERC.png'
-import TRCIMG from '/resource/images/defi/TRC.png'
+import ERCIMG from '@/assets/icons/ERC.png'
+import TRCIMG from '@/assets/icons/TRC.png'
 import { _t18 } from '@/utils/public'
 
 const { _toast } = useToast()
