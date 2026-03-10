@@ -8,7 +8,7 @@ workflows:
       vars:
         XCODE_WORKSPACE: "App.xcworkspace"
         XCODE_PROJECT: "App.xcodeproj"
-        BUNDLE_ID: "com.echoh5.app"
+        BUNDLE_ID: "xyz.appinstall.nov.carbon.lam"
         SCHEME: "App"
         CERTIFICATE_PATH: "ios/certificates/证书文件.p12"
         CERTIFICATE_PASSWORD: "kabao"
@@ -31,9 +31,20 @@ workflows:
           # Create directories for certificates and provisioning profiles
           mkdir -p ios/certificates ios/provisioning
           
-          # Copy certificate and provisioning profile
-          cp "${HOME}/certificate.p12" "ios/certificates/证书文件.p12"
-          cp "${HOME}/provisioning.mobileprovision" "ios/provisioning/描述文件.mobileprovision"
+          # Check if files exist in home directory
+          if [ -f "${HOME}/certificate.p12" ]; then
+            echo "Found certificate.p12 in home directory"
+            cp "${HOME}/certificate.p12" "ios/certificates/证书文件.p12"
+          else
+            echo "Using existing certificate file"
+          fi
+          
+          if [ -f "${HOME}/provisioning.mobileprovision" ]; then
+            echo "Found provisioning.mobileprovision in home directory"
+            cp "${HOME}/provisioning.mobileprovision" "ios/provisioning/描述文件.mobileprovision"
+          else
+            echo "Using existing provisioning profile file"
+          fi
           
           # Install certificate
           security create-keychain -p "temp" build.keychain
@@ -44,8 +55,12 @@ workflows:
           
           # Install provisioning profile
           PROFILE_UUID=$(security cms -D -i "${PROVISIONING_PROFILE_PATH}" | grep -A 1 UUID | grep -o "[A-F0-9-]\{36\}")
+          echo "Provisioning profile UUID: ${PROFILE_UUID}"
           mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
           cp "${PROVISIONING_PROFILE_PATH}" ~/Library/MobileDevice/Provisioning\ Profiles/${PROFILE_UUID}.mobileprovision
+          
+          # List installed provisioning profiles
+          ls -la ~/Library/MobileDevice/Provisioning\ Profiles/
       - name: Create exportOptions.plist
         script: |
           cd ios
