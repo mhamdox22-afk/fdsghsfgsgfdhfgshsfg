@@ -23,7 +23,7 @@ const generateHtml = (html, envObj) => {
   // 获取 当前版本
   let version = `2.0.${+new Date()}`
 
-  // 替换占位符为实际数据
+  // 替换占位符为实际数据，使用相对路径
   return html
     .replace(
       '<head>',
@@ -32,24 +32,24 @@ const generateHtml = (html, envObj) => {
       <meta name="keywords" content="${keywords}" /> 
       <meta name="description" content="${description}" />
       <title>${title}</title>
-      <meta content="/resource/images/logo6.png" itemprop="image">
+      <meta content="./resource/images/logo6.png" itemprop="image">
       `
     )
     .replace(
       '</head>',
       `
 
-      <meta property="og:image" content="/resource/images/logo6.png">
+      <meta property="og:image" content="./resource/images/logo6.png">
       <meta property="og:title" content="${title}">
       <meta property="og:description" content="${description}">
 
-      <link rel="icon" href="/resource/images/logo6.png" type="image/png"/>
-      <link rel="bookmark" href="/resource/images/logo6.png" type="image/png">
+      <link rel="icon" href="./resource/images/logo6.png" type="image/png"/>
+      <link rel="bookmark" href="./resource/images/logo6.png" type="image/png">
 
-      <link rel="apple-touch-icon-precomposed" href="/resource/images/logo6.png"/>
-      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/resource/images/logo6.png"/>
-      <link rel="apple-touch-icon-precomposed" sizes="120x120" href="/resource/images/logo6.png"/>
-      <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/resource/images/logo6.png"/>
+      <link rel="apple-touch-icon-precomposed" href="./resource/images/logo6.png"/>
+      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="./resource/images/logo6.png"/>
+      <link rel="apple-touch-icon-precomposed" sizes="120x120" href="./resource/images/logo6.png"/>
+      <link rel="apple-touch-icon-precomposed" sizes="144x144" href="./resource/images/logo6.png"/>
       
       </head>
 
