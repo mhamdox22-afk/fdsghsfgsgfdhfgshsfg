@@ -649,7 +649,7 @@
   "withdraw_all": "almal",
   "withdraw_bindCard": "Bind bankkaart",
   "withdraw_pwd": "Onttrek wagwoord",
-  "withdraw_tip": "Soort herinnering, onttrekkings sal 'n 3% hanteringsfooi in rekening gebring word, en die onttrekkingsaansoek sal binne 24 uur gekrediteer word. As u enige vrae het, kontak asb. kliëntediens.",
+  "withdraw_tip": "Soort herinnering, die onttrekkingsfooi is 1 USDT. As u u onttrekking nie ontvang na toepassing nie, kontak asb. kliëntediens.",
   "withdraw_commission": "Dienstefooi",
   "withdraw_require": "Bevestig onttrekking",
   "withdraw_please_num": "Voer asseblief die korrekte onttrekkingsbedrag in",

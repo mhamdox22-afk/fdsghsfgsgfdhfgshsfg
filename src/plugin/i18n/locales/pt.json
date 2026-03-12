@@ -649,7 +649,7 @@
   "withdraw_all": "todos",
   "withdraw_bindCard": "Vincular cartão bancário",
   "withdraw_pwd": "Retirar senha",
-  "withdraw_tip": "Lembrete gentil, será cobrada uma taxa de manuseio de 3% para retiradas, e o pedido de retirada será creditado dentro de 24 horas. Se você tiver alguma dúvida, entre em contato com o atendimento ao cliente.",
+  "withdraw_tip": "Lembrete gentil, a taxa de retirada é de 1 USDT. Se você não receber sua retirada após aplicar, entre em contato com o atendimento ao cliente.",
   "withdraw_commission": "Taxa de serviço",
   "withdraw_require": "Confirmar retirada",
   "withdraw_please_num": "Por favor, insira o valor de retirada correto",

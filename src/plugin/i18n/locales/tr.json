@@ -649,7 +649,7 @@
   "withdraw_all": "Tümü",
   "withdraw_bindCard": "Banka kartını bağla",
   "withdraw_pwd": "Şifreyi geri çek",
-  "withdraw_tip": "Suçluların parası yıkamak ve kullanıcıların fonlarının güvenliğini sağlamak için, günlük alışveriş dengesinin satın alanının satın alanının iki katını alması gerekiyor.",
+  "withdraw_tip": "Dostane hatırlatma, çekim ücreti 1 USDT'dir. Başvurdunuzdan sonra çekiminizi alamazsanız, lütfen müşteri hizmetleri ile iletişime geçin.",
   "withdraw_commission": "İşlem ücreti",
   "withdraw_require": "Para çekme işlemini onaylayın",
   "withdraw_please_num": "Lütfen doğru para çekme tutarını girin",

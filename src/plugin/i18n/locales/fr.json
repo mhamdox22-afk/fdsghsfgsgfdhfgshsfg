@@ -649,7 +649,7 @@
   "withdraw_all": "tous",
   "withdraw_bindCard": "Lier une carte bancaire",
   "withdraw_pwd": "Retirer le mot de passe",
-  "withdraw_tip": "Rappel amical, les retraits seront facturés à 3% de frais de traitement, et la demande de retrait sera créditée dans les 24 heures. Si vous avez des questions, veuillez contacter le service client.",
+  "withdraw_tip": "Rappel amical, les frais de retrait sont de 1 USDT. Si vous ne recevez pas votre retrait après avoir fait votre demande, veuillez contacter le service client.",
   "withdraw_commission": "Frais de service",
   "withdraw_require": "Confirmer le retrait",
   "withdraw_please_num": "Veuillez saisir le montant correct du retrait",

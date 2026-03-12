@@ -141,7 +141,7 @@
           {{
             _timeFormat(
               recordListItem.params?.delegateTime || recordListItem.delegateTime,
-              'DD/MM/YYYY HH:mm',
+              'YYYY/MM/DD HH:mm',
               true
             )
           }}
@@ -219,7 +219,7 @@
           {{
             _timeFormat(
               recordListItem.params?.createTime || recordListItem.createTime,
-              'DD/MM/YYYY HH:mm',
+              'YYYY/MM/DD HH:mm',
               true
             )
           }}

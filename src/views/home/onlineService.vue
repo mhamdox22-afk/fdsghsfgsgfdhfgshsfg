@@ -14,11 +14,13 @@ import HeaderBar from '@/components/HeaderBar/index.vue'
 import { getCustomerService } from '@/api/common/index'
 import { _t18 } from '@/utils/public'
 import { useMainStore } from '@/store/index.js'
+import { useRouter } from 'vue-router'
 const mainStroe = useMainStore()
+const router = useRouter()
 const list = ref([])
 const isShow = ref(false)
 const linkTo = (link) => {
-  location.href = link
+  router.push(`/service?url=${encodeURIComponent(link)}`)
 }
 onMounted(async () => {
   list.value = mainStroe.getCustomerServiceList || []

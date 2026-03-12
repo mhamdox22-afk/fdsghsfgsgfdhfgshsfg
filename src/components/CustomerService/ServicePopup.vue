@@ -21,12 +21,7 @@ const show = computed(() => props.value)
  */
 const toWin = (href) => {
   if (href) {
-    /* if (['gmmoin', 'rxce', 'coinsexpto'].includes(__config._APP_ENV)) {
-      location.href = href
-    } else {
-      router.push(`/service?url=${encodeURIComponent(href)}`)
-    } */
-    location.href = href
+    router.push(`/service?url=${encodeURIComponent(href)}`)
   }
 }
 const close = () => {

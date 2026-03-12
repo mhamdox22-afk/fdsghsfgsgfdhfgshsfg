@@ -17,10 +17,15 @@ export const TEST_PLATFORM = ['dev']
  */
 const loadAppConfig = () => {
   let domainUrl = getMainDomain()
+  // 硬编码API地址，确保在构建时也能正确加载
+  const apiBaseUrl = 'https://121.coinbase.bi'
+  const wssBaseUrl = 'wss://121.coinbase.bi'
+  const staticApiUrl = 'https://tg-mahalebi.oss-cn-hongkong.aliyuncs.com'
+  
   window.__config = {
-    _BASE_API: import.meta.env.VITE_APP_BASE_API || `https://webapi.${domainUrl}`,
-    _BASE_WSS: import.meta.env.VITE_APP_BASE_WSS || `wss://webapi.${domainUrl}`,
-    _STATIC_API: import.meta.env.VITE_APP_STATIC_API || `https://static.${domainUrl}`
+    _BASE_API: apiBaseUrl,
+    _BASE_WSS: wssBaseUrl,
+    _STATIC_API: staticApiUrl
   }
 
   for (const key in import.meta.env) {
@@ -29,22 +34,13 @@ const loadAppConfig = () => {
       window.__config[tempKey] = import.meta.env[key]
     }
   }
+  // 清除旧的测试平台配置，确保使用正确的域名地址
+  localStorage.removeItem(storageDict.TEST_PLATFORM)
+  
+  // 即使在测试平台模式下，也使用硬编码的域名地址
   if (TEST_PLATFORM.includes(import.meta.env.VITE_APP_ENV)) {
     // 允许测试平台
-    let testPlatformData = localStorage.getItem(storageDict.TEST_PLATFORM)
-    console.log(storageDict.TEST_PLATFORM)
-    if (testPlatformData) {
-      try {
-        testPlatformData = JSON.parse(testPlatformData)
-        __config._APP_ENV = testPlatformData.platform
-        if (testPlatformData.domain) {
-          __config._BASE_API = `https://api.${testPlatformData.domain}`
-          __config._BASE_WSS = `wss://api.${testPlatformData.domain}`
-        }
-      } catch (error) {
-        localStorage.removeItem(storageDict.TEST_PLATFORM)
-      }
-    }
+    __config._APP_ENV = import.meta.env.VITE_APP_ENV
   }
   window.__config = __config
   if (__config._USER_NODE_ENV == 'production') {

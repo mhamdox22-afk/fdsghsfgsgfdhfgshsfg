@@ -162,16 +162,10 @@ const event_serviceChange = () => {
         mainStroe.getCustomerServiceList[0].callback()
       } else {
         let href = mainStroe.getCustomerServiceList[0]?.url
-        if (['gmmoin', 'coinsexpto', 'paxpay', 'dev', 'bitbyex','robinhood2'].includes(__config._APP_ENV)) {
-          location.href = href
-        } else if (mainStroe.getCustomerServiceList[0]?.getUrl) {
+        if (mainStroe.getCustomerServiceList[0]?.getUrl) {
           href = mainStroe.getCustomerServiceList[0].getUrl()
-          // router.push(`/service?url=${encodeURIComponent(href)}`)
-          location.href = href
-        } else {
-          // router.push(`/service?url=${encodeURIComponent(href)}`)
-          location.href = href
         }
+        router.push(`/service?url=${encodeURIComponent(href)}`)
       }
     } else {
       showServicePopup.value = true

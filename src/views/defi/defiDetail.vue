@@ -17,7 +17,7 @@
         <div class="everyItem">
           <div>{{ _t18(`k_time`) }}</div>
           <div class="itemRight fw-num">
-            {{ _timeFormat(item.createTimes, 'DD/MM/YYYY HH:mm', true) }}
+            {{ _timeFormat(item.createTimes, 'YYYY/MM/DD HH:mm', true) }}
           </div>
         </div>
         <!-- 收益 -->

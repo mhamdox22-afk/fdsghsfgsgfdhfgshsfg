@@ -68,7 +68,7 @@ const cancelOrder = async () => {
       <div class="item">
         <div>{{ _t18(`k_time`) }}</div>
         <div class="fw-num numItem" v-if="data.delegateTime">
-          {{ _timeFormat(data.params?.delegateTime, 'HH:mm MM/DD', true) }}
+          {{ _timeFormat(data.params?.delegateTime, 'HH:mm YYYY/MM/DD', true) }}
         </div>
       </div>
       <!-- 委托价 -->

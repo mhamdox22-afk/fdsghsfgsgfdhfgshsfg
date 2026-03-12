@@ -649,7 +649,7 @@
   "withdraw_all": "alle",
   "withdraw_bindCard": "Bind bankkort",
   "withdraw_pwd": "Træk adgangskoden tilbage",
-  "withdraw_tip": "Venlig påmindelse, der opkræves en håndteringsgebyr på 3% for udbetalinger, og udbetalingsoverførslen vil blive krediteret inden for 24 timer. Hvis du har spørgsmål, bedes du kontakte kundeservice.",
+  "withdraw_tip": "Venlig påmindelse, udbetalingstanken er 1 USDT. Hvis du ikke modtager din udbetaling efter at have ansøgt, bedes du kontakte kundeservice.",
   "withdraw_commission": "Servicegebyr",
   "withdraw_require": "Bekræft tilbagetrækning",
   "withdraw_please_num": "Indtast venligst det korrekte hævebeløb",

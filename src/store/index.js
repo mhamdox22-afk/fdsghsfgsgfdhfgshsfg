@@ -245,14 +245,20 @@ export const useMainStore = defineStore('main', {
      * 获取平台配置
      */
     async getSettingConfig() {
-      const res = await getSettingConfigApi()
-      if (res.code == 200) {
-        this.settingConfig = res.data
-        this.setTimeZone()
-        this.getLanguageList()
-        // if (res.data.PLAYING_SETTING[0].name == '自选') {
-        //   this.hasOption = res.data.PLAYING_SETTING[0].isOpen
-        // }
+      try {
+        const res = await getSettingConfigApi()
+        if (res.code == 200) {
+          this.settingConfig = res.data
+          this.setTimeZone()
+          this.getLanguageList()
+          // if (res.data.PLAYING_SETTING[0].name == '自选') {
+          //   this.hasOption = res.data.PLAYING_SETTING[0].isOpen
+          // }
+          this.hasOption = true
+        }
+      } catch (error) {
+        console.error('获取设置配置失败:', error)
+        // 即使失败也设置hasOption为true，确保应用能正常显示
         this.hasOption = true
       }
     },

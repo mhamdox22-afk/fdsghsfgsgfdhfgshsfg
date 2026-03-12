@@ -649,7 +649,7 @@
   "withdraw_all": "全部",
   "withdraw_bindCard": "绑定银行卡",
   "withdraw_pwd": "提现密码",
-  "withdraw_tip": "温馨提醒，提现将收取3%手续费，提现申请后24小时内到账。如有疑问请联系客服。",
+  "withdraw_tip": "温馨提示，提现手续费为1USDT，提现申请后如遇到不到账情况，请联系客服",
   "withdraw_commission": "手续费",
   "withdraw_require": "确认提现",
   "withdraw_please_num": "请输入正确的提现数量",

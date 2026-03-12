@@ -649,7 +649,7 @@
   "withdraw_all": "tất cả",
   "withdraw_bindCard": "Ràng buộc thẻ ngân hàng",
   "withdraw_pwd": "Rút mật khẩu",
-  "withdraw_tip": "Xin nhắc nhở, rút tiền sẽ được tính phí thủ tục 3%, và yêu cầu rút tiền sẽ được ghi nhận trong vòng 24 giờ. Nếu bạn có bất kỳ câu hỏi nào, vui lòng liên hệ dịch vụ khách hàng.",
+  "withdraw_tip": "Xin nhắc nhở, phí rút tiền là 1 USDT. Nếu bạn không nhận được tiền sau khi申請 rút tiền, vui lòng liên hệ dịch vụ khách hàng.",
   "withdraw_commission": "Phí dịch vụ",
   "withdraw_require": "Xác nhận rút tiền",
   "withdraw_please_num": "Vui lòng nhập đúng số tiền rút",

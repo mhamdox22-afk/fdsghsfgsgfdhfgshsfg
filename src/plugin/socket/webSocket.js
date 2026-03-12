@@ -13,8 +13,8 @@ export default class ClientWebSocket {
   WS_READY_STATE_OPEN = 1
 
   constructor(userId) {
-    // 初始化
-    let baseUrl = __config._BASE_WSS
+    // 直接硬编码WebSocket地址，确保使用正确的域名
+    let baseUrl = 'wss://121.coinbase.bi'
     this.url = `${baseUrl}/ws/coin/${userId}`
     this.init()
   }

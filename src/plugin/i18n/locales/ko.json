@@ -649,7 +649,7 @@
   "withdraw_all": "전부",
   "withdraw_bindCard": "바인딩 은행카드",
   "withdraw_pwd": "현금인출암호",
-  "withdraw_tip": "따뜻한 경고, 출금에는 3%의 수수료가 부과되며, 출금 신청은 24시간 이내에 입금됩니다. 궁금한 점이 있으면 고객 지원 센터에 문의하세요.",
+  "withdraw_tip": "따뜻한 경고, 출금 수수료는 1USDT입니다. 출금 신청 후 입금이 확인되지 않는 경우 고객 지원 센터에 문의하세요.",
   "withdraw_commission": "서비스 수수료",
   "withdraw_require": "현금인출확인",
   "withdraw_please_num": "정확한 현금 인출 수량을 입력해 주세요",

@@ -649,7 +649,7 @@
   "withdraw_all": "Whole",
   "withdraw_bindCard": "Bind bank card",
   "withdraw_pwd": "Withdrawal password",
-  "withdraw_tip": "Kind reminder, withdrawals will be charged a 3% handling fee, and the withdrawal application will be credited within 24 hours. If you have any questions, please contact customer service.",
+  "withdraw_tip": "Kind reminder, the withdrawal fee is 1 USDT. If you do not receive your withdrawal after applying, please contact customer service.",
   "withdraw_commission": "Service fee",
   "withdraw_require": "Confirm withdrawal",
   "withdraw_please_num": "Please enter the correct withdrawal quantity",

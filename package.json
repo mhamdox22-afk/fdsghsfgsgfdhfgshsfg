@@ -5,13 +5,14 @@
   "scripts": {
     "dev": "vite",
     "serve": "vite",
-    "build": "vite build",
+    "build": "vite build --mode production",
     "preview": "vite preview",
     "lintlang": "prettier --write  ./src/plugin/i18n/locales/*.json",
     "lang": "node ./bin/i18n/langScript.js && npm run lintlang"
   },
   "dependencies": {
     "@capacitor/android": "^4.8.1",
+    "@capacitor/browser": "^4.0.0",
     "@capacitor/cli": "^4.8.1",
     "@capacitor/core": "^4.8.1",
     "@capacitor/ios": "^4.8.1",

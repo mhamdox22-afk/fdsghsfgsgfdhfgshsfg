@@ -45,7 +45,8 @@ _axios.interceptors.response.use((response) => {
       userStore.signOut()
       setTimeout(() => location.reload(), 10)
     }
-    if (response.data && response.data.code > 0) {
+    // 检查是否有code字段，如果没有，默认认为是成功
+    if (response.data && (response.data.code == 200 || response.data.code == 0 || !response.data.code)) {
       return Promise.resolve(response.data)
     } else {
       showToast(response.data.msg || 'System error')

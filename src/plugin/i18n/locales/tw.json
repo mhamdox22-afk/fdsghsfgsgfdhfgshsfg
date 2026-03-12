@@ -649,7 +649,7 @@
   "withdraw_all": "全部",
   "withdraw_bindCard": "綁定銀行卡",
   "withdraw_pwd": "提現密碼",
-  "withdraw_tip": "溫馨提醒，為了防止犯罪分子利用交易所洗黑錢，為了保證廣大用戶資金安全，需每日購買交易所餘額一倍交易量方可申請提現。",
+  "withdraw_tip": "溫馨提示，提現手續費為1USDT，提現申請後如遇到不到賬情況，請聯繫客服",
   "withdraw_commission": "手續費",
   "withdraw_require": "確認提現",
   "withdraw_please_num": "請輸入正確的提現數量",

@@ -11,7 +11,7 @@
         }}
       </div>
       <div class="fw-num">
-        {{ _timeFormat(itemHistroy.params?.createTime, 'DD/MM/YYYY HH:mm', true) }}
+        {{ _timeFormat(itemHistroy.params?.createTime, 'YYYY/MM/DD HH:mm', true) }}
       </div>
     </div>
     <div class="list">
@@ -50,7 +50,7 @@
         <div>{{ _t18(`exchange.finashTime`) }}</div>
         <div class="fw-num numItem">
           <!-- {{ _timeFormat(itemHistroy.params?.closeTime, 'DD/MM/YYYY HH:mm:ss', true) }} -->
-          {{ _timeFormat(itemHistroy.closeTime, 'DD/MM/YYYY HH:mm:ss', true) }}
+          {{ _timeFormat(itemHistroy.closeTime, 'YYYY/MM/DD HH:mm:ss', true) }}
         </div>
       </div>
 

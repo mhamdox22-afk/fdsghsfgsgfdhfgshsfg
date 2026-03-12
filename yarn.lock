@@ -788,6 +788,11 @@
   resolved "https://registry.npmjs.org/@capacitor/android/-/android-4.8.1.tgz"
   integrity sha512-nOltfBbMyMMukFj8p5FMcHmtw8UF5uyXS8T1P5HKuU/eFrazeDWK+4494Rc9jLhSg/kam5886AJUPZ9UESHCqw==
 
+"@capacitor/browser@^4.0.0":
+  version "4.0.0"
+  resolved "https://registry.npmjs.org/@capacitor/browser/-/browser-4.0.0.tgz"
+  integrity sha512-nv/x+k4bkOTTrEghs6wgKU+iX1jeCZdSjHA8GffiWlPL6oJxg1SjEvxLfWR+DSqOtBWstS8Z72ufmVionTVpIg==
+
 "@capacitor/cli@^4.8.1":
   version "4.8.1"
   resolved "https://registry.npmjs.org/@capacitor/cli/-/cli-4.8.1.tgz"

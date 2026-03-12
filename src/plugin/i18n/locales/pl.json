@@ -649,7 +649,7 @@
   "withdraw_all": "Wszystko",
   "withdraw_bindCard": "Zwiąż kartę bankową",
   "withdraw_pwd": "Wycofaj hasło",
-  "withdraw_tip": "Uprzejme przypomnienie, za wypłaty naliczana jest 3% opłata za obsługę, a wniosek o wypłatę zostanie zaliczony w ciągu 24 godzin. Jeśli masz jakieś pytania, skontaktuj się z obsługą klienta.",
+  "withdraw_tip": "Uprzejme przypomnienie, opłata za wypłatę wynosi 1 USDT. Jeśli po złożeniu wniosku nie otrzymasz wypłaty, skontaktuj się z obsługą klienta.",
   "withdraw_commission": "Opłata za usługę",
   "withdraw_require": "Potwierdź wypłatę",
   "withdraw_please_num": "Wprowadź poprawną kwotę wypłaty",

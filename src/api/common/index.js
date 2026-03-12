@@ -15,9 +15,13 @@ export const sidebarList = () => post('/api/common/getAppSidebarSetting')
  */
 export const getPlatFormConfigApi = () => {
   return axios({
-    // url: `${location.origin}/platform/${window.__config._APP_ENV}/config.js?${+new Date()}`,
-    url: `${location.origin}/platform/dev/config.js?${+new Date()}`,
+    url: `${location.origin}/platform/${window.__config._APP_ENV}/config.js?${+new Date()}`,
     method: 'get'
+  }).then(response => {
+    return response
+  }).catch(error => {
+    console.error('获取平台配置文件失败:', error)
+    return { data: 'return {}' }
   })
 }
 /**

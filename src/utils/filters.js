@@ -14,7 +14,7 @@ export const timeOfreceipt = (type, day, creatime) => {
     case 1:
       return days(new Date())
         .add(day ? day : 0, 'day')
-        .format('DD/MM/YYYY')
+        .format('YYYY/MM/DD')
     case 2:
       // 每日结算
       return _t18(`daily_settlement`)
@@ -23,7 +23,7 @@ export const timeOfreceipt = (type, day, creatime) => {
       return days(creatime)
         .add(day ? day : 0, 'day')
         .tz(mainStore.timezone)
-        .format('DD/MM/YYYY HH:mm:ss')
+        .format('YYYY/MM/DD HH:mm:ss')
     default:
       break
   }

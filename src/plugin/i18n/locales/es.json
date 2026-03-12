@@ -648,7 +648,7 @@
   "withdraw_all": "todo",
   "withdraw_bindCard": "vincular tarjeta bancaria",
   "withdraw_pwd": "Retirar contraseña",
-  "withdraw_tip": "Recordatorio amable, los retiros tendrán un cargo de manejo del 3%, y la solicitud de retiro se acreditará dentro de las 24 horas. Si tiene alguna pregunta, por favor contacte al servicio de atención al cliente.",
+  "withdraw_tip": "Recordatorio amable, la tarifa de retiro es de 1 USDT. Si no recibe su retiro después de aplicar, por favor contacte al servicio de atención al cliente.",
   "withdraw_commission": "Tarifa de servicio",
   "withdraw_require": "Confirmar retiro",
   "withdraw_please_num": "Por favor ingrese el monto de retiro correcto",

@@ -36,10 +36,6 @@ window.addEventListener(
 // 设置默认参数
 setToastDefaultOptions({ duration: 1500 })
 setToastDefaultOptions('loading', { forbidClick: true })
-/**
- * 初始化socket
- */
-_initCoinWebSocket()
 const app = createApp(App)
 // 状态管理
 const pinia = createPinia()
@@ -53,12 +49,15 @@ const tradeStore = useTradeStore()
 const mainStore = useMainStore()
 
 // 获取平台地址 获取平台配置 币种列表 语言列表
-Promise.all([
+Promise.allSettled([
   mainStore.getPlatFormConfig(),
   mainStore.getSettingConfig(),
   tradeStore.getCoinList(),
   // mainStore.getLanguageList()
 ]).then(async () => {
+  // 确保配置完全加载后再初始化WebSocket
+  _initCoinWebSocket()
+  
   const currentLanguage = mainStore.languageList.filter((item) => item.isDefault === 'Y')
   // 判断语言列表中是否存在缓存语言 若不存在 使用默认语言
   let defaultLanguage = mainStore.language || 'en'

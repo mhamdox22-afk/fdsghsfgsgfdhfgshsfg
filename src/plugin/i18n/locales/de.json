@@ -648,7 +648,7 @@
   "withdraw_all": "alle",
   "withdraw_bindCard": "Bankkarte binden",
   "withdraw_pwd": "Passwort zurückziehen",
-  "withdraw_tip": "Freundliche Erinnerung, für Auszahlungen wird eine Bearbeitungsgebühr von 3% erhoben, und der Auszahlungsantrag wird innerhalb von 24 Stunden gutgeschrieben. Wenn Sie Fragen haben, wenden Sie sich bitte an den Kundenservice.",
+  "withdraw_tip": "Freundliche Erinnerung, die Auszahlungsgebühr beträgt 1 USDT. Wenn Sie Ihre Auszahlung nach der Beantragung nicht erhalten, wenden Sie sich bitte an den Kundenservice.",
   "withdraw_commission": "Servicegebühr",
   "withdraw_require": "Auszahlung bestätigen",
   "withdraw_please_num": "Bitte geben Sie den korrekten Auszahlungsbetrag ein",
